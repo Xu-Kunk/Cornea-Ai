@@ -1,0 +1,86 @@
+{
+ "meta": {
+  "model": "perturblab/scgpt-human",
+  "scgpt_version": "0.2.5 (git main cebd6fae)",
+  "device": "cuda",
+  "max_len": 1200,
+  "batch": 32,
+  "n_null": 100,
+  "seed": 42,
+  "n_probe_repeats": 5,
+  "rho_primary": "L2-normed cell_emb",
+  "layer_order": [
+   "LSC",
+   "TAC",
+   "basal",
+   "differentiated"
+  ],
+  "checkpoint_missing": [
+   "cls_decoder._decoder.0.bias",
+   "cls_decoder._decoder.0.weight",
+   "cls_decoder._decoder.2.bias",
+   "cls_decoder._decoder.2.weight",
+   "cls_decoder._decoder.3.bias",
+   "cls_decoder._decoder.3.weight",
+   "cls_decoder._decoder.5.bias",
+   "cls_decoder._decoder.5.weight",
+   "cls_decoder.out_layer.bias",
+   "cls_decoder.out_layer.weight"
+  ],
+  "checkpoint_unexpected": [
+   "flag_encoder.weight"
+  ],
+  "reference_GF_frozen": {
+   "rho": 0.8064,
+   "probe_f1": 0.4421
+  },
+  "G1_gate": "rho>=0.5 AND z>=3 (PREREG-2026-08-11)",
+  "checkpoint_keys_total": 163,
+  "checkpoint_keys_loaded": 162,
+  "note_ckpt_keys": "Wqkv->in_proj renamed before load (use_fast_transformer=False); verified max abs diff = 0.0 in prior smoke. cls_decoder random-init by design (no_cls=True pretraining)."
+ },
+ "results": {
+  "gse153515": {
+   "tag": "GSE153515 (same-corpus)",
+   "n_cells": 14775,
+   "rho_raw": 0.21907248397477216,
+   "rho_normed": 0.21905784451567484,
+   "null_mean": 0.006471421158898006,
+   "null_sd": 0.004943823924822132,
+   "null_z": 43.00040344204305,
+   "null_pctile": 1.0,
+   "probe_f1_macro": 0.8506925301206543,
+   "probe_f1_macro_sd": 0.022897448648148577,
+   "probe_f1_weighted": 0.8984688714045698,
+   "forward_total_s": 136.87417721748352,
+   "forward_per_batch_s": 0.29626445285169595,
+   "n_batches": 462,
+   "peak_gpu_gb": 1.03661056
+  },
+  "gse299152": {
+   "tag": "GSE299152 (out-of-corpus bonus)",
+   "n_cells": 21374,
+   "rho_raw": 0.17235656959950396,
+   "rho_normed": 0.1724261338879575,
+   "null_mean": 0.005880894443140231,
+   "null_sd": 0.005451908062251217,
+   "null_z": 30.54806455145886,
+   "null_pctile": 1.0,
+   "probe_f1_macro": 0.8926478839477804,
+   "probe_f1_macro_sd": 0.007440204430946632,
+   "probe_f1_weighted": 0.9496602381317993,
+   "forward_total_s": 190.4020552635193,
+   "forward_per_batch_s": 0.2850330168615558,
+   "n_batches": 668,
+   "peak_gpu_gb": 1.032416256
+  },
+  "g1_verdict": {
+   "gate": "rho>=0.5 AND z>=3 (PREREG-2026-08-11)",
+   "rho_normed": 0.21905784451567484,
+   "rho_pass": false,
+   "z": 43.00040344204305,
+   "z_pass": true,
+   "verdict": "FAIL -> do not invest in 6-run"
+  }
+ }
+}

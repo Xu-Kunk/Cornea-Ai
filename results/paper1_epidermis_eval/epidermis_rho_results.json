@@ -1,0 +1,54 @@
+{
+  "dataset": "Wang2020_GSE147424",
+  "layer_order": [
+    "basal",
+    "suprabasal",
+    "spinous",
+    "differentiated"
+  ],
+  "markers": {
+    "basal": [
+      "KRT5",
+      "KRT14",
+      "TP63"
+    ],
+    "differentiated": [
+      "KRT1",
+      "KRT10",
+      "IVL",
+      "FLG"
+    ]
+  },
+  "results": [
+    {
+      "checkpoint": "frozen",
+      "rho_L12_ordinal": 0.23947422487260395,
+      "rho_cont_marker": 0.22571533658739643
+    },
+    {
+      "checkpoint": "ce_naive",
+      "rho_L12_ordinal": 0.4550565191703429,
+      "rho_cont_marker": 0.42334610658606386
+    },
+    {
+      "checkpoint": "corns_ordinal",
+      "rho_L12_ordinal": 0.4997242365484369,
+      "rho_cont_marker": 0.48145816495585886
+    },
+    {
+      "checkpoint": "caft",
+      "rho_L12_ordinal": 0.4457167772700293,
+      "rho_cont_marker": 0.41609554160589124
+    },
+    {
+      "checkpoint": "aa_ft_newaxis",
+      "rho_L12_ordinal": 0.5340694678016472,
+      "rho_cont_marker": 0.5118815514440305
+    },
+    {
+      "checkpoint": "ss_newaxis",
+      "rho_L12_ordinal": 0.5453964697859287,
+      "rho_cont_marker": 0.5389373572891015
+    }
+  ]
+}

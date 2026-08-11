@@ -1,0 +1,188 @@
+{
+ "family_size": 26,
+ "q_threshold": 0.05,
+ "tests": [
+  {
+   "comparison": "frozen rho_L12 > 0",
+   "p": 0.001996007984031936,
+   "obs": 0.8064,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "frozen LAA > chance",
+   "p": 0.004975124378109453,
+   "obs": 0.9665,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "frozen F1 = CE-naive",
+   "p": 0.0005,
+   "obs": 0.4421,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "ce_naive rho_L12 > 0",
+   "p": 0.998003992015968,
+   "obs": -0.008166666666666664,
+   "q": 1.0,
+   "significant_0.05": false
+  },
+  {
+   "comparison": "ce_naive LAA > chance",
+   "p": 0.004975124378109453,
+   "obs": 0.9768,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "caft rho_L12 > 0",
+   "p": 0.001996007984031936,
+   "obs": 0.21020000000000003,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "caft LAA > chance",
+   "p": 0.004975124378109453,
+   "obs": 0.9773,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "caft F1 = CE-naive",
+   "p": 1.0,
+   "obs": 0.6450999999999999,
+   "q": 1.0,
+   "significant_0.05": false
+  },
+  {
+   "comparison": "corns_ordinal rho_L12 > 0",
+   "p": 0.001996007984031936,
+   "obs": 0.8330333333333333,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "corns_ordinal LAA > chance",
+   "p": 0.004975124378109453,
+   "obs": 0.9739,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "corns_ordinal F1 = CE-naive",
+   "p": 1.0,
+   "obs": 0.6489666666666667,
+   "q": 1.0,
+   "significant_0.05": false
+  },
+  {
+   "comparison": "aa_ft_0.5 rho_L12 > 0",
+   "p": 0.7784431137724551,
+   "obs": -0.0001719411886030584,
+   "q": 0.9637867122897064,
+   "significant_0.05": false
+  },
+  {
+   "comparison": "aa_ft_0.5 LAA > chance",
+   "p": 0.004975124378109453,
+   "obs": 0.9770558375634518,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "aa_ft_0.5 F1 = CE-naive",
+   "p": 0.479,
+   "obs": 0.6511915437110081,
+   "q": 0.6226999999999999,
+   "significant_0.05": false
+  },
+  {
+   "comparison": "aa_ft_1.0 rho_L12 > 0",
+   "p": 0.001996007984031936,
+   "obs": 0.22902990856784544,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "aa_ft_1.0 LAA > chance",
+   "p": 0.004975124378109453,
+   "obs": 0.9795600676818951,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "aa_ft_1.0 F1 = CE-naive",
+   "p": 0.479,
+   "obs": 0.6397019062425746,
+   "q": 0.6226999999999999,
+   "significant_0.05": false
+  },
+  {
+   "comparison": "ss_0.5 rho_L12 > 0",
+   "p": 1.0,
+   "obs": -0.1473400712310193,
+   "q": 1.0,
+   "significant_0.05": false
+  },
+  {
+   "comparison": "ss_0.5 LAA > chance",
+   "p": 0.004975124378109453,
+   "obs": 0.9758375634517766,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "ss_0.5 F1 = CE-naive",
+   "p": 0.478,
+   "obs": 0.6565402563353984,
+   "q": 0.6226999999999999,
+   "significant_0.05": false
+  },
+  {
+   "comparison": "ss_1.0 rho_L12 > 0",
+   "p": 0.998003992015968,
+   "obs": -0.008054304305130449,
+   "q": 1.0,
+   "significant_0.05": false
+  },
+  {
+   "comparison": "ss_1.0 LAA > chance",
+   "p": 0.004975124378109453,
+   "obs": 0.9759052453468697,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "ss_1.0 F1 = CE-naive",
+   "p": 0.478,
+   "obs": 0.6544355588195733,
+   "q": 0.6226999999999999,
+   "significant_0.05": false
+  },
+  {
+   "comparison": "flow_0.5 rho_L12 > 0",
+   "p": 0.001996007984031936,
+   "obs": 0.2823339226626952,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "flow_0.5 LAA > chance",
+   "p": 0.004975124378109453,
+   "obs": 0.977258883248731,
+   "q": 0.008623548922056384,
+   "significant_0.05": true
+  },
+  {
+   "comparison": "flow_0.5 F1 = CE-naive",
+   "p": 0.478,
+   "obs": 0.6591417220184996,
+   "q": 0.6226999999999999,
+   "significant_0.05": false
+  }
+ ]
+}

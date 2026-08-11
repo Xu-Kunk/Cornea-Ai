@@ -1,0 +1,40 @@
+# .gitignore
+.venv/
+.mypy_cache/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+.env.local
+*.pyc
+*.pyo
+node_modules/
+dist/
+build/
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+# Agent caches (not project content)
+.codegraph/
+.omo/
+
+# Large data files (download via scripts/download_*.py or protocol_12/13)
+data/*.h5ad
+data/*.csv
+data/*.gz
+data/*.tar
+data/epidermis/
+data/gf_tokenized_*/
+data/corneal_*.h5ad
+
+# Model checkpoints
+checkpoints/
+*.pt
+*.ckpt
+*.safetensors
+
+# Generated presentation exports
+.frontend-slides/
+*.html  # except explicitly tracked ones

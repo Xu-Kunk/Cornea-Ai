@@ -1,0 +1,19 @@
+[project]
+name = "corneal-fm"
+version = "0.3.0"
+description = "Tissue-specific fine-tuning of single-cell foundation models for corneal research"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [{name = "Corneal-FM Team"}]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

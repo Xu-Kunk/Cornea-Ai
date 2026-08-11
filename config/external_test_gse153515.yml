@@ -1,0 +1,149 @@
+# Paper1 External Test Source — LOCKED CONFIGURATION
+# Status: LOCKED 2026-07-31
+# Authority: Paper1-Current-Design-2026-07-31.md §4
+# DO NOT modify after locking without a new dated changelog.
+
+external_test:
+  accession: "GSE153515"
+  geo_url: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE153515"
+  description: "Human normal limbal basal epithelium, 10x Genomics (GPL24676)"
+  organism: "Homo sapiens"
+  tissue: "limbal epithelium"
+  modality: "scRNA-seq"
+  platform: "10x Chromium"
+
+  # Source independence
+  training_collection: "0f7d022a-46c7-4e64-be4c-e34adbb78089"  # CELLxGENE Discover
+  source_disjoint: true  # GSE153515 NOT in training collection (verified via CELLxGENE API)
+  donor_disjoint: true   # 2 donors (GSM4646295, GSM4646296) vs 49 training donors, 0 overlap
+
+  # References
+  references:
+    - doi: "10.1016/j.jtos.2020.12.004"
+      pmid: "33388438"
+      journal: "The Ocular Surface"
+      year: 2021
+    - doi: "10.1167/iovs.62.9.36"
+      pmid: "34297801"
+      journal: "IOVS"
+      year: 2021
+  github: "https://github.com/sangbaekim/10xRNAseq_LSC"
+
+  # Local files
+  raw_file: "data/gse153515_limbal_stem.h5ad"
+  raw_shape: [17587, 32738]
+  annotated_file: "data/gse153515_annotated.h5ad"
+  annotated_shape: [15827, 10605]  # post-QC
+  annotation_artifacts: "artifacts/gse153515_annotation/"
+
+  # Donors
+  donors:
+    donor_1:
+      geo_accession: "GSM4646295"
+      barcode_suffix: "-1"
+      n_cells_raw: 7096
+    donor_2:
+      geo_accession: "GSM4646296"
+      barcode_suffix: "-2"
+      n_cells_raw: 10491
+
+# Annotation method (LOCKED)
+annotation:
+  method: "deg_enrichment_cluster_annotation"
+  deg_method: "wilcoxon"
+  deg_n_genes: 200
+  integration: "harmonypy"
+  n_pcs: 30
+  leiden_resolution: 0.6
+  n_clusters: 16
+  marker_sets: 8
+  ensembl_map_entries: 64
+  non_epi_threshold: 0.3
+  script: "scripts/protocol_15_annotate_gse153515.py"
+
+  # Cell type distribution (post-QC, 15,827 cells)
+  cell_type_distribution:
+    PMC_basal: 6698   # 42.3%
+    TDC: 4483         # 28.3%
+    LPC: 3423         # 21.6%
+    conjunctival: 811 # 5.1%
+    melanocyte: 241   # 1.5%
+    TAC: 171          # 1.1%
+
+  # 4-class harmonization (LOCKED)
+  harmonize_map:
+    LSC: "LSC"
+    LPC: "LSC"
+    TAC: "TAC"
+    PMC_basal: "basal"
+    TDC: "differentiated"
+    melanocyte: "NON_LAYER"
+    conjunctival: "NON_LAYER"
+    immune_contamination: "NON_LAYER"
+
+  harmonized_distribution:
+    basal: 6698
+    differentiated: 4483
+    LSC: 3423
+    TAC: 171
+    NON_LAYER: 1052
+
+  # Donor balance per harmonized type
+  donor_balance:
+    LSC: {donor_1: 1095, donor_2: 2328}    # 32/68%
+    TAC: {donor_1: 58, donor_2: 113}        # 34/66%
+    basal: {donor_1: 2117, donor_2: 4581}   # 32/68%
+    differentiated: {donor_1: 2069, donor_2: 2414}  # 46/54%
+    NON_LAYER: {donor_1: 862, donor_2: 190} # 82/18%
+
+  # Known limitations
+  limitations:
+    - "Cluster-level donor mixing limited (most clusters >97% single donor; Harmony converged 1 iteration with 2 donors)"
+    - "LSC markers not in top-200 DEGs of any cluster; harmonized LSC = LPC-assigned clusters (DCN/KRT15+)"
+    - "Only 2 donors; donor-level bootstrap CI will be wide"
+
+# Primary endpoint (LOCKED)
+primary_endpoint:
+  metric: "donor_level_macro_f1"
+  description: "Macro-F1 computed per donor, then averaged across donors"
+  confidence: "donor-level bootstrap 95% CI (n_boot=1000, seed=42)"
+  classes: ["LSC", "TAC", "basal", "differentiated"]
+  # NON_LAYER excluded from primary endpoint (not part of differentiation hierarchy)
+  eval_classes_note: "NON_LAYER cells (melanocyte, conjunctival, immune) excluded from macro-F1 computation"
+
+# Secondary endpoints
+secondary_endpoints:
+  - metric: "marker_gradient_rank_correlation"
+    description: "Spearman ρ between predicted differentiation score and canonical marker gradient"
+  - metric: "layer_adjacency_accuracy"
+    description: "Fraction of cells whose nearest-neighbor in embedding space shares an adjacent layer label"
+  - metric: "trajectory_conservation"
+    description: "GPR (Gradient Preservation Ratio) via scib trajectory_conservation"
+  - metric: "calibration"
+    description: "Expected calibration error (ECE) + reliability diagram"
+  - metric: "ood_detection"
+    description: "Confidence separation: in-distribution (training atlas) vs out-of-distribution (GSE153515)"
+
+# Preprocessing for evaluation (LOCKED)
+evaluation_preprocessing:
+  # Applied to BOTH training test-split and external test before embedding/evaluation
+  normalize: "normalize_total(1e4)"
+  log_transform: "log1p"
+  hvg: "highly_variable_genes(flavor='seurat', n_top_genes=2000)"
+  scale: "scale(max_value=10)"
+  pca: "pca(n_comps=30)"
+  # For Geneformer arms: tokenization via gc104M tokenizer, no HVG/PCA
+
+# Fair evaluation protocol (LOCKED)
+fair_protocol:
+  epochs: 3
+  per_device_batch_size: 8
+  gradient_accumulation_steps: 4
+  effective_batch_size: 32
+  precision: "bf16"
+  gradient_checkpointing: true
+  seeds: [42, 123, 456]
+  lambda_values:
+    naive_ft: 0.0
+    caft: 0.5  # provisional from exploratory grid; NOT called optimal
+  # All arms use identical preprocessing, split, head, epochs, batch, optimization, eval code

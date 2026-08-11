@@ -1,0 +1,19 @@
+# CPU-only test dependencies for GitHub Actions (no torch/transformers/datasets).
+# torch (CPU wheel) is installed separately in .github/workflows/ci.yml before this file.
+# Versions mirror requirements-core.txt. Tests requiring CUDA or full Geneformer
+# weights must self-skip via pytest.importorskip.
+anndata==0.12.19
+h5py==3.16.0
+matplotlib==3.10.9
+numpy==2.4.6
+pandas==2.3.3
+pyarrow==24.0.0
+pytest==8.3.4
+PyYAML==6.0.3
+scanpy==1.12.2
+scikit-learn==1.9.0
+scipy==1.18.0
+seaborn==0.13.2
+statsmodels==0.14.6
+umap-learn==0.5.12
+zarr==3.2.1

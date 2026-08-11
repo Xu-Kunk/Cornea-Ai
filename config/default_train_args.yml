@@ -1,0 +1,76 @@
+# Corneal-FM v7.1 CAFT — Training Configuration
+
+task_info:
+  project: "corneal-fm"
+  version: "0.7.1"
+  description: "CAFT — Continuity-Aware Fine-Tuning of scFMs for cornea"
+
+geneformer:
+  model_version: "V2"
+  pretrained: "ctheodoris/Geneformer"
+  nproc: 4
+  chunk_size: 512
+
+scgpt:
+  pretrained: "bowang-lab/scGPT"
+  gene_vocab: "data/scgpt_gene_vocab.json"
+  mask_ratio: 0.15
+
+sclong:
+  pretrained: "BaiDing1234/scLong"
+  zero_shot_only: true
+
+caft:
+  continuity_lambda: 0.5
+  continuity_ablation: [0, 0.1, 0.5, 1.0]
+  differentiation_axis: "corneal_epithelium"
+  # 5-layer authoritative axis, matches corneal_fm/caft.py LAYER_ORDER and gpr.py
+  # LAYER_NAMES (supersedes the stale 6-name scheme). Ratified 2026-07-23.
+  layer_order: ["LSC", "TAC", "basal", "wing", "squamous"]
+
+model_parameters:
+  seed: 42
+  epochs: 10
+  batch_size: 32
+  learning_rate: 5.0e-5
+  amp: true
+  max_seq_len: 4096
+
+data:
+  train_cells: 100000
+  test_cells: 20000
+
+cross_species:
+  species: [human, mouse, rat]
+  ortholog_db: "ensembl_113"
+
+ablation:
+  a1_data_efficiency:
+    sizes: [1000, 10000, 100000]
+  a2_continuity_lambda:
+    options: [0.0, 0.1, 0.5, 1.0]
+
+benchmark:
+  axis_1_cell_discrimination:
+    metrics: [macro_f1, per_class_precision]
+  axis_2_differentiation_continuity:
+    metrics: [continuity_score, gradient_preservation_ratio, layer_adjacency_accuracy]
+  axis_3_biological_coherence:
+    metrics: [go_enrichment, marker_colocalization]
+  axis_4_cross_species:
+    metrics: [embedding_cosine_similarity, procrustes_alignment]
+  statistics:
+    method: "wilcoxon"
+    correction: "bonferroni"
+
+supplementary:
+  datasets:
+    - GSE155683_developing
+    - GSE240458_organoid
+    - GSE247392_wound
+    - GSE186433_layers
+    - GSE153515_stem
+
+output:
+  save_root: "save"
+  log_level: "INFO"
