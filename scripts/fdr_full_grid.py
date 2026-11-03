@@ -364,7 +364,7 @@ def main() -> int:
         ],
         "pending_rows": pending,
     }
-    # bh_fdr_table.json = the FDR family only (submission table);
+    # bh_fdr_table.json = the FDR family only (reported table);
     # full_grid.json   = the complete grid (family + sensitivity + five-negative
     #                    + pending), so "全网格" is preserved in one file.
     bh_table = {
