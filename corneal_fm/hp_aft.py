@@ -1,6 +1,6 @@
-"""HPA-FT — Head-Proximal-Aware Fine-Tuning of Geneformer V2-104M (Paper 1 main method).
+"""HPA-FT — Head-Proximal-Aware Fine-Tuning of Geneformer V2-104M (this study main method).
 
-Motivation (Paper 1 layer-wise diagnostic, locked): naive classification
+Motivation (this study layer-wise diagnostic, locked): naive classification
 fine-tuning collapses the epithelial differentiation gradient of the CLS
 embedding at the FINAL hidden state (Spearman rho 0.806 pretrained -> ~ -0.04
 naive), while the 13-layer measurement localises the collapse: L1-L4 RETAIN

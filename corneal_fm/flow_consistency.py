@@ -1,4 +1,4 @@
-"""Flow-consistency fine-tuning of Geneformer V2-104M (Paper 1 arm 3, exploratory).
+"""Flow-consistency fine-tuning of Geneformer V2-104M (this study arm 3, exploratory).
 
 Loss (adjacent-class flow consistency, [SF]^2M "no energy barrier" spirit)::
 

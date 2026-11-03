@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # ============================================================================
-# P1-O2 strict-fair CAFT training launcher (Paper 1, Objective O2)
+# P1-O2 strict-fair CAFT training launcher (this study, Objective O2)
 #
 # Protocol:
-#   Paper 1 requires a donor-disjoint, strictly-fair CAFT fine-tune of
+#   this study requires a donor-disjoint, strictly-fair CAFT fine-tune of
 #   Geneformer V2-104M. O2 (Objective O2) trains the final 6-checkpoint grid:
 #   λ ∈ {0.0, 0.5} × seed ∈ {42, 123, 456}, 3 epochs each, on the
 #   donor-disjoint train split (corneal_100k_donor_split.h5ad), gated by the

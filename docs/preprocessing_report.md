@@ -1,6 +1,6 @@
 # Corneal-FM Preprocessing Report
 Generated: 2026-07-06 13:46:07
-Target: Patterns (IF 10.8), Research Article
+Release package
 
 ## 1. Environment
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Per-cell trajectory-continuity analysis across the 7 Paper 1 model arms.
+"""Per-cell trajectory-continuity analysis across the 7 this study model arms.
 
 Tests the earlier framing that "CAFT preserves the differentiation trajectory
 while naive fine-tuning destroys it", by measuring each arm's inferred
@@ -7,7 +7,7 @@ trajectory against the frozen reference ordering. **The measurement does not
 support that framing.** Measured on the external test set: frozen rho = 0.850
 (95% CI 0.842-0.858), CE-naive rho = 0.323-0.348, CAFT-intended rho =
 0.372-0.428. CAFT-intended sits only marginally above CE-naive with overlapping
-per-seed intervals, and both are far below frozen. The manuscript therefore
+per-seed intervals, and both are far below frozen. The figure set therefore
 states "CAFT is intermediate" and makes no trajectory-preservation claim; do not
 restate the original framing in any downstream text or figure caption.
 
@@ -18,14 +18,14 @@ inferred pseudotime against the *frozen-defined* reference pseudotime.
 
 Reference pseudotime — the layer-centroid PCA projection used by
 ``corneal_fm.evaluation.marker_gradient_correlation`` (the rho metric locked in
-the Paper 1 artifacts): the first singular vector of the 4 per-layer centroids
+the this study artifacts): the first singular vector of the 4 per-layer centroids
 (LSC / TAC / basal / differentiated), oriented so the projection increases
 LSC -> differentiated; reference pseudotime = emb @ axis (marker-free; labels
 used only to place the layer centroids).
 
 IMPORTANT DESIGN DECISION (honest reporting): the reference is computed ONCE on
 the frozen (pretrained) embedding — the representation that actually defines the
-differentiation gradient in Paper 1 (rho vs ordinal = 0.806, sanity-locked).
+differentiation gradient in this study (rho vs ordinal = 0.806, sanity-locked).
 Computing the same construction per arm is *self-referential* and
 non-discriminative: in the naive/CAFT arms the arm-specific axis is itself noise
 (locked rho ~ 0.05-0.23; its minimum end even lands on a basal cell), so
@@ -44,7 +44,7 @@ method that produced each value.
 
 Metrics per arm:
   * rho_vs_frozen_ref  Spearman(inferred, frozen reference) [+ bootstrap 95% CI,
-                       n_boot=1000 seed 42, matching Paper 1 conventions]
+                       n_boot=1000 seed 42, matching this study conventions]
   * rho_vs_arm_ref     secondary: Spearman(inferred, same-arm reference)
   * strat_rho          stratified consistency: cells binned into deciles of the
                        frozen reference; Spearman(median inferred per bin,
@@ -109,7 +109,7 @@ from generate_paper1_results_figures import (  # noqa: E402,F401
 warnings.filterwarnings("ignore")
 
 # ---------------------------------------------------------------------------
-# Paths & constants (Paper 1 locked contract)
+# Paths & constants (this study locked contract)
 # ---------------------------------------------------------------------------
 
 DATA_DIR = PROJECT_ROOT / "artifacts" / "paper1_tier_b_eval"
@@ -162,7 +162,7 @@ def reference_pseudotime(
     ``pseudotime`` is defined for every input cell; cells outside
     LAYER_ORDER_4 receive NaN (none exist in the external set, kept for parity).
     ``rho_vs_ordinal`` is Spearman(pseudotime[valid], ordinal[valid]) — the
-    locked Paper 1 marker-gradient rho, used as a sanity gate.
+    locked this study marker-gradient rho, used as a sanity gate.
     """
     labels = np.asarray(labels)
     emb = np.asarray(embeddings, dtype=float)
@@ -320,7 +320,7 @@ def run_trajectory_inference(
 def bootstrap_spearman_ci(x: np.ndarray, y: np.ndarray, n_boot: int,
                           seed: int) -> tuple[float, float, float]:
     """Spearman rho + percentile bootstrap 95% CI (cells resampled with
-    replacement), matching the Paper 1 bootstrap convention (n_boot=1000,
+    replacement), matching the this study bootstrap convention (n_boot=1000,
     seed 42).  Returns (rho, ci_lower, ci_upper)."""
     ok = np.isfinite(x) & np.isfinite(y)
     x, y = x[ok], y[ok]
@@ -464,7 +464,7 @@ def render_figure(results: pd.DataFrame, strat_lines: dict[str, np.ndarray | Non
 
     return save_figure(
         fig, "figure3_trajectory_continuity", out_dir,
-        figure_metadata("Figure 8 - Trajectory continuity across Paper 1 arms "
+        figure_metadata("Figure 8 - Trajectory continuity across this study arms "
                         "(DPT vs frozen layer-centroid PCA reference)"),
     )
 

@@ -1,6 +1,6 @@
 # Claim audit — Δρ and ΔLAA for the frozen → fine-tuned differentiation gradient
 
-**Question.** The manuscript's headline is the *change* in differentiation-order
+**Question.** The figure set's headline is the *change* in differentiation-order
 Spearman ρ between the frozen Geneformer-V2-104M encoder and its fine-tuned
 derivatives, but the archived statistics only test positive association. This
 audit adds the paired test for the change, the paired test for layer-adjacency

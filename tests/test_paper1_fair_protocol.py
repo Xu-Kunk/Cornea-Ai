@@ -1,6 +1,6 @@
-"""Contract tests for the Paper 1 fair-protocol scaffold (metadata paths only).
+"""Contract tests for the this study fair-protocol scaffold (metadata paths only).
 
-Covers the pure validator / metadata paths of the three Paper 1 entry scripts:
+Covers the pure validator / metadata paths of the three this study entry scripts:
 
 * ``scripts/prepare_paper1_fair_split.py`` — donor-disjoint manifest contract
 * ``scripts/run_post_grid.py`` — strict-fair CLI gate (fail-closed, F1)

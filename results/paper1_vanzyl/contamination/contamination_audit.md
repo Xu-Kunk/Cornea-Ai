@@ -32,10 +32,10 @@ this audit adds (i) direct census datasets-table verification via `cellxgene_cen
 | Dataset (role in paper) | GEO public | scGPT (census 2023-05-15) | GF V1 (30M) | GF V2 (104M) | Verdict for disclosure |
 |---|---|---|---|---|---|
 | **van Zyl 2022 PNAS** (10.1073/pnas.2200914119; scGPT train+test donor Hu0216; GF + CellPLM eval) | n/a (CELLxGENE 2022) | **IN** — census table has collection 63d03351, 6 files, 238,149 cells; our files' cell counts (37,485 central cornea; 52,309 TM wedge) match census files **exactly**; is_primary_data=True | NOT IN (zero cornea; pub. 2022-07-19 > V1 assembly) | **IN** — corpus table row DOI 2200914119, 6 rows, counts 52,309/42,901/37,485/57,422/13,900/34,132 = **exact match to census dataset files** (file-level) | **Contaminated both models. MUST disclose.** scGPT results on van Zyl are same-corpus by design; NEW: GF-V2 evaluation on van Zyl is same-corpus too |
-| **GSE153515** (Li 2021; GF locked external test, scGPT probe) | 2021-01-14 | NOT IN (GEO-only; absent from census table; zero GSE accessions in census) | NOT IN (0 hits) | **IN** (study-level; DOI jtos.2020.12.004 → 53,290 cells, eye). Cell-level Signal A (2026-08-05, 0.54% sample): 0 hits ≥0.5 Jaccard; controls perfect; ~1% sample-coverage → not exclusionary | **Contaminated (GF).** Already disclosed in manuscript as same-corpus (least conservative) — consistent |
-| **GSE155683** (Collin/Lako 2021; GF **training** atlas: lako_adult 2,987 + lako_fetal 6,985 cells via CXG collection 0f7d022a) | 2021-04-19 | NOT IN (0f7d022a **not** in census; verified by collection_id + dataset_id) | NOT IN (0 hits; zero cornea) | **IN** (study-level; DOI jtos.2021.03.010 → 8 rows, 111,186 cells, eye) | **GF finetune set overlaps GF pretraining corpus. MUST disclose** (manuscript already notes 10.4% train-atlas overlap incl. lako; confirm counts) |
+| **GSE153515** (Li 2021; GF locked external test, scGPT probe) | 2021-01-14 | NOT IN (GEO-only; absent from census table; zero GSE accessions in census) | NOT IN (0 hits) | **IN** (study-level; DOI jtos.2020.12.004 → 53,290 cells, eye). Cell-level Signal A (2026-08-05, 0.54% sample): 0 hits ≥0.5 Jaccard; controls perfect; ~1% sample-coverage → not exclusionary | **Contaminated (GF).** Already disclosed in figure set as same-corpus (least conservative) — consistent |
+| **GSE155683** (Collin/Lako 2021; GF **training** atlas: lako_adult 2,987 + lako_fetal 6,985 cells via CXG collection 0f7d022a) | 2021-04-19 | NOT IN (0f7d022a **not** in census; verified by collection_id + dataset_id) | NOT IN (0 hits; zero cornea) | **IN** (study-level; DOI jtos.2021.03.010 → 8 rows, 111,186 cells, eye) | **GF finetune set overlaps GF pretraining corpus. MUST disclose** (figure set already notes 10.4% train-atlas overlap incl. lako; confirm counts) |
 | **GSE186433** (Catala 2021; GF **training** atlas: dickman 1,511 cells) | 2021-10-25 | NOT IN | NOT IN (0 hits) | **NOT IN** (study-level; DOI s41598-021-01015-w absent from all 2,904 rows; corroborates prior audit) | **Clean** — no disclosure required |
-| **GSE299152** (2025; second external test, GF + scGPT) | 2025-11-18 | NOT IN (postdates census snapshot by 2.5 y) | NOT IN | **NOT IN** (study-level; paper DOI 10.1093/pnasnexus/pgaf348 absent; **zero pnasnexus DOIs** in corpus table) — *temporal caveat: corpus HF release 2026-02-17 is AFTER GSE299152's release, so the "post-cutoff" argument alone is NOT valid for V2; decisive evidence = table absence + no positive signal* | **Clean** — strongest external evidence; **fix the manuscript's "postdates corpus assembly" wording** (§5) |
+| **GSE299152** (2025; second external test, GF + scGPT) | 2025-11-18 | NOT IN (postdates census snapshot by 2.5 y) | NOT IN | **NOT IN** (study-level; paper DOI 10.1093/pnasnexus/pgaf348 absent; **zero pnasnexus DOIs** in corpus table) — *temporal caveat: corpus HF release 2026-02-17 is AFTER GSE299152's release, so the "post-cutoff" argument alone is NOT valid for V2; decisive evidence = table absence + no positive signal* | **Clean** — strongest external evidence; **fix the figure set's "postdates corpus assembly" wording** (§5) |
 
 ---
 
@@ -45,11 +45,11 @@ this audit adds (i) direct census datasets-table verification via `cellxgene_cen
    - scGPT: cell-level (census files = our files; 6 dataset files, 238,149 cells; collection
      63d03351-06be-478e-a0db-f7a653b6b19b; DOI 10.1073/pnas.2200914119).
    - GF V2-104M: file-level (corpus provenance table rows match the census dataset files
-     cell-for-cell). **This is NEW relative to the current manuscript**, which treats van Zyl
+     cell-for-cell). **This is NEW relative to the current figure set**, which treats van Zyl
      only as the scGPT same-corpus arm; any GF frozen/fine-tuned numbers reported on van Zyl
      (e.g., the G1 frozen ρ ≈ 0.80 control arm) are same-corpus for GF and must be labelled as
-     such in the manuscript.
-2. **GSE153515 — in Genecorpus-104M (study-level).** Already disclosed in manuscript as the
+     such in the figure set.
+2. **GSE153515 — in Genecorpus-104M (study-level).** Already disclosed in figure set as the
    same-corpus (least conservative) GF external test — verdict confirmed, no action beyond
    keeping the existing contamination-aware framing.
 3. **GSE155683 — in Genecorpus-104M (study-level).** It is *training* data (9,972 cells in the
@@ -60,7 +60,7 @@ this audit adds (i) direct census datasets-table verification via `cellxgene_cen
    consistent.
 5. **GSE299152 — clean** (study-level) for both corpora, and now backed by a cell-level
    Signal A negative (§4). It remains the paper's most conservative external test. **One
-   wording fix required**: the manuscript's "deposited after corpus assembly (post-cutoff)"
+   wording fix required**: the figure set's "deposited after corpus assembly (post-cutoff)"
    is not strictly correct for Genecorpus-104M (corpus HF release 2026-02-17 postdates
    GSE299152's 2025-11-18 release); the defensible basis is absence from the DOI-keyed
    provenance table, not temporal exclusion. For scGPT (census 2023-05-15) temporal exclusion
@@ -120,7 +120,7 @@ this audit adds (i) direct census datasets-table verification via `cellxgene_cen
 > attained, these runs validate the pipeline but do not constitute exclusion evidence. The
 > DOI-level audit is the primary evidence.
 
-*Required manuscript edits flagged by this audit*: (i) add the van Zyl ↔ Genecorpus-104M
+*Required figure set edits flagged by this audit*: (i) add the van Zyl ↔ Genecorpus-104M
 file-level finding to the Provenance and contamination audit subsection and to any GF van Zyl
 claims; (ii) replace the "postdates corpus assembly (post-cutoff)" characterization of
 GSE299152 with the provenance-table-absence basis (keep "post-cutoff" for the scGPT/census

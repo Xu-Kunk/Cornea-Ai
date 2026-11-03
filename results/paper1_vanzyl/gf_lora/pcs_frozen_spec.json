@@ -1,7 +1,7 @@
 {
   "task": "GF LoRA + CellPLM LoRA extension (van Zyl same-corpus)",
   "pcs_frozen": "2026-08-21",
-  "hypothesis": "QKV LoRA (r=8, alpha=16, trunk-frozen) preserves the differentiation gradient in Geneformer and CellPLM architectures, extending the scGPT LoRA demonstration (rho 0.834) to the other two Paper 1 architectures",
+  "hypothesis": "QKV LoRA (r=8, alpha=16, trunk-frozen) preserves the differentiation gradient in Geneformer and CellPLM architectures, extending the scGPT LoRA demonstration (rho 0.834) to the other two this study architectures",
   "judgment_rule": "final-epoch test rho_normed >= 0.5 (frozen GF ~0.79, frozen CellPLM ~0.87) -> 'preserved'",
   "arms": {
     "gf_lora": {

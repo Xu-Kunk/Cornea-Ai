@@ -63,7 +63,7 @@ SEEDS = (42, 123, 456)
 BAR_EDGE_COLOR = "#333333"
 BAR_EDGE_LW = 0.4
 
-# Values the manuscript states for the arms plotted here but not carried by
+# Values the figure set states for the arms plotted here but not carried by
 # paper1_figure_data.MANUSCRIPT_VALUES (paper1.tex, Table "tab:domains" and
 # Results "The severe Geneformer loss ... did not extend uniformly").
 MANUSCRIPT_DOMAIN_VALUES = {
@@ -177,7 +177,7 @@ def _load_domains():
 
 
 def _check(values):
-    """Assert every plotted value against the manuscript's stated number."""
+    """Assert every plotted value against the figure set's stated number."""
     frozen = D.MANUSCRIPT_VALUES["frozen"]["rho"]
     S.check_value("frozen same-corpus rho", values["same"]["frozen"][0], frozen)
     S.check_value("frozen same-corpus n", values["same"]["n_cells"],

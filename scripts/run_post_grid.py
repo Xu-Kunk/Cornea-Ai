@@ -1,15 +1,15 @@
 #!/usr/bin/env python
-"""Post-grid tasks with an explicit legacy or Paper 1 fair protocol.
+"""Post-grid tasks with an explicit legacy or this study fair protocol.
 
 Usage:
     python scripts/run_post_grid.py
     python scripts/run_post_grid.py --phase 1    # legacy λ=0 only (NOT PAPER-SAFE)
     python scripts/run_post_grid.py --phase 2    # macro-F1 only
     python scripts/run_post_grid.py --phase 1 --strict-fair \
-        --split_manifest M --external_test_path T --epochs 3   # Paper 1 gate
+        --split_manifest M --external_test_path T --epochs 3   # this study gate
 
 The default remains legacy-compatible for existing artifacts.  The strict-fair
-entry is reachable but fail-closed: it validates every Paper 1 boundary and
+entry is reachable but fail-closed: it validates every this study boundary and
 then raises NotImplementedError before any training or legacy GPR, because the
 fair evaluator on the donor-disjoint external test is not wired yet.  It never
 falls back to the old 10-epoch/cell-level inputs.
@@ -71,7 +71,7 @@ def validate_strict_fair_cli(
     external_test_path: str | None,
     epochs: int | None,
 ) -> dict[str, Any]:
-    """Validate every Paper 1 boundary before preflight or subprocess launch."""
+    """Validate every this study boundary before preflight or subprocess launch."""
     if not split_manifest:
         raise ValueError("strict fair mode requires --split_manifest")
     if not external_test_path:
@@ -188,7 +188,7 @@ def phase1_lam0_baseline(
     prepared_train: str | None = None,
 ) -> None:
     if strict_fair:
-        # Fail-closed Paper 1 gate (F1): validate every donor-disjoint boundary,
+        # Fail-closed this study gate (F1): validate every donor-disjoint boundary,
         # then pass the Tier-B static + leakage gates.  Training under strict
         # mode uses the donor-disjoint split (epochs=3); the Tier-B evaluation
         # (donor-level macro-F1/GPR/LAA/marker-gradient) runs in the
@@ -384,13 +384,13 @@ def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description="Post-grid: λ=0 + macro-F1")
     parser.add_argument("--phase", type=int, choices=[1, 2], default=None)
     parser.add_argument("--strict-fair", "--strict_fair", dest="strict_fair", action="store_true",
-                        help="Paper 1 donor-disjoint fail-closed mode (phase 1 only).")
+                        help="this study donor-disjoint fail-closed mode (phase 1 only).")
     parser.add_argument("--split_manifest", "--split-manifest", dest="split_manifest", default=None,
-                        help="Paper 1 manifest from prepare_paper1_fair_split.py.")
+                        help="this study manifest from prepare_paper1_fair_split.py.")
     parser.add_argument("--external_test_path", "--external-test-path", dest="external_test_path",
                         default=None, help="Donor-disjoint held-out-batch test H5AD.")
     parser.add_argument("--epochs", type=int, default=None,
-                        help="Training epochs (strict Paper 1 baseline requires 3).")
+                        help="Training epochs (strict this study baseline requires 3).")
     parser.add_argument("--prepared_train", "--prepared-train", dest="prepared_train", default=None,
                         help="Optional prepared donor-disjoint train dataset.")
     args = parser.parse_args(argv)

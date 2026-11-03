@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Run the Paper 1 method-arm grid: axis_ft / soft_spearman / flow x lambdas x
+"""Run the this study method-arm grid: axis_ft / soft_spearman / flow x lambdas x
 seeds, then aggregate Phase A results.
 
 Phase A (feasibility, seed 42):
@@ -450,7 +450,7 @@ def main() -> None:
     n_ok = sum(1 for s in status if s["train"] == "OK")
     n_total = len(status)
     print(f"\n{'=' * 60}")
-    print(f"Paper 1 method arms: {n_ok}/{n_total} runs trained")
+    print(f"this study method arms: {n_ok}/{n_total} runs trained")
     print("=" * 60)
     if n_ok < n_total:
         print("Run complete but PARTIAL; relaunch to resume (idempotent).")

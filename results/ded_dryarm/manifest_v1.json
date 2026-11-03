@@ -180,7 +180,7 @@
           "456": 0.6564,
           "mean": 0.6479
         },
-        "note": "matching protocol §3 claim; ECE 0.0609, differentiation-gradient rho 0.8277 (three-seed 0.8242-0.8321) per Paper 1"
+        "note": "matching protocol §3 claim; ECE 0.0609, differentiation-gradient rho 0.8277 (three-seed 0.8242-0.8321) per this study"
       }
     },
     "tokenization_normalization_gene_order": {
@@ -223,7 +223,7 @@
         "nonEpi": 64804
       },
       "num_classes": 31,
-      "provenance": "Paper 1 annotation of van Zyl et al. 2022 PNAS (doi:10.1073/pnas.2200914119) Central Cornea + TM/wedge partitions (protocol_15c_annotate_vanzyl.py)"
+      "provenance": "this study annotation of van Zyl et al. 2022 PNAS (doi:10.1073/pnas.2200914119) Central Cornea + TM/wedge partitions (protocol_15c_annotate_vanzyl.py)"
     },
     "transparent_baselines": {
       "frozen_geneformer": "L12 rho 0.8064 (differentiation-gradient), low accuracy (macro-F1 0.4421), ECE 0.3010",

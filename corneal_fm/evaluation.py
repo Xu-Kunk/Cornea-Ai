@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Tier-B external-test evaluator for the Paper 1 donor-disjoint gate (P1-O4e).
+"""Tier-B external-test evaluator for the this study donor-disjoint gate (P1-O4e).
 
 This module implements the fail-closed evaluation gate that must pass BEFORE
 any GPU training run (P1-O2) is allowed to launch in strict-fair mode:
@@ -59,7 +59,7 @@ except ImportError:  # pragma: no cover - import-time only
     ad = None  # type: ignore
 
 # ---------------------------------------------------------------------------
-# Constants (Paper 1 locked evaluation contract)
+# Constants (this study locked evaluation contract)
 # ---------------------------------------------------------------------------
 
 DEFAULT_CLASSES = ["LSC", "TAC", "basal", "differentiated"]

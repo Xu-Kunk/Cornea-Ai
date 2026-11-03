@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Audit the reported frozen -> fine-tuned change in differentiation-order rho.
 
-The manuscript reports a *difference* between the frozen and fine-tuned
+The figure set reports a *difference* between the frozen and fine-tuned
 differentiation-order Spearman rho, but the archived statistics only test
 positive association. This script adds:
 

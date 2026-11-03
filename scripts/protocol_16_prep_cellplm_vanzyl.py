@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Protocol 16 — CellPLM data adaptation for van Zyl (Paper 1, arm C3).
+"""Protocol 16 — CellPLM data adaptation for van Zyl (this study, arm C3).
 
 Input contract alignment (scientific logic untouched; only the CellPLM
 input contract is adapted):

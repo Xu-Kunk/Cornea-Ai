@@ -148,7 +148,7 @@ def load_values():
 
 
 def check_manuscript(values):
-    """Assert the layer-12 values the manuscript states.
+    """Assert the layer-12 values the figure set states.
 
     Raises
     ------

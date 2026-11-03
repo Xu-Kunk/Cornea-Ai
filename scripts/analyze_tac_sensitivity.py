@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""TAC sensitivity analysis for the Paper 1 Tier-B external benchmark (GSE153515).
+"""TAC sensitivity analysis for the this study Tier-B external benchmark (GSE153515).
 
 The external test contains 14,775 limbal epithelial cells across 4 harmonized
 classes: basal 6,698 / differentiated 4,483 / LSC 3,423 / TAC 171 (TAC = 1.2%,

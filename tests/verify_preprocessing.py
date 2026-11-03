@@ -1,6 +1,6 @@
 """
 Corneal-FM Preprocessing Verification Report
-Patterns (IF 10.8) — Research Article
+the journal  — Research Article
 Generated: 2026-07-06
 """
 import os, sys, json, hashlib
@@ -26,7 +26,7 @@ def rpt(s=""):
 # ============================================================
 rpt(f"# Corneal-FM Preprocessing Report")
 rpt(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-rpt(f"Target: Patterns (IF 10.8), Research Article")
+rpt(f"Release package")
 rpt()
 
 # ============================================================

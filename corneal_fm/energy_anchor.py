@@ -1,5 +1,5 @@
 """EnergyAnchor-FT — Energy-model A1 arm: MMD anchor to frozen pretrained
-differentiation-stage centroids (Paper 1 energy-model extension).
+differentiation-stage centroids (this study energy-model extension).
 
 Motivation (lib-6 energy-model survey, user decision 2026-08-05): free-energy
 (JEM-style) fine-tuning is the WRONG tool for the corneal epithelial task

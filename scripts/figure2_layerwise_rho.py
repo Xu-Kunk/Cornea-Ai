@@ -118,7 +118,7 @@ def load_layerwise():
 
 
 def check_manuscript_values(table, summary):
-    """Assert the layer-12 values against the manuscript and the artifact.
+    """Assert the layer-12 values against the figure set and the artifact.
 
     Parameters
     ----------
@@ -130,7 +130,7 @@ def check_manuscript_values(table, summary):
     Raises
     ------
     AssertionError
-        If a plotted layer-12 value differs from the manuscript statement.
+        If a plotted layer-12 value differs from the figure set statement.
     """
     frozen_rows = table[table["group"] == "frozen"].sort_values("layer")
     frozen_final = float(frozen_rows["rho"].iloc[-1])

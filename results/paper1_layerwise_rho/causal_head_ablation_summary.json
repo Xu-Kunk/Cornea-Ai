@@ -1,7 +1,7 @@
 {
   "generated_utc": "2026-08-04T08:43:59+00:00",
   "experiment": "causal_head_ablation",
-  "purpose": "Test whether the classification head is the causal medium of the Paper 1 R1.2 head-proximal overwrite (naive FT collapses L5-L12 gradient rho; frozen GF does not).",
+  "purpose": "Test whether the classification head is the causal medium of the this study R1.2 head-proximal overwrite (naive FT collapses L5-L12 gradient rho; frozen GF does not).",
   "data": "GSE153515 external epithelial cells",
   "n_cells": 14775,
   "sanity_tolerance": 1e-06,

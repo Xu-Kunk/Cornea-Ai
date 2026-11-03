@@ -2,13 +2,13 @@
 # LIBRARY ONLY (2026-10-19).  This module is retained because
 # `scripts/analyze_trajectory_continuity.py` and `scripts/sens_umap_fig.py`
 # import its locked palette and save helpers.  Its figure-producing entry
-# point is SUPERSEDED: every manuscript figure now has a dedicated
+# point is SUPERSEDED: every figure set figure now has a dedicated
 # `scripts/figure*.py` producer.  Do not run this file to regenerate
-# manuscript figures; doing so overwrites the rebuilt artwork with the old
+# figure set figures; doing so overwrites the rebuilt artwork with the old
 # canvases and re-introduces one-figure-multiple-producers.
 
 """Generate publication-quality RESULTS figures and tables for the Paper1
-manuscript (Ophthalmology Science / Elsevier style).
+figure set (Ophthalmology Science / Elsevier style).
 
 Reads the Tier-B external-test evaluation outputs produced by
 ``scripts/run_tier_b_eval.py``:
@@ -16,7 +16,7 @@ Reads the Tier-B external-test evaluation outputs produced by
     artifacts/paper1_tier_b_eval/results_{lambda}_{seed}.json
     artifacts/paper1_tier_b_eval/summary.csv
 
-and renders the results figures for the manuscript:
+and renders the results figures for the figure set:
 
 Outputs (figures/paper1/):
   figure5_external_eval.pdf/.png         — external test overview (2x2, 7x7 in):
@@ -142,7 +142,7 @@ ARM_LABELS = {0.0: "Fine-tune \u03bb=0"}
 ARM_COLORS = {0.0: OI_BLUE}
 
 # ---------------------------------------------------------------------------
-# v6 unified arm -> color mapping (shared by every Paper 1 figure):
+# v6 unified arm -> color mapping (shared by every this study figure):
 #   frozen = dark gray  |  naive = blue  |  ordinal(-naive) = green  |
 #   ordinal-CAFT = orange (ordinal family second slot)  |  AA-FT /
 #   soft-Spearman / flow = remaining Okabe-Ito (sky / pink / dark-yellow).
@@ -164,7 +164,7 @@ ORDINAL_ARM_COLORS = {0.0: ARM_COLOR_ORDINAL_NAIVE, 0.5: ARM_COLOR_ORDINAL_CAFT}
 # Internal baselines (training-split values, NOT external test). Drawn as
 # dashed reference lines when no external-eval JSON exists for them.
 # v6 palette: frozen = #333333, HVG/PCA = #999999 (identical to the unified
-# arm mapping used by every other Paper 1 figure).
+# arm mapping used by every other this study figure).
 INTERNAL_BASELINES = [
     {
         "key": "HVG/PCA",
@@ -267,8 +267,7 @@ def panel_label(fig: plt.Figure, ax: plt.Axes, label: str) -> None:
 def corner_panel_label(fig: plt.Figure, ax: plt.Axes, label: str,
                        size: float = 8.0) -> None:
     """8 pt bold panel tag inside the axes top-left corner (0.1 in from the
-    left edge, 0.15 in from the top) — v8fix / Cell Press convention for
-    single-panel figures."""
+    left edge, 0.15 in from the top) — v8fix / the journal."""
     fig.canvas.draw()
     bb = ax.get_position()
     fig_w, fig_h = fig.get_size_inches()
@@ -578,7 +577,7 @@ def _draw_umap(
     ax.set_yticks([])
     for sp in ax.spines.values():
         sp.set_visible(False)
-    # Locked manuscript cell order LSC -> TAC -> basal -> differentiated
+    # Locked figure set cell order LSC -> TAC -> basal -> differentiated
     # (remaining categories, e.g. NON_LAYER, after them).
     order = legend_order or cats
     handles = [

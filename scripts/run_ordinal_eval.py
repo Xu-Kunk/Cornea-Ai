@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Tier-B evaluation for the Paper 1 D5 ordinal arms (runs AFTER ordinal training).
+"""Tier-B evaluation for the this study D5 ordinal arms (runs AFTER ordinal training).
 
 Evaluates each ordinal checkpoint (lambda x seed) on the donor-disjoint
 external test (GSE153515). The ordinal checkpoint is a
@@ -65,7 +65,7 @@ from corneal_fm.evaluation import (  # noqa: E402
 from corneal_fm.ordinal import ordinal_class_probs, ordinal_decode  # noqa: E402
 
 # ---------------------------------------------------------------------------
-# Constants (Paper 1 locked evaluation contract)
+# Constants (this study locked evaluation contract)
 # ---------------------------------------------------------------------------
 
 SAVE_DIR = PROJECT_ROOT / "save"

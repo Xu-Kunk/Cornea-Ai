@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Autonomous Paper 1 chain: Phase A complete -> method-arm eval -> controller v2 -> EA.
+"""Autonomous this study chain: Phase A complete -> method-arm eval -> controller v2 -> EA.
 
 Replaces the fragile setsid'd bash sentinels (which silently died) with one
 robust, logged chain process. Steps (each waits/block on its predecessor):
@@ -82,7 +82,7 @@ def main() -> None:
     log("--- step 4: energy anchor (after Phase B/flow) ---")
     run(["bash", str(PROJECT / "scripts" / "run_energy_anchor.sh"), "--first"], "energy anchor")
 
-    log("autonomous chain complete: all Paper 1 model runs finished.")
+    log("autonomous chain complete: all this study model runs finished.")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-"""Unit tests for the Paper 1 method arms (axis_ref / axis_ft / soft_spearman / flow).
+"""Unit tests for the this study method arms (axis_ref / axis_ft / soft_spearman / flow).
 
 CPU-only tiny-model tests (mirroring the hpa_callback_feasibility pattern:
 tiny Bert + ragged dataset):

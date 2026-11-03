@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Paper 1 method-arm external-test evaluation (runs AFTER run_method_arms.py).
+"""this study method-arm external-test evaluation (runs AFTER run_method_arms.py).
 
 Evaluates each completed method-arm checkpoint (axis_ft / soft_spearman /
 flow x lambda x seed) on the donor-disjoint external test (GSE153515) using
@@ -71,7 +71,7 @@ from torch.utils.data import DataLoader  # noqa: E402
 from corneal_fm.evaluation import evaluate_on_external_test  # noqa: E402
 
 # ---------------------------------------------------------------------------
-# Constants (Paper 1 locked evaluation contract, mirrors run_ordinal_eval.py)
+# Constants (this study locked evaluation contract, mirrors run_ordinal_eval.py)
 # ---------------------------------------------------------------------------
 
 SAVE_DIR = PROJECT_ROOT / "save"

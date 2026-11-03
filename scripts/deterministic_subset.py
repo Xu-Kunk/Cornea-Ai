@@ -7,7 +7,7 @@ preserves author_cell_type, raw counts, n_counts, and all tokenization prerequis
 
 Usage:
     python scripts/deterministic_subset.py \
-        --src artifacts/day3-20260723/S6/corneal_30k_layer_subsample.h5ad \
+        --src artifacts/pipeline-20260723/S6/corneal_30k_layer_subsample.h5ad \
         --out /tmp/smoke_100cells.h5ad \
         [--seed 42]
 """

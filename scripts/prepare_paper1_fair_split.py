@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Prepare the metadata-only Paper 1 fairness contract.
+"""Prepare the metadata-only this study fairness contract.
 
 This command deliberately does *not* write an H5AD file or tokenize cells.  It
 only reads ``obs`` from the two donor-split H5ADs in backed mode and writes a
@@ -239,12 +239,12 @@ def prepare(train_h5ad: Path, test_h5ad: Path, output_dir: Path, seed: int, forc
     output_dir.mkdir(parents=True, exist_ok=True)
     _write_json(output_dir / "manifest.json", manifest, force)
     _write_json(output_dir / "donor_overlap_check.json", donor_check, force)
-    print(f"Wrote metadata-only Paper 1 fair manifest: {output_dir / 'manifest.json'}")
+    print(f"Wrote metadata-only this study fair manifest: {output_dir / 'manifest.json'}")
     print("No H5AD was modified and no tokenization was performed.")
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Create the Paper 1 donor-disjoint fairness manifest")
+    parser = argparse.ArgumentParser(description="Create the this study donor-disjoint fairness manifest")
     parser.add_argument("--train_h5ad", "--train-h5ad", type=Path, default=DEFAULT_TRAIN)
     parser.add_argument("--test_h5ad", "--test-h5ad", type=Path, default=DEFAULT_TEST)
     parser.add_argument("--output_dir", "--output-dir", type=Path, default=DEFAULT_OUTPUT)

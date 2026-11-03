@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Run the Paper 1 D5 ordinal grid: ordinal-naive (λ=0) + ordinal-CAFT (λ=0.5)
+"""Run the this study D5 ordinal grid: ordinal-naive (λ=0) + ordinal-CAFT (λ=0.5)
 x seeds {42, 123, 456} = 6 runs, then Tier-B evaluate each.
 
 Usage:
@@ -7,7 +7,7 @@ Usage:
     python scripts/run_ordinal_grid.py              # full 6-run grid
     python scripts/run_ordinal_grid.py --eval-only  # evaluate already-trained checkpoints
 
-Sequential on the single GB10 GPU (mirrors run_lambda_grid.py / the Paper 1
+Sequential on the single GB10 GPU (mirrors run_lambda_grid.py / the this study
 strict-fair launcher). Each run streams stdout+stderr to
 artifacts/paper1_ordinal_eval/logs/ordinal_lam<λ>_seed<seed>.log. Success is
 confirmed by the ORDINAL_DONE marker in the run's save dir

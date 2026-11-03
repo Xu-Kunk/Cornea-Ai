@@ -1,6 +1,6 @@
-"""Ordinal (CORN-style) fine-tuning of Geneformer V2-104M — Paper 1 D5 loss arm.
+"""Ordinal (CORN-style) fine-tuning of Geneformer V2-104M — this study D5 loss arm.
 
-Motivation (D5): Paper 1 observed that softmax classification fine-tuning
+Motivation (D5): this study observed that softmax classification fine-tuning
 collapses the epithelial differentiation gradient of the CLS embedding
 (Spearman rho 0.82 -> ~ -0.04 for naive fine-tune; CAFT partially restores it
 to ~ +0.21). The D5 hypothesis is that treating the 4 differentiation layers

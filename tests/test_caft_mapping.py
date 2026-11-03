@@ -1,8 +1,8 @@
 """Ratified 31->5 layer mapping assertions (Day-3 PI ratification, 2026-07-23).
 
 TDD RED-then-GREEN anchor for the AUTHOR-RATIFIED mapping (see
-artifacts/day3-20260723/S3/mapping_ratification.md and
-docs/research/virtual-cell/CAFT-Day3-layer-mapping.md).
+artifacts/pipeline-20260723/S3/mapping_ratification.md and
+docs/research/virtual-cell/CAFT-pipeline-layer-mapping.md).
 
 These tests assert the PI-ratified layer assignments and FAIL against the
 pre-ratification code, in which:

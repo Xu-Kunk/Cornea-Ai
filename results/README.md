@@ -225,7 +225,7 @@
 | `gse299152_annotation/marker_scores.csv` | 同上 | GSE299152 marker scores |
 | `gse299152_annotation/provenance.json` | 同上 | GSE299152 溯源 |
 | `gse299152_annotation/annotation_report.md` | 同上 | GSE299152 注释报告 |
-| `paper1_preprint/SUBMISSION_PACKAGE.md` | 同上 | 提交元数据与说明 |
+| `(removed)` | 同上 | 提交元数据与说明 |
 
 ---
 

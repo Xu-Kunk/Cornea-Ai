@@ -1081,7 +1081,7 @@ def update_manifest(hashes: dict[str, str]) -> None:
     """Refresh this figure's manifest entry, preserving every other entry."""
     if MANIFEST_PATH.exists():
         manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-    else:  # pragma: no cover - the manuscript ships a populated manifest
+    else:  # pragma: no cover - the figure set ships a populated manifest
         manifest = {}
 
     previous = manifest.get("figure1_pipeline_overview", {})

@@ -1,6 +1,6 @@
-"""Shared visual system for the Paper 1 figure set (Patterns, two-column).
+"""Shared visual system for the this study figure set (the journal, two-column).
 
-Every rebuilt manuscript figure imports its style, arm vocabulary and colours
+Every rebuilt figure set figure imports its style, arm vocabulary and colours
 from this module so that the whole set reads as one publication.
 
 Retired aliases
@@ -34,7 +34,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
 # ---------------------------------------------------------------------------
-# Geometry (Patterns)
+# Geometry (the journal)
 # ---------------------------------------------------------------------------
 
 SINGLE_COLUMN_MM = 85.0
@@ -42,7 +42,7 @@ DOUBLE_COLUMN_MM = 178.0  # 7.01 in, the two-column text width
 MM_PER_INCH = 25.4
 
 # ---------------------------------------------------------------------------
-# Locked type scale and structural ink (Patterns house style, 2026-10-19)
+# Locked type scale and structural ink (the journal house style, 2026-10-19)
 # ---------------------------------------------------------------------------
 # Four tiers only. Nothing between TYPE["title"] and TYPE["letter"], and
 # nothing below TYPE["tick"]. Sizes are points at the final 178 mm canvas.
@@ -247,7 +247,7 @@ def figsize(width_mm: float = DOUBLE_COLUMN_MM, height_mm: float | None = None):
     Parameters
     ----------
     width_mm
-        Figure width in millimetres. Defaults to the Patterns two-column
+        Figure width in millimetres. Defaults to the the journal two-column
         width (178 mm); pass ``SINGLE_COLUMN_MM`` for a one-column panel.
     height_mm
         Figure height in millimetres. When omitted, the golden ratio
@@ -265,7 +265,7 @@ def panel_label(ax, letter: str, x: float = -0.14, y: float = 1.06):
         y,
         letter,
         transform=ax.transAxes,
-        # Published Patterns panel letters run ~1.3-1.5x the axis-label height;
+        # Published the journal panel letters run ~1.3-1.5x the axis-label height;
         # 7.5 pt axis labels therefore put the letter at ~9.5 pt.
         fontsize=TYPE["letter"],
         fontweight="bold",
@@ -310,7 +310,7 @@ def panel_letter_mm(fig, letter: str, x_mm: float, y_mm: float, va: str = "top")
 
 
 def check_value(label: str, value: float, expected: float, tol: float = 5e-4) -> None:
-    """Assert a plotted number matches the manuscript's stated value.
+    """Assert a plotted number matches the figure set's stated value.
 
     Raises
     ------
@@ -319,7 +319,7 @@ def check_value(label: str, value: float, expected: float, tol: float = 5e-4) ->
     """
     if abs(float(value) - float(expected)) > tol:
         raise AssertionError(
-            f"{label}: plotted value {value!r} != manuscript value {expected!r} "
+            f"{label}: plotted value {value!r} != figure set value {expected!r} "
             f"(tol={tol:g})"
         )
 
@@ -442,7 +442,7 @@ def save_figure(fig, name: str, outdir: str = "figures/paper1", inputs=None):
 
     metadata = {
         "Title": name,
-        "Author": "Corneal-FM Paper 1",
+        "Author": "Corneal-FM this study",
         "Creator": script,
         "Subject": f"generated {timestamp}",
     }

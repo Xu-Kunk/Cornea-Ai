@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-"""Tier-B external-test BASELINE metrics (HVG/PCA and frozen Geneformer) for Paper 1.
+"""Tier-B external-test BASELINE metrics (HVG/PCA and frozen Geneformer) for this study.
 
 Computes the two baselines that accompany the fine-tuned CAFT checkpoints on the
 donor-disjoint external test (GSE153515, 14,775 epithelial cells, NON_LAYER
-excluded), filling the "—" cells of the manuscript external-baseline table:
+excluded), filling the "—" cells of the figure set external-baseline table:
 
   Arm 1 — HVG/PCA (CPU):
       LOCKED preprocessing (config/external_test_gse153515.yml §evaluation_preprocessing):
@@ -73,7 +73,7 @@ from corneal_fm.caft import CELL_TYPE_TO_LAYER, NON_LAYER
 from corneal_fm.evaluation import evaluate_on_external_test, run_static_checks
 
 # ---------------------------------------------------------------------------
-# Constants (Paper 1 locked evaluation contract)
+# Constants (this study locked evaluation contract)
 # ---------------------------------------------------------------------------
 
 TRAIN_DATA = PROJECT_ROOT / "data" / "corneal_100k_donor_split.h5ad"
@@ -125,7 +125,7 @@ PROBE_MAX_ITER = 5_000
 BATCH_SIZE = 32
 
 # Internal (cell-level macro-F1 on the internal donor-disjoint test) baseline
-# values from the manuscript, for the end-of-run comparison table only.
+# values from the figure set, for the end-of-run comparison table only.
 INTERNAL_BASELINES = {"HVG/PCA": 0.7787, "Frozen Geneformer": 0.8834}
 
 
@@ -513,7 +513,7 @@ def _print_comparison(rows: list[dict]) -> None:
               f"{r['laa']:>8.4f}{r['rho']:>12.4f}{r['ece']:>8.4f}")
     print("-" * 92)
     print("* Internal values are cell-level macro-F1 on the internal donor-disjoint "
-          "test (manuscript);")
+          "test (figure set);")
     print("  external values are donor-level macro-F1 on GSE153515 — not directly "
           "comparable (different")
     print("  granularity and test set). TAC (n=171) contributes ~0 F1 on the external "

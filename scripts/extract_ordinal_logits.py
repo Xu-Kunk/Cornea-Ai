@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Paper 1 — per-cell ordinal-head (CORN) logits on the external test set.
+"""this study — per-cell ordinal-head (CORN) logits on the external test set.
 
 Extracts, for one ordinal checkpoint (arm x seed), the per-cell 3 threshold
 logits of the K-1=3 CORN binary heads on the donor-disjoint external test
@@ -67,7 +67,7 @@ from transformers import BertForSequenceClassification  # noqa: E402
 from corneal_fm.ordinal import ordinal_class_probs, ordinal_decode  # noqa: E402
 
 # ---------------------------------------------------------------------------
-# Constants (Paper 1 locked evaluation contract — same as run_ordinal_eval.py)
+# Constants (this study locked evaluation contract — same as run_ordinal_eval.py)
 # ---------------------------------------------------------------------------
 
 SAVE_DIR = PROJECT_ROOT / "save"

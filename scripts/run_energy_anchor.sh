@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# EnergyAnchor-GF grid launcher (Paper 1 energy-model A1 arm) — queue behind fix-7.
+# EnergyAnchor-GF grid launcher (this study energy-model A1 arm) — queue behind fix-7.
 #
 # Queues A1 arms sequentially on the single GB10 GPU, mirroring
 # run_hp_aft.sh / run_ordinal_grid.py conventions:

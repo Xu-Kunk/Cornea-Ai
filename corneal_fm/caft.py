@@ -24,7 +24,7 @@ LAYER_ORDER = ["LSC", "TAC", "basal", "wing", "squamous"]
 NON_LAYER = -1
 
 # author_cell_type -> differentiation layer (Methods §4.4 Method B). PI-ratified
-# 2026-07-23 (artifacts/day3-20260723/S3/mapping_ratification.md): Epi-PMC/Epi-TDC
+# 2026-07-23 (artifacts/pipeline-20260723/S3/mapping_ratification.md): Epi-PMC/Epi-TDC
 # corrected (the earlier code had them reversed vs the KRT3/KRT12 gradient).
 CELL_TYPE_TO_LAYER = {
     "LPC": 0,

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Layer-wise marker-gradient rho (rho) for HPA-FT checkpoints (Paper 1 main method).
+"""Layer-wise marker-gradient rho (rho) for HPA-FT checkpoints (this study main method).
 
 Mirror of scripts/measure_layerwise_rho.py for the HPA-FT arms. The locked
 rho script globs `caft_gf_lam*_seed*_*` save dirs only, so HPA-FT runs
@@ -12,7 +12,7 @@ and adds an HPA-FT checkpoint discovery + per-arm outputs, so the 13-layer
 rho curves of the HPA-FT arms are directly comparable with the locked
 caft/naive/frozen curves in artifacts/paper1_layerwise_rho/summary.json.
 
-13 layers (Paper 1 diagnostic): hidden_states[0] = embedding output,
+13 layers (this study diagnostic): hidden_states[0] = embedding output,
 [1..12] = transformer layers, [12] == last_hidden_state. L1-L4 retain,
 L5-L12 collapse for naive FT; HPA-FT aims to keep the whole curve up.
 

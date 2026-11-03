@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Check the in-figure type floor of every rendered Paper 1 figure.
+"""Check the in-figure type floor of every rendered this study figure.
 
 Rationale
 ---------
-The manuscript's figures print at 178 mm wide (Cell Press *Patterns* two-column
-width). Published *Patterns* figures set their in-figure text at roughly 7 pt:
-measured with ``pdftotext -bbox``, in-figure words in three published Patterns
+The figure set's figures print at 178 mm wide (the target journal two-column
+width). Published *the journal* figures set their in-figure text at roughly 7 pt:
+measured with ``pdftotext -bbox``, in-figure words in three published the journal
 articles have a bounding-box height of 6.28--6.72 pt, while body and caption
 text measures 7.62 pt.
 

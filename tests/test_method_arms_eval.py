@@ -1,4 +1,4 @@
-"""Unit tests for the Paper 1 method-arm eval script + Phase B controller v2.
+"""Unit tests for the this study method-arm eval script + Phase B controller v2.
 
 CPU-only, no model loading, no dataset access. Covers the pieces that make
 the autonomous Phase A -> B pipeline work:

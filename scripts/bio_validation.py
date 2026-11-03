@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""CNS-anchor biological validation for Paper 1 — marker-program monotonicity
+"""CNS-anchor biological validation for this study — marker-program monotonicity
 along the model's differentiation axis.
 
 Question: does the differentiation axis measured in each arm's embedding

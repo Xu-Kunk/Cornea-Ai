@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Phase B / flow autonomous controller for Paper 1 method arms.
+"""Phase B / flow autonomous controller for this study method arms.
 
 Applies the PRE-REGISTERED lambda-selection rule
 (docs/research/paper1_phase_a_lambda_selection_protocol.md, locked 2026-08-06

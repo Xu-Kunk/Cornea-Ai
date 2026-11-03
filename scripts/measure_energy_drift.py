@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """A5 — Energy-drift diagnostic across Geneformer-V2-104M fine-tuning arms
-(Paper 1 energy-model extension; precedent: ELI arXiv:2203.14952).
+(this study energy-model extension; precedent: ELI arXiv:2203.14952).
 
 For every already-trained checkpoint the script measures, per hidden state,
 how far the fine-tuned [CLS] representation has DRIFTED from the frozen

@@ -112,7 +112,7 @@ def load_values():
     ------
     AssertionError
         If a per-cell archive disagrees with the locked sanity gate, with the
-        manuscript cell count, or with the stated donor count.
+        figure set cell count, or with the stated donor count.
     """
     runs: list[dict] = []
     sources: dict[str, tuple[Path, str]] = {}

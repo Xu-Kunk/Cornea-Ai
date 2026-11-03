@@ -90,7 +90,7 @@
           "GSE153515 (15,827 annotated cells) is one series of the study; the 53,290 corpus cells may aggregate multiple series of the paper"
         ]
       },
-      "disclosure": "REQUIRED for Geneformer external-test claims (contamination-aware caveat already in manuscript)"
+      "disclosure": "REQUIRED for Geneformer external-test claims (contamination-aware caveat already in figure set)"
     },
     {
       "dataset": "GSE155683 (Collin/Lako 2021, single-cell atlas of human cornea)",

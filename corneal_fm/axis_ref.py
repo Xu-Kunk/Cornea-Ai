@@ -1,4 +1,4 @@
-"""Frozen differentiation-axis for the Paper 1 method arms (ARM-1: axis_ref).
+"""Frozen differentiation-axis for the this study method arms (ARM-1: axis_ref).
 
 The three new fine-tuning arms (AA-FT, SS, flow-consistency) all need a FIXED
 reference for "the epithelial differentiation axis" that the paper's

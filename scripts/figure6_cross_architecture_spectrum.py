@@ -49,7 +49,7 @@
     ``results/paper1_vanzyl/cellplm/corn/seed*/seed*.json`` (ordinal head).
 
 Metric conventions are those of the source files: the Geneformer rows use the
-raw Spearman rho stated by the manuscript, the scGPT-human and CellPLM rows use
+raw Spearman rho stated by the figure set, the scGPT-human and CellPLM rows use
 the L2-normed rho that those artifacts report as primary. Both are Spearman rho
 of the same stage-order endpoint.
 
@@ -91,7 +91,7 @@ ROW_SPACING = 1.0
 POINT_JITTER = 0.20
 SEED_MARKERS = ("o", "s", "^", "D", "X")
 
-# Validation-rho peak epochs the manuscript states (paper1 Table S7, column
+# Validation-rho peak epochs the figure set states (paper1 Table S7, column
 # "Val rho peak (epoch)", rows 42/123/456). Asserted, never plotted as literals.
 MANUSCRIPT_PEAK_EPOCHS = {42: 3, 123: 3, 456: 6}
 
@@ -102,8 +102,7 @@ VANZYL = ROOT / "artifacts" / "paper1_vanzyl"
 CELLPLM_MIRROR = (
     ROOT
     / "docs"
-    / "manuscript"
-    / "patterns"
+    / "figure set"
     / "archive"
     / "revision_2026-10-16"
     / "evidence"
@@ -137,7 +136,7 @@ LORA_BUDGETS = (
 )
 ORDINAL_BUDGET = ("ordinal_convergence", "cellplm/corn", None)
 # Frozen CellPLM reference on the test donor (the archived frozen baseline of
-# the seed-42 projection); the manuscript states this value.
+# the seed-42 projection); the figure set states this value.
 PANEL_C_FROZEN_RHO = 0.8652
 # Epochs that carry a tick; the log spacing makes the plain labels sufficient.
 PANEL_C_XTICKS = (3, 15, 30, 60, 150, 450)
@@ -481,11 +480,11 @@ def load_dose_response() -> dict:
         "ce": _dose_series(CE_BUDGETS, sources),
         "ordinal_lora": _dose_series(LORA_BUDGETS, sources),
         # Ordinal-only convergence is the level the LoRA arm has to recover;
-        # loaded so the manuscript can cite it from the same failure-fast path.
+        # loaded so the figure set can cite it from the same failure-fast path.
         "ordinal": _dose_series((ORDINAL_BUDGET,), sources),
     }
 
-    # The frozen reference is the seed-42 frozen baseline, which the manuscript
+    # The frozen reference is the seed-42 frozen baseline, which the figure set
     # states to four decimals; assert the constant against its archive.
     anchor = D.load_json(CELLPLM_RESULTS / "cellplm_e3" / "seed42" / "seed42.json")
     frozen_rho = float(anchor["frozen_baseline"]["rho_normed"])
@@ -496,7 +495,7 @@ def load_dose_response() -> dict:
 
 
 def check_manuscript(rows, panel_b) -> None:
-    """Assert every value that the manuscript states.
+    """Assert every value that the figure set states.
 
     Raises
     ------
@@ -514,7 +513,7 @@ def check_manuscript(rows, panel_b) -> None:
         D.MANUSCRIPT_VALUES["frozen"]["rho"],
     )
 
-    # GF three-epoch per seed: the manuscript lists the three CE-naive values
+    # GF three-epoch per seed: the figure set lists the three CE-naive values
     # without a per-seed label, so compare as a set.
     gf_three = np.sort(row(f"GF {S.ARMS['ce_naive']}, 3 epochs (n = 3)"))
     expected_three = np.sort(np.asarray(D.MANUSCRIPT_VALUES["ce_naive"]["rho_seeds"]))
@@ -535,7 +534,7 @@ def check_manuscript(rows, panel_b) -> None:
         D.MANUSCRIPT_VALUES["scgpt_human"]["frozen_rho"],
     )
 
-    # Panel B: the three manuscript seeds must peak at the stated epochs.
+    # Panel B: the three figure set seeds must peak at the stated epochs.
     for seed, expected_epoch in MANUSCRIPT_PEAK_EPOCHS.items():
         S.check_value(
             f"scGPT validation-rho peak epoch (seed {seed})",

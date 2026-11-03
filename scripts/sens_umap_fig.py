@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""UMAP collapse figure (Paper 1 van Zyl) + sensitivity summary figure.
+"""UMAP collapse figure (this study van Zyl) + sensitivity summary figure.
 
 Reads the UMAP coordinates produced by sens_umap_reduce.py
 (umap_collapse/_coords/*.npz) and the sensitivity summary
@@ -13,7 +13,7 @@ Reads the UMAP coordinates produced by sens_umap_reduce.py
   fig_sensitivity_summary.{pdf,png} — per-variant rho across arms.
 
 Style: Arial (Liberation Sans fallback), 300-dpi PNG + vector PDF with
-provenance metadata (des-1 / manuscript conventions).
+provenance metadata (des-1 / figure set conventions).
 
 Usage (<compute-node> or local):
     <home>/corneal_scgpt/venv/bin/python scripts/sens_umap_fig.py

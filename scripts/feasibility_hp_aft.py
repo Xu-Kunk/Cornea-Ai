@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""CPU feasibility validation for HPA-FT (Paper 1 main method) — GPU is owned
+"""CPU feasibility validation for HPA-FT (this study main method) — GPU is owned
 by fix-7 (D5 ordinal), so this validates everything short of training:
 
   (a) load an existing fine-tuned checkpoint + construct the LWC loss

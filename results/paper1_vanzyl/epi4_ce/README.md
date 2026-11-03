@@ -1,4 +1,4 @@
-# epi4-CE — 4-class CE baselines on corneal epithelial cells (Paper 1 referee control)
+# epi4-CE — 4-class CE baselines on corneal epithelial cells (this study referee control)
 
 Purpose: separate **CE supervision** from **label-set difference** in the
 naive-vs-ordinal comparison. The naive arm trains cross-entropy over 31
@@ -112,13 +112,13 @@ arm's per-layer-centroid axis re-fitted inside the replicate via
 
 ### Interval conventions in `paired_drho_*.json`
 
-Every pair records four intervals, so any number quoted in the manuscript can be
+Every pair records four intervals, so any number quoted in the figure set can be
 recomputed by hand:
 
 | field | what it is |
 |---|---|
 | `per_seed.<seed>.ci_lower/ci_upper` | that seed's own 2.5th/97.5th percentiles over its 2,000 replicates (`ci_method` states this) |
-| `averaged_ci95.ci95` | arithmetic mean of the three per-seed bounds — the convention the manuscript uses for the frozen−naive contrast (mean Δρ 0.8145, averaged bounds 0.7369/0.8942, printed 0.737–0.894) |
+| `averaged_ci95.ci95` | arithmetic mean of the three per-seed bounds — the convention the figure set uses for the frozen−naive contrast (mean Δρ 0.8145, averaged bounds 0.7369/0.8942, printed 0.737–0.894) |
 | `pooled.ci95` | percentile over the *concatenated* per-seed replicates (3 × 2,000) |
 | `across_seed.ci95` | two-sided 95 % t-interval on the three seed means (`df` = 2, `t` = 4.303) |
 
@@ -231,5 +231,5 @@ degrade ~2× (epi4 1.40 → 2.88–3.11 s/step) for ~3.4 % aggregate throughput,
 Checkpoints stay on `<compute-node>` under
 `~/epi4_ce/save/method_ce_epi4_lam0.0_seed{S}_<ts>/model/checkpoint-2616`
 (final epoch); each record's `archived_inputs.checkpoint` carries the
-`model.safetensors` / `config.json` hashes. Nothing under `docs/manuscript/**`
+`model.safetensors` / `config.json` hashes. Nothing under `docs/figure set/**`
 was touched.

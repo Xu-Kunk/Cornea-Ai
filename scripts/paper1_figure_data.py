@@ -1,4 +1,4 @@
-"""Explicit, fail-fast data access for the Paper 1 figure set.
+"""Explicit, fail-fast data access for the this study figure set.
 
 No defaults, no ``or`` fallbacks, no silent substitution: every loader either
 returns the real object or raises with the absolute path and, where one exists,
@@ -140,7 +140,7 @@ def artifact_json(*parts):
 
 
 # ---------------------------------------------------------------------------
-# Numbers the manuscript states (with their source location)
+# Numbers the figure set states (with their source location)
 # ---------------------------------------------------------------------------
 
 MANUSCRIPT_VALUES = {

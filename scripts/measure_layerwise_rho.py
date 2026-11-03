@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Layer-wise marker-gradient rho (rho) measurement across Geneformer-V2-104M.
 
-Diagnostic for the Paper 1 observation that fine-tuning collapses the
+Diagnostic for the this study observation that fine-tuning collapses the
 marker-differentiation gradient of the FINAL layer CLS embedding
 (pretrained rho 0.806 -> naive fine-tune ~ -0.042). This script measures
 rho at EVERY hidden state (index 0 = embedding output, 1..12 = transformer
@@ -60,7 +60,7 @@ from torch.utils.data import DataLoader  # noqa: E402
 from corneal_fm.evaluation import marker_gradient_correlation  # noqa: E402
 
 # ---------------------------------------------------------------------------
-# Constants (Paper 1 locked evaluation contract)
+# Constants (this study locked evaluation contract)
 # ---------------------------------------------------------------------------
 
 SAVE_DIR = PROJECT_ROOT / "save"

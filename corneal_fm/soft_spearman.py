@@ -1,4 +1,4 @@
-"""SS — Soft-Spearman fine-tuning of Geneformer V2-104M (Paper 1 arm 2).
+"""SS — Soft-Spearman fine-tuning of Geneformer V2-104M (this study arm 2).
 
 Loss (soft-Spearman ordinal alignment)::
 

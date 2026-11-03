@@ -1,4 +1,4 @@
-"""AA-FT — Axis-Anchored Fine-Tuning of Geneformer V2-104M (Paper 1 arm 1).
+"""AA-FT — Axis-Anchored Fine-Tuning of Geneformer V2-104M (this study arm 1).
 
 Loss (axis-anchored fine-tuning)::
 

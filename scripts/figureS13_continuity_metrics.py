@@ -136,7 +136,7 @@ def _check_layerwise(results, paths):
 
 
 def _check_manuscript(results) -> None:
-    """Assert the manuscript-stated rho values."""
+    """Assert the figure set-stated rho values."""
     for value, expected in zip(
         sorted(results["ce_naive"][seed]["rho"] for seed in SEEDS),
         sorted(D.MANUSCRIPT_VALUES["ce_naive"]["rho_seeds"]),

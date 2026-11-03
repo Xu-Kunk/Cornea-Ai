@@ -168,7 +168,7 @@ def load_values():
 
 
 def check_manuscript(values):
-    """Assert the CE-naive gradient values the manuscript states.
+    """Assert the CE-naive gradient values the figure set states.
 
     Parameters
     ----------

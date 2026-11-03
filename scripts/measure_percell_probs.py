@@ -1,4 +1,4 @@
-"""Paper 1 — per-cell probabilities, calibration and OOD analysis (Items 9-10).
+"""this study — per-cell probabilities, calibration and OOD analysis (Items 9-10).
 
 Implements the per-cell probability collection for the 7 Paper-1 models
 (6 fine-tuned CAFT checkpoints + frozen Geneformer-V2-104M) on the external
@@ -16,7 +16,7 @@ Modes:
              with the existing results JSONs.
   --postprocess-only   CPU-only: per-class reliability diagrams (Figure S1)
              and OOD analysis (Figure S2) from the saved npz files.
-  --s1-table assemble docs/manuscript/paper1_supplementary_table_s1.md from
+  --s1-table assemble docs/figure set/paper1_supplementary_table_s1.md from
              the epoch-2/epoch-3 results JSONs.
 
 No existing script or evaluation module is modified; all metric functions are
@@ -87,13 +87,13 @@ from corneal_fm.evaluation import (  # noqa: E402
 )
 
 # ---------------------------------------------------------------------------
-# Constants (Paper 1 locked evaluation contract)
+# Constants (this study locked evaluation contract)
 # ---------------------------------------------------------------------------
 
 REF_JSON_DIR = OUT_DIR  # artifacts/paper1_tier_b_eval
 PERCELL_DIR = OUT_DIR
 FIG_DIR = PROJECT_ROOT / "figures" / "paper1"
-S1_PATH = PROJECT_ROOT / "docs" / "manuscript" / "paper1_supplementary_table_s1.md"
+S1_PATH = PROJECT_ROOT / "docs" / "figure set" / "paper1_supplementary_table_s1.md"
 
 PRETRAINED_DIR = (
     Path.home()
@@ -132,7 +132,7 @@ def _ts() -> str:
 
 def _panel_tag(ax, label: str, size: float = 8.0,
              x: float = -0.08) -> None:
-    """Axis-outside top-left panel label (ReAct v8fix / Cell Press)."""
+    """Axis-outside top-left panel label (ReAct v8fix / the journal)."""
     ax.text(x, 1.05, label, transform=ax.transAxes, fontsize=size,
             fontweight="bold", va="bottom", ha="left")
 
@@ -672,7 +672,7 @@ def run_postprocess() -> int:
     )
 
     setup_style()
-    # Explicit TrueType embedding (Type 42) — Cell Press requirement; the
+    # Explicit TrueType embedding (Type 42) — the journal; the
     # imported setup_style already sets it, kept here for self-containment.
     import matplotlib as mpl
     mpl.rcParams["pdf.fonttype"] = 42
@@ -943,7 +943,7 @@ def _per_epoch_train_loss(save_dir: Path) -> dict[int, float]:
 
 
 def run_s1_table() -> int:
-    """Assemble docs/manuscript/paper1_supplementary_table_s1.md."""
+    """Assemble docs/figure set/paper1_supplementary_table_s1.md."""
     rows: list[dict] = []
     for lam in LAMBDAS:
         for seed in SEEDS:
@@ -1013,7 +1013,7 @@ def run_s1_table() -> int:
         "",
         "**Notes.**",
         "- Mean train loss is aggregated from `trainer_state.json` log_history (per-epoch means over logged steps).",
-        "- The internal holdout used for the calibration/OOD figures is each run's own `prepared/caft_labeled_test.dataset` (19,922 cells; 6,924 epithelial after removing NON_LAYER), not the manuscript's donor-disjoint test (20,394 cells / 25 donors) — see changelog 2026-08-03-calibration-ood-s1 for the discrepancy note.",
+        "- The internal holdout used for the calibration/OOD figures is each run's own `prepared/caft_labeled_test.dataset` (19,922 cells; 6,924 epithelial after removing NON_LAYER), not the figure set's donor-disjoint test (20,394 cells / 25 donors) — see changelog 2026-08-03-calibration-ood-s1 for the discrepancy note.",
         f"- Generated {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}.",
         "",
     ]

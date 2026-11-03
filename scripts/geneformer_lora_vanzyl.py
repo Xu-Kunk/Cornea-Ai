@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """GF LoRA: Geneformer V2-104M LoRA fine-tuning on van Zyl (third architecture, LoRA arm).
 
-Extends the LoRA demonstration to Geneformer (the primary Paper 1 model).
+Extends the LoRA demonstration to Geneformer (the primary this study model).
 scGPT LoRA (E4) achieved final-epoch rho 0.834 (2-seed mean); GF LoRA tests whether
 the same QKV LoRA recipe (r=8, alpha=16, trunk-frozen) preserves the differentiation
 gradient in the Geneformer backbone.

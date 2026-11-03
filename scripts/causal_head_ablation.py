@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Causal head-ablation for the Paper 1 Results R1.2 "head-proximal overwrite" claim.
+"""Causal head-ablation for the this study Results R1.2 "head-proximal overwrite" claim.
 
 The observation (R1.2, currently descriptive): naive fine-tuning (lambda=0)
 collapses the layerwise differentiation-gradient rho of the head-proximal
@@ -80,7 +80,7 @@ from torch.utils.data import DataLoader  # noqa: E402
 from corneal_fm.evaluation import marker_gradient_correlation  # noqa: E402
 
 # ---------------------------------------------------------------------------
-# Constants (identical to measure_layerwise_rho.py / Paper 1 eval contract)
+# Constants (identical to measure_layerwise_rho.py / this study eval contract)
 # ---------------------------------------------------------------------------
 
 SAVE_DIR = PROJECT_ROOT / "save"
@@ -451,7 +451,7 @@ def main() -> int:
         "generated_utc": datetime.now(UTC).isoformat(timespec="seconds"),
         "experiment": "causal_head_ablation",
         "purpose": ("Test whether the classification head is the causal medium "
-                    "of the Paper 1 R1.2 head-proximal overwrite (naive FT "
+                    "of the this study R1.2 head-proximal overwrite (naive FT "
                     "collapses L5-L12 gradient rho; frozen GF does not)."),
         "data": "GSE153515 external epithelial cells",
         "n_cells": int(n_cells),

@@ -183,7 +183,7 @@ def run_pair(arm_a: str, arm_b: str, seeds=SEEDS, n_boot: int = DEFAULT_N_BOOT,
 
     Each seed's replicates are also pooled across seeds and summarised by their
     own percentile interval, stored under ``pooled`` so an averaged interval in
-    the manuscript can be recomputed from this file.
+    the figure set can be recomputed from this file.
     """
     per_seed = {}
     skipped = []
@@ -216,7 +216,7 @@ def run_pair(arm_a: str, arm_b: str, seeds=SEEDS, n_boot: int = DEFAULT_N_BOOT,
         out["sd_delta"] = float(np.std(ds, ddof=1)) if len(ds) > 1 else None
         out["sd_kind"] = "sample SD (ddof=1) over seeds"
         # Averaged interval: the arithmetic mean of the per-seed bootstrap
-        # bounds. This is the convention the manuscript quotes for the
+        # bounds. This is the convention the figure set quotes for the
         # frozen - naive contrast (mean 0.8145, bounds 0.7369/0.8942, printed
         # as 0.737-0.894); it is stored explicitly so an averaged interval in
         # the text can be recomputed from this file by hand.

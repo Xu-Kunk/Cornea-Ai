@@ -1,8 +1,8 @@
-# Paper 1 figure system — build contract
+# this study figure system — build contract
 
-Target venue: Cell Press *Patterns*. Two-column width **178 mm (7.01 in)**;
+Target venue: the target journal. Two-column width **178 mm (7.01 in)**;
 single column **85 mm**. This document is the contract for the full rebuild of
-the 20 manuscript figures. If a figure violates it, the figure is wrong.
+the 20 figure set figures. If a figure violates it, the figure is wrong.
 
 ## 1. Non-negotiables
 
@@ -82,7 +82,7 @@ style module instead of retyping a legend.
   absolute path. Do not catch and continue.
 - `load_csv` returns a DataFrame; `load_npz` returns the archive; `load_json`
   returns the parsed document.
-- Every plotted manuscript number is asserted with
+- Every plotted figure set number is asserted with
   `check_value(label, value, MANUSCRIPT_VALUES[...])` before it is drawn.
 - Report the statistic actually shown: n, interval type, seed count, and
   correction. `stats_shown: none` is honest; an unlabelled bar is not.
@@ -108,9 +108,9 @@ style module instead of retyping a legend.
 - Manifest entry matches the hashes on disk and lists every input.
 - Figure passes the two-round visual check, or is escalated with evidence.
 
-## Patterns house style (measured 2026-10-19)
+## the journal house style (measured 2026-10-19)
 
-Derived from three published *Patterns* papers already in the local library
+Derived from three published *the journal* papers already in the local library
 (scELMo 2026, BioLLM 2025, GSFM 2026; `docs/SCI-reference/01-scFM/`).
 Page width 603.4 pt, single-column full-width text block 550.6 pt, body text
 7.62 pt bbox, in-figure text 6.28-6.72 pt bbox (approximately 7 pt type).
@@ -135,5 +135,5 @@ Page width 603.4 pt, single-column full-width text block 550.6 pt, body text
 - No explanatory footnote, statistics paragraph or claim sentence inside any figure.
 - No framed legend, no hatching, no filled header pills, no rounded container boxes around analysis panels.
 - Panel letters at 9.5 pt (set by `panel_label`); ticks outward at 2 pt (set by `set_style`).
-- Figures are still built at 178 mm because that is the manuscript's text width; the
+- Figures are still built at 178 mm because that is the figure set's text width; the
   journal's own 25-30 pt inset is a layout decision made after acceptance.

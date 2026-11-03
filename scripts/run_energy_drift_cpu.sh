@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Overnight CPU chain for the Paper 1 energy-model extension (GPU owned by fix-7):
+# Overnight CPU chain for the this study energy-model extension (GPU owned by fix-7):
 #   1) A1 feasibility: EnergyAnchorTrainer CPU forward/backward checks
 #      -> artifacts/paper1_energy_drift/feasibility_a1.json
 #   2) A5 energy-drift layerwise curves (3000 cells, all 13 hidden states)

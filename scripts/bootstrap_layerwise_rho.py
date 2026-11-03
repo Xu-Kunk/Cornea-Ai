@@ -102,7 +102,7 @@ from scipy.stats import spearmanr  # noqa: E402
 
 warnings.filterwarnings("ignore")
 
-# Reuse the manuscript figure styling / colors / save helpers unchanged.
+# Reuse the figure set figure styling / colors / save helpers unchanged.
 from generate_paper1_results_figures import (  # noqa: E402
     _CAFT_SEED_COLORS,
     _FROZEN_RHO_COLOR,

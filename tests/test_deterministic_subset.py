@@ -50,7 +50,7 @@ class TestDeterministicSubset:
 class TestDeterministicSubsetIntegration:
     """Integration test: run the actual subset generator on the 30k h5ad."""
 
-    SRC = ROOT / "artifacts/day3-20260723/S6/corneal_30k_layer_subsample.h5ad"
+    SRC = ROOT / "artifacts/pipeline-20260723/S6/corneal_30k_layer_subsample.h5ad"
 
     @pytest.fixture
     def tmp_out(self, tmp_path: Path) -> Path:

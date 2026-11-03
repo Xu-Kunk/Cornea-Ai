@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# HPA-FT grid launcher (Paper 1 main method) — queue behind fix-7 (D5 ordinal).
+# HPA-FT grid launcher (this study main method) — queue behind fix-7 (D5 ordinal).
 #
 # Queues HPA-FT arms sequentially on the single GB10 GPU, mirroring
 # run_ordinal_grid.py / run_lambda_grid.py conventions:
