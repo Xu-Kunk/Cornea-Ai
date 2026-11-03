@@ -135,9 +135,9 @@ recomputing ρ from the stored embeddings reproduces the recorded values exactly
 
 ## Launch — host, GPU, exact commands
 
-* host `p5070` (`summer@192.168.50.2`, `summer-NUC13RNGi7`), NVIDIA RTX PRO 5000
+* host `p5070` (`<user>@<host>`, `summer-NUC13RNGi7`), NVIDIA RTX PRO 5000
   72 GB Blackwell (73,415 MiB, driver 595.91.07, CUDA 13.2), one job at a time
-* workspace `/home/summer/epi4_ce`; data symlinked to sha-verified copies
+* workspace `<home>/epi4_ce`; data symlinked to sha-verified copies
   (train `bc357c7d…`, external `2e4ef308…`), manifest `f4393ae1…`
 
 ```

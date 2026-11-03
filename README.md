@@ -2,7 +2,7 @@
 
 **Paper 1:** *Annotation accuracy is not a proxy for differentiation order in fine-tuned single-cell foundation models* (active manuscript title, v31)
 
-Target: **Cell Press Patterns** (Research Article; direct submission — MJS cancelled 2026-10-09). Preprint: cancelled (bioRxiv v18 frozen archive retained).
+Target: **Cell Press Patterns** (Research Article; direct submission).
 
 ## Current Status
 
