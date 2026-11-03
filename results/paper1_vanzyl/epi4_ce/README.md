@@ -15,7 +15,6 @@ results/paper1_vanzyl/epi4_ce/
 ├── paired_drho_reference_arms.json     frozen−naive, frozen−ordinal, naive−ordinal
 ├── paired_drho_drop_nonepi.json        frozen−drop_nonepi, drop_nonepi−ordinal
 ├── paired_drho_mask_nonepi.json         frozen−mask_nonepi, mask_nonepi−ordinal
-├── gpu_contention_probe.json           card facts, contention test, ETA basis
 ├── drop_nonepi/                       VARIANT A — COMPLETE (27,878 rows, 2,616 steps)
 │   ├── summary.json, provenance_enrichment.json
 │   └── seed{42,123,456}/{eval_gse153515.json, percell_epi4_{seed}.npz}
@@ -203,7 +202,6 @@ with explicit rc/signal, no retry loop).
 The card is compute/power-bound (SM 100 %, 295–303 W of a 300 W cap, VRAM ~4.3 of
 73.4 GB). A measured contention test found two concurrent training jobs each
 degrade ~2× (epi4 1.40 → 2.88–3.11 s/step) for ~3.4 % aggregate throughput, so
-all arms run strictly serialised (`gpu_contention_probe.json`).
 
 ## Artifact hashes (sha256)
 
