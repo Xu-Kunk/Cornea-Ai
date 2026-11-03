@@ -1,0 +1,30 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple, https://mirrors.aliyun.com/pypi/simple/, https://mirrors.ustc.edu.cn/pypi/web/simple/, https://mirrors.westlake.edu.cn/pypi/simple/
+Collecting optuna
+  Downloading optuna-4.9.0-py3-none-any.whl (425 kB)
+Collecting alembic>=1.5.0 (from optuna)
+  Downloading alembic-1.19.1-py3-none-any.whl (265 kB)
+Collecting colorlog (from optuna)
+  Downloading colorlog-6.12.0-py3-none-any.whl (12 kB)
+Requirement already satisfied: numpy in ./venv/lib/python3.12/site-packages (from optuna) (2.4.6)
+Requirement already satisfied: packaging>=20.0 in ./venv/lib/python3.12/site-packages (from optuna) (26.3)
+Collecting sqlalchemy>=1.4.2 (from optuna)
+  Downloading sqlalchemy-2.0.52-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 7.4 MB/s  0:00:00
+Requirement already satisfied: tqdm in ./venv/lib/python3.12/site-packages (from optuna) (4.70.0)
+Requirement already satisfied: PyYAML in ./venv/lib/python3.12/site-packages (from optuna) (6.0.3)
+Collecting Mako (from alembic>=1.5.0->optuna)
+  Downloading mako-1.4.1-py3-none-any.whl (80 kB)
+Requirement already satisfied: typing-extensions>=4.12 in ./venv/lib/python3.12/site-packages (from alembic>=1.5.0->optuna) (4.16.0)
+Collecting greenlet>=1 (from sqlalchemy>=1.4.2->optuna)
+  Downloading greenlet-3.5.5-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (621 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 621.4/621.4 kB 5.7 MB/s  0:00:00
+Requirement already satisfied: MarkupSafe>=2.0 in ./venv/lib/python3.12/site-packages (from Mako->alembic>=1.5.0->optuna) (3.0.3)
+Installing collected packages: Mako, greenlet, colorlog, sqlalchemy, alembic, optuna
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+geneformer 0.1.0 requires bitsandbytes, which is not installed.
+geneformer 0.1.0 requires optuna-integration, which is not installed.
+geneformer 0.1.0 requires pytz, which is not installed.
+geneformer 0.1.0 requires ray, which is not installed.
+geneformer 0.1.0 requires tensorboard, which is not installed.
+Successfully installed Mako-1.4.1 alembic-1.19.1 colorlog-6.12.0 greenlet-3.5.5 optuna-4.9.0 sqlalchemy-2.0.52

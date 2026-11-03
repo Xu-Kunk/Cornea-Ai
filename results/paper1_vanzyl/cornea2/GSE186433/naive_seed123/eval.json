@@ -1,0 +1,79 @@
+{
+  "dataset": "GSE186433",
+  "seed": 123,
+  "test_donor": "04",
+  "frozen_baseline": {
+    "rho_normed": 0.4180325279440865,
+    "null_z": 14.18624107058685,
+    "probe_f1_macro": 0.8452446090700055
+  },
+  "best_val": {
+    "checkpoint": "model_best_val.pt",
+    "n_eval_cells": 1448,
+    "macro_f1": 0.848084821660379,
+    "bootstrap_ci95": [
+      0.8079197705169877,
+      0.8838843557577422
+    ],
+    "n_boot": 1000,
+    "rho_raw": 0.8183384754652018,
+    "rho_normed": 0.8192041379815701,
+    "null_mean": 0.0162060031541589,
+    "null_sd": 0.02804558653478583,
+    "null_z": 28.631889507157467,
+    "null_pctile": 1.0,
+    "n_null": 100,
+    "probe_f1_macro": 0.8660576710712948,
+    "probe_f1_macro_sd": 0.047896083722238324,
+    "pred_dist": {
+      "LSC": 39,
+      "basal": 446,
+      "differentiated": 963
+    },
+    "y_true_dist": {
+      "LSC": 72,
+      "basal": 436,
+      "differentiated": 940
+    },
+    "wall_s": 13.4
+  },
+  "final_epoch": {
+    "checkpoint": "model_epoch15.pt",
+    "n_eval_cells": 1448,
+    "macro_f1": 0.8685768924359892,
+    "bootstrap_ci95": [
+      0.8325284536557576,
+      0.898443109061974
+    ],
+    "n_boot": 1000,
+    "rho_raw": 0.8109734654841789,
+    "rho_normed": 0.8114313669642205,
+    "null_mean": 0.015777806317714638,
+    "null_sd": 0.028997973566363574,
+    "null_z": 27.438246980452124,
+    "null_pctile": 1.0,
+    "n_null": 100,
+    "probe_f1_macro": 0.8712860055807192,
+    "probe_f1_macro_sd": 0.0290145392136848,
+    "pred_dist": {
+      "LSC": 68,
+      "basal": 441,
+      "differentiated": 939
+    },
+    "y_true_dist": {
+      "LSC": 72,
+      "basal": 436,
+      "differentiated": 940
+    },
+    "wall_s": 12.4
+  },
+  "collapse_reproduced": {
+    "rho_naive_best_val": 0.8192041379815701,
+    "rho_naive_final_epoch": 0.8114313669642205,
+    "rho_frozen": 0.4180325279440865,
+    "delta_best_val": -0.4011716100374836,
+    "delta_final_epoch": -0.39339883902013395,
+    "note": "naive fine-tuning destroys the differentiation gradient if delta (frozen - naive) is large positive"
+  },
+  "timestamp_utc": "2026-08-19T15:13:00+00:00"
+}

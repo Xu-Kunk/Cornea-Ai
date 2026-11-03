@@ -27,7 +27,7 @@
 set -u
 
 PROJECT="$(cd "$(dirname "$0")/.." && pwd)"
-PY="${PY:-python3}"
+PY="${PY:-/home/dq/venv-ds/bin/python3}"
 ART="${PROJECT}/artifacts/paper1_hp_aft"
 LOG_DIR="${ART}/logs"
 STATUS_TSV="${ART}/runs_status.tsv"

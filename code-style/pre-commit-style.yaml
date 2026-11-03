@@ -1,0 +1,26 @@
+# pre-commit 风格钩子片段（Python ruff + R lintr）
+# 分工：styler 管格式（空格/引号/行宽）、lintr 管逻辑与命名；先 style-files 后 lintr，重叠项以 styler 为准
+# 用法：合并到项目 .pre-commit-config.yaml 的 repos: 列表末尾
+# 前置：pip install pre-commit；R 项目需已装 lintr 包
+
+  # ── Code style: Python (ruff，整合 flake8+isort+black) ──
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.1
+    hooks:
+      - id: ruff
+        # 自动修复 + 有修复时退出码 1（便于 CI 感知）
+        args: ["--fix", "--exit-non-zero-on-fix"]
+      - id: ruff-format
+
+  # ── Code style: R (styler 自动格式化：先格式化) ──
+  - repo: https://github.com/lorenzwalthert/precommit
+    rev: v0.5.1
+    hooks:
+      - id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style]
+
+  # ── Code style: R (lintr：后检查逻辑与命名，读取 .lintr.R) ──
+  - repo: https://github.com/r-lib/lintr
+    rev: v3.4.0
+    hooks:
+      - id: lintr

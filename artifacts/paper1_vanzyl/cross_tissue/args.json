@@ -1,0 +1,63 @@
+{
+  "arm": "naive",
+  "seed": 123,
+  "epochs": 15,
+  "dry_run": false,
+  "max_cells": 16519,
+  "dtype": "bfloat16",
+  "bf16_fallback_used": false,
+  "n_cls": 4,
+  "naive_classes": [
+    "basal",
+    "differentiated",
+    "spinous",
+    "suprabasal"
+  ],
+  "model": {
+    "ntoken": 60697,
+    "embsize": 512,
+    "nheads": 8,
+    "d_hid": 512,
+    "nlayers": 12,
+    "n_layers_cls": 3,
+    "dropout": 0.2,
+    "n_bins": 51,
+    "max_seq_len": 1200,
+    "input_emb_style": "continuous",
+    "cell_emb_style": "cls",
+    "pad_token": "<pad>",
+    "pad_value": -2
+  },
+  "training": {
+    "lr": 5e-05,
+    "weight_decay": 0.001,
+    "warmup_steps": 500,
+    "batch_size": 8,
+    "grad_accum": 4,
+    "effective_batch": 32,
+    "max_len": 4253
+  },
+  "data": {
+    "n_train_cells_full": 16519,
+    "n_train_cells_90pct": 14683,
+    "n_val_cells": 1836,
+    "n_genes_in_vocab": 3823,
+    "n_ordinal_valid": 16519
+  },
+  "results": {
+    "first_loss": 1.533203125,
+    "best_val_f1": 0.9592057843308195,
+    "best_val_f1_epoch": 10,
+    "best_val_rho": 0.8759441007140127,
+    "best_val_rho_epoch": 1,
+    "collapse": {
+      "epoch": 10,
+      "threshold": 0.0395,
+      "frozen_baseline": 0.1895
+    },
+    "per_step_s": 0.03694118636192926,
+    "wall_s": 1017.3602721691132,
+    "peak_gpu_gb": 2.06020352
+  },
+  "timestamp_utc": "2026-08-20T11:52:30+00:00"
+}

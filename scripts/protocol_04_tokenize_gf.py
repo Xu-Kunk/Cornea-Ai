@@ -9,6 +9,15 @@ Pre-processing:
   - Computes n_counts per cell
   - Uses use_h5ad_index=True (ensembl_id in var.index)
   - Saves preprocessed copies to temp dirs to preserve originals
+
+CLI (added 2026-08-18, behavior-preserving):
+  No arguments  -> legacy dual-file flow (corneal_100k + corneal_20k),
+                   identical to the pre-CLI version (hardcoded paths kept
+                   as the defaults; all tokenization science untouched).
+  --input FILE  -> single-file flow; requires --output-dir and --prefix.
+  --custom-attrs -> comma-separated obs columns to carry into the tokenized
+                   dataset (default: the legacy CUSTOM_ATTRS set); used for
+                   van Zyl runs to trace cell_class_4 etc.
 """
 
 import sys
@@ -16,6 +25,7 @@ import os
 import shutil
 import time
 import tempfile
+import argparse
 from pathlib import Path
 
 import anndata as ad
@@ -42,11 +52,59 @@ NPROC = 4
 CHUNK_SIZE = 512
 
 
-def preprocess_h5ad(src_path: Path, dst_path: Path) -> dict:
+def parse_args() -> argparse.Namespace:
+    """CLI args; every default reproduces the legacy hardcoded flow."""
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "--input", type=Path, default=None,
+        help=f"Input h5ad to tokenize (single file). When omitted, the legacy "
+             f"dual-file flow runs on the hardcoded defaults: "
+             f"{TRAIN_INPUT.name} -> {TRAIN_OUT} (prefix 'corneal_100k') and "
+             f"{TEST_INPUT.name} -> {TEST_OUT} (prefix 'corneal_20k').",
+    )
+    parser.add_argument(
+        "--output-dir", type=Path, default=None,
+        help="Directory for the tokenized <prefix>.dataset (required when "
+             "--input is given). Legacy default: per-file dirs "
+             f"({TRAIN_OUT.name} / {TEST_OUT.name}).",
+    )
+    parser.add_argument(
+        "--prefix", default=None,
+        help="Dataset output prefix (produces <prefix>.dataset in "
+             "--output-dir; required when --input is given). Legacy defaults: "
+             "'corneal_100k' / 'corneal_20k'.",
+    )
+    parser.add_argument(
+        "--custom-attrs", default=None,
+        help="Comma-separated obs columns to carry into the tokenized dataset "
+             f"(default: {', '.join(CUSTOM_ATTRS)}). Example for van Zyl: "
+             "cell_type,disease,tissue,donor_id,author_cell_type,cell_class_4",
+    )
+    return parser.parse_args()
+
+
+def attrs_from_cli(cli_str: str | None) -> dict:
+    """Map --custom-attrs CSV -> {obs_col: dataset_col} (legacy default set
+    when the flag is absent, so no-arg behavior is unchanged)."""
+    if cli_str is None:
+        return CUSTOM_ATTRS
+    cols = [c.strip() for c in cli_str.split(",") if c.strip()]
+    assert cols, "--custom-attrs contained no column names"
+    return {c: c for c in cols}
+
+
+def preprocess_h5ad(src_path: Path, dst_path: Path,
+                    attrs: dict | None = None) -> dict:
     """
     Load h5ad, promote .raw.X to .X, compute n_counts, save preprocessed copy.
     Returns summary stats.
     """
+    if attrs is None:
+        attrs = CUSTOM_ATTRS
+
     print(f"\n{'='*60}")
     print(f"Preprocessing: {src_path.name}")
     print(f"{'='*60}")
@@ -54,7 +112,7 @@ def preprocess_h5ad(src_path: Path, dst_path: Path) -> dict:
     adata = ad.read_h5ad(str(src_path))
 
     # --- Check metadata columns ---
-    for col in CUSTOM_ATTRS:
+    for col in attrs:
         assert col in adata.obs.columns, (
             f"Column '{col}' missing from obs columns: {list(adata.obs.columns)}"
         )
@@ -88,15 +146,23 @@ def preprocess_h5ad(src_path: Path, dst_path: Path) -> dict:
         "cells": adata.shape[0],
         "genes": adata.shape[1],
         "mean_n_counts": float(sums.mean()),
+        "min_n_counts": float(sums.min()),
+        "max_n_counts": float(sums.max()),
         "file_size_mb": file_size_mb,
     }
 
 
-def tokenize_dataset(input_h5ad: Path, output_dir: Path, prefix: str) -> dict:
+def tokenize_dataset(input_h5ad: Path, output_dir: Path, prefix: str,
+                     attrs: dict | None = None) -> dict:
     """
     Tokenize a single preprocessed h5ad file using TranscriptomeTokenizer.
     Uses a temp directory approach since tokenize_data reads from a directory.
+    ``attrs`` is the custom-attr mapping carried into the tokenized dataset
+    (default: the module CUSTOM_ATTRS — legacy behavior when not given).
     """
+    if attrs is None:
+        attrs = CUSTOM_ATTRS
+
     print(f"\n{'='*60}")
     print(f"Tokenizing: {input_h5ad.name} → {output_dir} ({prefix})")
     print(f"{'='*60}")
@@ -109,7 +175,7 @@ def tokenize_dataset(input_h5ad: Path, output_dir: Path, prefix: str) -> dict:
 
     # Initialize tokenizer
     tk = TranscriptomeTokenizer(
-        custom_attr_name_dict=CUSTOM_ATTRS,
+        custom_attr_name_dict=attrs,
         nproc=NPROC,
         chunk_size=CHUNK_SIZE,
         model_version="V2",
@@ -147,6 +213,7 @@ def tokenize_dataset(input_h5ad: Path, output_dir: Path, prefix: str) -> dict:
         "cells": len(ds),
         "avg_tokens_per_cell": token_count / len(ds),
         "median_tokens_per_cell": float(np.median(lengths)),
+        "p95_tokens_per_cell": float(np.percentile(lengths, 95)),
         "min_tokens": min(lengths),
         "max_tokens": max(lengths),
         "total_tokens": token_count,
@@ -157,22 +224,25 @@ def tokenize_dataset(input_h5ad: Path, output_dir: Path, prefix: str) -> dict:
     print(f"\n  ✅ Tokenized {stats['cells']} cells in {stats['elapsed_min']:.1f} min")
     print(f"     Avg tokens/cell: {stats['avg_tokens_per_cell']:.1f}")
     print(f"     Median tokens/cell: {stats['median_tokens_per_cell']:.1f}")
+    print(f"     P95 tokens/cell: {stats['p95_tokens_per_cell']:.1f}")
     print(f"     Total tokens: {stats['total_tokens']:,}")
 
     return stats
 
 
-def verify_metadata_integrity(ds, name: str):
+def verify_metadata_integrity(ds, name: str, attrs: dict | None = None):
     """Verify all custom metadata columns exist and have no missing values."""
+    if attrs is None:
+        attrs = CUSTOM_ATTRS
     print(f"\n  Metadata check for {name}:")
-    for col in CUSTOM_ATTRS.values():
+    for col in attrs.values():
         values = ds[col]
         n_missing = sum(1 for v in values if v is None or (isinstance(v, float) and np.isnan(v)))
         n_unique = len(set(v for v in values if v is not None))
         print(f"    {col}: {len(values)} entries, {n_unique} unique, {n_missing} missing")
 
 
-def verify_dataset(dataset_path: Path, name: str):
+def verify_dataset(dataset_path: Path, name: str, attrs: dict | None = None):
     """Verify tokenized dataset integrity."""
     from datasets import load_from_disk
 
@@ -203,12 +273,71 @@ def verify_dataset(dataset_path: Path, name: str):
     print(f"  Cells with EOS token (id=2): {eos_count}/{len(ds)}")
 
     # Metadata verification
-    verify_metadata_integrity(ds, name)
+    verify_metadata_integrity(ds, name, attrs)
 
     return {"cells": len(ds), "mean_length": float(lengths.mean()), "total_tokens": int(lengths.sum())}
 
 
+def main_single(args: argparse.Namespace) -> None:
+    """Single-file flow (--input given): preprocess -> tokenize -> verify."""
+    assert args.output_dir is not None, "--output-dir is required when --input is given"
+    assert args.prefix, "--prefix is required when --input is given"
+
+    attrs = attrs_from_cli(args.custom_attrs)
+    input_path = Path(args.input)
+    output_dir = Path(args.output_dir)
+
+    print("=" * 60)
+    print("GEFORMER TRANSCRIPTOME TOKENIZER — SINGLE-FILE MODE")
+    print("=" * 60)
+    print(f"Input:      {input_path}")
+    print(f"Output dir: {output_dir}")
+    print(f"Prefix:     {args.prefix}")
+    print(f"Custom attrs: {attrs}")
+    print()
+
+    assert input_path.exists(), f"Input file not found: {input_path}"
+    assert input_path.stat().st_size > 0, f"Input file empty: {input_path}"
+
+    # Preprocess into a scratch dir (mirrors the legacy tmp_prep_* approach),
+    # then tokenize; scratch dir is removed regardless of outcome.
+    prep_dir = Path(tempfile.mkdtemp(prefix="gf_prep_"))
+    try:
+        prep_path = prep_dir / input_path.name
+        prep_stats = preprocess_h5ad(input_path, prep_path, attrs=attrs)
+        print(f"  Preprocessed: {prep_stats['cells']} cells, "
+              f"{prep_stats['genes']} genes")
+
+        output_dir.mkdir(parents=True, exist_ok=True)
+        tk_stats = tokenize_dataset(prep_path, output_dir, args.prefix, attrs=attrs)
+    finally:
+        shutil.rmtree(prep_dir, ignore_errors=True)
+        print(f"  Cleaned up: {prep_dir}")
+
+    verify = verify_dataset(output_dir / f"{args.prefix}.dataset", args.prefix, attrs=attrs)
+
+    print(f"\n{'='*60}")
+    print("SUMMARY (single-file)")
+    print(f"{'='*60}")
+    print(f"  Cells: {verify['cells']} (n_counts min={prep_stats['min_n_counts']:.0f}, "
+          f"max={prep_stats['max_n_counts']:.0f})")
+    print(f"  Tokens/cell: median={tk_stats['median_tokens_per_cell']:.1f}, "
+          f"p95={tk_stats['p95_tokens_per_cell']:.1f}, "
+          f"max={tk_stats['max_tokens']}")
+    print(f"  Total tokens: {tk_stats['total_tokens']:,}")
+    print(f"  Dataset: {tk_stats['dataset_path']}")
+    print(f"  Metadata: {', '.join(attrs.values())}")
+    print(f"  Elapsed: {tk_stats['elapsed_min']:.1f} min")
+    print("✅ DONE")
+
+
 def main():
+    args = parse_args()
+
+    if args.input is not None:
+        main_single(args)
+        return
+
     print("=" * 60)
     print("GEFORMER TRANSCRIPTOME TOKENIZER — CORNEAL DATA")
     print("=" * 60)

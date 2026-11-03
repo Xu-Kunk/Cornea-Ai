@@ -1,0 +1,38 @@
+[00:48:35] PCS spec + input SHA-256 manifest frozen -> pcs_frozen_spec.json
+[00:48:43] GSE147424 frozen         rho=0.2395 z=+23.16 (null +0.0149 +/- 0.0097, n=100)
+[00:48:52] GSE147424 ce_naive       rho=0.4551 z=+53.69 (null +0.0102 +/- 0.0083, n=100)
+[00:49:00] GSE147424 corns_ordinal  rho=0.4997 z=+73.61 (null +0.0089 +/- 0.0067, n=100)
+[00:49:08] GSE147424 caft           rho=0.4457 z=+49.17 (null +0.0114 +/- 0.0088, n=100)
+[00:49:16] GSE147424 aa_ft_newaxis  rho=0.5341 z=+57.50 (null +0.0110 +/- 0.0091, n=100)
+[00:49:24] GSE147424 ss_newaxis     rho=0.5454 z=+72.48 (null +0.0099 +/- 0.0074, n=100)
+[00:49:30] GSE202352 frozen         rho=0.5180 z=+42.05 (null +0.0156 +/- 0.0119, n=100)
+[00:49:36] GSE202352 ce_naive       rho=0.7143 z=+85.60 (null +0.0114 +/- 0.0082, n=100)
+[00:49:42] GSE202352 corns_ordinal  rho=0.7382 z=+100.82 (null +0.0087 +/- 0.0072, n=100)
+[00:49:48] GSE202352 caft           rho=0.7210 z=+84.16 (null +0.0123 +/- 0.0084, n=100)
+[00:49:55] GSE202352 aa_ft_newaxis  rho=0.7281 z=+90.10 (null +0.0106 +/- 0.0080, n=100)
+[00:50:01] GSE202352 ss_newaxis     rho=0.7589 z=+111.97 (null +0.0089 +/- 0.0067, n=100)
+[00:50:10] CellPLM frozen vanZyl rho_raw=0.8634 rho_normed=0.8652 z=+115.51 (null +0.0110 +/- 0.0074)
+[00:50:10] === BH-FDR full grid: family=21 significant=20 (q<0.05) ===
+[00:50:10] GF vanZyl frozen             rho=+0.8064 z= +120.71 p=0.00e+00 q=0.00e+00 *
+[00:50:10] GF vanZyl CORN               rho=+0.8330 z= +124.72 p=0.00e+00 q=0.00e+00 *
+[00:50:10] scGPT vanZyl frozen          rho=+0.7887 z=  +99.34 p=0.00e+00 q=0.00e+00 *
+[00:50:10] scGPT vanZyl naive           rho=+0.5554 z=  +57.99 p=0.00e+00 q=0.00e+00 *
+[00:50:10] scGPT vanZyl CORN            rho=+0.8188 z= +130.18 p=0.00e+00 q=0.00e+00 *
+[00:50:10] scGPT vanZyl LoRA            rho=+0.8336 z=  +98.00 p=0.00e+00 q=0.00e+00 *
+[00:50:10] scGPT GSE155683 frozen       rho=+0.5285 z=  +60.18 p=0.00e+00 q=0.00e+00 *
+[00:50:10] scGPT GSE155683 naive        rho=+0.8568 z= +103.53 p=0.00e+00 q=0.00e+00 *
+[00:50:10] GF epidermis naive           rho=+0.4551 z=  +53.69 p=0.00e+00 q=0.00e+00 *
+[00:50:10] GF epidermis CORN            rho=+0.4997 z=  +73.61 p=0.00e+00 q=0.00e+00 *
+[00:50:10] GF epidermis frozen          rho=+0.5180 z=  +42.05 p=0.00e+00 q=0.00e+00 *
+[00:50:10] GF epidermis naive           rho=+0.7143 z=  +85.60 p=0.00e+00 q=0.00e+00 *
+[00:50:10] GF epidermis CORN            rho=+0.7382 z= +100.82 p=0.00e+00 q=0.00e+00 *
+[00:50:10] CellPLM vanZyl frozen        rho=+0.8652 z= +115.51 p=0.00e+00 q=0.00e+00 *
+[00:50:10] scGPT GSE186433 naive        rho=+0.8175 z=  +28.45 p=2.14e-178 q=3.00e-178 *
+[00:50:10] GF epidermis frozen          rho=+0.2395 z=  +23.16 p=6.34e-119 q=8.32e-119 *
+[00:50:10] scGPT GSE186433 frozen       rho=+0.4180 z=  +14.19 p=5.57e-46 q=6.89e-46 *
+[00:50:10] GF vanZyl GF official 1-epoch (E3, 6-seed mean) rho=+0.0568 z=   +7.98 p=7.14e-16 q=8.33e-16 *
+[00:50:10] scGPT epidermis frozen       rho=+0.1895 z=   +6.52 p=3.51e-11 q=3.88e-11 *
+[00:50:10] scGPT epidermis naive        rho=+0.1340 z=   +5.26 p=7.04e-08 q=7.39e-08 *
+[00:50:10] GF vanZyl naive              rho=-0.0424 z=   -8.53 p=1.00e+00 q=1.00e+00 
+[00:50:10] saved bh_fdr_table.json + full_grid.json (21 family rows, 6 pending)
+[00:50:10] DONE

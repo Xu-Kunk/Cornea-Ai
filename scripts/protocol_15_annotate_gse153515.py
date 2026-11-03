@@ -71,7 +71,7 @@ distinguish wing from squamous at the cluster level, these are merged as
 
 Usage
 -----
-    python3 scripts/protocol_15_annotate_gse153515.py \
+    /home/dq/venv-ds/bin/python3 scripts/protocol_15_annotate_gse153515.py \
         [--input data/gse153515_limbal_stem.h5ad] \
         [--output data/gse153515_annotated.h5ad] [--force] \
         [--seed 42] [--resolution 0.6]

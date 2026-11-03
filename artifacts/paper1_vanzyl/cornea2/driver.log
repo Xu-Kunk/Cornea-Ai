@@ -1,0 +1,22 @@
+21:57:29 === cornea2 driver start (python=/home/summer/corneal_scgpt/repo/.venv/bin/python) ===
+21:57:29 frozen GSE186433: rho_normed=0.4180 z=14.2
+21:57:29 RE-TRAIN GSE186433 seed42: marker present but model_epoch15.pt missing (1 epochs found; incomplete run)
+21:57:29 === train GSE186433 naive seed42 (15 epochs) ===
+22:17:49 DONE train GSE186433 seed42: 20.3 min
+22:17:49 RE-EVAL GSE186433 seed42: eval.json older than model_epoch15.pt (stale after re-train)
+22:17:49 === eval GSE186433 seed42 (best-val + final-epoch) ===
+22:18:29 DONE eval GSE186433 seed42: 0.7 min
+22:18:29 SKIP train GSE186433 seed123: already DONE (15 epochs complete)
+22:18:29 frozen GSE155683: rho_normed=0.5285 z=60.2
+22:18:29 RE-TRAIN GSE155683 seed42: marker present but model_epoch15.pt missing (1 epochs found; incomplete run)
+22:18:29 === train GSE155683 naive seed42 (15 epochs) ===
+23:24:51 DONE train GSE155683 seed42: 66.4 min
+23:24:51 RE-EVAL GSE155683 seed42: eval.json older than model_epoch15.pt (stale after re-train)
+23:24:51 === eval GSE155683 seed42 (best-val + final-epoch) ===
+23:46:46 DONE eval GSE155683 seed42: 21.9 min
+23:46:46 SKIP train GSE155683 seed123: already DONE (15 epochs complete)
+23:46:46 SUMMARY GSE186433: frozen rho=0.4180 | s42 bv_rho=0.8158 | s123 bv_rho=0.8192
+23:46:46 SUMMARY GSE155683: frozen rho=0.5285 | s42 bv_rho=0.8362 | s123 bv_rho=0.8775
+23:46:46 === cornea2 driver DONE ===
+MMARY GSE155683: frozen rho=0.5285 | s42 bv_rho=0.8362 | s123 bv_rho=0.8775
+23:46:46 === cornea2 driver DONE ===

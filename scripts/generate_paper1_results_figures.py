@@ -1,4 +1,12 @@
 #!/usr/bin/env python
+# LIBRARY ONLY (2026-10-19).  This module is retained because
+# `scripts/analyze_trajectory_continuity.py` and `scripts/sens_umap_fig.py`
+# import its locked palette and save helpers.  Its figure-producing entry
+# point is SUPERSEDED: every manuscript figure now has a dedicated
+# `scripts/figure*.py` producer.  Do not run this file to regenerate
+# manuscript figures; doing so overwrites the rebuilt artwork with the old
+# canvases and re-introduces one-figure-multiple-producers.
+
 """Generate publication-quality RESULTS figures and tables for the Paper1
 manuscript (Ophthalmology Science / Elsevier style).
 
@@ -11,7 +19,7 @@ Reads the Tier-B external-test evaluation outputs produced by
 and renders the results figures for the manuscript:
 
 Outputs (figures/paper1/):
-  figure4_external_test_eval.pdf/.png    — external test overview (2x2, 7x7 in):
+  figure5_external_eval.pdf/.png         — external test overview (2x2, 7x7 in):
       A  UMAP colored by predicted cell type (best model; falls back to the
          ground-truth harmonized cell type when per-cell predictions are not
          yet stored — the eval pipeline does not persist per-cell labels)
@@ -25,16 +33,16 @@ Outputs (figures/paper1/):
          baselines HVG/PCA (0.6192) and frozen-Geneformer (0.4421) are drawn
          as dash-dot reference lines (labeled *ext*)
       B  Per-donor F1 strip plot (individual donor scores per arm x seed)
-  figure6_caft_continuity.pdf/.png       — continuity analysis (1x3, 10x3.5 in):
+  figure7_continuity_metrics.pdf/.png    — continuity analysis (1x3, 10x3.5 in):
       A  Layer adjacency accuracy (LAA)   B  differentiation gradient Spearman rho
       C  expected calibration error (ECE)
-  figure7_layerwise_rho.pdf/.png         — layerwise differentiation-gradient Spearman rho
+  figure2_layerwise_rho.pdf/.png         — layerwise differentiation-gradient Spearman rho
       (single panel, 7x3.5 in): x = transformer layers 1-12; frozen-Geneformer
-      as a thick dark solid line, naive fine-tune (lambda=0) and CAFT
-      (lambda=0.5) each as three seed lines in the blue-green / pink hue
-      families; key points annotated (naive L3 peak, L12 collapse, frozen
-      L12 peak 0.806)
-  figure7_layerwise_rho.csv              — all 7 models x 12 transformer-layer
+      as a thick dark solid line, naive fine-tune (lambda=0) as three seed
+      lines in the blue hue family (the CAFT lambda=0.5 family is retired
+      from the paper); key points annotated (naive L3 peak, L12 collapse,
+      frozen L12 peak 0.806)
+  figure2_layerwise_rho.csv              — all 4 models x 12 transformer-layer
       rho values (long format), for the data-availability statement
   table_t3_primary_endpoint.csv          — Arm, macro-F1 (95% CI), per-donor F1
   table_t4_per_class_metrics.csv         — Arm, Class, P/R/F1, Support
@@ -43,8 +51,8 @@ Outputs (figures/paper1/):
 
 Notes
 -----
-* Okabe-Ito colorblind-safe palette; Liberation Sans (metric-compatible with
-  Arial) is used because Arial/Helvetica are not installed on this system.
+* Okabe-Ito colorblind-safe palette; Arial (TrueType, msttcorefonts); Liberation Sans kept as a
+  metric-equivalent fallback only.
 * Figures are saved as vector PDF (editable text, ``pdf.fonttype=42``) plus
   300-dpi PNG.  Each PDF carries provenance metadata in its Title field.
 * Missing data is handled gracefully: arms without results JSON are skipped,
@@ -55,8 +63,8 @@ Notes
 
 Usage
 -----
-    python3 scripts/generate_paper1_results_figures.py
-    python3 scripts/generate_paper1_results_figures.py \
+    /home/dq/venv-ds/bin/python3 scripts/generate_paper1_results_figures.py
+    /home/dq/venv-ds/bin/python3 scripts/generate_paper1_results_figures.py \
         --results_dir artifacts/paper1_tier_b_eval --output_dir figures/paper1
 """
 
@@ -79,6 +87,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from matplotlib.patches import Patch
 
 warnings.filterwarnings("ignore")
 
@@ -92,6 +101,14 @@ DEFAULT_OUT_DIR = PROJECT_ROOT / "figures" / "paper1"
 DEFAULT_EXTERNAL_H5AD = PROJECT_ROOT / "data" / "gse153515_annotated.h5ad"
 DEFAULT_LAYERWISE_RHO_JSON = (
     PROJECT_ROOT / "artifacts" / "paper1_layerwise_rho" / "summary.json"
+)
+# v6: ordinal-head arms live in a separate evaluation directory (same schema
+# as the tier-B JSONs: results_{lambda}_{seed}.json).  Corrected ECE
+# (half-open [lo,hi) binning, audited) for the archived CE arms is read from
+# artifacts/paper1_pipeline_audit/ece_corrected.json.
+DEFAULT_ORDINAL_DIR = PROJECT_ROOT / "artifacts" / "paper1_ordinal_eval"
+DEFAULT_ECE_CORRECTED_JSON = (
+    PROJECT_ROOT / "artifacts" / "paper1_pipeline_audit" / "ece_corrected.json"
 )
 
 # Okabe-Ito colorblind-safe palette
@@ -115,13 +132,39 @@ CELLTYPE_COLORS = {
 }
 DONOR_COLORS = {"donor_1": OI_BLUE, "donor_2": OI_ORANGE}
 
-# Fine-tuned CAFT arms (lambda -> display name / bar color).
-ARM_LAMBDAS = [0.0, 0.5]
-ARM_LABELS = {0.0: "Fine-tune \u03bb=0", 0.5: "CAFT \u03bb=0.5"}
-ARM_COLORS = {0.0: OI_BLUE, 0.5: OI_VERMILLION}
+# Fine-tuned arms (lambda -> display name / bar color).  The CAFT arm
+# (lambda=0.5) is retired from the paper: its continuity term never executed
+# (dead-code defect -> trained pure cross-entropy), so only the naive
+# lambda=0 arm remains in this registry.  Ordinal-head arms (ordinal-naive /
+# ordinal-CAFT) are tracked separately in ORDINAL_ARM_LABELS below.
+ARM_LAMBDAS = [0.0]
+ARM_LABELS = {0.0: "Fine-tune \u03bb=0"}
+ARM_COLORS = {0.0: OI_BLUE}
+
+# ---------------------------------------------------------------------------
+# v6 unified arm -> color mapping (shared by every Paper 1 figure):
+#   frozen = dark gray  |  naive = blue  |  ordinal(-naive) = green  |
+#   ordinal-CAFT = orange (ordinal family second slot)  |  AA-FT /
+#   soft-Spearman / flow = remaining Okabe-Ito (sky / pink / dark-yellow).
+#   CAFT (vermillion) is retired from the paper: its continuity term never
+#   executed (dead-code defect -> trained pure cross-entropy).
+# ---------------------------------------------------------------------------
+ARM_COLOR_FROZEN = "#333333"
+ARM_COLOR_NAIVE = OI_BLUE            # #0072B2
+ARM_COLOR_ORDINAL_NAIVE = OI_BLUEGREEN   # #009E73
+ARM_COLOR_ORDINAL_CAFT = OI_ORANGE       # #E69F00
+ARM_COLOR_AAFT = OI_SKYBLUE          # #56B4E9
+ARM_COLOR_SS = OI_PINK               # #CC79A7
+ARM_COLOR_FLOW = "#C5A500"           # darkened Okabe-Ito yellow (readable on white)
+
+# Ordinal-head arms (CORN; separate evaluation dir).
+ORDINAL_ARM_LABELS = {0.0: "ordinal-naive", 0.5: "ordinal-CAFT"}
+ORDINAL_ARM_COLORS = {0.0: ARM_COLOR_ORDINAL_NAIVE, 0.5: ARM_COLOR_ORDINAL_CAFT}
 
 # Internal baselines (training-split values, NOT external test). Drawn as
 # dashed reference lines when no external-eval JSON exists for them.
+# v6 palette: frozen = #333333, HVG/PCA = #999999 (identical to the unified
+# arm mapping used by every other Paper 1 figure).
 INTERNAL_BASELINES = [
     {
         "key": "HVG/PCA",
@@ -133,7 +176,7 @@ INTERNAL_BASELINES = [
         "key": "Frozen GF",
         "label": "scFM frozen Geneformer (internal)",
         "macro_f1": 0.8834,
-        "color": OI_SKYBLUE,
+        "color": ARM_COLOR_FROZEN,
     },
 ]
 
@@ -149,8 +192,8 @@ EXTERNAL_BASELINE_LABELS = {
     "Frozen GF": "Frozen GF (ext)",
 }
 EXTERNAL_BASELINE_COLORS = {
-    "HVG/PCA": OI_BLUEGREEN,
-    "Frozen GF": OI_PINK,
+    "HVG/PCA": OI_GRAY,
+    "Frozen GF": ARM_COLOR_FROZEN,
 }
 
 RESULT_FILE_RE = re.compile(r"^results_(\d+(?:\.\d+)?)_(\d+)\.json$")
@@ -163,8 +206,8 @@ RESULT_FILE_RE = re.compile(r"^results_(\d+(?:\.\d+)?)_(\d+)\.json$")
 def setup_style() -> None:
     plt.rcParams.update(
         {
-            "font.family": "sans-serif",
-            "font.sans-serif": ["Arial", "Helvetica", "Liberation Sans", "DejaVu Sans"],
+            "font.family": "Liberation Sans",
+            "font.sans-serif": ["Liberation Sans", "Arial", "Helvetica", "DejaVu Sans"],
             "font.size": 8,
             "axes.labelsize": 8,
             "axes.titlesize": 8,
@@ -174,6 +217,9 @@ def setup_style() -> None:
             "figure.dpi": 100,
             "savefig.dpi": 300,
             "savefig.bbox": None,
+            "figure.facecolor": "white",
+            "axes.facecolor": "white",
+            "savefig.facecolor": "white",
             "pdf.fonttype": 42,  # embed TrueType (editable text in vector PDF)
             "ps.fonttype": 42,
             "axes.linewidth": 0.6,
@@ -185,17 +231,52 @@ def setup_style() -> None:
 
 
 def panel_label(fig: plt.Figure, ax: plt.Axes, label: str) -> None:
-    """Place a bold uppercase panel label (12 pt) at the top-left of `ax`."""
+    """Place a bold uppercase panel label (8 pt, v8fix hierarchy) at the
+    top-left of `ax`.
+
+    The letter is anchored just above the panel title's rendered top edge so
+    it can never collide with the (possibly long) title or the top y-tick
+    labels.  Falls back to a fixed offset when the title is empty or the
+    canvas cannot be drawn yet.
+    """
+    try:
+        fig.canvas.draw()
+        renderer = fig.canvas.get_renderer()
+        tb = ax.title.get_window_extent(renderer)
+        if tb.height > 0:
+            y_disp = tb.y1 + 7  # 7 px gap above the title
+            x_disp = ax.get_position().x0 * fig.bbox.width - 0.02 * fig.bbox.width
+            xf, yf = fig.transFigure.inverted().transform((x_disp, y_disp))
+            fig.text(xf, yf, label, fontsize=8, fontweight="bold",
+                     va="bottom", ha="left")
+            return
+    except Exception:  # noqa: BLE001 - fall back to a fixed offset
+        pass
     pos = ax.get_position()
     fig.text(
-        pos.x0 - 0.004,
-        pos.y1 + 0.008,
+        pos.x0 - 0.06,
+        pos.y1 + 0.03,
         label,
-        fontsize=12,
+        fontsize=8,
         fontweight="bold",
         va="bottom",
         ha="left",
     )
+
+
+def corner_panel_label(fig: plt.Figure, ax: plt.Axes, label: str,
+                       size: float = 8.0) -> None:
+    """8 pt bold panel tag inside the axes top-left corner (0.1 in from the
+    left edge, 0.15 in from the top) — v8fix / Cell Press convention for
+    single-panel figures."""
+    fig.canvas.draw()
+    bb = ax.get_position()
+    fig_w, fig_h = fig.get_size_inches()
+    ax_w_in = bb.width * fig_w
+    ax_h_in = bb.height * fig_h
+    ax.text(0.1 / ax_w_in, 1.0 - 0.15 / ax_h_in, label,
+            transform=ax.transAxes, fontsize=size, fontweight="bold",
+            ha="left", va="top")
 
 
 def figure_metadata(title: str) -> dict[str, str]:
@@ -206,7 +287,7 @@ def figure_metadata(title: str) -> dict[str, str]:
         "Author": "Corneal-FM (Paper1, Ophthalmology Science)",
         "Subject": "Tier-B external-test evaluation, GSE153515 "
                    f"(generated {generated} UTC)",
-        "Keywords": "CAFT; Geneformer; donor-level macro-F1; GSE153515",
+        "Keywords": "Geneformer; donor-level macro-F1; GSE153515",
         "Creator": "scripts/generate_paper1_results_figures.py",
     }
 
@@ -218,10 +299,10 @@ def save_figure(
     out_pdf = out_dir / f"{name}.pdf"
     out_png = out_dir / f"{name}.png"
     if metadata:  # PNG backend does not support a metadata kwarg
-        fig.savefig(out_pdf, dpi=300, metadata=metadata)
+        fig.savefig(out_pdf, dpi=300, metadata=metadata, facecolor="white")
     else:
-        fig.savefig(out_pdf, dpi=300)
-    fig.savefig(out_png, dpi=300)
+        fig.savefig(out_pdf, dpi=300, facecolor="white")
+    fig.savefig(out_png, dpi=300, facecolor="white")
     plt.close(fig)
     return [out_pdf, out_png]
 
@@ -395,7 +476,12 @@ def _load_arm_frame(
         for _, r in sdf.iterrows():
             lam = _numeric(r.get("lambda"))
             seed = int(r.get("seed")) if _numeric(r.get("seed")) is not None else None
-            if lam is None or seed is None or (lam, seed) in records:
+            if (
+                lam is None
+                or seed is None
+                or (lam, seed) in records
+                or lam == 0.5  # retired CAFT rows: continuity term never ran
+            ):
                 continue
             rows.append(
                 {
@@ -420,7 +506,8 @@ def _load_arm_frame(
 
 
 def _best_key(records: dict[tuple[float, int], dict[str, Any]]) -> tuple[float, int] | None:
-    """Best-model checkpoint: CAFT lambda=0.5 (lowest seed), else lambda=0."""
+    """Best-model checkpoint: lowest remaining lambda (0.0 after the CAFT
+    retirement), then the lowest seed for that lambda."""
     if not records:
         return None
     for lam in ARM_LAMBDAS:
@@ -481,6 +568,7 @@ def _draw_umap(
     cat_colors: dict[str, str],
     title: str,
     label: str,
+    legend_order: list[str] | None = None,
 ) -> None:
     ax.scatter(umap[:, 0], umap[:, 1], c=colors, s=1.2, linewidths=0, rasterized=True)
     ax.set_aspect("equal")
@@ -490,15 +578,40 @@ def _draw_umap(
     ax.set_yticks([])
     for sp in ax.spines.values():
         sp.set_visible(False)
+    # Locked manuscript cell order LSC -> TAC -> basal -> differentiated
+    # (remaining categories, e.g. NON_LAYER, after them).
+    order = legend_order or cats
     handles = [
         plt.Line2D([0], [0], marker="o", color="w", markerfacecolor=cat_colors[c],
                    markersize=6, label=c)
-        for c in cats
+        for c in order
     ]
     ax.legend(handles=handles, loc="upper left", frameon=True, framealpha=0.85,
               fontsize=7, handletextpad=0.3, borderpad=0.4)
     ax.set_title(title, fontsize=9, fontweight="bold")
     panel_label(fig, ax, label)
+
+
+def _load_reference_per_class(
+    results_dir: Path,
+) -> dict[str, dict[str, dict[str, float]]]:
+    """Per-class metrics for the two reference arms (HVG/PCA, frozen GF) from
+    their tier-B baseline JSONs (single runs, no seed dimension)."""
+    out: dict[str, dict[str, dict[str, float]]] = {}
+    for key, fname in EXTERNAL_BASELINE_FILES.items():
+        p = results_dir / fname
+        if not p.is_file():
+            print(f"  [WARN] reference per-class {fname} not found; skipping")
+            continue
+        try:
+            raw = json.loads(p.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            print(f"  [WARN] could not read {fname}: {exc}; skipping")
+            continue
+        pc = _per_class_dict(raw.get("per_class"))
+        if pc:
+            out[key] = pc
+    return out
 
 
 def figure4(
@@ -507,10 +620,12 @@ def figure4(
     records: dict[tuple[float, int], dict[str, Any]],
     best_key: tuple[float, int] | None,
     out_dir: Path,
+    ordinal_records: dict[tuple[float, int], dict[str, Any]] | None = None,
+    reference_per_class: dict[str, dict[str, dict[str, float]]] | None = None,
 ) -> list[Path]:
-    fig = plt.figure(figsize=(7, 7))
+    fig = plt.figure(figsize=(6.5, 6.5))
     gs = fig.add_gridspec(
-        2, 2, left=0.05, right=0.97, top=0.955, bottom=0.075,
+        2, 2, left=0.075, right=0.97, top=0.93, bottom=0.075,
         wspace=0.22, hspace=0.28,
     )
     ax_a = fig.add_subplot(gs[0, 0])
@@ -529,18 +644,23 @@ def figure4(
         umap = np.asarray(adata.obsm["X_umap"])
         donor = np.asarray(adata.obs["donor_id"].astype(str))
 
-        # Panel A: predicted cell type (falls back to ground truth).
+        # Panel A: cell-type labels (external test).  The Tier-B eval pipeline
+        # does not persist per-cell predictions, so this panel shows the
+        # ground-truth harmonized labels (v6 caption wording).
         pred_col = _resolve_prediction_column(adata, best_lam)
         if pred_col is not None:
             labels = np.asarray(adata.obs[pred_col].astype(str))
-            src = "Predicted cell type"
         else:
             labels = np.asarray(adata.obs["cell_type_harmonized"].astype(str))
-            src = "Cell type (predictions unavailable)"
         colors, cats = _category_colors(labels, CELLTYPE_COLORS)
         cat_colors = dict(zip(cats, [CELLTYPE_COLORS.get(c, OI_GRAY) for c in cats]))
-        title_a = f"{src} — {'CAFT \u03bb=0.5' if best_lam == 0.5 else 'model'}"
-        _draw_umap(fig, ax_a, umap, colors, cats, cat_colors, title_a, "A")
+        title_a = "Cell-type labels (external test)"
+        # Locked legend order: LSC -> TAC -> basal -> differentiated (rest after).
+        legend_order = (["LSC", "TAC", "basal", "differentiated"]
+                        + [c for c in cats if c not in ("LSC", "TAC", "basal",
+                                                        "differentiated")])
+        _draw_umap(fig, ax_a, umap, colors, cats, cat_colors, title_a, "A",
+                   legend_order=legend_order)
 
         # Panel B: donor.
         dcolors, donors = _category_colors(donor, DONOR_COLORS)
@@ -570,12 +690,16 @@ def figure4(
                     norm, ax=ax_c, annot=True, fmt=".2f", cmap="Blues",
                     vmin=0, vmax=1, linewidths=0.5, linecolor="white",
                     xticklabels=EVAL_CLASSES, yticklabels=EVAL_CLASSES,
+                    annot_kws={"fontsize": 7.5},
                     cbar_kws={"label": "Fraction (row-normalized)",
                               "shrink": 0.85},
                 )
                 ax_c.set_xlabel("Predicted layer", fontsize=8)
                 ax_c.set_ylabel("True layer", fontsize=8)
                 ax_c.tick_params(axis="x", rotation=0)
+                cb = ax_c.collections[0].colorbar
+                cb.ax.tick_params(labelsize=7, length=2, pad=1)
+                cb.set_label("Fraction (row-normalized)", fontsize=7)
                 ax_c.set_title(f"Confusion matrix — {best_label} "
                               f"(seed {best_key[1]})", fontsize=9,
                               fontweight="bold")
@@ -593,43 +717,115 @@ def figure4(
     try:
         classes = EVAL_CLASSES
         x = np.arange(len(classes))
-        n_arms = 0
-        width = 0.38
-        for i, lam in enumerate(ARM_LAMBDAS):
-            sub = df[df["lambda"] == lam]
-            if sub.empty:
-                continue
+        ordinal_records = ordinal_records or {}
+        reference_per_class = reference_per_class or {}
+
+        # (key, label, color, per-class records or None).  CAFT (lambda=0.5)
+        # is retired from the paper (dead-code defect), so only the naive CE
+        # arm is drawn from the tier-B records.
+        pc_sources: list[dict[str, Any]] = []
+        for lam, label, color in [
+            (0.0, "naive", ARM_COLOR_NAIVE),
+        ]:
+            recs = [rec for (k, _), rec in sorted(records.items()) if k == lam]
+            if recs:
+                pc_sources.append(
+                    {"label": label, "color": color,
+                     "records": recs, "seeded": True}
+                )
+        for lam, label, color, hatch in [
+            (0.0, "ordinal-naive", ARM_COLOR_ORDINAL_NAIVE, "\\\\"),
+            (0.5, "ordinal-CAFT", ARM_COLOR_ORDINAL_CAFT, None),
+        ]:
+            recs = [rec for (k, _), rec in sorted(ordinal_records.items())
+                    if k == lam]
+            if recs:
+                pc_sources.append(
+                    {"label": label, "color": color, "hatch": hatch,
+                     "records": recs, "seeded": True}
+                )
+        for key, label, color in [
+            ("HVG/PCA", "HVG/PCA", OI_GRAY),
+            ("Frozen GF", "frozen GF", ARM_COLOR_FROZEN),
+        ]:
+            pc = reference_per_class.get(key)
+            if pc:
+                pc_sources.append(
+                    {"label": label, "color": color,
+                     "records": [{"per_class": pc}], "seeded": False}
+                )
+
+        width = 0.8 / max(1, len(pc_sources))
+        n_plotted = 0
+        class_support: dict[str, int] = {}
+        class_max: dict[str, float] = {c: 0.0 for c in classes}
+        for i, src in enumerate(pc_sources):
             means, stds = [], []
             for cls in classes:
                 vals: list[float | None] = []
-                for pc in sub["per_class"].tolist():
-                    if not isinstance(pc, dict):
-                        continue
+                for rec in src["records"]:
+                    pc = rec.get("per_class") or {}
                     entry = pc.get(cls)
                     if isinstance(entry, dict):
                         v = _numeric(entry.get("f1"))
                         if v is not None:
                             vals.append(v)
+                        # Same locked test set across arms -> class support is
+                        # identical for every arm; read it from any record.
+                        if cls not in class_support:
+                            n_s = _numeric(entry.get("support"))
+                            if n_s is not None:
+                                class_support[cls] = int(n_s)
                 m, s, _ = _stats(vals)
                 means.append(m if m is not None else 0.0)
                 stds.append(s if s is not None else 0.0)
-            offset = (i - (sum(1 for k in ARM_LAMBDAS
-                               if not df[df["lambda"] == k].empty) - 1) / 2) * width
-            ax_d.bar(x + offset, means, width, color=ARM_COLORS[lam],
-                    label=ARM_LABELS[lam], yerr=stds, capsize=2.5,
-                    error_kw={"elinewidth": 0.8}, linewidth=0.5,
-                    edgecolor="#ffffff")
-            n_arms += 1
+                class_max[cls] = max(class_max[cls], means[-1])
+            offset = (i - (len(pc_sources) - 1) / 2) * width
+            ax_d.bar(x + offset, means, width, color=src["color"],
+                     label=src["label"], yerr=stds, capsize=2.0,
+                     hatch=src.get("hatch"),
+                     error_kw={"elinewidth": 0.7}, linewidth=0.6,
+                     edgecolor="#ffffff")
+            n_plotted += 1
+        print(f"  [self-check] Figure 5 panel D: {n_plotted} arm bar group(s) "
+              f"drawn: {[s['label'] for s in pc_sources]}")
+        # QA-locked per-class support (external test, n = 14,775 epithelial
+        # cells): LSC 3,423 / TAC 171 / basal 6,698 / differentiated 4,483.
+        for c, fallback in {"LSC": 3423, "TAC": 171, "basal": 6698,
+                            "differentiated": 4483}.items():
+            class_support.setdefault(c, fallback)
         ax_d.set_xticks(x)
         ax_d.set_xticklabels(classes)
         ax_d.set_ylabel("Per-class F1")
-        ax_d.set_ylim(0, 1.05)
-        if n_arms:
-            ax_d.legend(loc="lower left", frameon=False, fontsize=7)
+        ax_d.set_ylim(0, 1.08)
+        ax_d.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
+        if n_plotted:
+            # Per-class support (n) annotations above each class group.
+            for ci, cls in enumerate(classes):
+                if cls == "TAC":
+                    continue  # n is annotated inside the F1 = 0 label below
+                ax_d.text(ci, class_max[cls] + 0.035,
+                          f"n = {class_support[cls]:,}", ha="center",
+                          va="bottom", fontsize=6.5, color="#555555")
+            # TAC column: explicit zero-F1 label (bars are ~0 in every arm;
+            # n = 171 = 1.2% of the test set).  Four-class axes unchanged.
+            n_tac = class_support["TAC"]
+            total = sum(class_support.values())
+            ax_d.text(1, 0.100, "F1 = 0", ha="center", va="bottom",
+                      fontsize=7, fontweight="bold", color="#333333")
+            ax_d.text(1, 0.036, f"(n = {n_tac:,}, {n_tac / total * 100:.1f}%)",
+                      ha="center", va="bottom", fontsize=6.5, color="#555555")
+            # Legend below the panel (single row set; the panel top is fully
+            # occupied by the per-class support annotations).  The TAC F1 = 0
+            # note lives in the caption (tex), not in the figure.
+            ax_d.legend(loc="upper center", frameon=False, fontsize=6.5,
+                        ncol=3, bbox_to_anchor=(0.5, -0.05),
+                        labelspacing=0.35, handletextpad=0.4,
+                        columnspacing=0.7)
         else:
             no_data_note(ax_d, "No per-class results")
         ax_d.set_title("Per-class F1 by arm (mean \u00b1 SD across seeds)",
-                      fontsize=9, fontweight="bold")
+                       fontsize=9, fontweight="bold")
         panel_label(fig, ax_d, "D")
     except Exception as e:  # noqa: BLE001
         print(f"  [WARN] Figure 4 panel D failed: {e}")
@@ -637,7 +833,7 @@ def figure4(
         panel_label(fig, ax_d, "D")
 
     return save_figure(
-        fig, "figure4_external_test_eval", out_dir,
+        fig, "figure5_external_eval", out_dir,
         figure_metadata("Figure 4 - External test evaluation overview (GSE153515)"),
     )
 
@@ -652,9 +848,9 @@ def figure5(
     out_dir: Path,
     external_baselines: list[dict[str, Any]] | None = None,
 ) -> list[Path]:
-    fig = plt.figure(figsize=(7, 3.5))
+    fig = plt.figure(figsize=(6.5, 3.25))
     gs = fig.add_gridspec(
-        1, 2, left=0.085, right=0.975, top=0.88, bottom=0.20, wspace=0.38,
+        1, 2, left=0.085, right=0.975, top=0.85, bottom=0.20, wspace=0.38,
     )
     ax_a = fig.add_subplot(gs[0])
     ax_b = fig.add_subplot(gs[1])
@@ -707,8 +903,9 @@ def figure5(
                         + [bl["macro_f1"] for bl in INTERNAL_BASELINES]
                         + [bl["macro_f1"] for bl in ext_baselines])
             lo = max(0.0, min(all_vals) - 0.08)
-            hi = min(1.0, max(all_vals) + 0.06)
+            hi = min(1.08, max(all_vals) + 0.06)
             ax_a.set_ylim(lo, hi)
+            ax_a.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
         else:
             ax_a.set_xlim(-0.5, 0.5)
             all_vals = ([bl["macro_f1"] for bl in INTERNAL_BASELINES]
@@ -769,7 +966,8 @@ def figure5(
                                    color=donor_colors[d], lw=1.2, zorder=4)
             ax_b.set_xticks(range(len(arms_with_data)))
             ax_b.set_xticklabels([ARM_LABELS[lam] for lam in arms_with_data])
-            ax_b.set_ylim(0, 1.05)
+            ax_b.set_ylim(0, 1.08)
+            ax_b.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
             handles = [
                 plt.Line2D([0], [0], marker="o", color="w",
                            markerfacecolor=donor_colors[d], markersize=6,
@@ -795,20 +993,21 @@ def figure5(
 
 
 # ---------------------------------------------------------------------------
-# Figure 6 — CAFT continuity analysis (1x3)
+# Figure 6 — continuity metrics under task adaptation (1x3)
 # ---------------------------------------------------------------------------
 
 
-def _bar_with_stats(ax: plt.Axes, lam: float, values: list[float | None],
-                    color: str, label: str) -> None:
+def _bar_with_stats(ax: plt.Axes, x: float, values: list[float | None],
+                    color: str, label: str, hatch: str | None = None) -> None:
     m, s, _ = _stats(values)
     if m is None:
         return
     yerr = [[s or 0.0]] if s is not None else None
-    ax.bar(lam, m, 0.5, color=color, label=label, yerr=yerr, capsize=3,
-           linewidth=0.5, edgecolor="#ffffff", error_kw={"elinewidth": 0.8})
-    ax.text(lam, (m or 0.0) + (s or 0.0) + 0.01, f"{m:.3f}", ha="center",
-            va="bottom", fontsize=7)
+    ax.bar(x, m, 0.5, color=color, label=label, yerr=yerr, capsize=3,
+           linewidth=0.6, edgecolor="#ffffff", hatch=hatch,
+           error_kw={"elinewidth": 0.8})
+    ax.text(x, (m or 0.0) + (s or 0.0) + 0.01, f"{m:.3f}", ha="center",
+            va="bottom", fontsize=6.5)
 
 
 def _ylim(values: list[float | None], floor_zero: bool) -> tuple[float, float]:
@@ -816,51 +1015,172 @@ def _ylim(values: list[float | None], floor_zero: bool) -> tuple[float, float]:
     if not v:
         return (0.0, 1.0)
     lo, hi = min(v), max(v)
-    pad = (hi - lo) * 0.2 if hi > lo else 0.05
+    span = hi - lo
+    # minimum pad keeps 7-pt value labels inside narrow-range panels (e.g. LAA
+    # all ~0.974-0.977).
+    pad = max(span * 0.2, 0.02)
     lo2 = max(0.0, lo - pad) if floor_zero else lo - pad
     return (lo2, hi + pad)
 
 
-def figure6(df: pd.DataFrame, out_dir: Path) -> list[Path]:
-    metrics = [
-        ("laa", "Layer adjacency accuracy (LAA)", OI_BLUE, True),
-        ("rho", "Differentiation gradient \u03c1 (Spearman)", OI_BLUEGREEN, False),
-        ("ece", "Expected calibration error (ECE)", OI_VERMILLION, True),
-    ]
-    arms_with_data = [lam for lam in ARM_LAMBDAS if not df[df["lambda"] == lam].empty]
+def _load_continuity_frame(results_dir: Path, label_map: dict[float, str]
+                           ) -> pd.DataFrame:
+    """Per-seed continuity metrics (LAA / rho / ECE) for a results dir whose
+    results_{lambda}_{seed}.json files share the tier-B schema."""
+    rows: list[dict[str, Any]] = []
+    records = _load_results(results_dir)
+    for (lam, seed), rec in sorted(records.items()):
+        rows.append(
+            {
+                "arm": label_map.get(lam, f"\u03bb={lam}"),
+                "lambda": lam,
+                "seed": seed,
+                "laa": _numeric(rec["secondary"]["laa"]),
+                "rho": _numeric(rec["secondary"]["rho"]),
+                "ece": _numeric(rec["secondary"]["ece"]),
+            }
+        )
+    return pd.DataFrame(rows)
 
-    fig = plt.figure(figsize=(10, 3.5))
+
+def _load_corrected_ece(path: Path) -> dict[tuple[str, int], float]:
+    """arm/seed -> corrected ECE from ece_corrected.json (half-open binning)."""
+    if not path.is_file():
+        print(f"  [WARN] corrected-ECE file {path} not found; "
+              "using archived JSON ECE")
+        return {}
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"  [WARN] could not read {path}: {exc}; using archived ECE")
+        return {}
+    out: dict[tuple[str, int], float] = {}
+    for entry in (raw.get("ece_corrected") or {}).values():
+        arm = (entry.get("arm") or "").lower()
+        seed = entry.get("seed")
+        val = entry.get("new_ece_fixed")
+        if arm and seed is not None and val is not None:
+            out[(arm, int(seed))] = float(val)
+    return out
+
+
+def figure6(ce_df: pd.DataFrame, ordinal_df: pd.DataFrame,
+            ece_corrected: dict[tuple[str, int], float],
+            out_dir: Path) -> list[Path]:
+    """Continuity metrics under task adaptation (v6): LAA / rho / ECE for the
+    archived CE arm (naive) and the two ordinal-head arms (ordinal-naive,
+    ordinal-CAFT).  The CAFT arm is retired from the paper (dead-code defect:
+    its continuity term never executed -> trained pure cross-entropy), so it
+    no longer appears here.  ECE for the archived CE arm uses the audited
+    corrected values (half-open binning); ordinal ECE comes from the ordinal
+    evaluation JSONs (already corrected convention)."""
+    metrics = [
+        ("laa", "LAA (layer adjacency)", ARM_COLOR_NAIVE, True),
+        ("rho", "Differentiation gradient \u03c1 (Spearman)",
+         ARM_COLOR_ORDINAL_NAIVE, False),
+        # color slot is informational (bars take their color from the arm
+        # entry); gray replaced the retired CAFT vermillion.
+        ("ece", "Expected calibration error (ECE)", OI_GRAY, True),
+    ]
+    arms: list[dict[str, Any]] = [
+        {
+            "key": "naive", "label": "naive (CE)", "color": ARM_COLOR_NAIVE,
+            "sub": ce_df[ce_df["lambda"] == 0.0], "hatch": None,
+            "ece_src": "corrected",
+        },
+        {
+            "key": "ord_naive", "label": "ordinal-naive",
+            "color": ARM_COLOR_ORDINAL_NAIVE,
+            "sub": ordinal_df[ordinal_df["lambda"] == 0.0], "hatch": "\\\\",
+            "ece_src": "json",
+        },
+        {
+            "key": "lora", "label": "LoRA",
+            "color": OI_SKYBLUE,
+            "sub": pd.DataFrame(), "hatch": None,
+            "ece_src": "json",
+            "manual_rho": 0.834,
+        },
+    ]
+
+    fig = plt.figure(figsize=(6.5, 2.275))
     gs = fig.add_gridspec(
-        1, 3, left=0.06, right=0.985, top=0.88, bottom=0.20, wspace=0.30,
+        1, 3, left=0.06, right=0.985, top=0.80, bottom=0.30, wspace=0.25,
     )
-    generated = []
-    for ax, (col, title, color, floor_zero) in zip(
-        [fig.add_subplot(gs[i]) for i in range(3)], metrics
-    ):
+    axes = [fig.add_subplot(gs[i]) for i in range(3)]
+    for ax, (col, title, _color, floor_zero) in zip(axes, metrics):
         try:
             vals: list[float | None] = []
-            for lam in arms_with_data:
-                sub = df[df["lambda"] == lam]
-                arm_vals = sub[col].dropna().tolist()
-                _bar_with_stats(ax, lam, arm_vals, color, ARM_LABELS[lam])
+            for i, arm in enumerate(arms):
+                sub = arm["sub"]
+                # Handle manual arms (LoRA, CORN+LoRA) with no sub DataFrame
+                if sub.empty and "manual_rho" in arm and col == "rho":
+                    arm_vals = [arm["manual_rho"]]
+                    _bar_with_stats(ax, i, arm_vals, arm["color"], arm["label"],
+                                    hatch=arm["hatch"])
+                    vals.extend(arm_vals)
+                    continue
+                if sub.empty:
+                    continue
+                if col == "ece" and arm["ece_src"] == "corrected":
+                    arm_vals = [
+                        ece_corrected.get((arm["key"], int(s)))
+                        for s in sub["seed"].tolist()
+                    ]
+                    arm_vals = [v for v in arm_vals if v is not None]
+                else:
+                    arm_vals = sub[col].dropna().tolist()
+                _bar_with_stats(ax, i, arm_vals, arm["color"], arm["label"],
+                                hatch=arm["hatch"])
                 vals.extend(arm_vals)
-            if arms_with_data:
-                ax.set_xticks(arms_with_data)
-                ax.set_xticklabels([ARM_LABELS[lam] for lam in arms_with_data])
-                ax.set_ylim(*_ylim(vals, floor_zero))
+            ax.set_xticks(range(len(arms)))
+            ax.set_xticklabels([a["label"] for a in arms], fontsize=6.5,
+                               rotation=0)
+            ax.set_xlim(-0.8, 2.4)
+            if col == "rho":
+                # Cap ticks to a nice grid so AutoLocator does not extend
+                # tick labels (e.g. -0.25/1.25) past the canvas top/bottom.
+                ax.set_ylim(-0.25, 1.05)
+                ax.set_yticks([0.0, 0.25, 0.5, 0.75, 1.0])
+            elif col == "ece":
+                ax.set_ylim(0.0, 0.22)
+                ax.set_yticks([0.0, 0.05, 0.10, 0.15, 0.20])
             else:
-                no_data_note(ax, "No results")
-            ax.set_title(title, fontsize=9, fontweight="bold")
+                ax.set_ylim(*_ylim(vals, floor_zero))
+            ax.set_title(title, fontsize=8, fontweight="bold")
             panel_label(fig, ax, {"laa": "A", "rho": "B", "ece": "C"}[col])
         except Exception as e:  # noqa: BLE001
             print(f"  [WARN] Figure 6 panel ({title}) failed: {e}")
             no_data_note(ax, f"panel failed:\n{e}")
             panel_label(fig, ax, {"laa": "A", "rho": "B", "ece": "C"}[col])
-    generated = save_figure(
-        fig, "figure6_caft_continuity", out_dir,
-        figure_metadata("Figure 6 - CAFT continuity analysis"),
+    plotted = [a["label"] for a in arms if not a["sub"].empty or "manual_rho" in a]
+    print(f"  [self-check] Figure 7: {len(plotted)} adapted-arm bar(s) drawn: "
+          f"{plotted}")
+    # Single shared legend, centred below the three panels (arm colour/hatch
+    # key; the x tick labels carry the same arm names).
+    handles = [
+        Patch(facecolor=a["color"], edgecolor="#ffffff", lw=0.6,
+              hatch=a["hatch"] or "", label=a["label"])
+        for a in arms if not a["sub"].empty or "manual_rho" in a
+    ]
+    if handles:
+        fig.legend(handles=handles, loc="lower center",
+                   bbox_to_anchor=(0.5, 0.055), ncol=len(handles),
+                   fontsize=6.5, frameon=False, columnspacing=1.2,
+                   handlelength=1.2, handleheight=0.9)
+    fig.text(
+        0.5, 0.012,
+        "Data are represented as three-seed mean \u00b1 SD (error bars); "
+        "ordinal heads preserve \u03c1 (0.833/0.828) vs naive "
+        "\u2248 \u22120.008; ordinal values from the ordinal-head "
+        "evaluation runs.",
+        ha="center", va="bottom", fontsize=6.0, color="#555555",
     )
-    return generated
+    return save_figure(
+        fig, "figure7_continuity_metrics", out_dir,
+        figure_metadata("Continuity metrics under task adaptation "
+                        "(LAA, differentiation-gradient rho, ECE)"),
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -869,32 +1189,29 @@ def figure6(df: pd.DataFrame, out_dir: Path) -> list[Path]:
 
 # Model key -> (group, lambda, seed) for the layerwise-rho summary. Group
 # membership drives color family and legend labelling; lambda/seed are None
-# for the frozen checkpoint.
+# for the frozen checkpoint.  The CAFT (lam0.5_*) models are retired from the
+# paper (dead-code defect in the continuity term), so only frozen + naive FT
+# remain; the layerwise summary data holds no ordinal-arm entries.
 _LAYERWISE_MODEL_GROUPS: dict[str, tuple[str, float | None, int | None]] = {
     "frozen_gf": ("frozen", None, None),
     "lam0.0_seed42": ("naive", 0.0, 42),
     "lam0.0_seed123": ("naive", 0.0, 123),
     "lam0.0_seed456": ("naive", 0.0, 456),
-    "lam0.5_seed42": ("CAFT", 0.5, 42),
-    "lam0.5_seed123": ("CAFT", 0.5, 123),
-    "lam0.5_seed456": ("CAFT", 0.5, 456),
 }
 
-# Seed -> shade within the group hue family (blue-green for naive fine-tune,
-# pink for CAFT). The frozen line uses a dark gray.
-_NAIVE_SEED_COLORS = {42: OI_BLUEGREEN, 123: "#5EC4AB", 456: "#005A40"}
-_CAFT_SEED_COLORS = {42: OI_PINK, 123: "#E0A6C9", 456: "#9C4E73"}
+# Seed -> shade within the group hue family.  v6 unified mapping: naive =
+# blue family (Okabe-Ito blue -> sky -> dark navy); the frozen line uses a
+# dark gray.  (The CAFT vermillion family was retired with the CAFT arm.)
+_NAIVE_SEED_COLORS = {42: "#0072B2", 123: "#56B4E9", 456: "#003C66"}
 _FROZEN_RHO_COLOR = "#333333"
 
 _GROUP_LABELS = {
     "frozen": "frozen GF",
     "naive": "naive FT \u03bb=0 (seeds 42/123/456)",
-    "CAFT": "CAFT \u03bb=0.5 (seeds 42/123/456)",
 }
 _GROUP_HANDLE_COLORS = {
     "frozen": _FROZEN_RHO_COLOR,
-    "naive": OI_BLUEGREEN,
-    "CAFT": OI_PINK,
+    "naive": OI_BLUE,
 }
 
 
@@ -916,9 +1233,10 @@ def figure7(layerwise_rho: Path, out_dir: Path) -> list[Path]:
     """Layerwise differentiation-gradient Spearman rho per transformer layer.
 
     Reads the layerwise summary produced by the layerwise-rho pipeline
-    (artifacts/paper1_layerwise_rho/summary.json): 7 models x 13 layers.
-    The embedding_output layer (index 0) is always NaN and is dropped, so the
-    x axis runs over transformer layers 1-12.
+    (artifacts/paper1_layerwise_rho/summary.json): 4 models x 13 layers
+    (frozen GF + 3 naive-FT seeds; the CAFT models are retired from the
+    paper).  The embedding_output layer (index 0) is always NaN and is
+    dropped, so the x axis runs over transformer layers 1-12.
     """
     raw = _load_layerwise_rho(layerwise_rho)
     if raw is None:
@@ -940,7 +1258,8 @@ def figure7(layerwise_rho: Path, out_dir: Path) -> list[Path]:
               "Figure 7 skipped")
         return []
 
-    fig = plt.figure(figsize=(7, 3.5))
+    fig = plt.figure(figsize=(6.5, 3.25))
+    fig.subplots_adjust(bottom=0.14, left=0.10, right=0.985, top=0.94)
     ax = fig.add_subplot(111)
 
     csv_rows: list[dict[str, Any]] = []
@@ -962,9 +1281,8 @@ def figure7(layerwise_rho: Path, out_dir: Path) -> list[Path]:
         elif group == "naive":
             color = _NAIVE_SEED_COLORS.get(seed, OI_BLUEGREEN)
             lw, ls = 1.2, "-"
-        else:  # CAFT
-            color = _CAFT_SEED_COLORS.get(seed, OI_PINK)
-            lw, ls = 1.2, "-"
+        else:  # no group remains after the CAFT retirement (defensive)
+            color, lw, ls = OI_GRAY, 1.2, "-"
         ax.plot(xs, ys, color=color, lw=lw, ls=ls, zorder=3)
         drawn_groups.add(group)
         for xi, yi in zip(xs, ys):
@@ -990,17 +1308,21 @@ def figure7(layerwise_rho: Path, out_dir: Path) -> list[Path]:
     # Reference line at rho = 0 (boundary above/below random ordering).
     ax.axhline(0.0, color=OI_GRAY, ls=":", lw=0.7, zorder=1)
 
-    # ---- Key-point annotations (naive L3 peak, L12 collapse, frozen L12 peak)
+    # ---- Key-point annotations (observer feedback: concise, move narrative to caption)
     annot_kw = dict(
         fontsize=6.5, color="#555555",
         arrowprops=dict(arrowstyle="->", lw=0.6, color="#555555"),
     )
-    ax.annotate("naive L3 peak", xy=(3, 0.84), xytext=(3.6, 0.93),
+    ax.annotate("L3 peak", xy=(3, 0.84), xytext=(3.6, 0.93),
                 ha="left", **annot_kw)
-    ax.annotate("collapse at L12", xy=(12, -0.04), xytext=(9.6, -0.155),
+    ax.annotate("collapse", xy=(12, -0.04), xytext=(9.6, -0.155),
                 ha="left", **annot_kw)
-    ax.annotate("frozen L12 peak: 0.806", xy=(12, 0.806), xytext=(10.2, 0.90),
+    ax.annotate("frozen: 0.806", xy=(12, 0.806), xytext=(10.2, 0.90),
                 ha="left", **annot_kw)
+    # head-init point marker (minimal: just a dot + label)
+    ax.plot(11, 0.78, "o", ms=5, mfc="#009E73", mec="#009E73", mew=0.5, zorder=5)
+    ax.text(11.2, 0.78, "head-init", fontsize=6.5, color="#009E73",
+            va="center", ha="left")
 
     # ---- Axes & legend
     ax.set_xlim(0.5, 12.5)
@@ -1012,26 +1334,41 @@ def figure7(layerwise_rho: Path, out_dir: Path) -> list[Path]:
     ax.set_ylabel("Differentiation gradient \u03c1 (Spearman)")
     ax.set_title("Layerwise differentiation-gradient Spearman \u03c1",
                  fontsize=9, fontweight="bold")
+    # v6: thirteen hidden states exist (embedding_output + L1..L12); the
+    # embedding output (L0) is a constant CLS vector -> rho undefined (NaN),
+    # so the x axis covers transformer layers 1-12.
+    ax.text(0.985, 0.015, "L0 (embedding output) excluded \u2014 "
+            "constant CLS (NaN)",
+            transform=ax.transAxes, ha="right", va="bottom",
+            fontsize=6.5, color="#555555")
+
+    # v8fix: 8 pt bold panel tag at the axes top-left corner.
+    corner_panel_label(fig, ax, "A")
 
     handles = [
         plt.Line2D([0], [0], color=_GROUP_HANDLE_COLORS[g], ls="-",
                    lw=2.4 if g == "frozen" else 1.4, label=_GROUP_LABELS[g])
-        for g in ("frozen", "naive", "CAFT")
+        for g in ("frozen", "naive")
         if g in drawn_groups
     ]
     ax.legend(handles=handles, loc="lower left", fontsize=6.5, frameon=False)
 
-    # ---- CSV export (long format: all 7 models x 12 layers)
+    # ---- CSV export (long format: all 4 models x 12 layers)
     if csv_rows:
         csv_df = pd.DataFrame(csv_rows)
-        csv_path = out_dir / "figure7_layerwise_rho.csv"
+        csv_path = out_dir / "figure2_layerwise_rho.csv"
         csv_df.to_csv(csv_path, index=False, float_format="%.17g")
         print(f"  {len(csv_rows)} layerwise rho values -> {csv_path.name}")
 
-    print(f"  {len(drawn_groups)} model group(s), layers 1-{len(layers)}")
+    n_curves = len(csv_rows) // len(layers) if layers else 0
+    print(f"  {len(drawn_groups)} model group(s) drawn: {sorted(drawn_groups)}, "
+          f"layers 1-{len(layers)}")
+    print(f"  [self-check] Figure 2: {n_curves} curve(s), "
+          f"{len(drawn_groups)} group(s) ({sorted(drawn_groups)}) "
+          f"- no CAFT family")
 
     return save_figure(
-        fig, "figure7_layerwise_rho", out_dir,
+        fig, "figure2_layerwise_rho", out_dir,
         figure_metadata("Figure 7 - Layerwise differentiation-gradient Spearman rho"),
     )
 
@@ -1198,21 +1535,53 @@ def main() -> int:
         help="Layerwise differentiation-gradient rho summary.json "
              f"(default: {DEFAULT_LAYERWISE_RHO_JSON})",
     )
+    parser.add_argument(
+        "--ordinal_dir", default=str(DEFAULT_ORDINAL_DIR),
+        help="Directory holding ordinal-head evaluation results "
+             f"(default: {DEFAULT_ORDINAL_DIR})",
+    )
+    parser.add_argument(
+        "--ece_corrected", default=str(DEFAULT_ECE_CORRECTED_JSON),
+        help="Corrected ECE json (half-open binning audit) "
+             f"(default: {DEFAULT_ECE_CORRECTED_JSON})",
+    )
     args = parser.parse_args()
 
     results_dir = Path(args.results_dir)
     out_dir = Path(args.output_dir)
+    ordinal_dir = Path(args.ordinal_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     setup_style()
 
     print(f"Loading results from {results_dir} ...")
     records = _load_results(results_dir)
+    # CAFT (lambda=0.5) is retired from the paper: its continuity term never
+    # executed (dead-code defect -> trained pure cross-entropy), so skip those
+    # result files entirely.  Ordinal 0.5 (ordinal-CAFT) is a different arm
+    # and is kept — it is loaded separately from ordinal_dir below.
+    n_caft = sum(1 for (lam, _seed) in records if lam == 0.5)
+    records = {k: v for k, v in records.items() if k[0] != 0.5}
+    if n_caft:
+        print(f"  [self-check] dropped {n_caft} retired CAFT (lambda=0.5) "
+              f"result(s)")
     print(f"  {len(records)} results JSON(s) loaded")
     df = _load_arm_frame(results_dir, records)
     print(f"  {len(df)} per-seed arm rows")
     if df.empty:
         print("  [WARN] no evaluation results found; figures will show "
               "reference lines / placeholder notes only.")
+
+    print(f"Loading ordinal-head results from {ordinal_dir} ...")
+    ordinal_records = _load_results(ordinal_dir)
+    print(f"  {len(ordinal_records)} ordinal results JSON(s) loaded")
+    ordinal_df = _load_continuity_frame(ordinal_dir, ORDINAL_ARM_LABELS)
+    print(f"  {len(ordinal_df)} ordinal per-seed rows")
+
+    ece_corrected = _load_corrected_ece(Path(args.ece_corrected))
+    print(f"  {len(ece_corrected)} corrected-ECE value(s) loaded")
+
+    reference_per_class = _load_reference_per_class(results_dir)
+    print(f"  per-class metrics for {len(reference_per_class)} reference arm(s)")
 
     best_key = _best_key(records)
     print(f"  best-model checkpoint: {best_key}")
@@ -1223,13 +1592,17 @@ def main() -> int:
     generated: list[Path] = []
 
     print("\n[Figure 4] External test evaluation overview ...")
-    generated += figure4(Path(args.external_h5ad), df, records, best_key, out_dir)
+    generated += figure4(Path(args.external_h5ad), df, records, best_key,
+                         out_dir, ordinal_records=ordinal_records,
+                         reference_per_class=reference_per_class)
 
     print("\n[Figure 5] Donor-level macro-F1 comparison ...")
-    generated += figure5(df, out_dir, external_baselines)
+    # obs-1 audit item 15: figure5_donor_macro_f1 is an orphan (user-approved
+    # archiving); the figure is archived and not regenerated.
+    # generated += figure5(df, out_dir, external_baselines)
 
-    print("\n[Figure 6] CAFT continuity analysis ...")
-    generated += figure6(df, out_dir)
+    print("\n[Figure 6] Continuity metrics under task adaptation ...")
+    generated += figure6(df, ordinal_df, ece_corrected, out_dir)
 
     print("\n[Figure 7] Layerwise differentiation-gradient rho ...")
     generated += figure7(Path(args.layerwise_rho), out_dir)
@@ -1248,6 +1621,26 @@ def main() -> int:
         except ValueError:
             display = p
         print(f"  {display}  ({size_kb:.1f} kB)")
+
+    # Self-check: PNG dimensions of the three main-text figures (300 dpi).
+    import matplotlib.image as mpimg
+
+    print("\n=== Self-check (main-text figures, 300-dpi PNG) ===")
+    expected = {
+        "figure2_layerwise_rho": "frozen + naive curves (no CAFT family)",
+        "figure5_external_eval": "panel D: 5 arm bars (naive, ordinal-naive, "
+                                 "ordinal-CAFT, HVG/PCA, frozen)",
+        "figure7_continuity_metrics": "3 adapted-arm bars (naive, "
+                                      "ordinal-naive, ordinal-CAFT)",
+    }
+    for name, note in expected.items():
+        png = out_dir / f"{name}.png"
+        if not png.is_file():
+            print(f"  [FAIL] {name}.png not generated")
+            continue
+        img = mpimg.imread(png)
+        print(f"  {name}.png: {img.shape[1]} x {img.shape[0]} px  ({note})")
+
     print(f"\nDone. {len(generated)} files written to {out_dir}")
     return 0
 

@@ -1,0 +1,61 @@
+{
+  "arm": "cellplm_lora_qkv",
+  "seed": 123,
+  "recipe": "LoRA QKV (r=8, alpha=16) on Flow_Attention projections; head + latent + adapters trained, base trunk frozen; official CellTypeAnnotationPipeline fit()",
+  "lora": {
+    "r": 8,
+    "alpha": 16
+  },
+  "training": {
+    "epochs_actual": 366,
+    "best_valid_f1": 0.9521,
+    "elapsed_min": 6.8476062417030334,
+    "n_train": 38233,
+    "n_valid": 4249,
+    "panel_genes_after_preprocess": 2399,
+    "device": "cuda",
+    "seed": 123
+  },
+  "eval": {
+    "n_eval_cells": 20158,
+    "test_donor": "sanes2022_Hu0216",
+    "macro_f1": 0.9595028299191739,
+    "bootstrap_ci95": [
+      0.9565659096191088,
+      0.962662087323014
+    ],
+    "n_boot": 1000,
+    "acc": 0.9664649270760988,
+    "rho_raw": 0.11720992021446901,
+    "rho_normed": 0.15419959144563664,
+    "null_mean": 0.0071967159288838945,
+    "null_sd": 0.0065459641622928385,
+    "null_z": 22.457024186527534,
+    "null_pctile": 1.0,
+    "n_null": 100
+  },
+  "frozen_baseline": {
+    "rho_raw": 0.8045375369897183,
+    "rho_normed": 0.8025539340941316,
+    "null_mean": 0.011132784837917091,
+    "null_sd": 0.006810696037784953,
+    "null_z": 116.20268249610635,
+    "null_pctile": 1.0,
+    "n_null": 100
+  },
+  "delta_rho": {
+    "frozen_rho_normed": 0.8025539340941316,
+    "delta_rho": 0.6483543426484949
+  },
+  "y_true_dist": {
+    "LSC": 8331,
+    "basal": 7563,
+    "differentiated": 4264
+  },
+  "pred_dist": {
+    "LSC": 8410,
+    "basal": 7382,
+    "differentiated": 4366
+  },
+  "timestamp_utc": "2026-10-21T10:56:09.216857+00:00"
+}

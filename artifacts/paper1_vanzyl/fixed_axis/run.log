@@ -1,0 +1,35 @@
+[2026-08-24T06:53:28+00:00] ======================================================================
+[2026-08-24T06:53:28+00:00] Fixed-axis differentiation-gradient evaluation (reviewer M1)
+[2026-08-24T06:53:28+00:00] Output: /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/fixed_axis/fixed_axis_eval.json
+[2026-08-24T06:53:28+00:00] Locked frozen-baseline rho_normed reference: 0.7887
+[2026-08-24T06:53:28+00:00] GPU free 11996 MiB >= 4096 MiB; proceeding
+[2026-08-24T06:53:28+00:00] device=cuda torch=2.13.0+cu130
+[2026-08-24T06:53:28+00:00] loaded test h5ad: (20158, 3856), layer_order=['LSC', 'basal', 'differentiated'], dist={'LSC': np.int64(8331), 'basal': np.int64(7563), 'differentiated': np.int64(4264)}
+[2026-08-24T06:53:29+00:00] tokenized test data: genes=torch.Size([20158, 1313])
+[2026-08-24T06:53:29+00:00] --- extracting FROZEN model embeddings ---
+[2026-08-24T06:55:18+00:00] frozen embeddings: (20158, 512)
+[2026-08-24T06:55:18+00:00] --- building frozen centroid-SVD axis ---
+[2026-08-24T06:55:18+00:00] saved axis to /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/fixed_axis/frozen_axis.npy
+[2026-08-24T06:55:18+00:00] frozen self-projection rho = 0.7886; expected ~0.7887; delta=0.0001; sanity gate=PASS
+[2026-08-24T06:55:21+00:00] --- naive_seed42 ---
+[2026-08-24T06:57:12+00:00]   naive_seed42: fixed_axis_rho=0.6887 (orig per-checkpoint rho=0.2726777141764461), z=100.8
+[2026-08-24T06:57:12+00:00] --- naive_seed123 ---
+[2026-08-24T06:59:03+00:00]   naive_seed123: fixed_axis_rho=0.5668 (orig per-checkpoint rho=0.757004058478477), z=78.4
+[2026-08-24T06:59:03+00:00] --- naive_seed456 ---
+[2026-08-24T07:00:54+00:00]   naive_seed456: fixed_axis_rho=0.7126 (orig per-checkpoint rho=0.6364098717262503), z=94.6
+[2026-08-24T07:00:54+00:00] --- ordinal_seed42 ---
+[2026-08-24T07:02:45+00:00]   ordinal_seed42: fixed_axis_rho=0.9092 (orig per-checkpoint rho=0.6471383526479226), z=130.0
+[2026-08-24T07:02:45+00:00] --- ordinal_seed123 ---
+[2026-08-24T07:04:37+00:00]   ordinal_seed123: fixed_axis_rho=0.9169 (orig per-checkpoint rho=0.9071417592154635), z=139.3
+[2026-08-24T07:04:37+00:00] --- ordinal_seed456 ---
+[2026-08-24T07:06:27+00:00]   ordinal_seed456: fixed_axis_rho=0.7469 (orig per-checkpoint rho=0.9020797781773086), z=90.7
+[2026-08-24T07:06:27+00:00] --- corn_lora_seed42 ---
+LoRA wrapped layers=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] (r=8, alpha=16); trainable = head 0.528M + adapters 0.295M
+[2026-08-24T07:09:20+00:00]   corn_lora_seed42: fixed_axis_rho=0.9226 (orig per-checkpoint rho=0.9246718891881059), z=132.2
+[2026-08-24T07:09:20+00:00] --- corn_lora_seed123 ---
+LoRA wrapped layers=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] (r=8, alpha=16); trainable = head 0.528M + adapters 0.295M
+[2026-08-24T07:12:13+00:00]   corn_lora_seed123: fixed_axis_rho=0.9205 (orig per-checkpoint rho=0.9241586538187204), z=133.9
+[2026-08-24T07:12:13+00:00] --- corn_lora_seed456 ---
+LoRA wrapped layers=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] (r=8, alpha=16); trainable = head 0.528M + adapters 0.295M
+[2026-08-24T07:15:06+00:00]   corn_lora_seed456: fixed_axis_rho=0.9214 (orig per-checkpoint rho=0.923544505273593), z=126.6
+[2026-08-24T07:15:06+00:00] saved /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/fixed_axis/fixed_axis_eval.json

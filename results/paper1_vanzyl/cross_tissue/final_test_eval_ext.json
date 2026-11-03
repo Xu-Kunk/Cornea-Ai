@@ -1,0 +1,462 @@
+{
+  "meta": {
+    "task": "Epidermis cross-tissue scGPT final evaluation (approved supplementary)",
+    "eval_set": "epidermis",
+    "n_eval_cells": 1836,
+    "layer_order": [
+      "basal",
+      "suprabasal",
+      "spinous",
+      "differentiated"
+    ],
+    "checkpoints": {
+      "best_val": "model_best_val.pt (val macro-F1, official)",
+      "final_epoch": "model_epoch15.pt (sensitivity)"
+    },
+    "bootstrap": {
+      "n": 1000,
+      "seed": 42,
+      "level": "cell-level"
+    },
+    "null": {
+      "n": 100,
+      "seed": 42,
+      "primary": "L2-normed"
+    },
+    "frozen_baseline_test_donor": {
+      "rho_normed": 0.1894532382595418,
+      "z": 6.520042500439068,
+      "probe_f1_macro": 0.6985176030371871
+    },
+    "naive_mapping": {
+      "method": "data-driven majority cell_class_4 per author class on the TRAIN-90% subset (same cells as training)",
+      "mapping": {
+        "suprabasal": "suprabasal",
+        "differentiated": "differentiated",
+        "basal": "basal",
+        "spinous": "spinous"
+      },
+      "contingency": {
+        "suprabasal": {
+          "suprabasal": 3670
+        },
+        "differentiated": {
+          "differentiated": 3673
+        },
+        "basal": {
+          "basal": 3671
+        },
+        "spinous": {
+          "spinous": 3669
+        }
+      }
+    },
+    "timestamp_utc": "2026-08-25T02:38:08+00:00"
+  },
+  "frozen_baseline": {
+    "meta": {
+      "model": "perturblab/scgpt-human",
+      "scgpt_version": "0.2.5 (git main cebd6fae)",
+      "device": "cuda",
+      "max_len": 4253,
+      "batch": 32,
+      "n_null": 100,
+      "seed": 42,
+      "n_probe_repeats": 5,
+      "rho_primary": "L2-normed cell_emb",
+      "layer_order": [
+        "basal",
+        "suprabasal",
+        "spinous",
+        "differentiated"
+      ],
+      "checkpoint_total": 163,
+      "checkpoint_loaded": 135,
+      "checkpoint_missing": [
+        "cls_decoder._decoder.0.bias",
+        "cls_decoder._decoder.0.weight",
+        "cls_decoder._decoder.2.bias",
+        "cls_decoder._decoder.2.weight",
+        "cls_decoder._decoder.3.bias",
+        "cls_decoder._decoder.3.weight",
+        "cls_decoder._decoder.5.bias",
+        "cls_decoder._decoder.5.weight",
+        "cls_decoder.out_layer.bias",
+        "cls_decoder.out_layer.weight",
+        "transformer_encoder.layers.0.self_attn.in_proj_bias",
+        "transformer_encoder.layers.0.self_attn.in_proj_weight",
+        "transformer_encoder.layers.1.self_attn.in_proj_bias",
+        "transformer_encoder.layers.1.self_attn.in_proj_weight",
+        "transformer_encoder.layers.10.self_attn.in_proj_bias",
+        "transformer_encoder.layers.10.self_attn.in_proj_weight",
+        "transformer_encoder.layers.11.self_attn.in_proj_bias",
+        "transformer_encoder.layers.11.self_attn.in_proj_weight",
+        "transformer_encoder.layers.2.self_attn.in_proj_bias",
+        "transformer_encoder.layers.2.self_attn.in_proj_weight",
+        "transformer_encoder.layers.3.self_attn.in_proj_bias",
+        "transformer_encoder.layers.3.self_attn.in_proj_weight",
+        "transformer_encoder.layers.4.self_attn.in_proj_bias",
+        "transformer_encoder.layers.4.self_attn.in_proj_weight",
+        "transformer_encoder.layers.5.self_attn.in_proj_bias",
+        "transformer_encoder.layers.5.self_attn.in_proj_weight",
+        "transformer_encoder.layers.6.self_attn.in_proj_bias",
+        "transformer_encoder.layers.6.self_attn.in_proj_weight",
+        "transformer_encoder.layers.7.self_attn.in_proj_bias",
+        "transformer_encoder.layers.7.self_attn.in_proj_weight",
+        "transformer_encoder.layers.8.self_attn.in_proj_bias",
+        "transformer_encoder.layers.8.self_attn.in_proj_weight",
+        "transformer_encoder.layers.9.self_attn.in_proj_bias",
+        "transformer_encoder.layers.9.self_attn.in_proj_weight"
+      ],
+      "checkpoint_unexpected": [
+        "flag_encoder.weight",
+        "mvc_decoder.W.weight",
+        "mvc_decoder.gene2query.bias",
+        "mvc_decoder.gene2query.weight",
+        "transformer_encoder.layers.0.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.0.self_attn.Wqkv.weight",
+        "transformer_encoder.layers.1.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.1.self_attn.Wqkv.weight",
+        "transformer_encoder.layers.10.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.10.self_attn.Wqkv.weight",
+        "transformer_encoder.layers.11.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.11.self_attn.Wqkv.weight",
+        "transformer_encoder.layers.2.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.2.self_attn.Wqkv.weight",
+        "transformer_encoder.layers.3.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.3.self_attn.Wqkv.weight",
+        "transformer_encoder.layers.4.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.4.self_attn.Wqkv.weight",
+        "transformer_encoder.layers.5.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.5.self_attn.Wqkv.weight",
+        "transformer_encoder.layers.6.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.6.self_attn.Wqkv.weight",
+        "transformer_encoder.layers.7.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.7.self_attn.Wqkv.weight",
+        "transformer_encoder.layers.8.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.8.self_attn.Wqkv.weight",
+        "transformer_encoder.layers.9.self_attn.Wqkv.bias",
+        "transformer_encoder.layers.9.self_attn.Wqkv.weight"
+      ],
+      "reference_GF_frozen": {
+        "rho": 0.8064,
+        "probe_f1": 0.4421
+      },
+      "G1_gate": "rho>=0.5 AND z>=3 (PREREG-2026-08-11, LOCKED)",
+      "rebuild": {
+        "note": "REBUILD 2026-08-18 of the LOST one-off frozen_diag script; rho/null = corneal_fm/evaluation.py (unchanged, per-function identical); probe = reference-reproducing split self-probe on the analysis-set emb (see probe.design). Evidence for the reconstruction: the initially assumed 31-class train-transfer probe (scgpt_train.h5ad 4,148-gene HVG panel -> 9,129-gene test panel) is structurally broken - train/test embeddings land on disjoint manifolds (KNN harmonized agreement 0.0050, NN cosine dist 0.019 vs train-internal 0.0005), giving GSE153515 F1=0.0057-0.01 vs reference 0.8507. Only the split self-probe (90/10, L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000) reproduces the reference magnitude: GSE153515 F1 macro 0.813\u00b10.019 / weighted 0.888 (reference 0.8507\u00b10.0229 / 0.8985), tolerance = lost-script exact split/normalisation + bf16 GPU differences.",
+        "assumptions": [
+          "A1 probe repeat seeds 42..46 (mirrors reference n_probe_repeats=5)",
+          "A2 label-shuffle rng default_rng(seed)",
+          "A3 F1 classes = axis classes present in y_true",
+          "A4 weighted F1 = mean over repeats",
+          "A5 official load_pretrained (Wqkv->in_proj rename)",
+          "A6 probe = split self-probe (train_frac 0.9), L2norm + StandardScaler + lbfgs(C=1.0, max_iter=5000)"
+        ]
+      },
+      "timestamp_utc": "2026-08-20T11:13:13+00:00"
+    },
+    "results": {
+      "epidermis_test": {
+        "tag": "epidermis_test",
+        "h5ad": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/scgpt_epidermis_test.h5ad",
+        "label_col": "cell_class_4",
+        "n_cells_input": 1836,
+        "n_analysis": 1836,
+        "label_counts": {
+          "basal": 459,
+          "suprabasal": 459,
+          "spinous": 459,
+          "differentiated": 459
+        },
+        "genes_in_vocab": 3823,
+        "exclusions": {},
+        "rho_raw": 0.1896076568589111,
+        "rho_normed": 0.1894532382595418,
+        "null_mean": 0.027382912352408865,
+        "null_sd": 0.02485724991765298,
+        "null_z": 6.520042500439068,
+        "null_pctile": 1.0,
+        "probe": {
+          "f1_macro": 0.6985176030371871,
+          "f1_macro_sd": 0.023155276299445648,
+          "f1_weighted": 0.6992212677020391,
+          "f1_weighted_sd": 0.027172665222647684,
+          "n_repeats": 5,
+          "train_frac": 0.9,
+          "n_fit_cells_per_repeat": [
+            1652,
+            1652,
+            1652,
+            1652,
+            1652
+          ],
+          "n_eval_cells_per_repeat": [
+            184,
+            184,
+            184,
+            184,
+            184
+          ],
+          "design": "split self-probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+        },
+        "forward_total_s": 1.8334870338439941,
+        "forward_per_batch_s": 0.031611845411103345,
+        "n_batches": 58,
+        "peak_gpu_gb": 0.600134656
+      }
+    },
+    "g1_verdict": {
+      "gate": "rho>=0.5 AND z>=3 (PREREG-2026-08-11, LOCKED)",
+      "rho_normed": 0.1894532382595418,
+      "rho_pass": false,
+      "z": 6.520042500439068,
+      "z_pass": true,
+      "verdict": "FAIL -> do not invest in 6-run"
+    }
+  },
+  "per_seed_per_ckpt": {
+    "s42_best_val": {
+      "seed": 42,
+      "n_cls": 4,
+      "n_eval_cells": 1836,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed42/model_best_val.pt",
+      "pred_dist": {
+        "basal": 463,
+        "differentiated": 466,
+        "suprabasal": 451,
+        "spinous": 456
+      },
+      "macro_f1": {
+        "macro_f1": 0.9585665806611008,
+        "ci95_low": 0.9489584946860548,
+        "ci95_high": 0.9676820187483108,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.30722315671186273,
+      "rho_normed": 0.303587885518377,
+      "null_mean": 0.027148913024864597,
+      "null_sd": 0.020562096309534157,
+      "null_z": 13.44410454712899,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "s42_final_epoch": {
+      "seed": 42,
+      "n_cls": 4,
+      "n_eval_cells": 1836,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed42/model_epoch15.pt",
+      "pred_dist": {
+        "basal": 445,
+        "suprabasal": 497,
+        "spinous": 469,
+        "differentiated": 425
+      },
+      "macro_f1": {
+        "macro_f1": 0.9435366693829075,
+        "ci95_low": 0.9326785107752303,
+        "ci95_high": 0.9543203577010102,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.34785546982923987,
+      "rho_normed": 0.34963771783029385,
+      "null_mean": 0.027452281231542208,
+      "null_sd": 0.02356596636536621,
+      "null_z": 13.67164119661362,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "s123_best_val": {
+      "seed": 123,
+      "n_cls": 4,
+      "n_eval_cells": 1836,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed123/model_best_val.pt",
+      "pred_dist": {
+        "basal": 468,
+        "suprabasal": 442,
+        "spinous": 474,
+        "differentiated": 452
+      },
+      "macro_f1": {
+        "macro_f1": 0.951516386604093,
+        "ci95_low": 0.9422164102991957,
+        "ci95_high": 0.9613363871083436,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": -0.028813775315648067,
+      "rho_normed": -0.035514439538280276,
+      "null_mean": 0.026716421456047704,
+      "null_sd": 0.021343641923873717,
+      "null_z": -2.915662716620085,
+      "null_pctile": 0.0,
+      "n_null": 100
+    },
+    "s123_final_epoch": {
+      "seed": 123,
+      "n_cls": 4,
+      "n_eval_cells": 1836,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed123/model_epoch15.pt",
+      "pred_dist": {
+        "basal": 458,
+        "differentiated": 461,
+        "suprabasal": 451,
+        "spinous": 466
+      },
+      "macro_f1": {
+        "macro_f1": 0.9553619544492429,
+        "ci95_low": 0.945061185113628,
+        "ci95_high": 0.9641917685187129,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.19228516507297527,
+      "rho_normed": 0.19129155491870015,
+      "null_mean": 0.02655324327779751,
+      "null_sd": 0.019597634924006853,
+      "null_z": 8.406030231693943,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "s456_best_val": {
+      "seed": 456,
+      "n_cls": 4,
+      "n_eval_cells": 1836,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed456/model_best_val.pt",
+      "pred_dist": {
+        "basal": 465,
+        "suprabasal": 467,
+        "spinous": 444,
+        "differentiated": 460
+      },
+      "macro_f1": {
+        "macro_f1": 0.9465189634697224,
+        "ci95_low": 0.9369544018582726,
+        "ci95_high": 0.956960127578414,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.21387619423479015,
+      "rho_normed": 0.21377508681853644,
+      "null_mean": 0.024048288656945263,
+      "null_sd": 0.019539993334654986,
+      "null_z": 9.709665449327602,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "s456_final_epoch": {
+      "seed": 456,
+      "n_cls": 4,
+      "n_eval_cells": 1836,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed456/model_epoch15.pt",
+      "pred_dist": {
+        "basal": 462,
+        "suprabasal": 475,
+        "spinous": 498,
+        "differentiated": 401
+      },
+      "macro_f1": {
+        "macro_f1": 0.9389546568737431,
+        "ci95_low": 0.9274838677600701,
+        "ci95_high": 0.9496033088061273,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.3554339302566202,
+      "rho_normed": 0.35448811633548316,
+      "null_mean": 0.02604671350553302,
+      "null_sd": 0.022440040631961523,
+      "null_z": 14.636399649033992,
+      "null_pctile": 1.0,
+      "n_null": 100
+    }
+  },
+  "aggregate": {
+    "best_val": {
+      "macro_f1": {
+        "mean": 0.9522006435783054,
+        "sd": 0.006052885733480159,
+        "min": 0.9465189634697224,
+        "max": 0.9585665806611008,
+        "ci95": [
+          0.9077978086305548,
+          0.9966034785260559
+        ],
+        "per_seed": {
+          "s42": 0.9585665806611008,
+          "s123": 0.951516386604093,
+          "s456": 0.9465189634697224
+        }
+      },
+      "rho_normed": {
+        "mean": 0.16061617759954439,
+        "sd": 0.1756900649915142,
+        "min": -0.035514439538280276,
+        "max": 0.303587885518377,
+        "ci95": [
+          -1.128213200861635,
+          1.4494455560607236
+        ],
+        "per_seed": {
+          "s42": 0.303587885518377,
+          "s123": -0.035514439538280276,
+          "s456": 0.21377508681853644
+        }
+      },
+      "rho_raw_mean": 0.1640951918770016,
+      "null_z": {
+        "mean": 6.746035759945502,
+        "per_seed": {
+          "s42": 13.44410454712899,
+          "s123": -2.915662716620085,
+          "s456": 9.709665449327602
+        }
+      },
+      "ci_method": "t(df=2) mean +/- 12.706*sd/sqrt(3)"
+    },
+    "final_epoch": {
+      "macro_f1": {
+        "mean": 0.9459510935686312,
+        "sd": 0.008465927978916758,
+        "min": 0.9389546568737431,
+        "max": 0.9553619544492429,
+        "ci95": [
+          0.8838466331047375,
+          1.0080555540325247
+        ],
+        "per_seed": {
+          "s42": 0.9435366693829075,
+          "s123": 0.9553619544492429,
+          "s456": 0.9389546568737431
+        }
+      },
+      "rho_normed": {
+        "mean": 0.29847246302815905,
+        "sd": 0.09285306612487813,
+        "min": 0.19129155491870015,
+        "max": 0.35448811633548316,
+        "ci95": [
+          -0.3826802220011372,
+          0.9796251480574554
+        ],
+        "per_seed": {
+          "s42": 0.34963771783029385,
+          "s123": 0.19129155491870015,
+          "s456": 0.35448811633548316
+        }
+      },
+      "rho_raw_mean": 0.29852485505294507,
+      "null_z": {
+        "mean": 12.238023692447186,
+        "per_seed": {
+          "s42": 13.67164119661362,
+          "s123": 8.406030231693943,
+          "s456": 14.636399649033992
+        }
+      },
+      "ci_method": "t(df=2) mean +/- 12.706*sd/sqrt(3)"
+    }
+  }
+}

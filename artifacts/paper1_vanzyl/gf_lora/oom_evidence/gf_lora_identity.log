@@ -1,0 +1,11 @@
+device=cuda seed=42
+Loaded 80817 tokenized cells from /home/summer/corneal_scgpt/data/gf_tokenized_vanzyl.dataset
+n_author_classes=30 n_total_cells=80817
+Locked val split: 76570 train, 4247 val
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at /home/summer/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at /home/summer/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+LoRA wrapped 12 layers (r=8, alpha=16); trainable = head 0.023M + adapters 0.442M
+IDENTITY CHECK (fp32): B=0 LoRA vs base max|diff| = 6.45e-06
+IDENTITY CHECK PASS

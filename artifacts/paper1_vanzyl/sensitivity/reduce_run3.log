@@ -1,0 +1,2 @@
+[2026-08-20T17:56:18+00:00] arms available: ['cellplm_corn_123', 'cellplm_corn_42', 'cellplm_corn_456', 'cellplm_frozen', 'cellplm_naive_123', 'cellplm_naive_42', 'cellplm_naive_456', 'gf_frozen', 'scgpt_frozen', 'scgpt_naive_seed42']
+[2026-08-20T17:56:20+00:00] gates: all_passed=True failures=[]

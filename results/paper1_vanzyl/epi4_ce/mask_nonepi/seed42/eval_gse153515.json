@@ -1,0 +1,200 @@
+{
+  "provenance": {
+    "script": "corneal_fm/evaluation.py",
+    "accession": "GSE153515",
+    "external_test_file": "data/gse153515_annotated.h5ad",
+    "n_external_cells": 14775,
+    "n_eval_cells": 14775,
+    "n_eval_donors": 2,
+    "classes": [
+      "LSC",
+      "TAC",
+      "basal",
+      "differentiated"
+    ],
+    "layer_order": [
+      "LSC",
+      "TAC",
+      "basal",
+      "differentiated"
+    ],
+    "n_boot": 1000,
+    "seed": 42,
+    "timestamp_utc": "2026-10-21T13:36:30+00:00"
+  },
+  "leakage": {
+    "train_donors": [
+      "14613",
+      "14823",
+      "15057",
+      "15176",
+      "15183",
+      "15205",
+      "15209",
+      "15232",
+      "15357",
+      "246z",
+      "257t",
+      "283p",
+      "atlanta_a230245",
+      "bcm_21_0999",
+      "bcm_21_3104",
+      "bcm_22_0075",
+      "bcm_22_0200",
+      "bcm_22_0389",
+      "bcm_22_0434",
+      "bcm_22_0458",
+      "bcm_22_0485",
+      "bcm_22_0496",
+      "bcm_22_0500",
+      "bcm_22_0698",
+      "bcm_22_0769",
+      "bcm_22_0784",
+      "bcm_22_0952",
+      "bcm_23_0131",
+      "bcm_23_0170",
+      "bcm_23_0222",
+      "bcm_23_0229",
+      "bcm_23_0358",
+      "bcm_23_0362",
+      "chakravarti_cornea2",
+      "chakravarti_cornea3",
+      "dickman_cornea01",
+      "dickman_cornea04",
+      "dickman_cornea05",
+      "fetus12_13w0d",
+      "fetus1_17w1d",
+      "fetus5_16w1d",
+      "fetus6_18w2d",
+      "fetus7_19w5d",
+      "lei_22_49449",
+      "li_donor72",
+      "li_donor73",
+      "pooled [dickman_cornea07,dickman_cornea08]",
+      "shi_donor1",
+      "shi_donor3"
+    ],
+    "external_donors": [
+      "donor_1",
+      "donor_2"
+    ],
+    "donor_overlap": [],
+    "donor_disjoint": true,
+    "train_studies": [
+      "chakravarti_GSE218123",
+      "chen_cornea",
+      "chen_fetal",
+      "chen_limbus",
+      "chen_sclera",
+      "dickman_GSE186433",
+      "lako_adult_GSE155683",
+      "lako_fetal_GSE155683",
+      "li_GSE147979",
+      "shi_GSE157474"
+    ],
+    "external_accession": "GSE153515",
+    "source_overlap": [],
+    "source_disjoint": true,
+    "legacy_cell_level_split": false,
+    "passed": true
+  },
+  "primary_endpoint": {
+    "metric": "donor_level_macro_f1",
+    "macro_f1": 0.6638838712946686,
+    "ci_lower": 0.6394931320288251,
+    "ci_upper": 0.6882746105605122,
+    "per_donor": {
+      "donor_1": 0.6882746105605122,
+      "donor_2": 0.6394931320288251
+    }
+  },
+  "per_class": {
+    "LSC": {
+      "precision": 0.9794721407624634,
+      "recall": 0.780601811276658,
+      "f1": 0.8688018208421395,
+      "support": 3423
+    },
+    "TAC": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 171
+    },
+    "basal": {
+      "precision": 0.8366392924826279,
+      "recall": 0.9886533293520454,
+      "f1": 0.9063162937110791,
+      "support": 6698
+    },
+    "differentiated": {
+      "precision": 0.8951573849878934,
+      "recall": 0.8246709792549632,
+      "f1": 0.8584697550214792,
+      "support": 4483
+    }
+  },
+  "confusion": [
+    [
+      2672,
+      2,
+      396,
+      353
+    ],
+    [
+      18,
+      0,
+      147,
+      6
+    ],
+    [
+      2,
+      0,
+      6622,
+      74
+    ],
+    [
+      36,
+      0,
+      750,
+      3697
+    ]
+  ],
+  "secondary_endpoints": {
+    "layer_adjacency_accuracy": 0.9778680203045685,
+    "marker_gradient_rank_correlation": 0.26631485158360113,
+    "expected_calibration_error": 0.09652270853216877
+  },
+  "model": {
+    "arm": "method_axis_ft",
+    "variant": "mask_nonepi",
+    "label_space": "epi4",
+    "lambda": 0.0,
+    "seed": 42,
+    "checkpoint": "/home/summer/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045/model/checkpoint-7473",
+    "save_dir": "/home/summer/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045",
+    "step": 7473,
+    "num_labels": 4,
+    "decode": "softmax over the 4-class head (argmax)"
+  },
+  "notes": "marker_gradient_rank_correlation is the Spearman rho between the CLS embedding projection on the per-layer-centroid principal axis (oriented LSC -> differentiated) and the 4-stage ordinal, computed by the same corneal_fm.evaluation code as the naive / ordinal Tier-B arms. Decode: softmax over the 4-way head (argmax); no 31->4 aggregation. per_class and confusion in this record are produced by corneal_fm.evaluation.evaluate_on_external_test from the same predictions as the primary endpoint; the per-cell predictions, labels and CLS embeddings behind them are archived in the per-cell npz listed under archived_inputs (y_true_ext / y_pred_ext / probs_ext / emb_ext / donor_ext).",
+  "archived_inputs": {
+    "percell": {
+      "path": "results/paper1_vanzyl/epi4_ce/mask_nonepi/seed42/percell_epi4_42.npz",
+      "sha256": "ee3d87331364927bca97850bffeaf5c68e300e54e5561a76613a6633721fc7b0"
+    },
+    "checkpoint": {
+      "model.safetensors": {
+        "path": "/home/summer/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045/model/checkpoint-7473/model.safetensors",
+        "sha256": "b6b1a290778f159aa0f1ef8e315609f50751fe8d98b72520758be8155394777e"
+      },
+      "config.json": {
+        "path": "/home/summer/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045/model/checkpoint-7473/config.json",
+        "sha256": "ebe5564c17be9759f7de8bec8092c7312cbf51d095a1ceb1f68308eeef3a7e10"
+      }
+    },
+    "n_eval_cells": 14775,
+    "n_eval_donors": 2
+  },
+  "record_sha256_at_enrichment": "d404266497d49c52fd6e298dd8ccdca5e2f9d56ee6708dd6218ca691884b280b"
+}

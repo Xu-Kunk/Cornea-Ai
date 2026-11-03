@@ -1,0 +1,58 @@
+[2026-08-08 13:53:52] ============================================================
+[2026-08-08 13:53:52] Phase B / flow controller start (dry_run=True, no_wait=True)
+[2026-08-08 13:53:52] --no-wait: using current runs_status.json
+[2026-08-08 13:53:52]   axis_ft λ=0.5: NO RESULT
+[2026-08-08 13:53:52]   axis_ft λ=1.0: NO RESULT
+[2026-08-08 13:53:52] ERROR: axis_ft has no usable Phase A results.
+[2026-08-08 13:53:52]   soft_spearman λ=0.5: NO RESULT
+[2026-08-08 13:53:52]   soft_spearman λ=1.0: NO RESULT
+[2026-08-08 13:53:52] ERROR: soft_spearman has no usable Phase A results.
+[2026-08-08 13:53:52]   flow: no Phase A result -> gate FAIL (hard)
+[2026-08-08 13:53:52] decision written -> /home/dq/Codex/Ai/artifacts/paper1_method_arms/phase_b_decision.json
+[2026-08-08 13:53:52] dry-run: no Phase B launched.
+[2026-08-08 13:53:52] ============================================================
+[2026-08-08 13:53:52] ============================================================
+[2026-08-08 13:53:52] Phase B / flow controller start (dry_run=False, no_wait=False)
+[2026-08-08 13:53:52] Phase B / flow controller start (dry_run=False, no_wait=False)
+[2026-08-08 13:54:54] ============================================================
+[2026-08-08 13:54:54] ============================================================
+[2026-08-08 13:54:54] Phase B / flow controller start (dry_run=False, no_wait=False)
+[2026-08-08 13:54:54] Phase B / flow controller start (dry_run=False, no_wait=False)
+[2026-08-08 13:55:24] ============================================================
+[2026-08-08 13:55:24] ============================================================
+[2026-08-08 13:55:24] Phase B / flow controller start (dry_run=False, no_wait=False)
+[2026-08-08 13:55:24] Phase B / flow controller start (dry_run=False, no_wait=False)
+[2026-08-09 12:49:23] ============================================================
+[2026-08-09 12:49:23] Phase B / flow controller start (dry_run=True, no_wait=True)
+[2026-08-09 12:49:23] --no-wait: using current Phase A results (no polling)
+[2026-08-09 12:49:23]   axis_ft λ=0.5: NO RESULT
+[2026-08-09 12:49:23]   axis_ft λ=1.0: NO RESULT
+[2026-08-09 12:49:23] ERROR: axis_ft has no usable Phase A results.
+[2026-08-09 12:49:23]   soft_spearman λ=0.5: NO RESULT
+[2026-08-09 12:49:23]   soft_spearman λ=1.0: NO RESULT
+[2026-08-09 12:49:23] ERROR: soft_spearman has no usable Phase A results.
+[2026-08-09 12:49:23]   flow: no Phase A result -> gate FAIL (hard)
+[2026-08-09 12:49:23] decision written -> /home/dq/Codex/Ai/artifacts/paper1_method_arms/phase_b_decision.json
+[2026-08-09 12:49:23] dry-run: no Phase B launched.
+[2026-08-09 12:50:17] Phase A complete: all 5 result JSONs present.
+[2026-08-09 12:50:27] Phase A complete: all 5 result JSONs present.
+[2026-08-09 12:50:35] Phase A complete: all 5 result JSONs present.
+[2026-08-09 12:51:18] Phase A complete: all 5 result JSONs present.
+[2026-08-10 12:33:51] ============================================================
+[2026-08-10 12:33:51] Phase B / flow controller start (dry_run=False, no_wait=False)
+[2026-08-10 12:33:51] Phase A complete: all 5 result JSONs present.
+[2026-08-10 12:33:51]   axis_ft: chosen λ=1.0 (non-inferior (CI (0.6231333925530794, 0.6779471008485672) overlaps [0.6067,0.6895]))
+[2026-08-10 12:33:51]   soft_spearman: chosen λ=0.5 (non-inferior (CI (0.6275279371375284, 0.6864000253014635) overlaps [0.6067,0.6895]))
+[2026-08-10 12:33:51]   flow gate: hard=True, soft(rho=0.2823 > 0.5)=False -> FAIL
+[2026-08-10 12:33:51] decision written -> /home/dq/Codex/Ai/artifacts/paper1_method_arms/phase_b_decision.json
+[2026-08-10 12:33:51]   launching Phase B axis_ft: --arm axis_ft --lambdas 1.0 --seeds 123,456
+[2026-08-10 12:33:51]   WARNING: Phase B axis_ft exited rc=1
+[2026-08-10 12:33:51]   launching Phase B soft_spearman: --arm soft_spearman --lambdas 0.5 --seeds 123,456
+[2026-08-10 12:33:52]   WARNING: Phase B soft_spearman exited rc=1
+[2026-08-10 12:33:52] Phase B sequence launched.
+[2026-08-10 13:46:15] Phase A complete: all 5 result JSONs present.
+[2026-08-10 13:48:17] Phase A complete: all 5 result JSONs present.
+[2026-08-10 13:48:35] Phase A complete: all 5 result JSONs present.
+[2026-08-10 16:40:26] Phase A complete: all 5 result JSONs present.
+[2026-08-10 16:41:20] Phase A complete: all 5 result JSONs present.
+[2026-08-13 11:16:59] Phase A complete: all 5 result JSONs present.

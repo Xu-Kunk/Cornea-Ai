@@ -1,0 +1,54 @@
+{
+  "model": "lam0.5_seed123",
+  "arm": "caft",
+  "lambda": 0.5,
+  "seed": 123,
+  "checkpoint_path": "/home/dq/Codex/Ai/save/caft_gf_lam0.5_seed123_20260802-033459/model/checkpoint-7473",
+  "n_layers": 13,
+  "layer_labels": [
+    "embedding_output",
+    "transformer_layer_1",
+    "transformer_layer_2",
+    "transformer_layer_3",
+    "transformer_layer_4",
+    "transformer_layer_5",
+    "transformer_layer_6",
+    "transformer_layer_7",
+    "transformer_layer_8",
+    "transformer_layer_9",
+    "transformer_layer_10",
+    "transformer_layer_11",
+    "transformer_layer_12"
+  ],
+  "n_cells": 14775,
+  "layer_order": [
+    "LSC",
+    "TAC",
+    "basal",
+    "differentiated"
+  ],
+  "l2_normalized": false,
+  "dtype": "bfloat16",
+  "timestamp_utc": "2026-08-03T04:29:52+00:00",
+  "marker_gradient_rho": [
+    NaN,
+    0.4125988568065165,
+    0.6436317721410334,
+    0.8099540740288275,
+    0.8037419589483368,
+    0.8212377344614417,
+    0.7199395449222681,
+    0.8093601352267392,
+    0.5028560673033136,
+    0.6575602291928365,
+    0.8176942994120246,
+    0.4403874353949959,
+    0.22978617184892414
+  ],
+  "sanity_gate": {
+    "layer12_rho": 0.22978617184892414,
+    "reference_rho": 0.22978617184892414,
+    "abs_diff": 0.0,
+    "passed": true
+  }
+}

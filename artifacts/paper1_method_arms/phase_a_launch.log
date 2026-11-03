@@ -1,0 +1,28 @@
+[12:46:00] pre-flight checks …
+  ✓ GPU temp: 47 °C
+[12:46:00] all pre-flight checks passed.
+
+[12:46:00] grid: 5 runs -> [('axis_ft', 0.5, 42), ('axis_ft', 1.0, 42), ('soft_spearman', 0.5, 42), ('soft_spearman', 1.0, 42), ('flow', 0.5, 42)]
+[12:46:00] axis_ft λ=0.5 seed=42  already trained (METHOD_ARM_DONE) → skip
+
+[12:46:00] axis_ft λ=1.0 seed=42  already trained (METHOD_ARM_DONE) → skip
+
+[12:46:00] soft_spearman λ=0.5 seed=42  ready (GPU 47 °C, 106 GiB avail)
+
+[12:46:00] soft_spearman λ=0.5 seed=42  training starting …
+[20:23:45] soft_spearman λ=0.5 seed=42  TRAINED (457.8 min)  → method_soft_spearman_lam0.5_seed42_20260809-124603
+[20:23:45] soft_spearman λ=1.0 seed=42  ready (GPU 60 °C, 110 GiB avail)
+
+[20:23:45] soft_spearman λ=1.0 seed=42  training starting …
+[04:01:17] soft_spearman λ=1.0 seed=42  TRAINED (457.5 min)  → method_soft_spearman_lam1.0_seed42_20260809-202348
+[04:01:17] flow λ=0.5 seed=42  ready (GPU 60 °C, 110 GiB avail)
+
+[04:01:17] flow λ=0.5 seed=42  training starting …
+[11:35:13] flow λ=0.5 seed=42  TRAINED (453.9 min)  → method_flow_lam0.5_seed42_20260810-040119
+
+[11:35:13] status -> /home/dq/Codex/Ai/artifacts/paper1_method_arms/runs_status.json
+
+============================================================
+Paper 1 method arms: 5/5 runs trained
+============================================================
+After Phase A, pick lambdas and run: --summary  /  --arm <arm> --lambdas "<chosen>" --seeds "123,456"

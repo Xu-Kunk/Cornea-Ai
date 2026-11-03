@@ -1,0 +1,37 @@
+{
+  "dataset": "GSE186433",
+  "arm": "frozen",
+  "n_eval_cells": 1448,
+  "test_donor": "04",
+  "rho": {
+    "rho_raw": 0.41806009904230873,
+    "rho_normed": 0.4180325279440865,
+    "null_mean": 0.017996736812232524,
+    "null_sd": 0.02819885755087521,
+    "null_z": 14.18624107058685,
+    "null_pctile": 1.0,
+    "n_null": 100
+  },
+  "probe_f1": {
+    "f1_macro": 0.8452446090700055,
+    "f1_macro_sd": 0.03672669647141218,
+    "f1_weighted": 0.9266638718114498,
+    "f1_weighted_sd": 0.021992636298438943,
+    "n_repeats": 5,
+    "design": "split self-probe (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000, seeds 42+i)"
+  },
+  "probe_bootstrap_f1": {
+    "macro_f1": 0.8393009980786822,
+    "ci95_low": 0.7325511802402871,
+    "ci95_high": 0.9251521442770788,
+    "n_boot": 1000,
+    "seed": 42,
+    "design": "probe classifier (last repeat) -> held-out 10% test-donor cells, cell-level bootstrap macro-F1"
+  },
+  "y_true_dist": {
+    "LSC": 72,
+    "basal": 436,
+    "differentiated": 940
+  },
+  "timestamp_utc": "2026-08-19T14:41:05+00:00"
+}

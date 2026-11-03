@@ -1,0 +1,47 @@
+{
+  "arm": "frozen",
+  "seed": null,
+  "n_eval_cells": 16705,
+  "test_donor": "sanes2022_Hu0220",
+  "source": "/home/summer/corneal_scgpt/artifacts/g1_scgpt/vanzyl_cell_emb.npz",
+  "rho": {
+    "rho_raw": 0.7945284679767083,
+    "rho_normed": 0.794588736728114,
+    "null_mean": 0.013021173791018338,
+    "null_sd": 0.008395780677645423,
+    "null_z": 93.09051688523675,
+    "null_pctile": 1.0,
+    "n_null": 100
+  },
+  "probe_f1": {
+    "f1_macro": 0.9451555847079464,
+    "f1_macro_sd": 0.0040718002762140226,
+    "f1_weighted": 0.9560376946339829,
+    "f1_weighted_sd": 0.0025693144938514,
+    "n_repeats": 5,
+    "train_frac": 0.9,
+    "n_fit_cells_per_repeat": [
+      15034,
+      15034,
+      15034,
+      15034,
+      15034
+    ],
+    "n_eval_cells_per_repeat": [
+      1671,
+      1671,
+      1671,
+      1671,
+      1671
+    ],
+    "design": "split self-probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+  },
+  "label_counts": {
+    "LSC": 6307,
+    "basal": 7273,
+    "differentiated": 3125
+  },
+  "metric_code": "scgpt_frozen_diag_rebuild.py (unchanged; G1 rebuild)",
+  "timestamp_utc": "2026-08-20T11:13:00.171535+00:00",
+  "wall_s": 111.9
+}

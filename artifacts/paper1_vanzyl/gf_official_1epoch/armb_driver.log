@@ -1,0 +1,38 @@
+[23:45:09] driver start (Arm B, 3x1-epoch)
+[23:45:09] seed=42 phase=train begin
+[01:32:04] seed=42 attempt=1 train rc=0
+[01:32:04] seed=42 phase=eval_tierb begin
+[03:12:08] seed=42 GPU busy too long; abort
+[10:03:12] driver v2 resume (per-seed markers, restart-safe)
+[10:03:12] seed=42 phase=train begin
+[10:05:11] driver v2 resume (per-seed markers, restart-safe)
+[10:05:11] seed=42 training already done (marker or CAFT_DONE); skip train
+[10:05:11] seed=42 phase=eval_tierb begin
+[10:15:18] seed=42 eval_tierb rc=0
+[10:15:18] seed=42 phase=eval_extra begin
+[10:15:23] seed=42 eval_extra rc=1
+[10:15:23] seed=42 eval_extra failed; abort (resume-safe)
+[10:17:35] driver v2 resume (per-seed markers, restart-safe)
+[10:17:35] seed=42 training already done (marker or CAFT_DONE); skip train
+[10:17:35] seed=42 eval_tierb already done (results_0.0_42.json); skip
+[10:17:35] seed=42 phase=eval_extra begin
+[10:24:20] seed=42 eval_extra rc=0
+[10:24:20] seed=42 EVAL_DONE marker
+[10:24:20] seed=123 phase=train begin
+[11:52:39] seed=123 attempt=1 train rc=0
+[11:52:39] seed=123 TRAIN_DONE marker
+[11:52:39] seed=123 phase=eval_tierb begin
+[11:58:56] seed=123 eval_tierb rc=0
+[11:58:56] seed=123 phase=eval_extra begin
+[12:05:41] seed=123 eval_extra rc=0
+[12:05:41] seed=123 EVAL_DONE marker
+[12:05:41] seed=456 phase=train begin
+[13:34:02] seed=456 attempt=1 train rc=0
+[13:34:02] seed=456 TRAIN_DONE marker
+[13:34:02] seed=456 phase=eval_tierb begin
+[13:40:18] seed=456 eval_tierb rc=0
+[13:40:18] seed=456 phase=eval_extra begin
+[13:47:03] seed=456 eval_extra rc=0
+[13:47:03] seed=456 EVAL_DONE marker
+[13:47:03] summary rc=0
+[13:47:03] ARM_B_DONE

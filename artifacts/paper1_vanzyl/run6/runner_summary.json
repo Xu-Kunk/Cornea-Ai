@@ -1,0 +1,53 @@
+{
+  "runs": {
+    "naive_42": {
+      "arm": "naive",
+      "seed": 42,
+      "status": "DONE",
+      "wall_min": 25.6,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/checkpoints/naive_seed42/model.pt",
+      "ts": "2026-08-18T12:19:26+00:00"
+    },
+    "naive_123": {
+      "arm": "naive",
+      "seed": 123,
+      "status": "DONE",
+      "wall_min": 25.6,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/checkpoints/naive_seed123/model.pt",
+      "ts": "2026-08-18T12:45:04+00:00"
+    },
+    "naive_456": {
+      "arm": "naive",
+      "seed": 456,
+      "status": "DONE",
+      "wall_min": 25.6,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/checkpoints/naive_seed456/model.pt",
+      "ts": "2026-08-18T13:10:42+00:00"
+    },
+    "ordinal_42": {
+      "arm": "ordinal",
+      "seed": 42,
+      "status": "DONE",
+      "wall_min": 25.9,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/checkpoints/ordinal_seed42/model.pt",
+      "ts": "2026-08-18T13:36:36+00:00"
+    },
+    "ordinal_123": {
+      "arm": "ordinal",
+      "seed": 123,
+      "status": "DONE",
+      "wall_min": 25.9,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/checkpoints/ordinal_seed123/model.pt",
+      "ts": "2026-08-18T14:02:31+00:00"
+    },
+    "ordinal_456": {
+      "arm": "ordinal",
+      "seed": 456,
+      "status": "DONE",
+      "wall_min": 25.9,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/checkpoints/ordinal_seed456/model.pt",
+      "ts": "2026-08-18T14:28:24+00:00"
+    }
+  },
+  "updated_utc": "2026-08-18T14:28:24+00:00"
+}

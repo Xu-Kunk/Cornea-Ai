@@ -1,0 +1,66 @@
+{
+  "arm": "CORN ordinal head + LoRA QKV (r=8 alpha=16; head + adapters trained, base trunk frozen)",
+  "seed": 123,
+  "epochs": 15,
+  "n_cls": 2,
+  "n_ordinal": 3,
+  "n_thresholds": 2,
+  "ordinal_label_map": {
+    "LSC": 0,
+    "basal": 1,
+    "differentiated": 2
+  },
+  "lora": {
+    "r": 8,
+    "alpha": 16
+  },
+  "val_split": {
+    "n_train": 38235,
+    "n_val": 4247
+  },
+  "best_val_f1": 0.9524988714363548,
+  "best_val_f1_epoch": 14,
+  "best_val_rho": 0.9244120829670198,
+  "best_val_rho_epoch": 14,
+  "first_loss": 0.7174067497253418,
+  "test_donor_eval": {
+    "best_val": {
+      "macro_f1": {
+        "macro_f1": 0.9681232192529934,
+        "ci95_low": 0.9654394321421985,
+        "ci95_high": 0.9706686488311295
+      },
+      "rho_raw": 0.9241667989931176,
+      "rho_normed": 0.9241586538187204,
+      "null_mean": 0.009491463078403721,
+      "null_sd": 0.006544995203043278,
+      "null_z": 139.75062813109727,
+      "null_pctile": 1.0,
+      "pred_dist": {
+        "basal": 7646,
+        "differentiated": 4150,
+        "LSC": 8362
+      }
+    },
+    "final_epoch": {
+      "macro_f1": {
+        "macro_f1": 0.958293921006231,
+        "ci95_low": 0.9551493020779682,
+        "ci95_high": 0.9613298300597224
+      },
+      "rho_raw": 0.9208367573753895,
+      "rho_normed": 0.9208515155522929,
+      "null_mean": 0.009722280694785817,
+      "null_sd": 0.006636621908098332,
+      "null_z": 137.28810341684562,
+      "null_pctile": 1.0,
+      "pred_dist": {
+        "basal": 7285,
+        "differentiated": 4455,
+        "LSC": 8418
+      }
+    }
+  },
+  "wall_s": 15334.687141895294,
+  "timestamp_utc": "2026-08-21T00:36:51+00:00"
+}

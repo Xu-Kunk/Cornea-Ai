@@ -1,0 +1,558 @@
+\begin{thebibliography}{48}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi: }
+\providecommand{\ArXivprefix}{arXiv: }
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid: }
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\BIBand}{and}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
+\makeatletter\def\@biblabel#1{#1.}\makeatother
+%Type = Article
+\bibitem[{Theodoris et~al.(2023)Theodoris, Xiao, Chopra, Chaffin, Al~Sayed,
+  Hill, Mantineo, Brydon, Zeng, Liu and Ellinor}]{theodoris2023}
+\bibinfo{author}{Theodoris, C.V.}, \bibinfo{author}{Xiao, L.},
+  \bibinfo{author}{Chopra, A.}, \bibinfo{author}{Chaffin, M.D.},
+  \bibinfo{author}{Al~Sayed, Z.R.}, \bibinfo{author}{Hill, M.C.},
+  \bibinfo{author}{Mantineo, H.}, \bibinfo{author}{Brydon, E.M.},
+  \bibinfo{author}{Zeng, Z.}, \bibinfo{author}{Liu, X.S.}, and
+  \bibinfo{author}{Ellinor, P.T.} (\bibinfo{year}{2023}).
+  \bibinfo{title}{Transfer learning enables predictions in network biology}.
+\newblock \bibinfo{journal}{Nature} \emph{\bibinfo{volume}{618}},
+  \bibinfo{pages}{616--624}. \DOIprefix\doi{10.1038/s41586-023-06139-9}.
+%Type = Article
+\bibitem[{Chen et~al.(2026)Chen, Venkatesh, Ortega, Mahesh, Nandi, Madduri,
+  Pelka and Theodoris}]{chen2026natcompsci}
+\bibinfo{author}{Chen, H.}, \bibinfo{author}{Venkatesh, M.S.},
+  \bibinfo{author}{Ortega, J.G.}, \bibinfo{author}{Mahesh, S.V.},
+  \bibinfo{author}{Nandi, T.N.}, \bibinfo{author}{Madduri, R.K.},
+  \bibinfo{author}{Pelka, K.}, and \bibinfo{author}{Theodoris, C.V.}
+  (\bibinfo{year}{2026}). \bibinfo{title}{Scaling and quantization of
+  large-scale foundation model enables resource-efficient predictions in
+  network biology}.
+\newblock \bibinfo{journal}{Nature Computational Science}
+  \emph{\bibinfo{volume}{6}}, \bibinfo{pages}{450--463}.
+  \DOIprefix\doi{10.1038/s43588-026-00972-4}.
+%Type = Article
+\bibitem[{Cui et~al.(2024)Cui, Wang, Maan, Pang, Luo, Duan and
+  Wang}]{cui2024scgpt}
+\bibinfo{author}{Cui, H.}, \bibinfo{author}{Wang, C.}, \bibinfo{author}{Maan,
+  H.}, \bibinfo{author}{Pang, K.}, \bibinfo{author}{Luo, F.},
+  \bibinfo{author}{Duan, N.}, and \bibinfo{author}{Wang, B.}
+  (\bibinfo{year}{2024}). \bibinfo{title}{scgpt: toward building a foundation
+  model for single-cell multi-omics using generative ai}.
+\newblock \bibinfo{journal}{Nature Methods} \emph{\bibinfo{volume}{21}},
+  \bibinfo{pages}{1470--1480}. \DOIprefix\doi{10.1038/s41592-024-02201-0}.
+%Type = Article
+\bibitem[{Qiu et~al.(2025)Qiu, Chen, Qin, Fang, Zhang, Zhang, Xia, Cao, Zhang,
+  Fang, Li and Hu}]{qiu2025biollm}
+\bibinfo{author}{Qiu, P.}, \bibinfo{author}{Chen, Q.}, \bibinfo{author}{Qin,
+  H.}, \bibinfo{author}{Fang, S.}, \bibinfo{author}{Zhang, Y.},
+  \bibinfo{author}{Zhang, Y.}, \bibinfo{author}{Xia, T.}, \bibinfo{author}{Cao,
+  L.}, \bibinfo{author}{Zhang, Y.}, \bibinfo{author}{Fang, X.},
+  \bibinfo{author}{Li, Y.}, and \bibinfo{author}{Hu, L.}
+  (\bibinfo{year}{2025}). \bibinfo{title}{Biollm: A standardized framework for
+  integrating and benchmarking single-cell foundation models}.
+\newblock \bibinfo{journal}{Patterns} \emph{\bibinfo{volume}{6}},
+  \bibinfo{pages}{101326}. \DOIprefix\doi{10.1016/j.patter.2025.101326}.
+%Type = Article
+\bibitem[{Liu et~al.(2026)Liu, Li, Wang, Li and Zhao}]{liu2026}
+\bibinfo{author}{Liu, T.}, \bibinfo{author}{Li, K.}, \bibinfo{author}{Wang,
+  Y.}, \bibinfo{author}{Li, H.}, and \bibinfo{author}{Zhao, H.}
+  (\bibinfo{year}{2026}). \bibinfo{title}{Evaluating the utilities of
+  foundation models in single-cell data analysis}.
+\newblock \bibinfo{journal}{Advanced Science} \emph{\bibinfo{volume}{13}},
+  \bibinfo{pages}{e14490}. \DOIprefix\doi{10.1002/advs.202514490}.
+%Type = Misc
+\bibitem[{Hou et~al.(2026)Hou, Yang, Ma, Xiang, Wang, Wan, Ma and
+  Zhou}]{hou2026}
+\bibinfo{author}{Hou, S.}, \bibinfo{author}{Yang, P.}, \bibinfo{author}{Ma,
+  W.}, \bibinfo{author}{Xiang, J.}, \bibinfo{author}{Wang, J.X.},
+  \bibinfo{author}{Wan, H.}, \bibinfo{author}{Ma, Y.}, and
+  \bibinfo{author}{Zhou, X.} (\bibinfo{year}{2026}).
+\newblock \bibinfo{title}{Accessible and reproducible deployment reveals the
+  practical boundaries of single-cell foundation models}.
+\newblock \bibinfo{howpublished}{bioRxiv preprint}. .
+\newblock \DOIprefix\doi{10.64898/2026.01.06.698060} \bibinfo{note}{current
+  version retitled 'Accessible and reproducible deployment reveals the
+  practical boundaries of single-cell foundation models'; earlier version
+  titled 'A unified framework enables accessible deployment and comprehensive
+  benchmarking of single-cell foundation models'. Earlier-version identifiers
+  PMC12803055 / PMID 41542465. Preprint, not peer-reviewed}.
+%Type = Article
+\bibitem[{He et~al.(2026)He, Fei, Krull, Yu, Zhang, Wang, Cheng, Gao, Su, Chen,
+  Li, Jin, Chang, Ma, Ma and Xu}]{he2026scpeft}
+\bibinfo{author}{He, F.}, \bibinfo{author}{Fei, R.}, \bibinfo{author}{Krull,
+  J.E.}, \bibinfo{author}{Yu, Y.}, \bibinfo{author}{Zhang, X.},
+  \bibinfo{author}{Wang, X.}, \bibinfo{author}{Cheng, H.},
+  \bibinfo{author}{Gao, M.}, \bibinfo{author}{Su, L.}, \bibinfo{author}{Chen,
+  Y.}, \bibinfo{author}{Li, J.}, \bibinfo{author}{Jin, B.},
+  \bibinfo{author}{Chang, Y.}, \bibinfo{author}{Ma, A.}, \bibinfo{author}{Ma,
+  Q.}, and \bibinfo{author}{Xu, D.} (\bibinfo{year}{2026}).
+  \bibinfo{title}{Harnessing the power of single-cell large language models
+  with parameter-efficient fine-tuning using scpeft}.
+\newblock \bibinfo{journal}{Nature Machine Intelligence}
+  \emph{\bibinfo{volume}{8}}, \bibinfo{pages}{118--133}.
+  \DOIprefix\doi{10.1038/s42256-025-01170-z}.
+\newblock \bibinfo{note}{Published online 2025-12-31; issue volume 8, number 1
+  (2026)}.
+%Type = Misc
+\bibitem[{Shakeel et~al.(2026)Shakeel, Shen and
+  Mangiola}]{finetuningmasking2026}
+\bibinfo{author}{Shakeel, M.H.}, \bibinfo{author}{Shen, M.}, and
+  \bibinfo{author}{Mangiola, S.} (\bibinfo{year}{2026}).
+\newblock \bibinfo{title}{Re-evaluating the benefit of training scale in cell
+  foundation models}.
+\newblock \bibinfo{howpublished}{bioRxiv preprint}. .
+\newblock \DOIprefix\doi{10.64898/2026.06.04.730272} \bibinfo{note}{retitled;
+  earlier title \'Finetuning masking challenges narrow-task evaluation of cell
+  foundation models\'}.
+%Type = Article
+\bibitem[{Rosen et~al.(2026)Rosen, Roohani, Agrawal, Samotor{\v{c}}an, {Tabula
+  Sapiens Consortium}, Quake and Leskovec}]{rosen2026uce}
+\bibinfo{author}{Rosen, Y.}, \bibinfo{author}{Roohani, Y.},
+  \bibinfo{author}{Agrawal, A.}, \bibinfo{author}{Samotor{\v{c}}an, L.},
+  \bibinfo{author}{{Tabula Sapiens Consortium}}, \bibinfo{author}{Quake, S.R.},
+  and \bibinfo{author}{Leskovec, J.} (\bibinfo{year}{2026}).
+  \bibinfo{title}{Universal cell embedding provides a foundation model for cell
+  biology}.
+\newblock \bibinfo{journal}{Nature} \emph{\bibinfo{volume}{656}},
+  \bibinfo{pages}{183--191}. \DOIprefix\doi{10.1038/s41586-026-10689-z}.
+%Type = Misc
+\bibitem[{Zhou et~al.(2026)Zhou, Wang, Ling, Tian, Zhang, Li, Chen and
+  Zhou}]{zhou2026}
+\bibinfo{author}{Zhou, X.}, \bibinfo{author}{Wang, Z.}, \bibinfo{author}{Ling,
+  Y.}, \bibinfo{author}{Tian, Q.}, \bibinfo{author}{Zhang, Z.},
+  \bibinfo{author}{Li, Y.}, \bibinfo{author}{Chen, L.}, and
+  \bibinfo{author}{Zhou, P.} (\bibinfo{year}{2026}).
+\newblock \bibinfo{title}{Benchmarking zero-shot single-cell foundation model
+  embeddings for cellular dynamics reconstruction}.
+\newblock \bibinfo{howpublished}{bioRxiv preprint}. .
+\newblock \DOIprefix\doi{10.64898/2026.03.10.710748} \bibinfo{note}{posted
+  2026-03-12; preprint, not peer-reviewed}.
+%Type = Misc
+\bibitem[{Pan et~al.(2024)Pan, Withnell, Celik and Secrier}]{pan2024}
+\bibinfo{author}{Pan, S.}, \bibinfo{author}{Withnell, E.},
+  \bibinfo{author}{Celik, C.}, and \bibinfo{author}{Secrier, M.}
+  (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{From cell types to cell states: adapting foundation
+  models for cellular plasticity}.
+\newblock \bibinfo{howpublished}{bioRxiv preprint}. .
+\newblock \DOIprefix\doi{10.1101/2024.08.16.608311} \bibinfo{note}{v2
+  2026-01-06 (retitled); v1 2024-08-19 titled 'Classifying
+  epithelial-mesenchymal transition states in single cell cancer data using
+  large language models'; preprint, not peer-reviewed}.
+%Type = Article
+\bibitem[{Kendiukhov(2026{\natexlab{a}})}]{kendiukhov2026genomics}
+\bibinfo{author}{Kendiukhov, I.} (\bibinfo{year}{2026}{\natexlab{a}}).
+  \bibinfo{title}{Systematic evaluation of single-cell foundation model
+  interpretability: attention-derived edge scores add no incremental value over
+  gene-level features for perturbation-target prediction}.
+\newblock \bibinfo{journal}{BMC Genomics} \emph{\bibinfo{volume}{27}},
+  \bibinfo{pages}{634}. \DOIprefix\doi{10.1186/s12864-026-12965-8}.
+%Type = Article
+\bibitem[{Kendiukhov(2026{\natexlab{b}})}]{kendiukhov2026bioinformatics}
+\bibinfo{author}{Kendiukhov, I.} (\bibinfo{year}{2026}{\natexlab{b}}).
+  \bibinfo{title}{Residual-stream geometry of single-cell foundation models
+  carries incremental gene-regulatory signal across tissues}.
+\newblock \bibinfo{journal}{BMC Bioinformatics} \emph{\bibinfo{volume}{27}},
+  \bibinfo{pages}{162}. \DOIprefix\doi{10.1186/s12859-026-06538-5}.
+%Type = Misc
+\bibitem[{Kendiukhov(2026{\natexlab{c}})}]{kendiukhov2026circuits}
+\bibinfo{author}{Kendiukhov, I.} (\bibinfo{year}{2026}{\natexlab{c}}).
+\newblock \bibinfo{title}{Exhaustive circuit mapping of a single-cell
+  foundation model reveals massive redundancy, heavy-tailed hub architecture,
+  and layer-dependent differentiation control}.
+\newblock \bibinfo{howpublished}{arXiv:2603.11940 [cs.LG]}. {\natexlab{c}}.
+\newblock \DOIprefix\doi{10.48550/arXiv.2603.11940} \bibinfo{note}{posted
+  2026-03-12; preprint, not peer-reviewed}.
+%Type = Article
+\bibitem[{Wu et~al.(2025)Wu, Ye, Wang, Hu, Zhu, Yin, Wang, Wang, Hsieh and
+  Hou}]{wu2025}
+\bibinfo{author}{Wu, J.}, \bibinfo{author}{Ye, Q.}, \bibinfo{author}{Wang, Y.},
+  \bibinfo{author}{Hu, R.}, \bibinfo{author}{Zhu, Y.}, \bibinfo{author}{Yin,
+  M.}, \bibinfo{author}{Wang, T.}, \bibinfo{author}{Wang, J.},
+  \bibinfo{author}{Hsieh, C.Y.}, and \bibinfo{author}{Hou, T.}
+  (\bibinfo{year}{2025}). \bibinfo{title}{Biology-driven insights into the
+  power of single-cell foundation models}.
+\newblock \bibinfo{journal}{Genome Biology} \emph{\bibinfo{volume}{26}},
+  \bibinfo{pages}{334}. \DOIprefix\doi{10.1186/s13059-025-03781-6}.
+%Type = Article
+\bibitem[{Cultrera~di Montesano et~al.(2026)}]{hce2026}
+\bibinfo{author}{Cultrera~di Montesano, S.} et~al. (\bibinfo{year}{2026}).
+  \bibinfo{title}{Improving atlas-scale single-cell annotation models with
+  hierarchical cross-entropy loss}.
+\newblock \bibinfo{journal}{Nature Computational Science}
+  \emph{\bibinfo{volume}{6}}, \bibinfo{pages}{243--249}.
+  \DOIprefix\doi{10.1038/s43588-025-00945-z}.
+%Type = Article
+\bibitem[{Collin et~al.(2021)Collin, Queen, Zerti, Bojic, Dorgau, Moyse,
+  Moya~Molina, Yang, Dey, Reynolds, Hussain, Coxhead, Lisgo, Henderson, Joseph,
+  Rooney, Ghosh, Clarke, Connon, Haniffa, Figueiredo, Armstrong and
+  Lako}]{collin2021}
+\bibinfo{author}{Collin, J.}, \bibinfo{author}{Queen, R.},
+  \bibinfo{author}{Zerti, D.}, \bibinfo{author}{Bojic, S.},
+  \bibinfo{author}{Dorgau, B.}, \bibinfo{author}{Moyse, N.},
+  \bibinfo{author}{Moya~Molina, M.}, \bibinfo{author}{Yang, C.},
+  \bibinfo{author}{Dey, S.}, \bibinfo{author}{Reynolds, G.},
+  \bibinfo{author}{Hussain, R.}, \bibinfo{author}{Coxhead, J.M.},
+  \bibinfo{author}{Lisgo, S.}, \bibinfo{author}{Henderson, D.},
+  \bibinfo{author}{Joseph, A.}, \bibinfo{author}{Rooney, P.},
+  \bibinfo{author}{Ghosh, S.}, \bibinfo{author}{Clarke, L.},
+  \bibinfo{author}{Connon, C.}, \bibinfo{author}{Haniffa, M.},
+  \bibinfo{author}{Figueiredo, F.}, \bibinfo{author}{Armstrong, L.}, and
+  \bibinfo{author}{Lako, M.} (\bibinfo{year}{2021}). \bibinfo{title}{A single
+  cell atlas of human cornea that defines its development, limbal progenitor
+  cells and their interactions with the immune cells}.
+\newblock \bibinfo{journal}{The Ocular Surface} \emph{\bibinfo{volume}{21}},
+  \bibinfo{pages}{279--298}. \DOIprefix\doi{10.1016/j.jtos.2021.03.010}.
+%Type = Article
+\bibitem[{Ligocki et~al.(2021)}]{ligocki2021}
+\bibinfo{author}{Ligocki, A.J.} et~al. (\bibinfo{year}{2021}).
+  \bibinfo{title}{Molecular characteristics and spatial distribution of adult
+  human corneal cell subtypes}.
+\newblock \bibinfo{journal}{Scientific Reports} \emph{\bibinfo{volume}{11}},
+  \bibinfo{pages}{16323}. \DOIprefix\doi{10.1038/s41598-021-94933-8}.
+%Type = Article
+\bibitem[{Li et~al.(2021{\natexlab{a}})Li, Kim, Li, Gao, Choi, Bian, Hu, Zhang,
+  Li, Lu, Li, Pflugfelder, Miao and Chen}]{li2021oculsurf}
+\bibinfo{author}{Li, D.Q.}, \bibinfo{author}{Kim, S.}, \bibinfo{author}{Li,
+  J.M.}, \bibinfo{author}{Gao, Q.}, \bibinfo{author}{Choi, J.},
+  \bibinfo{author}{Bian, F.}, \bibinfo{author}{Hu, J.}, \bibinfo{author}{Zhang,
+  Y.}, \bibinfo{author}{Li, J.}, \bibinfo{author}{Lu, R.}, \bibinfo{author}{Li,
+  Y.}, \bibinfo{author}{Pflugfelder, S.C.}, \bibinfo{author}{Miao, H.}, and
+  \bibinfo{author}{Chen, R.} (\bibinfo{year}{2021}{\natexlab{a}}).
+  \bibinfo{title}{Single-cell transcriptomics identifies limbal stem cell
+  population and cell types mapping its differentiation trajectory in limbal
+  basal epithelium of human cornea}.
+\newblock \bibinfo{journal}{The Ocular Surface} \emph{\bibinfo{volume}{20}},
+  \bibinfo{pages}{20--32}. \DOIprefix\doi{10.1016/j.jtos.2020.12.004}.
+%Type = Article
+\bibitem[{Ma et~al.(2026)Ma, Li, Hu and Yu}]{ness2026}
+\bibinfo{author}{Ma, R.}, \bibinfo{author}{Li, X.}, \bibinfo{author}{Hu, J.},
+  and \bibinfo{author}{Yu, B.} (\bibinfo{year}{2026}).
+  \bibinfo{title}{Uncovering smooth structures in single-cell data with
+  neighbor embeddings guided by predictability-computability-stability}.
+\newblock \bibinfo{journal}{Patterns} \emph{\bibinfo{volume}{7}},
+  \bibinfo{pages}{101621}. \DOIprefix\doi{10.1016/j.patter.2026.101621}.
+%Type = Article
+\bibitem[{Cotsarelis et~al.(1989)Cotsarelis, Cheng, Dong, Sun and
+  Lavker}]{cotsarelis1989}
+\bibinfo{author}{Cotsarelis, G.}, \bibinfo{author}{Cheng, S.Z.},
+  \bibinfo{author}{Dong, G.}, \bibinfo{author}{Sun, T.T.}, and
+  \bibinfo{author}{Lavker, R.M.} (\bibinfo{year}{1989}).
+  \bibinfo{title}{Existence of slow-cycling limbal epithelial basal cells that
+  can be preferentially stimulated to proliferate: implications on epithelial
+  stem cells}.
+\newblock \bibinfo{journal}{Cell} \emph{\bibinfo{volume}{57}},
+  \bibinfo{pages}{201--209}. \DOIprefix\doi{10.1016/0092-8674(89)90958-6}.
+%Type = Article
+\bibitem[{Mart{\'i}nez-Carrasco and Arg{\"u}eso(2025)}]{gse299152}
+\bibinfo{author}{Mart{\'i}nez-Carrasco, R.}, and \bibinfo{author}{Arg{\"u}eso,
+  P.} (\bibinfo{year}{2025}). \bibinfo{title}{Single-cell mapping of the
+  glycocalyx in the adult human and mouse ocular surface}.
+\newblock \bibinfo{journal}{PNAS Nexus} \emph{\bibinfo{volume}{4}},
+  \bibinfo{pages}{pgaf348}. \DOIprefix\doi{10.1093/pnasnexus/pgaf348}.
+%Type = Article
+\bibitem[{He et~al.(2020)He, Suryawanshi, Morozov, Gay-Mimbrera, Del~Duca, Kim,
+  Kameyama, Estrada, Der, Krueger, Ruano, Tuschl and
+  Guttman-Yassky}]{he2020epidermis}
+\bibinfo{author}{He, H.}, \bibinfo{author}{Suryawanshi, H.},
+  \bibinfo{author}{Morozov, P.}, \bibinfo{author}{Gay-Mimbrera, J.},
+  \bibinfo{author}{Del~Duca, E.}, \bibinfo{author}{Kim, H.J.},
+  \bibinfo{author}{Kameyama, N.}, \bibinfo{author}{Estrada, Y.},
+  \bibinfo{author}{Der, E.}, \bibinfo{author}{Krueger, J.G.},
+  \bibinfo{author}{Ruano, J.}, \bibinfo{author}{Tuschl, T.}, and
+  \bibinfo{author}{Guttman-Yassky, E.} (\bibinfo{year}{2020}).
+  \bibinfo{title}{Single-cell transcriptome analysis of human skin identifies
+  novel fibroblast subpopulation and enrichment of immune subsets in atopic
+  dermatitis}.
+\newblock \bibinfo{journal}{Journal of Allergy and Clinical Immunology}
+  \emph{\bibinfo{volume}{145}}, \bibinfo{pages}{1615--1628}.
+  \DOIprefix\doi{10.1016/j.jaci.2020.01.042}.
+%Type = Article
+\bibitem[{Wiedemann et~al.(2023)Wiedemann, Billi, Bocci, Kashgari, Xing, Tsoi,
+  Meller, Swindell, Wasikowski, Xing, Ma, Gharaee-Kermani, Kahlenberg, Harms,
+  Maverakis, Nie, Gudjonsson and Andersen}]{wiedemann2023}
+\bibinfo{author}{Wiedemann, J.}, \bibinfo{author}{Billi, A.C.},
+  \bibinfo{author}{Bocci, F.}, \bibinfo{author}{Kashgari, G.},
+  \bibinfo{author}{Xing, E.}, \bibinfo{author}{Tsoi, L.C.},
+  \bibinfo{author}{Meller, L.}, \bibinfo{author}{Swindell, W.R.},
+  \bibinfo{author}{Wasikowski, R.}, \bibinfo{author}{Xing, X.},
+  \bibinfo{author}{Ma, F.}, \bibinfo{author}{Gharaee-Kermani, M.},
+  \bibinfo{author}{Kahlenberg, J.M.}, \bibinfo{author}{Harms, P.W.},
+  \bibinfo{author}{Maverakis, E.}, \bibinfo{author}{Nie, Q.},
+  \bibinfo{author}{Gudjonsson, J.E.}, and \bibinfo{author}{Andersen, B.}
+  (\bibinfo{year}{2023}). \bibinfo{title}{Differential cell composition and
+  split epidermal differentiation in human palm, sole, and hip skin}.
+\newblock \bibinfo{journal}{Cell Reports} \emph{\bibinfo{volume}{42}},
+  \bibinfo{pages}{111994}. \DOIprefix\doi{10.1016/j.celrep.2023.111994}.
+%Type = Article
+\bibitem[{Fuchs and Green(1980)}]{fuchs1980}
+\bibinfo{author}{Fuchs, E.}, and \bibinfo{author}{Green, H.}
+  (\bibinfo{year}{1980}). \bibinfo{title}{Changes in keratin gene expression
+  during terminal differentiation of the keratinocyte}.
+\newblock \bibinfo{journal}{Cell} \emph{\bibinfo{volume}{19}},
+  \bibinfo{pages}{1033--1042}. \DOIprefix\doi{10.1016/0092-8674(80)90094-X}.
+%Type = Article
+\bibitem[{van Zyl et~al.(2022)van Zyl, Yan, McAdams et~al.}]{vanzyl2022}
+\bibinfo{author}{van Zyl, T.}, \bibinfo{author}{Yan, W.},
+  \bibinfo{author}{McAdams, A.M.} et~al. (\bibinfo{year}{2022}).
+  \bibinfo{title}{Cell atlas of the human ocular anterior segment:
+  Tissue-specific and shared cell types}.
+\newblock \bibinfo{journal}{Proceedings of the National Academy of Sciences}
+  \emph{\bibinfo{volume}{119}}, \bibinfo{pages}{e2200914119}.
+  \DOIprefix\doi{10.1073/pnas.2200914119}.
+%Type = Article
+\bibitem[{Zeng et~al.(2025)}]{zeng2025cellfm}
+\bibinfo{author}{Zeng, Y.} et~al. (\bibinfo{year}{2025}).
+  \bibinfo{title}{Cellfm: a large-scale foundation model pre-trained on
+  transcriptomics of 100 million human cells}.
+\newblock \bibinfo{journal}{Nature Communications} \emph{\bibinfo{volume}{16}},
+  \bibinfo{pages}{4679}. \DOIprefix\doi{10.1038/s41467-025-59926-5}.
+%Type = Article
+\bibitem[{Rissom et~al.(2026)Rissom, {\v{S}}krh{\'a}k, Yanez~Sarmiento, Safer,
+  Coley, Renard, Heyne and Iqbal}]{emmaemb2026}
+\bibinfo{author}{Rissom, P.F.}, \bibinfo{author}{{\v{S}}krh{\'a}k, V.},
+  \bibinfo{author}{Yanez~Sarmiento, P.}, \bibinfo{author}{Safer, J.F.},
+  \bibinfo{author}{Coley, C.W.}, \bibinfo{author}{Renard, B.Y.},
+  \bibinfo{author}{Heyne, H.O.}, and \bibinfo{author}{Iqbal, S.}
+  (\bibinfo{year}{2026}). \bibinfo{title}{{EmmaEmb}: A quantitative framework
+  for analyzing embedding spaces in molecular biology}.
+\newblock \bibinfo{journal}{Patterns} \emph{\bibinfo{volume}{7}},
+  \bibinfo{pages}{101635}. \DOIprefix\doi{10.1016/j.patter.2026.101635}.
+%Type = Misc
+\bibitem[{Inecik et~al.(2025)Inecik, Rose, Haniffa, Luecken and
+  Theis}]{sctram2025}
+\bibinfo{author}{Inecik, K.}, \bibinfo{author}{Rose, A.},
+  \bibinfo{author}{Haniffa, M.}, \bibinfo{author}{Luecken, M.}, and
+  \bibinfo{author}{Theis, F.J.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Beyond visual inspection: Principled benchmarking of
+  single-cell trajectory representations with sctram}.
+\newblock \bibinfo{howpublished}{bioRxiv preprint}. .
+\newblock \DOIprefix\doi{10.1101/2025.06.23.661141}.
+%Type = Misc
+\bibitem[{Sallam and Gillis(2026)}]{nuisance2026}
+\bibinfo{author}{Sallam, A.}, and \bibinfo{author}{Gillis, J.}
+  (\bibinfo{year}{2026}).
+\newblock \bibinfo{title}{Robustness to nuisance perturbations enables
+  unsupervised evaluation of single-cell foundation models}.
+\newblock \bibinfo{howpublished}{bioRxiv preprint}. .
+\newblock \DOIprefix\doi{10.64898/2026.08.22.746357}.
+%Type = Misc
+\bibitem[{Cang and Sun(2026)}]{cellleak2026}
+\bibinfo{author}{Cang, H.}, and \bibinfo{author}{Sun, S.}
+  (\bibinfo{year}{2026}).
+\newblock \bibinfo{title}{Cell-level random splits leak group-owned answers in
+  single-cell benchmarks}.
+\newblock \bibinfo{howpublished}{bioRxiv preprint}. .
+\newblock \DOIprefix\doi{10.64898/2026.09.09.750484}.
+%Type = Misc
+\bibitem[{Chen and {CZI Cell Science / Human Cell Atlas Eye
+  Network}(2026)}]{chen2026cellxgene}
+\bibinfo{author}{Chen, R.}, and \bibinfo{author}{{CZI Cell Science / Human Cell
+  Atlas Eye Network}} (\bibinfo{year}{2026}).
+\newblock \bibinfo{title}{Single-cell atlas of the human ocular surface}.
+\newblock \bibinfo{howpublished}{CELLxGENE Discover collection
+  0f7d022a-46c7-4e64-be4c-e34adbb78089}. .
+\newblock \URLprefix
+  \url{https://cellxgene.cziscience.com/collections/0f7d022a-46c7-4e64-be4c-e34adbb78089}
+  \bibinfo{note}{accessed 2026. Pre-publication consortium atlas; cited as a
+  collection}.
+%Type = Article
+\bibitem[{Li et~al.(2021{\natexlab{b}})Li, Kim, Li, Gao, Choi, Bian, Hu, Zhang,
+  Lu and Pflugfelder}]{li2021iovs}
+\bibinfo{author}{Li, J.M.}, \bibinfo{author}{Kim, S.}, \bibinfo{author}{Li,
+  D.Q.}, \bibinfo{author}{Gao, Q.}, \bibinfo{author}{Choi, J.},
+  \bibinfo{author}{Bian, F.}, \bibinfo{author}{Hu, J.}, \bibinfo{author}{Zhang,
+  Y.}, \bibinfo{author}{Lu, R.}, and \bibinfo{author}{Pflugfelder, S.C.}
+  (\bibinfo{year}{2021}{\natexlab{b}}). \bibinfo{title}{Single-cell
+  transcriptomics identifies a unique entity and signature markers of
+  transit-amplifying cells in human corneal limbus}.
+\newblock \bibinfo{journal}{Investigative Ophthalmology \& Visual Science}
+  \emph{\bibinfo{volume}{62}}, \bibinfo{pages}{36}.
+  \DOIprefix\doi{10.1167/iovs.62.9.36}.
+%Type = Article
+\bibitem[{Maiti et~al.(2022)Maiti, Alameen, Nayak, Sridhar and
+  Ghosh}]{maiti2022}
+\bibinfo{author}{Maiti, G.}, \bibinfo{author}{Alameen, M.},
+  \bibinfo{author}{Nayak, D.}, \bibinfo{author}{Sridhar, M.S.}, and
+  \bibinfo{author}{Ghosh, S.} (\bibinfo{year}{2022}). \bibinfo{title}{Single
+  cell rna-seq of human cornea organoids identifies cell fates of a developing
+  immature cornea}.
+\newblock \bibinfo{journal}{PNAS Nexus} \emph{\bibinfo{volume}{1}},
+  \bibinfo{pages}{pgac246}. \DOIprefix\doi{10.1093/pnasnexus/pgac246}.
+%Type = Article
+\bibitem[{Dou et~al.(2021)Dou, Wang, Qi, Zhang, Jiang, Chen, Li and
+  Li}]{dou2021}
+\bibinfo{author}{Dou, S.}, \bibinfo{author}{Wang, Q.}, \bibinfo{author}{Qi,
+  X.}, \bibinfo{author}{Zhang, B.}, \bibinfo{author}{Jiang, H.},
+  \bibinfo{author}{Chen, S.}, \bibinfo{author}{Li, J.}, and
+  \bibinfo{author}{Li, M.} (\bibinfo{year}{2021}). \bibinfo{title}{Molecular
+  identity of human limbal heterogeneity involved in corneal homeostasis and
+  privilege}.
+\newblock \bibinfo{journal}{The Ocular Surface} \emph{\bibinfo{volume}{21}},
+  \bibinfo{pages}{206--220}. \DOIprefix\doi{10.1016/j.jtos.2021.04.010}.
+%Type = Article
+\bibitem[{Catal{\`a} et~al.(2021)Catal{\`a}, Groen, Dehnen, Soares, van
+  Velthoven, Nuijts, Dickman and LaPointe}]{catala2021}
+\bibinfo{author}{Catal{\`a}, P.}, \bibinfo{author}{Groen, N.},
+  \bibinfo{author}{Dehnen, J.A.}, \bibinfo{author}{Soares, J.S.},
+  \bibinfo{author}{van Velthoven, A.J.H.}, \bibinfo{author}{Nuijts, R.M.M.A.},
+  \bibinfo{author}{Dickman, M.M.}, and \bibinfo{author}{LaPointe, V.L.S.}
+  (\bibinfo{year}{2021}). \bibinfo{title}{Single cell transcriptomics reveals
+  the heterogeneity of the human cornea to identify novel markers of the limbus
+  and stroma}.
+\newblock \bibinfo{journal}{Scientific Reports} \emph{\bibinfo{volume}{11}},
+  \bibinfo{pages}{21727}. \DOIprefix\doi{10.1038/s41598-021-01015-w}.
+%Type = Article
+\bibitem[{Gautam et~al.(2021)Gautam, Hamashima, Chen, Zeng, Makovoz, Parikh,
+  Lee, Lau, Lim, Ng et~al.}]{gautam2021}
+\bibinfo{author}{Gautam, P.}, \bibinfo{author}{Hamashima, K.},
+  \bibinfo{author}{Chen, Y.}, \bibinfo{author}{Zeng, Y.},
+  \bibinfo{author}{Makovoz, B.}, \bibinfo{author}{Parikh, B.H.},
+  \bibinfo{author}{Lee, Y.}, \bibinfo{author}{Lau, K.A.}, \bibinfo{author}{Lim,
+  B.}, \bibinfo{author}{Ng, B.X.} et~al. (\bibinfo{year}{2021}).
+  \bibinfo{title}{Multi-species single-cell transcriptomic analysis of ocular
+  compartment regulons}.
+\newblock \bibinfo{journal}{Nature Communications} \emph{\bibinfo{volume}{12}},
+  \bibinfo{pages}{5675}. \DOIprefix\doi{10.1038/s41467-021-25968-8}.
+%Type = Article
+\bibitem[{Korsunsky et~al.(2019)Korsunsky, Millard, Fan, Slowikowski, Zhang,
+  Wei, Baglaenko, Brenner, Loh and Raychaudhuri}]{korsunsky2019}
+\bibinfo{author}{Korsunsky, I.}, \bibinfo{author}{Millard, N.},
+  \bibinfo{author}{Fan, J.}, \bibinfo{author}{Slowikowski, K.},
+  \bibinfo{author}{Zhang, F.}, \bibinfo{author}{Wei, K.},
+  \bibinfo{author}{Baglaenko, Y.}, \bibinfo{author}{Brenner, M.},
+  \bibinfo{author}{Loh, P.R.}, and \bibinfo{author}{Raychaudhuri, S.}
+  (\bibinfo{year}{2019}). \bibinfo{title}{Fast, sensitive and accurate
+  integration of single-cell data with harmony}.
+\newblock \bibinfo{journal}{Nature Methods} \emph{\bibinfo{volume}{16}},
+  \bibinfo{pages}{1289--1296}. \DOIprefix\doi{10.1038/s41592-019-0619-0}.
+%Type = Article
+\bibitem[{Shi et~al.(2023)Shi, Cao and Raschka}]{shi2023corn}
+\bibinfo{author}{Shi, X.}, \bibinfo{author}{Cao, W.}, and
+  \bibinfo{author}{Raschka, S.} (\bibinfo{year}{2023}). \bibinfo{title}{Deep
+  neural networks for rank-consistent ordinal regression based on conditional
+  probabilities}.
+\newblock \bibinfo{journal}{Pattern Analysis and Applications}.
+  \DOIprefix\doi{10.1007/s10044-023-01181-9}.
+%Type = Misc
+\bibitem[{Ma et~al.(2025)Ma, Obuchi and Tanaka}]{onc2025}
+\bibinfo{author}{Ma, C.}, \bibinfo{author}{Obuchi, T.}, and
+  \bibinfo{author}{Tanaka, T.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Neural collapse in cumulative link models for ordinal
+  regression: An analysis with unconstrained feature model}.
+\newblock \bibinfo{howpublished}{arXiv preprint}. .
+\newblock \DOIprefix\doi{10.48550/arXiv.2506.05801} \bibinfo{note}{neurIPS 2025
+  (camera-ready); arXiv:2506.05801}.
+%Type = Article
+\bibitem[{Hao et~al.(2024)Hao, Gong, Zeng, Liu, Guo, Cheng, Wang, Ma, Zhang and
+  Song}]{scfoundation2024}
+\bibinfo{author}{Hao, M.}, \bibinfo{author}{Gong, J.}, \bibinfo{author}{Zeng,
+  X.}, \bibinfo{author}{Liu, C.}, \bibinfo{author}{Guo, Y.},
+  \bibinfo{author}{Cheng, X.}, \bibinfo{author}{Wang, T.}, \bibinfo{author}{Ma,
+  J.}, \bibinfo{author}{Zhang, X.}, and \bibinfo{author}{Song, L.}
+  (\bibinfo{year}{2024}). \bibinfo{title}{Large-scale foundation model on
+  single-cell transcriptomics}.
+\newblock \bibinfo{journal}{Nature Methods}.
+  \DOIprefix\doi{10.1038/s41592-024-02305-7}.
+%Type = Inproceedings
+\bibitem[{Wen et~al.(2024)Wen, Lin, Zhu, Sheng, Tang, Huang, Li, Yang
+  et~al.}]{wen2024cellplm}
+\bibinfo{author}{Wen, J.}, \bibinfo{author}{Lin, J.}, \bibinfo{author}{Zhu,
+  F.}, \bibinfo{author}{Sheng, X.}, \bibinfo{author}{Tang, N.Z.},
+  \bibinfo{author}{Huang, L.}, \bibinfo{author}{Li, H.}, \bibinfo{author}{Yang,
+  Y.} et~al. (\bibinfo{year}{2024}). \bibinfo{title}{Cellplm: a large-scale
+  cell language model for large-scale spatial multi-omics}.
+\newblock In \bibinfo{booktitle}{Proceedings of the Twelfth International
+  Conference on Learning Representations}.
+\newblock \URLprefix \url{https://openreview.net/forum?id=BKXvPDekud}
+  \bibinfo{note}{openReview forum BKXvPDekud}.
+%Type = Misc
+\bibitem[{Ali(2026)}]{sccontam2026}
+\bibinfo{author}{Ali, S.} (\bibinfo{year}{2026}).
+\newblock \bibinfo{title}{Auditing pretraining contamination in single-cell
+  foundation model benchmarks}.
+\newblock \bibinfo{howpublished}{arXiv preprint}. .
+\newblock \DOIprefix\doi{10.48550/arXiv.2607.20572}
+  \bibinfo{note}{arXiv:2607.20572}.
+%Type = Article
+\bibitem[{Wolf et~al.(2018)Wolf, Angerer and Theis}]{wolf2018scanpy}
+\bibinfo{author}{Wolf, F.A.}, \bibinfo{author}{Angerer, P.}, and
+  \bibinfo{author}{Theis, F.J.} (\bibinfo{year}{2018}). \bibinfo{title}{Scanpy:
+  large-scale single-cell gene expression data analysis}.
+\newblock \bibinfo{journal}{Genome Biology} \emph{\bibinfo{volume}{19}},
+  \bibinfo{pages}{15}. \DOIprefix\doi{10.1186/s13059-017-1382-0}.
+%Type = Misc
+\bibitem[{Slowikowski and {Korsunsky, Ilya}(2020)}]{harmonypy}
+\bibinfo{author}{Slowikowski, K.}, and \bibinfo{author}{{Korsunsky, Ilya}}
+  (\bibinfo{year}{2020}).
+\newblock \bibinfo{title}{harmonypy: Python implementation of harmony}.
+\newblock \bibinfo{howpublished}{GitHub repository}. .
+\newblock \URLprefix \url{https://github.com/slowkow/harmonypy}
+  \bibinfo{note}{accessed 2026}.
+%Type = Inproceedings
+\bibitem[{Wolf et~al.(2020)Wolf, Debut, Sanh, Chaumond, Delangue, Moi, Cistac,
+  Rault, Louf, Funtowicz, Davison, Shleifer, von Platen, Ma, Jernite, Plu, Xu,
+  Le~Scao, Gugger, Drame, Lhoest and Rush}]{wolf2020transformers}
+\bibinfo{author}{Wolf, T.}, \bibinfo{author}{Debut, L.}, \bibinfo{author}{Sanh,
+  V.}, \bibinfo{author}{Chaumond, J.}, \bibinfo{author}{Delangue, C.},
+  \bibinfo{author}{Moi, A.}, \bibinfo{author}{Cistac, P.},
+  \bibinfo{author}{Rault, T.}, \bibinfo{author}{Louf, R.},
+  \bibinfo{author}{Funtowicz, M.}, \bibinfo{author}{Davison, J.},
+  \bibinfo{author}{Shleifer, S.}, \bibinfo{author}{von Platen, P.},
+  \bibinfo{author}{Ma, C.}, \bibinfo{author}{Jernite, Y.},
+  \bibinfo{author}{Plu, J.}, \bibinfo{author}{Xu, C.},
+  \bibinfo{author}{Le~Scao, T.}, \bibinfo{author}{Gugger, S.},
+  \bibinfo{author}{Drame, M.}, \bibinfo{author}{Lhoest, Q.}, and
+  \bibinfo{author}{Rush, A.M.} (\bibinfo{year}{2020}).
+  \bibinfo{title}{Huggingface's transformers: State-of-the-art natural language
+  processing}.
+\newblock In \bibinfo{booktitle}{Proceedings of the 2020 Conference on
+  Empirical Methods in Natural Language Processing: System Demonstrations}. pp.
+  \bibinfo{pages}{38--45}.
+\newblock \DOIprefix\doi{10.18653/v1/2020.emnlp-demos.6}.
+%Type = Inproceedings
+\bibitem[{Paszke et~al.(2019)Paszke, Gross, Massa, Lerer, Bradbury, Chanan,
+  Killeen, Lin, Gimelshein, Antiga, Desmaison, Kopf, Yang, DeVito, Raison,
+  Tejani, Chilamkurthy, Steiner, Fang, Bai and Chintala}]{paszke2019}
+\bibinfo{author}{Paszke, A.}, \bibinfo{author}{Gross, S.},
+  \bibinfo{author}{Massa, F.}, \bibinfo{author}{Lerer, A.},
+  \bibinfo{author}{Bradbury, J.}, \bibinfo{author}{Chanan, G.},
+  \bibinfo{author}{Killeen, T.}, \bibinfo{author}{Lin, Z.},
+  \bibinfo{author}{Gimelshein, N.}, \bibinfo{author}{Antiga, L.},
+  \bibinfo{author}{Desmaison, A.}, \bibinfo{author}{Kopf, A.},
+  \bibinfo{author}{Yang, E.}, \bibinfo{author}{DeVito, Z.},
+  \bibinfo{author}{Raison, M.}, \bibinfo{author}{Tejani, A.},
+  \bibinfo{author}{Chilamkurthy, S.}, \bibinfo{author}{Steiner, B.},
+  \bibinfo{author}{Fang, L.}, \bibinfo{author}{Bai, J.}, and
+  \bibinfo{author}{Chintala, S.} (\bibinfo{year}{2019}).
+  \bibinfo{title}{Pytorch: An imperative style, high-performance deep learning
+  library}.
+\newblock In \bibinfo{booktitle}{Advances in Neural Information Processing
+  Systems 32}. pp. \bibinfo{pages}{8026--8037}.
+%Type = Article
+\bibitem[{Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort, Michel,
+  Thirion, Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos,
+  Cournapeau, Brucher, Perrot and Duchesnay}]{pedregosa2011}
+\bibinfo{author}{Pedregosa, F.}, \bibinfo{author}{Varoquaux, G.},
+  \bibinfo{author}{Gramfort, A.}, \bibinfo{author}{Michel, V.},
+  \bibinfo{author}{Thirion, B.}, \bibinfo{author}{Grisel, O.},
+  \bibinfo{author}{Blondel, M.}, \bibinfo{author}{Prettenhofer, P.},
+  \bibinfo{author}{Weiss, R.}, \bibinfo{author}{Dubourg, V.},
+  \bibinfo{author}{Vanderplas, J.}, \bibinfo{author}{Passos, A.},
+  \bibinfo{author}{Cournapeau, D.}, \bibinfo{author}{Brucher, M.},
+  \bibinfo{author}{Perrot, M.}, and \bibinfo{author}{Duchesnay, {\'E}.}
+  (\bibinfo{year}{2011}). \bibinfo{title}{Scikit-learn: Machine learning in
+  python}.
+\newblock \bibinfo{journal}{Journal of Machine Learning Research}
+  \emph{\bibinfo{volume}{12}}, \bibinfo{pages}{2825--2830}. \URLprefix
+  \url{http://jmlr.org/papers/v12/pedregosa11a.html}.
+
+\end{thebibliography}

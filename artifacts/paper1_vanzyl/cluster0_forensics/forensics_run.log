@@ -1,0 +1,11 @@
+[2026-08-18 15:29:58] Reading /home/summer/corneal_scgpt/data/vanzyl_annotated.h5ad ...
+[2026-08-18 15:30:00] Loaded: 80817 x 13250, X dtype=float64
+[2026-08-18 15:30:00] counts layer: (80817, 13250), nnz=207379804
+[2026-08-18 15:30:00] cluster 0: 13584 cells
+[2026-08-18 15:30:06] Loading raw partition files for TAC gene detection (pre-QC set)...
+[2026-08-18 15:30:14] TAC detection aligned: 80817 QC cells, 4369 express >=1 TAC gene
+[2026-08-18 15:30:14] font: Liberation Sans
+[2026-08-18 15:30:15] saved umap_cluster0
+[2026-08-18 15:30:17] saved marker_violin
+[2026-08-18 15:30:17] Wrote /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cluster0_forensics/report.md and /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cluster0_forensics/cluster0_forensics.json
+[2026-08-18 15:30:17] DONE

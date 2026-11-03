@@ -1,0 +1,98 @@
+{
+  "dataset": "GSE299152",
+  "deg_method": "wilcoxon",
+  "extra_nepi_sets": [
+    "Endothelial",
+    "Stromal"
+  ],
+  "harmonize_map": {
+    "LPC": "LSC",
+    "LSC": "LSC",
+    "PMC_basal": "basal",
+    "TAC": "TAC",
+    "TDC": "differentiated",
+    "conjunctival": "NON_LAYER",
+    "endothelial": "NON_LAYER",
+    "immune_contamination": "NON_LAYER",
+    "melanocyte": "NON_LAYER",
+    "stromal": "NON_LAYER"
+  },
+  "input": "/home/dq/Codex/Ai/data/gse299152/gse299152_human_raw.h5ad",
+  "input_shape": [
+    26628,
+    36601
+  ],
+  "integration": "harmonypy",
+  "layer_order": [
+    "LSC",
+    "TAC",
+    "basal",
+    "differentiated"
+  ],
+  "n_clusters": 15,
+  "n_deg": 200,
+  "n_hvg": 2000,
+  "n_marker_sets": 8,
+  "n_pcs": 30,
+  "non_epi_threshold": 0.3,
+  "output": "/home/dq/Codex/Ai/data/gse299152/gse299152_annotated.h5ad",
+  "output_shape": [
+    23970,
+    11274
+  ],
+  "pipeline_version_mirrored": "GSE153515 annotation pipeline v2 (scripts/protocol_15_annotate_gse153515.py, 2026-07-31)",
+  "resolution": 0.7,
+  "resolution_candidates": [
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    1.0,
+    1.2
+  ],
+  "script": "scripts/protocol_15b_annotate_gse299152.py",
+  "script_sha256": "9bc1852c8717f45523b1dae19e9508aef5e26836bf901de6bd7b428d78bae786",
+  "seed": 42,
+  "strict_variant": {
+    "input": "/home/dq/Codex/Ai/data/gse299152/gse299152_annotated.h5ad",
+    "n_cells_remapped": 2385,
+    "note": "Same schema/QC/annotation as the as-is file; only the harmonized labels (cell_type / cell_type_harmonized / layer_index / layer / is_epithelial) of the low-confidence clusters 7/11/12/13 are overridden to NON_LAYER=-1. cell_type_raw retained. As-is annotation file not modified.",
+    "output": "/home/dq/Codex/Ai/data/gse299152/gse299152_annotated_strict.h5ad",
+    "output_shape": [
+      23970,
+      11274
+    ],
+    "remap_rule": {
+      "11": {
+        "from": "LSC",
+        "n_cells": 566,
+        "reason": "zero-enrichment (max 0.000), MT-high; defaulted to LSC by assign-every-cluster rule",
+        "to": "NON_LAYER"
+      },
+      "12": {
+        "from": "LSC",
+        "n_cells": 322,
+        "reason": "near-zero enrichment (max 0.017), VIM/HSPA1A/HSP90 stress-like; defaulted to LPC->LSC",
+        "to": "NON_LAYER"
+      },
+      "13": {
+        "from": "LSC",
+        "n_cells": 148,
+        "reason": "sub-threshold melanocyte enrichment 0.199 < 0.3 gate; defaulted to LSC",
+        "to": "NON_LAYER"
+      },
+      "7": {
+        "from": "LSC",
+        "n_cells": 1349,
+        "reason": "zero-enrichment (max 0.000); defaulted to LSC by assign-every-cluster rule",
+        "to": "NON_LAYER"
+      }
+    },
+    "script": "data/gse299152/make_gse299152_strict_variant.py",
+    "script_sha256": "07f433cf9631ee8ae7566ad20311d41a431a8d6ef1bd06073674a65f64d68e1a",
+    "timestamp": "2026-08-06 15:45:42"
+  },
+  "task": "4-class ordinal annotation (LSC<TAC<basal<differentiated; NON_LAYER=-1)",
+  "timestamp": "2026-08-06 15:40:37"
+}

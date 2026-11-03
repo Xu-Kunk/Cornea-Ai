@@ -224,4 +224,3 @@ def point_comparison(
             pair: after_pairs[pair] - before_pairs[pair] for pair in before_pairs
         },
     }
-

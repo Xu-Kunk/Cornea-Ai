@@ -101,6 +101,7 @@ TRAIN_DATA_REL = "data/corneal_100k_donor_split.h5ad"
 # Small helpers
 # ---------------------------------------------------------------------------
 
+
 def _manifest_overlap(manifest: dict) -> int:
     """Read donor overlap from a split manifest (dict-safe)."""
     ov = manifest.get("donor_overlap", 0)
@@ -150,6 +151,7 @@ def _json_safe(obj: Any) -> Any:
 # ---------------------------------------------------------------------------
 # 1. Static checks (fail-closed)
 # ---------------------------------------------------------------------------
+
 
 def run_static_checks(config_path: str, split_manifest_path: str) -> dict:
     """Fail-closed static checks on the locked external test configuration.
@@ -242,6 +244,7 @@ def run_static_checks(config_path: str, split_manifest_path: str) -> dict:
 # 2. Data-leakage checks (fail-closed)
 # ---------------------------------------------------------------------------
 
+
 def _training_studies(train_obs: pd.DataFrame) -> list[str]:
     """Training study labels: from the ``study`` column, else the locked list."""
     if "study" in train_obs.columns:
@@ -303,8 +306,7 @@ def run_leakage_checks(
     """
     if DONOR_KEY not in train_obs.columns or DONOR_KEY not in external_obs.columns:
         raise ValueError(
-            f"leakage check FAILED: '{DONOR_KEY}' column required in both "
-            "training and external obs"
+            f"leakage check FAILED: '{DONOR_KEY}' column required in both training and external obs"
         )
 
     train_donors = {str(d).strip().lower() for d in train_obs[DONOR_KEY].dropna().unique()}
@@ -351,6 +353,7 @@ def run_leakage_checks(
 # ---------------------------------------------------------------------------
 # 3. Donor-level evaluation (primary endpoint)
 # ---------------------------------------------------------------------------
+
 
 def donor_level_macro_f1(
     y_true: np.ndarray,
@@ -428,6 +431,7 @@ def donor_level_macro_f1(
 # 4. Secondary metrics
 # ---------------------------------------------------------------------------
 
+
 def layer_adjacency_accuracy(
     labels: np.ndarray,
     embeddings: np.ndarray,
@@ -483,9 +487,7 @@ def marker_gradient_correlation(
     if len(present) < 2:
         return float("nan")
 
-    centroids = np.vstack(
-        [emb[ordinals == order_map[c]].mean(axis=0) for c in present]
-    )
+    centroids = np.vstack([emb[ordinals == order_map[c]].mean(axis=0) for c in present])
     centroids_c = centroids - centroids.mean(axis=0)
     _, _, vt = np.linalg.svd(centroids_c, full_matrices=False)
     axis = vt[0]  # principal axis (unit vector)
@@ -550,6 +552,7 @@ def expected_calibration_error(
 # ---------------------------------------------------------------------------
 # 5. Full evaluation pipeline
 # ---------------------------------------------------------------------------
+
 
 def _config_invariant_checks(config: dict, split_manifest: dict) -> None:
     """Re-verify config/manifest invariants from the loaded dicts (fail-closed)."""
@@ -621,9 +624,7 @@ def evaluate_on_external_test(
             "must cover the same cells"
         )
 
-    mf1 = donor_level_macro_f1(
-        y_true, y_pred, donors_eval, classes, n_boot=n_boot, seed=seed
-    )
+    mf1 = donor_level_macro_f1(y_true, y_pred, donors_eval, classes, n_boot=n_boot, seed=seed)
     laa = layer_adjacency_accuracy(y_true, emb, layer_order)
     marker_rho = marker_gradient_correlation(emb, y_true, layer_order)
 
@@ -634,8 +635,7 @@ def evaluate_on_external_test(
             prob = np.stack([1.0 - prob, prob], axis=1)
         if prob.shape[1] != len(classes):
             raise ValueError(
-                f"probabilities have {prob.shape[1]} columns but {len(classes)} "
-                "evaluation classes"
+                f"probabilities have {prob.shape[1]} columns but {len(classes)} evaluation classes"
             )
         idx_map = {c: i for i, c in enumerate(classes)}
         y_idx = np.array([idx_map[lbl] for lbl in y_true], dtype=int)
@@ -683,7 +683,9 @@ def main() -> None:  # pragma: no cover - CLI smoke helper
     print(json.dumps(run_static_checks(str(cfg), str(manifest)), indent=2))
     with open(manifest, encoding="utf-8") as f:
         m = json.load(f)
-    train_obs = ad.read_h5ad(project_root / "data" / "corneal_100k_donor_split.h5ad", backed="r").obs
+    train_obs = ad.read_h5ad(
+        project_root / "data" / "corneal_100k_donor_split.h5ad", backed="r"
+    ).obs
     ext_obs = ad.read_h5ad(project_root / "data" / "gse153515_annotated.h5ad", backed="r").obs
     print(json.dumps(run_leakage_checks(train_obs, ext_obs, m), indent=2))
 

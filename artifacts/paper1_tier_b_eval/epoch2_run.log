@@ -1,0 +1,627 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[20:27:23] device=cuda
+[20:27:26] sanity rerun lam=0.0 seed=42 ckpt=checkpoint-7473
+[20:27:43]    inference batch 10/462
+[20:27:57]    inference batch 20/462
+[20:28:12]    inference batch 30/462
+[20:28:26]    inference batch 40/462
+[20:28:40]    inference batch 50/462
+[20:28:54]    inference batch 60/462
+[20:29:08]    inference batch 70/462
+[20:29:22]    inference batch 80/462
+[20:29:36]    inference batch 90/462
+[20:29:50]    inference batch 100/462
+[20:30:04]    inference batch 110/462
+[20:30:18]    inference batch 120/462
+[20:30:33]    inference batch 130/462
+[20:30:47]    inference batch 140/462
+[20:31:01]    inference batch 150/462
+[20:31:15]    inference batch 160/462
+[20:31:30]    inference batch 170/462
+[20:31:43]    inference batch 180/462
+[20:31:57]    inference batch 190/462
+[20:32:11]    inference batch 200/462
+[20:32:25]    inference batch 210/462
+[20:32:39]    inference batch 220/462
+[20:32:53]    inference batch 230/462
+[20:33:06]    inference batch 240/462
+[20:33:19]    inference batch 250/462
+[20:33:34]    inference batch 260/462
+[20:33:47]    inference batch 270/462
+[20:34:02]    inference batch 280/462
+[20:34:15]    inference batch 290/462
+[20:34:29]    inference batch 300/462
+[20:34:42]    inference batch 310/462
+[20:34:56]    inference batch 320/462
+[20:35:11]    inference batch 330/462
+[20:35:24]    inference batch 340/462
+[20:35:39]    inference batch 350/462
+[20:35:52]    inference batch 360/462
+[20:36:06]    inference batch 370/462
+[20:36:19]    inference batch 380/462
+[20:36:33]    inference batch 390/462
+[20:36:47]    inference batch 400/462
+[20:37:00]    inference batch 410/462
+[20:37:13]    inference batch 420/462
+[20:37:28]    inference batch 430/462
+[20:37:41]    inference batch 440/462
+[20:37:55]    inference batch 450/462
+[20:38:09]    inference batch 460/462
+[20:38:11]    inference batch 462/462
+     macro_f1: computed=0.6541863606043621 ref=0.6541863606043621 diff=0.000e+00 PASS
+     ci_lower: computed=0.6330936250502407 ref=0.6330936250502407 diff=0.000e+00 PASS
+     ci_upper: computed=0.6752790961584836 ref=0.6752790961584836 diff=0.000e+00 PASS
+          laa: computed=0.9760406091370558 ref=0.9760406091370558 diff=0.000e+00 PASS
+          rho: computed=-0.04239536391926124 ref=-0.04239536391926124 diff=0.000e+00 PASS
+          ece: computed=0.07630756476556204 ref=0.07630756476556204 diff=0.000e+00 PASS
+    SANITY lam=0.0 seed=42 epoch-3 rerun: PASS (tol 1e-06)
+[20:38:13] eval lam=0.0 seed=42 ckpt=checkpoint-4982
+[20:38:29]    inference batch 10/462
+[20:38:43]    inference batch 20/462
+[20:38:58]    inference batch 30/462
+[20:39:13]    inference batch 40/462
+[20:39:27]    inference batch 50/462
+[20:39:41]    inference batch 60/462
+[20:39:55]    inference batch 70/462
+[20:40:09]    inference batch 80/462
+[20:40:24]    inference batch 90/462
+[20:40:38]    inference batch 100/462
+[20:40:53]    inference batch 110/462
+[20:41:07]    inference batch 120/462
+[20:41:21]    inference batch 130/462
+[20:41:35]    inference batch 140/462
+[20:41:50]    inference batch 150/462
+[20:42:04]    inference batch 160/462
+[20:42:18]    inference batch 170/462
+[20:42:32]    inference batch 180/462
+[20:42:46]    inference batch 190/462
+[20:43:00]    inference batch 200/462
+[20:43:14]    inference batch 210/462
+[20:43:28]    inference batch 220/462
+[20:43:42]    inference batch 230/462
+[20:43:55]    inference batch 240/462
+[20:44:08]    inference batch 250/462
+[20:44:23]    inference batch 260/462
+[20:44:37]    inference batch 270/462
+[20:44:51]    inference batch 280/462
+[20:45:04]    inference batch 290/462
+[20:45:18]    inference batch 300/462
+[20:45:32]    inference batch 310/462
+[20:45:46]    inference batch 320/462
+[20:46:00]    inference batch 330/462
+[20:46:14]    inference batch 340/462
+[20:46:29]    inference batch 350/462
+[20:46:42]    inference batch 360/462
+[20:46:56]    inference batch 370/462
+[20:47:09]    inference batch 380/462
+[20:47:23]    inference batch 390/462
+[20:47:37]    inference batch 400/462
+[20:47:50]    inference batch 410/462
+[20:48:04]    inference batch 420/462
+[20:48:18]    inference batch 430/462
+[20:48:32]    inference batch 440/462
+[20:48:45]    inference batch 450/462
+[20:48:59]    inference batch 460/462
+[20:49:01]    inference batch 462/462
+[20:49:03] saved results_epoch2_0.0_42.json
+[20:49:03] sanity rerun lam=0.0 seed=123 ckpt=checkpoint-7473
+[20:49:19]    inference batch 10/462
+[20:49:33]    inference batch 20/462
+[20:49:48]    inference batch 30/462
+[20:50:02]    inference batch 40/462
+[20:50:17]    inference batch 50/462
+[20:50:30]    inference batch 60/462
+[20:50:45]    inference batch 70/462
+[20:50:59]    inference batch 80/462
+[20:51:13]    inference batch 90/462
+[20:51:28]    inference batch 100/462
+[20:51:42]    inference batch 110/462
+[20:51:57]    inference batch 120/462
+[20:52:11]    inference batch 130/462
+[20:52:25]    inference batch 140/462
+[20:52:40]    inference batch 150/462
+[20:52:54]    inference batch 160/462
+[20:53:08]    inference batch 170/462
+[20:53:22]    inference batch 180/462
+[20:53:36]    inference batch 190/462
+[20:53:50]    inference batch 200/462
+[20:54:04]    inference batch 210/462
+[20:54:18]    inference batch 220/462
+[20:54:32]    inference batch 230/462
+[20:54:45]    inference batch 240/462
+[20:54:58]    inference batch 250/462
+[20:55:13]    inference batch 260/462
+[20:55:27]    inference batch 270/462
+[20:55:41]    inference batch 280/462
+[20:55:54]    inference batch 290/462
+[20:56:08]    inference batch 300/462
+[20:56:21]    inference batch 310/462
+[20:56:36]    inference batch 320/462
+[20:56:50]    inference batch 330/462
+[20:57:04]    inference batch 340/462
+[20:57:18]    inference batch 350/462
+[20:57:32]    inference batch 360/462
+[20:57:46]    inference batch 370/462
+[20:57:59]    inference batch 380/462
+[20:58:12]    inference batch 390/462
+[20:58:26]    inference batch 400/462
+[20:58:40]    inference batch 410/462
+[20:58:53]    inference batch 420/462
+[20:59:07]    inference batch 430/462
+[20:59:21]    inference batch 440/462
+[20:59:35]    inference batch 450/462
+[20:59:49]    inference batch 460/462
+[20:59:51]    inference batch 462/462
+     macro_f1: computed=0.641991505068463 ref=0.641991505068463 diff=0.000e+00 PASS
+     ci_lower: computed=0.6108827365102585 ref=0.6108827365102585 diff=0.000e+00 PASS
+     ci_upper: computed=0.6731002736266675 ref=0.6731002736266675 diff=0.000e+00 PASS
+          laa: computed=0.9776649746192894 ref=0.9776649746192894 diff=0.000e+00 PASS
+          rho: computed=-0.03602503481100148 ref=-0.03602503481100148 diff=0.000e+00 PASS
+          ece: computed=0.12476490856010511 ref=0.12476490856010511 diff=0.000e+00 PASS
+    SANITY lam=0.0 seed=123 epoch-3 rerun: PASS (tol 1e-06)
+[20:59:53] eval lam=0.0 seed=123 ckpt=checkpoint-4982
+[21:00:09]    inference batch 10/462
+[21:00:23]    inference batch 20/462
+[21:00:38]    inference batch 30/462
+[21:00:52]    inference batch 40/462
+[21:01:06]    inference batch 50/462
+[21:01:20]    inference batch 60/462
+[21:01:34]    inference batch 70/462
+[21:01:48]    inference batch 80/462
+[21:02:03]    inference batch 90/462
+[21:02:18]    inference batch 100/462
+[21:02:32]    inference batch 110/462
+[21:02:46]    inference batch 120/462
+[21:03:01]    inference batch 130/462
+[21:03:15]    inference batch 140/462
+[21:03:29]    inference batch 150/462
+[21:03:43]    inference batch 160/462
+[21:03:58]    inference batch 170/462
+[21:04:11]    inference batch 180/462
+[21:04:25]    inference batch 190/462
+[21:04:39]    inference batch 200/462
+[21:04:53]    inference batch 210/462
+[21:05:07]    inference batch 220/462
+[21:05:21]    inference batch 230/462
+[21:05:34]    inference batch 240/462
+[21:05:47]    inference batch 250/462
+[21:06:02]    inference batch 260/462
+[21:06:16]    inference batch 270/462
+[21:06:30]    inference batch 280/462
+[21:06:43]    inference batch 290/462
+[21:06:57]    inference batch 300/462
+[21:07:10]    inference batch 310/462
+[21:07:25]    inference batch 320/462
+[21:07:39]    inference batch 330/462
+[21:07:52]    inference batch 340/462
+[21:08:07]    inference batch 350/462
+[21:08:21]    inference batch 360/462
+[21:08:34]    inference batch 370/462
+[21:08:47]    inference batch 380/462
+[21:09:01]    inference batch 390/462
+[21:09:15]    inference batch 400/462
+[21:09:28]    inference batch 410/462
+[21:09:42]    inference batch 420/462
+[21:09:56]    inference batch 430/462
+[21:10:10]    inference batch 440/462
+[21:10:23]    inference batch 450/462
+[21:10:37]    inference batch 460/462
+[21:10:40]    inference batch 462/462
+[21:10:42] saved results_epoch2_0.0_123.json
+[21:10:42] sanity rerun lam=0.0 seed=456 ckpt=checkpoint-7473
+[21:10:58]    inference batch 10/462
+[21:11:12]    inference batch 20/462
+[21:11:26]    inference batch 30/462
+[21:11:41]    inference batch 40/462
+[21:11:55]    inference batch 50/462
+[21:12:09]    inference batch 60/462
+[21:12:23]    inference batch 70/462
+[21:12:37]    inference batch 80/462
+[21:12:51]    inference batch 90/462
+[21:13:06]    inference batch 100/462
+[21:13:20]    inference batch 110/462
+[21:13:34]    inference batch 120/462
+[21:13:49]    inference batch 130/462
+[21:14:03]    inference batch 140/462
+[21:14:17]    inference batch 150/462
+[21:14:32]    inference batch 160/462
+[21:14:46]    inference batch 170/462
+[21:14:59]    inference batch 180/462
+[21:15:13]    inference batch 190/462
+[21:15:27]    inference batch 200/462
+[21:15:41]    inference batch 210/462
+[21:15:55]    inference batch 220/462
+[21:16:09]    inference batch 230/462
+[21:16:22]    inference batch 240/462
+[21:16:36]    inference batch 250/462
+[21:16:50]    inference batch 260/462
+[21:17:04]    inference batch 270/462
+[21:17:19]    inference batch 280/462
+[21:17:32]    inference batch 290/462
+[21:17:46]    inference batch 300/462
+[21:17:59]    inference batch 310/462
+[21:18:14]    inference batch 320/462
+[21:18:28]    inference batch 330/462
+[21:18:42]    inference batch 340/462
+[21:18:57]    inference batch 350/462
+[21:19:10]    inference batch 360/462
+[21:19:24]    inference batch 370/462
+[21:19:37]    inference batch 380/462
+[21:19:51]    inference batch 390/462
+[21:20:05]    inference batch 400/462
+[21:20:18]    inference batch 410/462
+[21:20:31]    inference batch 420/462
+[21:20:46]    inference batch 430/462
+[21:20:59]    inference batch 440/462
+[21:21:13]    inference batch 450/462
+[21:21:27]    inference batch 460/462
+[21:21:29]    inference batch 462/462
+     macro_f1: computed=0.6515084581425847 ref=0.6515084581425847 diff=0.000e+00 PASS
+     ci_lower: computed=0.6259929572193061 ref=0.6259929572193061 diff=0.000e+00 PASS
+     ci_upper: computed=0.6770239590658632 ref=0.6770239590658632 diff=0.000e+00 PASS
+          laa: computed=0.9767174280879865 ref=0.9767174280879865 diff=0.000e+00 PASS
+          rho: computed=0.053929088570711256 ref=0.053929088570711256 diff=0.000e+00 PASS
+          ece: computed=0.10126468191099822 ref=0.10126468191099822 diff=0.000e+00 PASS
+    SANITY lam=0.0 seed=456 epoch-3 rerun: PASS (tol 1e-06)
+[21:21:31] eval lam=0.0 seed=456 ckpt=checkpoint-4982
+[21:21:47]    inference batch 10/462
+[21:22:01]    inference batch 20/462
+[21:22:16]    inference batch 30/462
+[21:22:30]    inference batch 40/462
+[21:22:44]    inference batch 50/462
+[21:22:58]    inference batch 60/462
+[21:23:12]    inference batch 70/462
+[21:23:27]    inference batch 80/462
+[21:23:41]    inference batch 90/462
+[21:23:56]    inference batch 100/462
+[21:24:10]    inference batch 110/462
+[21:24:24]    inference batch 120/462
+[21:24:39]    inference batch 130/462
+[21:24:53]    inference batch 140/462
+[21:25:08]    inference batch 150/462
+[21:25:22]    inference batch 160/462
+[21:25:36]    inference batch 170/462
+[21:25:50]    inference batch 180/462
+[21:26:04]    inference batch 190/462
+[21:26:18]    inference batch 200/462
+[21:26:32]    inference batch 210/462
+[21:26:46]    inference batch 220/462
+[21:27:00]    inference batch 230/462
+[21:27:13]    inference batch 240/462
+[21:27:27]    inference batch 250/462
+[21:27:41]    inference batch 260/462
+[21:27:55]    inference batch 270/462
+[21:28:10]    inference batch 280/462
+[21:28:23]    inference batch 290/462
+[21:28:37]    inference batch 300/462
+[21:28:50]    inference batch 310/462
+[21:29:05]    inference batch 320/462
+[21:29:19]    inference batch 330/462
+[21:29:33]    inference batch 340/462
+[21:29:48]    inference batch 350/462
+[21:30:01]    inference batch 360/462
+[21:30:15]    inference batch 370/462
+[21:30:28]    inference batch 380/462
+[21:30:42]    inference batch 390/462
+[21:30:55]    inference batch 400/462
+[21:31:09]    inference batch 410/462
+[21:31:22]    inference batch 420/462
+[21:31:36]    inference batch 430/462
+[21:31:50]    inference batch 440/462
+[21:32:04]    inference batch 450/462
+[21:32:17]    inference batch 460/462
+[21:32:20]    inference batch 462/462
+[21:32:22] saved results_epoch2_0.0_456.json
+[21:32:22] sanity rerun lam=0.5 seed=42 ckpt=checkpoint-7473
+[21:32:38]    inference batch 10/462
+[21:32:52]    inference batch 20/462
+[21:33:07]    inference batch 30/462
+[21:33:21]    inference batch 40/462
+[21:33:35]    inference batch 50/462
+[21:33:49]    inference batch 60/462
+[21:34:03]    inference batch 70/462
+[21:34:17]    inference batch 80/462
+[21:34:32]    inference batch 90/462
+[21:34:47]    inference batch 100/462
+[21:35:01]    inference batch 110/462
+[21:35:15]    inference batch 120/462
+[21:35:30]    inference batch 130/462
+[21:35:44]    inference batch 140/462
+[21:35:58]    inference batch 150/462
+[21:36:13]    inference batch 160/462
+[21:36:27]    inference batch 170/462
+[21:36:40]    inference batch 180/462
+[21:36:54]    inference batch 190/462
+[21:37:08]    inference batch 200/462
+[21:37:22]    inference batch 210/462
+[21:37:36]    inference batch 220/462
+[21:37:50]    inference batch 230/462
+[21:38:03]    inference batch 240/462
+[21:38:17]    inference batch 250/462
+[21:38:31]    inference batch 260/462
+[21:38:45]    inference batch 270/462
+[21:39:00]    inference batch 280/462
+[21:39:13]    inference batch 290/462
+[21:39:27]    inference batch 300/462
+[21:39:40]    inference batch 310/462
+[21:39:55]    inference batch 320/462
+[21:40:09]    inference batch 330/462
+[21:40:22]    inference batch 340/462
+[21:40:37]    inference batch 350/462
+[21:40:51]    inference batch 360/462
+[21:41:05]    inference batch 370/462
+[21:41:17]    inference batch 380/462
+[21:41:31]    inference batch 390/462
+[21:41:45]    inference batch 400/462
+[21:41:59]    inference batch 410/462
+[21:42:13]    inference batch 420/462
+[21:42:27]    inference batch 430/462
+[21:42:42]    inference batch 440/462
+[21:42:55]    inference batch 450/462
+[21:43:09]    inference batch 460/462
+[21:43:12]    inference batch 462/462
+     macro_f1: computed=0.633035230542859 ref=0.633035230542859 diff=0.000e+00 PASS
+     ci_lower: computed=0.598864386213956 ref=0.598864386213956 diff=0.000e+00 PASS
+     ci_upper: computed=0.667206074871762 ref=0.667206074871762 diff=0.000e+00 PASS
+          laa: computed=0.9786125211505922 ref=0.9786125211505922 diff=0.000e+00 PASS
+          rho: computed=0.1912633203216378 ref=0.1912633203216378 diff=0.000e+00 PASS
+          ece: computed=0.12822561025683119 ref=0.12822561025683119 diff=0.000e+00 PASS
+    SANITY lam=0.5 seed=42 epoch-3 rerun: PASS (tol 1e-06)
+[21:43:14] eval lam=0.5 seed=42 ckpt=checkpoint-4982
+[21:43:30]    inference batch 10/462
+[21:43:45]    inference batch 20/462
+[21:44:00]    inference batch 30/462
+[21:44:14]    inference batch 40/462
+[21:44:29]    inference batch 50/462
+[21:44:43]    inference batch 60/462
+[21:44:57]    inference batch 70/462
+[21:45:12]    inference batch 80/462
+[21:45:26]    inference batch 90/462
+[21:45:41]    inference batch 100/462
+[21:45:56]    inference batch 110/462
+[21:46:11]    inference batch 120/462
+[21:46:27]    inference batch 130/462
+[21:46:42]    inference batch 140/462
+[21:46:57]    inference batch 150/462
+[21:47:12]    inference batch 160/462
+[21:47:27]    inference batch 170/462
+[21:47:41]    inference batch 180/462
+[21:47:56]    inference batch 190/462
+[21:48:11]    inference batch 200/462
+[21:48:25]    inference batch 210/462
+[21:48:40]    inference batch 220/462
+[21:48:54]    inference batch 230/462
+[21:49:08]    inference batch 240/462
+[21:49:22]    inference batch 250/462
+[21:49:38]    inference batch 260/462
+[21:49:52]    inference batch 270/462
+[21:50:07]    inference batch 280/462
+[21:50:21]    inference batch 290/462
+[21:50:36]    inference batch 300/462
+[21:50:50]    inference batch 310/462
+[21:51:05]    inference batch 320/462
+[21:51:20]    inference batch 330/462
+[21:51:34]    inference batch 340/462
+[21:51:50]    inference batch 350/462
+[21:52:05]    inference batch 360/462
+[21:52:20]    inference batch 370/462
+[21:52:34]    inference batch 380/462
+[21:52:49]    inference batch 390/462
+[21:53:04]    inference batch 400/462
+[21:53:19]    inference batch 410/462
+[21:53:33]    inference batch 420/462
+[21:53:48]    inference batch 430/462
+[21:54:02]    inference batch 440/462
+[21:54:17]    inference batch 450/462
+[21:54:32]    inference batch 460/462
+[21:54:35]    inference batch 462/462
+[21:54:37] saved results_epoch2_0.5_42.json
+[21:54:37] sanity rerun lam=0.5 seed=123 ckpt=checkpoint-7473
+[21:54:54]    inference batch 10/462
+[21:55:09]    inference batch 20/462
+[21:55:25]    inference batch 30/462
+[21:55:40]    inference batch 40/462
+[21:55:55]    inference batch 50/462
+[21:56:09]    inference batch 60/462
+[21:56:24]    inference batch 70/462
+[21:56:39]    inference batch 80/462
+[21:56:54]    inference batch 90/462
+[21:57:09]    inference batch 100/462
+[21:57:24]    inference batch 110/462
+[21:57:38]    inference batch 120/462
+[21:57:53]    inference batch 130/462
+[21:58:08]    inference batch 140/462
+[21:58:23]    inference batch 150/462
+[21:58:38]    inference batch 160/462
+[21:58:53]    inference batch 170/462
+[21:59:07]    inference batch 180/462
+[21:59:21]    inference batch 190/462
+[21:59:36]    inference batch 200/462
+[21:59:51]    inference batch 210/462
+[22:00:04]    inference batch 220/462
+[22:00:18]    inference batch 230/462
+[22:00:31]    inference batch 240/462
+[22:00:44]    inference batch 250/462
+[22:00:59]    inference batch 260/462
+[22:01:12]    inference batch 270/462
+[22:01:26]    inference batch 280/462
+[22:01:39]    inference batch 290/462
+[22:01:53]    inference batch 300/462
+[22:02:06]    inference batch 310/462
+[22:02:20]    inference batch 320/462
+[22:02:34]    inference batch 330/462
+[22:02:47]    inference batch 340/462
+[22:03:02]    inference batch 350/462
+[22:03:15]    inference batch 360/462
+[22:03:29]    inference batch 370/462
+[22:03:42]    inference batch 380/462
+[22:03:55]    inference batch 390/462
+[22:04:09]    inference batch 400/462
+[22:04:22]    inference batch 410/462
+[22:04:35]    inference batch 420/462
+[22:04:49]    inference batch 430/462
+[22:05:03]    inference batch 440/462
+[22:05:16]    inference batch 450/462
+[22:05:29]    inference batch 460/462
+[22:05:32]    inference batch 462/462
+     macro_f1: computed=0.6559014281442512 ref=0.6559014281442512 diff=0.000e+00 PASS
+     ci_lower: computed=0.6322125461039465 ref=0.6322125461039465 diff=0.000e+00 PASS
+     ci_upper: computed=0.6795903101845561 ref=0.6795903101845561 diff=0.000e+00 PASS
+          laa: computed=0.9763790186125212 ref=0.9763790186125212 diff=0.000e+00 PASS
+          rho: computed=0.22978617184892414 ref=0.22978617184892414 diff=0.000e+00 PASS
+          ece: computed=0.09218776329877898 ref=0.09218776329877898 diff=0.000e+00 PASS
+    SANITY lam=0.5 seed=123 epoch-3 rerun: PASS (tol 1e-06)
+[22:05:34] eval lam=0.5 seed=123 ckpt=checkpoint-4982
+[22:05:50]    inference batch 10/462
+[22:06:04]    inference batch 20/462
+[22:06:18]    inference batch 30/462
+[22:06:32]    inference batch 40/462
+[22:06:46]    inference batch 50/462
+[22:07:00]    inference batch 60/462
+[22:07:13]    inference batch 70/462
+[22:07:27]    inference batch 80/462
+[22:07:42]    inference batch 90/462
+[22:07:56]    inference batch 100/462
+[22:08:10]    inference batch 110/462
+[22:08:24]    inference batch 120/462
+[22:08:38]    inference batch 130/462
+[22:08:52]    inference batch 140/462
+[22:09:06]    inference batch 150/462
+[22:09:20]    inference batch 160/462
+[22:09:34]    inference batch 170/462
+[22:09:47]    inference batch 180/462
+[22:10:01]    inference batch 190/462
+[22:10:15]    inference batch 200/462
+[22:10:29]    inference batch 210/462
+[22:10:42]    inference batch 220/462
+[22:10:56]    inference batch 230/462
+[22:11:09]    inference batch 240/462
+[22:11:22]    inference batch 250/462
+[22:11:36]    inference batch 260/462
+[22:11:50]    inference batch 270/462
+[22:12:04]    inference batch 280/462
+[22:12:17]    inference batch 290/462
+[22:12:31]    inference batch 300/462
+[22:12:44]    inference batch 310/462
+[22:12:59]    inference batch 320/462
+[22:13:13]    inference batch 330/462
+[22:13:26]    inference batch 340/462
+[22:13:41]    inference batch 350/462
+[22:13:54]    inference batch 360/462
+[22:14:07]    inference batch 370/462
+[22:14:20]    inference batch 380/462
+[22:14:34]    inference batch 390/462
+[22:14:47]    inference batch 400/462
+[22:15:00]    inference batch 410/462
+[22:15:13]    inference batch 420/462
+[22:15:27]    inference batch 430/462
+[22:15:41]    inference batch 440/462
+[22:15:54]    inference batch 450/462
+[22:16:08]    inference batch 460/462
+[22:16:10]    inference batch 462/462
+[22:16:12] saved results_epoch2_0.5_123.json
+[22:16:12] sanity rerun lam=0.5 seed=456 ckpt=checkpoint-7473
+[22:16:28]    inference batch 10/462
+[22:16:42]    inference batch 20/462
+[22:16:57]    inference batch 30/462
+[22:17:11]    inference batch 40/462
+[22:17:25]    inference batch 50/462
+[22:17:38]    inference batch 60/462
+[22:17:52]    inference batch 70/462
+[22:18:06]    inference batch 80/462
+[22:18:21]    inference batch 90/462
+[22:18:36]    inference batch 100/462
+[22:18:50]    inference batch 110/462
+[22:19:04]    inference batch 120/462
+[22:19:18]    inference batch 130/462
+[22:19:32]    inference batch 140/462
+[22:19:47]    inference batch 150/462
+[22:20:01]    inference batch 160/462
+[22:20:14]    inference batch 170/462
+[22:20:28]    inference batch 180/462
+[22:20:42]    inference batch 190/462
+[22:20:56]    inference batch 200/462
+[22:21:09]    inference batch 210/462
+[22:21:23]    inference batch 220/462
+[22:21:37]    inference batch 230/462
+[22:21:50]    inference batch 240/462
+[22:22:03]    inference batch 250/462
+[22:22:17]    inference batch 260/462
+[22:22:31]    inference batch 270/462
+[22:22:45]    inference batch 280/462
+[22:22:58]    inference batch 290/462
+[22:23:12]    inference batch 300/462
+[22:23:25]    inference batch 310/462
+[22:23:39]    inference batch 320/462
+[22:23:53]    inference batch 330/462
+[22:24:07]    inference batch 340/462
+[22:24:21]    inference batch 350/462
+[22:24:34]    inference batch 360/462
+[22:24:48]    inference batch 370/462
+[22:25:01]    inference batch 380/462
+[22:25:15]    inference batch 390/462
+[22:25:28]    inference batch 400/462
+[22:25:41]    inference batch 410/462
+[22:25:55]    inference batch 420/462
+[22:26:09]    inference batch 430/462
+[22:26:22]    inference batch 440/462
+[22:26:35]    inference batch 450/462
+[22:26:49]    inference batch 460/462
+[22:26:51]    inference batch 462/462
+     macro_f1: computed=0.646385033435612 ref=0.646385033435612 diff=0.000e+00 PASS
+     ci_lower: computed=0.6180376188740581 ref=0.6180376188740581 diff=0.000e+00 PASS
+     ci_upper: computed=0.6747324479971659 ref=0.6747324479971659 diff=0.000e+00 PASS
+          laa: computed=0.9769204737732656 ref=0.9769204737732656 diff=0.000e+00 PASS
+          rho: computed=0.20947455566804998 ref=0.20947455566804998 diff=0.000e+00 PASS
+          ece: computed=0.10470854030578719 ref=0.10470854030578719 diff=0.000e+00 PASS
+    SANITY lam=0.5 seed=456 epoch-3 rerun: PASS (tol 1e-06)
+[22:26:53] eval lam=0.5 seed=456 ckpt=checkpoint-4982
+[22:27:10]    inference batch 10/462
+[22:27:24]    inference batch 20/462
+[22:27:38]    inference batch 30/462
+[22:27:52]    inference batch 40/462
+[22:28:06]    inference batch 50/462
+[22:28:20]    inference batch 60/462
+[22:28:34]    inference batch 70/462
+[22:28:48]    inference batch 80/462
+[22:29:02]    inference batch 90/462
+[22:29:17]    inference batch 100/462
+[22:29:31]    inference batch 110/462
+[22:29:45]    inference batch 120/462
+[22:30:00]    inference batch 130/462
+[22:30:13]    inference batch 140/462
+[22:30:28]    inference batch 150/462
+[22:30:42]    inference batch 160/462
+[22:30:56]    inference batch 170/462
+[22:31:09]    inference batch 180/462
+[22:31:23]    inference batch 190/462
+[22:31:37]    inference batch 200/462
+[22:31:51]    inference batch 210/462
+[22:32:05]    inference batch 220/462
+[22:32:18]    inference batch 230/462
+[22:32:31]    inference batch 240/462
+[22:32:45]    inference batch 250/462
+[22:32:59]    inference batch 260/462
+[22:33:13]    inference batch 270/462
+[22:33:27]    inference batch 280/462
+[22:33:40]    inference batch 290/462
+[22:33:54]    inference batch 300/462
+[22:34:06]    inference batch 310/462
+[22:34:21]    inference batch 320/462
+[22:34:35]    inference batch 330/462
+[22:34:48]    inference batch 340/462
+[22:35:03]    inference batch 350/462
+[22:35:16]    inference batch 360/462
+[22:35:30]    inference batch 370/462
+[22:35:42]    inference batch 380/462
+[22:35:56]    inference batch 390/462
+[22:36:09]    inference batch 400/462
+[22:36:23]    inference batch 410/462
+[22:36:36]    inference batch 420/462
+[22:36:50]    inference batch 430/462
+[22:37:04]    inference batch 440/462
+[22:37:17]    inference batch 450/462
+[22:37:31]    inference batch 460/462
+[22:37:33]    inference batch 462/462
+[22:37:35] saved results_epoch2_0.5_456.json
+SANITY GATE PASSED for all epoch-3 reruns; epoch-2 results saved.

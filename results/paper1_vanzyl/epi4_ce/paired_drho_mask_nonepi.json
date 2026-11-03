@@ -1,0 +1,192 @@
+{
+  "metric": "corneal_fm.evaluation.marker_gradient_correlation (per-layer-centroid principal axis, LSC -> differentiated)",
+  "external_test": "GSE153515, 14,775 epithelial cells, 2 donors",
+  "pairing_verified": "labels and donor arrays element-wise identical across arms (see per-pair n_cells and skipped)",
+  "created_utc": "2026-10-22T03:02:15+00:00",
+  "pairs": [
+    {
+      "pair": "frozen - mask_nonepi",
+      "sign_convention": "delta = rho(arm_a) - rho(arm_b)",
+      "per_seed": {
+        "42": {
+          "rho_a": 0.8063606041550953,
+          "rho_b": 0.26631485158360113,
+          "delta": 0.5400457525714941,
+          "ci_lower": 0.5108592033103502,
+          "ci_upper": 0.5696944164966181,
+          "frac_boot_positive": 1.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "ci_method": "per-seed percentile of that seed's own replicates",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
+          "source_b": "results/paper1_vanzyl/epi4_ce/mask_nonepi/seed42/percell_epi4_42.npz"
+        },
+        "123": {
+          "rho_a": 0.8063606041550953,
+          "rho_b": 0.2292534634259377,
+          "delta": 0.5771071407291576,
+          "ci_lower": 0.5428994767479015,
+          "ci_upper": 0.6160823374894202,
+          "frac_boot_positive": 1.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "ci_method": "per-seed percentile of that seed's own replicates",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
+          "source_b": "results/paper1_vanzyl/epi4_ce/mask_nonepi/seed123/percell_epi4_123.npz"
+        },
+        "456": {
+          "rho_a": 0.8063606041550953,
+          "rho_b": 0.266711378510567,
+          "delta": 0.5396492256445282,
+          "ci_lower": 0.5106121326005589,
+          "ci_upper": 0.5697451462771699,
+          "frac_boot_positive": 1.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "ci_method": "per-seed percentile of that seed's own replicates",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
+          "source_b": "results/paper1_vanzyl/epi4_ce/mask_nonepi/seed456/percell_epi4_456.npz"
+        }
+      },
+      "skipped": [],
+      "n_boot": 2000,
+      "boot_seed": 42,
+      "mean_delta": 0.5522673729817266,
+      "sd_delta": 0.021512783518426556,
+      "sd_kind": "sample SD (ddof=1) over seeds",
+      "averaged_ci95": {
+        "ci95": [
+          0.5214569375529369,
+          0.5851739667544027
+        ],
+        "method": "arithmetic mean of the per-seed bootstrap bounds (ci_lower and ci_upper of each seed)",
+        "n_seeds": 3,
+        "n_boot_per_seed": 2000,
+        "note": "an interval for the three-seed average under the convention used for the frozen - naive contrast; it is not a coverage-calibrated interval for the mean"
+      },
+      "across_seed": {
+        "mean_delta": 0.5522673729817266,
+        "sd_delta": 0.021512783518426556,
+        "se_delta": 0.012420411355381716,
+        "df": 2,
+        "t_critical": 4.302652729749462,
+        "ci95": [
+          0.4988266561588822,
+          0.6057080898045709
+        ],
+        "method": "two-sided 95% t-interval on the seed means (t = mean of per-seed deltas, SE = sample SD over seeds / sqrt(n_seeds))"
+      },
+      "pooled": {
+        "mean_delta": 0.5524796003868353,
+        "ci95": [
+          0.5144615200815726,
+          0.6044976113573404
+        ],
+        "method": "percentile of the pooled donor-stratified paired replicates: the per-seed replicate arrays are concatenated and the 2.5th/97.5th percentiles taken once over the union",
+        "resampling": "one index vector per replicate, cells drawn with replacement within donor and applied to both arms",
+        "n_boot_per_seed": 2000,
+        "n_seeds_pooled": 3,
+        "n_replicates": 6000,
+        "bound_convention": "2.5th and 97.5th percentiles of the pooled replicate distribution"
+      }
+    },
+    {
+      "pair": "mask_nonepi - ordinal",
+      "sign_convention": "delta = rho(arm_a) - rho(arm_b)",
+      "per_seed": {
+        "42": {
+          "rho_a": 0.26631485158360113,
+          "rho_b": 0.8340699807044084,
+          "delta": -0.5677551291208073,
+          "ci_lower": -0.5992460808109764,
+          "ci_upper": -0.5380495225776557,
+          "frac_boot_positive": 0.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "ci_method": "per-seed percentile of that seed's own replicates",
+          "n_cells": 14775,
+          "source_a": "results/paper1_vanzyl/epi4_ce/mask_nonepi/seed42/percell_epi4_42.npz",
+          "source_b": "artifacts/archive/paper1_bio_validation/ordinal_emb_lam0.0_seed42.npz"
+        },
+        "123": {
+          "rho_a": 0.2292534634259377,
+          "rho_b": 0.8298826676104379,
+          "delta": -0.6006292041845003,
+          "ci_lower": -0.6425469278759559,
+          "ci_upper": -0.5651636470978131,
+          "frac_boot_positive": 0.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "ci_method": "per-seed percentile of that seed's own replicates",
+          "n_cells": 14775,
+          "source_a": "results/paper1_vanzyl/epi4_ce/mask_nonepi/seed123/percell_epi4_123.npz",
+          "source_b": "artifacts/archive/paper1_bio_validation/ordinal_emb_lam0.0_seed123.npz"
+        },
+        "456": {
+          "rho_a": 0.266711378510567,
+          "rho_b": 0.8350699357998647,
+          "delta": -0.5683585572892977,
+          "ci_lower": -0.599649340432034,
+          "ci_upper": -0.538815721742099,
+          "frac_boot_positive": 0.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "ci_method": "per-seed percentile of that seed's own replicates",
+          "n_cells": 14775,
+          "source_a": "results/paper1_vanzyl/epi4_ce/mask_nonepi/seed456/percell_epi4_456.npz",
+          "source_b": "artifacts/archive/paper1_bio_validation/ordinal_emb_lam0.0_seed456.npz"
+        }
+      },
+      "skipped": [],
+      "n_boot": 2000,
+      "boot_seed": 42,
+      "mean_delta": -0.5789142968648684,
+      "sd_delta": 0.01880808154261839,
+      "sd_kind": "sample SD (ddof=1) over seeds",
+      "averaged_ci95": {
+        "ci95": [
+          -0.6138141163729888,
+          -0.5473429638058559
+        ],
+        "method": "arithmetic mean of the per-seed bootstrap bounds (ci_lower and ci_upper of each seed)",
+        "n_seeds": 3,
+        "n_boot_per_seed": 2000,
+        "note": "an interval for the three-seed average under the convention used for the frozen - naive contrast; it is not a coverage-calibrated interval for the mean"
+      },
+      "across_seed": {
+        "mean_delta": -0.5789142968648684,
+        "sd_delta": 0.01880808154261839,
+        "se_delta": 0.01085885094157116,
+        "df": 2,
+        "t_critical": 4.302652729749462,
+        "ci95": [
+          -0.625636161510562,
+          -0.5321924322191748
+        ],
+        "method": "two-sided 95% t-interval on the seed means (t = mean of per-seed deltas, SE = sample SD over seeds / sqrt(n_seeds))"
+      },
+      "pooled": {
+        "mean_delta": -0.5799401748510717,
+        "ci95": [
+          -0.6305053477780742,
+          -0.5412541880733115
+        ],
+        "method": "percentile of the pooled donor-stratified paired replicates: the per-seed replicate arrays are concatenated and the 2.5th/97.5th percentiles taken once over the union",
+        "resampling": "one index vector per replicate, cells drawn with replacement within donor and applied to both arms",
+        "n_boot_per_seed": 2000,
+        "n_seeds_pooled": 3,
+        "n_replicates": 6000,
+        "bound_convention": "2.5th and 97.5th percentiles of the pooled replicate distribution"
+      }
+    }
+  ]
+}

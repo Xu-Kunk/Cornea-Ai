@@ -1,0 +1,249 @@
+{
+  "manifest_id": "ded_dryarm_v1",
+  "created": "2026-08-18",
+  "protocol": "DED-Frozen-Reference-Application-Protocol.md §2-§3 (2026-07-30, amended 2026-08-12)",
+  "purpose": "启动门 4 步收尾：GSE200097 归属核验 / GSE323164 命名空间 / PXD028922 评估 / 统一 manifest",
+  "datasets": [
+    {
+      "accession": "GSE200097",
+      "version": "GEO public release (GSE200097_series_matrix.txt.gz + GSE200097_raw_counts.txt.gz)",
+      "paper": "Krokowski et al., Cell Reports 2022, doi:10.1016/j.celrep.2022.111092, PMID 35858571",
+      "species": "Homo sapiens",
+      "tissue": "immortalized human corneal epithelial cell line 10.014 pRSV-T (ATCC CRL-11515), Keratinocyte-SFM submerged culture",
+      "condition": "control (isotonic) vs hyperosmolar 500 mOsm (100 mM NaCl); 1h / 6h; extension: +Torin1 250 nM / +MeAIB 5 mM last hour",
+      "platform": "GPL18573 (Illumina HiSeq 2500), polyA RNA-seq + ribosome profiling",
+      "samples": {
+        "total_gsm": 40,
+        "rna_seq": 20,
+        "riboseq": 20,
+        "excluded_riboseq": "20 RiboSeq samples excluded from primary analysis (translational output, not RNA expression)",
+        "primary_rna_seq": "12 (Control 4 / 1hOsm 4 / 6hOsm 4)",
+        "extension_rna_seq": "8 (Torin1 4 / MeAIB 4)",
+        "biological_replicates": 4
+      },
+      "cell_count": "bulk (20 RNA-seq libraries)",
+      "gene_namespace": "symbol (GEO raw_counts); 26,484 genes in local rnaSeq_counts.txt.gz",
+      "files": {
+        "GSE200097_series_matrix.txt.gz": "downloaded",
+        "GSE200097_raw_counts.txt.gz": "downloaded (40 cols: 20 rnaSeq + 20 riboSeq)",
+        "GSE200097_rnaSeq_counts.txt.gz": "local extract = GEO RNA-seq subset, gene order + all values identical (verified)",
+        "gse200097_sample_metadata.tsv": "local metadata, 20 RNA-seq rows",
+        "gse200097_attribution.tsv": "sample<->condition/assay/timepoint attribution, 20 rows"
+      },
+      "verification": "data/ded_dryarm/gse200097/gse200097_verification.json (all cross-checks PASS)",
+      "sha256": {
+        "GSE200097_raw_counts.txt.gz": "2c46368d8a79c243988bbe9da347bb9c860c9ebf951ec254aca3d0876a00f436",
+        "GSE200097_rnaSeq_counts.txt.gz": "a2d170f9e3f16751577384450fecb46d6e4e27774596ca0400f9438c8664eb62",
+        "GSE200097_series_matrix.txt.gz": "b9d4a41c75e152f1620b2c2571524d00f21ecc5615802e7051b425f61a740d20",
+        "gse200097_sample_metadata.tsv": "93e8bf6564126840aa9ae29fff90b779ba74f4b386386a5c912f1507dfdf53f0"
+      },
+      "inclusion_exclusion": {
+        "included": "20 RNA-seq samples (12 primary + 8 extension)",
+        "excluded": "20 RiboSeq samples; Torin1/MeAIB kept for sensitivity, excluded from primary module analysis (perturbation arms)",
+        "note": "HCE-T bulk maps ~100% basal to normal single-cell reference — biologically expected for 10.014 pRSV-T submerged culture (protocol §8 resolution; Rubelowski 2020, Robertson 2005)"
+      }
+    },
+    {
+      "accession": "GSE323164",
+      "version": "GEO public release (GSE323164_series_matrix.txt.gz + GSE323164_genes_fpkm_expression.txt.gz)",
+      "paper": "Tang Y. et al., IOVS 2026, PMID 42138516",
+      "species": "Homo sapiens",
+      "tissue": "HCE-2 human corneal epithelial cell line",
+      "condition": "control vs hyperosmotic stress (90 mM NaCl, 24 h); 3 biological replicates per group",
+      "platform": "GPL24676 (Illumina HiSeq X Ten), polyA RNA-seq",
+      "samples": {
+        "gsm": "GSM9563141..GSM9563146",
+        "groups": "3 control (cont_1..3) + 3 hyperosmolar (HN_1..3)",
+        "total": 6
+      },
+      "cell_count": "bulk (6 libraries)",
+      "gene_namespace": {
+        "rows": 34962,
+        "primary_key": "gene_id (ENSG): 34,962 unique, 0 duplicates, 100% valid ENSG format, 0 version suffix, 0 empty",
+        "symbol_column": "gene_name: 34,630 unique, 332 duplicate symbols across ENSG (51 symbols map to >1 ENSG), 6 non-HGNC-looking",
+        "hgnc_spotcheck": "200 sampled symbols via HGNC REST; protein-coding/lncRNA/pseudogene/snoRNA all Approved; 5S_rRNA, 5_8S_rRNA, 7SK, IQCA1 and 60 ENSG-as-symbol entries NOT_FOUND; 7SK resolved to alias RN7SK",
+        "unresolved": "64 entries (2 rRNA + 61 ENSG-as-symbol + IQCA1) remain unresolved — see hgnc_notfound_resolution.json",
+        "entrez": "34,962 present, 24,281 numeric",
+        "ortholog_mapability": {
+          "mouse_human_orthologs_rows": 17066,
+          "rat_human_orthologs_rows": 14022,
+          "human_symbol_union_mapable": "14,839 / 34,630 (42.85%)",
+          "ensg_mapable_to_mouse": "14,999 / 34,962 (42.90%)"
+        }
+      },
+      "verification": "data/ded_dryarm/gse323164/gse323164_namespace_verification.json (PASS); hgnc_spotcheck.jsonl (200 lines); hgnc_notfound_resolution.json",
+      "inclusion_exclusion": {
+        "included": "all 34,962 rows keyed by ENSG (authoritative, unique); FPKM (6) + count (6) columns both retained",
+        "excluded": "none at file level; analysis-time filtering will drop unresolved/rRNA/ENSG-as-symbol rows",
+        "note": "gene_name 列非完全 HGNC（rRNA 与 ENSG 直填），分析以 ENSG 为主键；42.9% ENSG 可映射到小鼠正交 —— 满足 scRNA-seq 参考映射的基因级映射需求（正交表为 mouse+rat 双物种）"
+      }
+    },
+    {
+      "accession": "PXD028922",
+      "version": "PRIDE archive 2021-10-04; paper: Frontiers in Pharmacology 2021, doi:10.3389/fphar.2021.787193, PMID 34950038, PMC8689002",
+      "species": "Homo sapiens",
+      "tissue": "tear wash (ophthalmic lavage fluid) + saliva from Sjogren's syndrome patients vs healthy controls",
+      "condition": "Sjogren's syndrome (SS) vs healthy control; dimethylation-labeling shotgun proteomics",
+      "platform": "Orbitrap Fusion Lumos; MaxQuant v1.6.10.23 / Andromeda",
+      "samples": {
+        "raw_files": 9,
+        "prg4_tear_samples": 5,
+        "sjogren_samples": 4,
+        "note": "controls contained in raw set (tear wash)"
+      },
+      "cell_count": "proteomics (no cells)",
+      "pride_files": {
+        "type_available": "RAW spectra only (9 .raw) + search FASTA (UP000005640) + checksum.txt",
+        "processed_matrix_in_pride": false,
+        "note": "PRIDE 归档无 processed 定量矩阵（仅 raw 谱图）"
+      },
+      "processed_quant_availability": {
+        "available": true,
+        "source": "paper supplementary material Table1.xlsx (downloaded via EuropePMC supplementaryFiles, PMC8689002): Supplementary Table 1 Tears (1,626 protein rows) + Supplementary Table 2 Saliva, MaxQuant-format with Protein IDs / Gene names / Ratio H/L (normalized)",
+        "local_copy": "data/ded_dryarm/pxd028922/suppl_pmc/Table1.xlsx (779 KB) + 8 other suppl files",
+        "caution": "supplementary 表为蛋白级 Ratio H/L（SS/对照），无细胞层面信息；与角膜上皮 bulk 的映射价值有限"
+      },
+      "inclusion_exclusion": {
+        "included": "context layer (human Sjogren tear proteome), protein-level module annotation only",
+        "excluded": "raw 谱图不下载（本次启动门评估结论）；唾液层不纳入角膜 DED 分析",
+        "decision": "BOUNDARY: 仅作上下文证据层（PRG4/lubricin 等），不进入核心映射管线的独立数据集"
+      }
+    },
+    {
+      "accession": "GSE182582 (mouse, derived)",
+      "version": "local data/mouse_ded.h5ad — 1,000-cell subset of GSE182582 forGEO matrix (33,885 cells x 17,891 genes); parent matrix integrity OK, two GSE182582_count*.csv.gz files integrity-FAILED (excluded, per DED-Public-Data-Manifest-2026-07-30)",
+      "paper": "PNAS 2023 (lacrimal gland excision DED model)",
+      "species": "Mus musculus",
+      "tissue": "cornea (DED model: lacrimal gland excision)",
+      "condition": "control vs DED (cell-level group cntl/ded)",
+      "platform": "10x Genomics scRNA-seq",
+      "samples": "cell-level cntl/ded labels; animal identity not retained in local h5ad",
+      "cell_count": 1000,
+      "gene_namespace": "mouse symbols (var index + gene_name), 17,802 genes in subset",
+      "obs_fields": [
+        "celltype_orig (11 types incl. * stress/stage variants: LSC, LSC*, TAC1, TAC1*, TAC2, TAC2*, Basal, Wing, Wing*, Squam, Squam*)",
+        "group (cntl/ded)",
+        "n_counts",
+        "condition (control/DED)"
+      ],
+      "attribution": "verified in local h5ad obs: celltype_orig 与 GSE182582 的 LSC/TAC/Basal/Wing/Squam 层级一致 + control/DED 分组；1000-cell 为派生样本，非独立 accession",
+      "inclusion_exclusion": {
+        "included": "1,000-cell subset for cross-species differentiation-gradient mapping",
+        "excluded": "parent matrix 完整版未在本机全量读取（33,885 细胞）；failed-integrity 文件永不使用"
+      }
+    },
+    {
+      "accession": "OMIX008264 (rat, derived)",
+      "version": "local data/rat_ded.h5ad — 40,911 cells; counts extracted from 9 OMIX008264 tar archives (C1-C3 / DE1-DE3 control vs DED; DG/LG remain in archives), PRJCA033622",
+      "paper": "STTT 2025 (scopolamine-induced DED rat model, NGDC)",
+      "species": "Rattus norvegicus",
+      "tissue": "cornea",
+      "condition": "control (C1-C3) vs DED (DE1-DE3)",
+      "platform": "10x Genomics scRNA-seq",
+      "samples": "obs 仅含 condition (control/DED); sample 级标识（C1..DE3）未保留在 h5ad 中 — 开放问题",
+      "cell_count": 40911,
+      "gene_namespace": "rat symbols (var index), 19,580 genes; var 无 gene_name 列",
+      "obs_fields": [
+        "condition (control/DED)"
+      ],
+      "attribution": "OMIX008264 count 提取源文件（C/DE 组）与 lane 文档一致；h5ad 无 accession 元数据字段，归属依据 lane changelog + DED-Public-Data-Manifest-2026-07-30 的 OMIX 记录",
+      "inclusion_exclusion": {
+        "included": "40,911 cells for cross-species mapping via rat_human_orthologs.csv",
+        "excluded": "DG/LG（泪腺/唇腺）样本未提取；sample 级混杂不可控（无 donor 标识）— 报告按动物级聚合时受限"
+      }
+    }
+  ],
+  "reference_lock": {
+    "paper1_checkpoint": {
+      "model": "ordinal-CAFT (CORN ordinal head, correctly wired continuity term, lambda=0.5), Arm 6, final checkpoint-7473",
+      "seed_set": [
+        42,
+        123,
+        456
+      ],
+      "checkpoint_paths": {
+        "42": "save/ordinal_gf_lam0.5_seed42_20260806-011512/model/checkpoint-7473",
+        "123": "save/ordinal_gf_lam0.5_seed123_20260807-220728/model/checkpoint-7473",
+        "456": "save/ordinal_gf_lam0.5_seed456_20260807-091349/model/checkpoint-7473"
+      },
+      "hashes": {
+        "config.json": "2309c5803f7e5668cbd37e28e58a525d933ea403a7131a3d6b63251232001048 (identical across seeds)",
+        "model.safetensors_seed42": "2750b5e8b68d45c30e8ca785b7270222b1874285cc22ad705c4e4b0a7e728dc8",
+        "model.safetensors_seed123": "8649335f1b780e903001b04062784f842b789780f778b6f38f0c3735944bdee7",
+        "model.safetensors_seed456": "f90d0f6b418028ed038f5e51790bc4d3e79ecff63244dcd92befe286157233d6"
+      },
+      "external_test_status": {
+        "dataset": "GSE153515 (donor-disjoint external, 14,775 cells)",
+        "donor_level_macro_f1": {
+          "42": 0.6409,
+          "123": 0.6466,
+          "456": 0.6564,
+          "mean": 0.6479
+        },
+        "note": "matching protocol §3 claim; ECE 0.0609, differentiation-gradient rho 0.8277 (three-seed 0.8242-0.8321) per Paper 1"
+      }
+    },
+    "tokenization_normalization_gene_order": {
+      "tokenizer": "scGPT gene vocabulary (data/scgpt_gene_vocab.json, 48,292 tokens)",
+      "expression_binning": "log1p expression -> 5 bins (N_EXPR_BINS=5, scGPT default bin edges)",
+      "gene_selection": "seurat_v3 HVG on 50k-cell subsample -> symbol dedup (append ENSG) -> vocab match -> subset (corneal_scgpt_ready.h5ad)",
+      "gene_order": "HVG -> scGPT vocab-matched order (same as fine-tuning input; inference must reuse identical order)",
+      "reference": "scripts/protocol_02_prep_scgpt.py; scripts/protocol_07_finetune_scgpt.py (mirrored by save/*/ordinal_gf.py)"
+    },
+    "ortholog_table": {
+      "mouse_human_orthologs.csv": {
+        "path": "data/mouse_human_orthologs.csv",
+        "rows": 17066,
+        "columns": [
+          "mouse_gene_symbol",
+          "mouse_ensembl_id",
+          "human_ensembl_id",
+          "human_gene_symbol"
+        ],
+        "direction": "mouse -> human (one-to-one)"
+      },
+      "rat_human_orthologs.csv": {
+        "path": "data/rat_human_orthologs.csv",
+        "rows": 14022,
+        "columns": [
+          "rat_gene_symbol",
+          "human_gene_symbol"
+        ],
+        "direction": "rat -> human (one-to-one)"
+      }
+    },
+    "reference_labels_provenance": {
+      "ordinal_axis": "LSC -> TAC -> basal -> wing -> squamous (4 ordinal classes used in CORN head: n_ordinal=4, thresholds=3)",
+      "layer_distribution_train": {
+        "LSC": 4526,
+        "TAC": 7817,
+        "basal": 7346,
+        "wing": 2320,
+        "squamous": 12793,
+        "nonEpi": 64804
+      },
+      "num_classes": 31,
+      "provenance": "Paper 1 annotation of van Zyl et al. 2022 PNAS (doi:10.1073/pnas.2200914119) Central Cornea + TM/wedge partitions (protocol_15c_annotate_vanzyl.py)"
+    },
+    "transparent_baselines": {
+      "frozen_geneformer": "L12 rho 0.8064 (differentiation-gradient), low accuracy (macro-F1 0.4421), ECE 0.3010",
+      "hvg_pca": "marker/HVG-PCA mapping",
+      "ordinal_naive": "same architecture without continuity term (rho 0.8330, ECE 0.1251) — acceptable Stage B alternative",
+      "rule": "no Corneal-FM-only success claim; every result compared against baselines"
+    }
+  },
+  "gates_summary": {
+    "gate1_gse200097": "PASS (归属核验完整: 40 GSM 中 20 RNA-seq/20 RiboSeq 区分, rnaSeq 本地文件=GEO 子集值全等, metadata 20/20 一致, SHA-256 已锁)",
+    "gate2_gse323164": "PASS (命名空间核验完整: 34,962 ENSG 唯一/有效; HGNC spotcheck 200 条; 64 未解析条目已记录; ortholog 映射 42.85% symbol / 42.90% ENSG)",
+    "gate3_pxd028922": "PARTIAL -> 上下文层可用 (PRIDE 仅 raw; processed 定量矩阵从文献补充材料 Table1.xlsx 获得, 已落盘; 不下载 raw 谱图)",
+    "gate4_manifest": "PASS (本文件; mouse/rat h5ad 归属已核验)"
+  },
+  "open_questions": [
+    "rat_ded.h5ad 缺 sample/donor 级标识（仅 condition），动物级聚合与批次混杂不可控",
+    "GSE182582 parent 矩阵完整性：forGEO 版本 OK，但 GSE182582_count*.csv.gz 两个文件 integrity FAILED（永不使用）；1,000-cell 子集为派生资产",
+    "GSE323164 中 64 个 gene_name 未解析（rRNA/ENSG-as-symbol/IQCA1）——分析时以 ENSG 主键过滤；IQCA1 或为 HGNC 改名（如 IQCA1L），未追查",
+    "GSE200097 无 donor/cell-line passage/batch 元数据 → 生物独立性与批次混杂未解析（protocol §3 记录的同款风险）",
+    "PXD028922 唾液层与角膜 DED 映射价值低，仅 tears 层作上下文",
+    "mouse_ded.h5ad obs 无 accession 字段，归属依据 lane changelog + DED-Public-Data-Manifest-2026-07-30（celltype 层级一致佐证）"
+  ]
+}

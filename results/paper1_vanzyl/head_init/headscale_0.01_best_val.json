@@ -1,0 +1,25 @@
+{
+  "seed": "head_init",
+  "n_cls": 30,
+  "n_eval_cells": 20158,
+  "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/head_init/checkpoints/naive_seed42_headscale_0.01/model_best_val.pt",
+  "pred_dist": {
+    "basal": 8821,
+    "differentiated": 2923,
+    "LSC": 8414
+  },
+  "macro_f1": {
+    "macro_f1": 0.9051492648901135,
+    "ci95_low": 0.9003197911400875,
+    "ci95_high": 0.9097439465325015,
+    "n_boot": 1000,
+    "seed": 42
+  },
+  "rho_raw": 0.7337835457479808,
+  "rho_normed": 0.7349820793118452,
+  "null_mean": 0.015282188878132923,
+  "null_sd": 0.009027370093748247,
+  "null_z": 79.7242035010981,
+  "null_pctile": 1.0,
+  "n_null": 100
+}

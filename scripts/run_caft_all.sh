@@ -3,7 +3,7 @@
 # CAFT-GF 一键流水线 (λ-Pareto + CS_before/CS_after + GPR + Markdown 汇总)
 #
 # 用法 (在你的 GX10 终端, 干净会话, 后台挂机):
-#   cd <repo-root> && source <your-venv>/bin/activate
+#   cd /home/dq/Codex/Ai && source ~/venv-ds/bin/activate
 #   chmod +x scripts/run_caft_all.sh
 #   nohup bash scripts/run_caft_all.sh > caft_all.log 2>&1 &
 #   echo $! > caft_all.pid
@@ -26,7 +26,7 @@ EPOCHS="${EPOCHS:-20}"
 BS="${BS:-16}"
 SEED="${SEED:-42}"
 DATA_FILE="${DATA_FILE:-corneal_20k_donor_split.h5ad}"
-PY="${PY:-python}"
+PY="${PY:-$HOME/venv-ds/bin/python}"
 
 log()  { echo "[$(date '+%H:%M:%S')] $*" | tee -a "$LOG"; }
 die()  { log "❌ FATAL: $*"; exit 1; }

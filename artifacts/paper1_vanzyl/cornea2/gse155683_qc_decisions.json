@@ -1,0 +1,68 @@
+{
+  "seed": 42,
+  "resolution": 0.6,
+  "dataset": "GSE155683",
+  "mirrors": "protocol_15c_annotate_vanzyl.py (method locked)",
+  "harmony_batch_keys": [
+    "donor"
+  ],
+  "input_n_cells": 21343,
+  "input_n_genes": 33538,
+  "qc_n_cells": 19208,
+  "qc_n_genes": 11592,
+  "fibro_contamination_clusters": [
+    "3",
+    "7",
+    "9",
+    "11",
+    "12",
+    "13",
+    "15"
+  ],
+  "fibro_contamination_note": "Clusters with >=3 of top-5 DEGs in the fibroblast/endothelial gene set are non-epithelial contamination despite top epithelial enrichment (LPC markers DCN/PLIN2/SLC2A3 not specific vs stromal fibroblasts). Mirrors the van Zyl cluster0 ciliary-muscle exclusion precedent. Frozen before any split/train.",
+  "crosscheck": {
+    "dataset": "GSE155683",
+    "note": "No per-cell metadata exists on GEO for this dataset."
+  },
+  "cluster_n": 18,
+  "cell_class_4_counts": {
+    "NON_LAYER": 6299,
+    "differentiated": 6247,
+    "LSC": 3511,
+    "basal": 3151
+  },
+  "assignment_rate_4class": 0.6721,
+  "donor_counts": {
+    "donor_4": 11991,
+    "donor_1": 2633,
+    "donor_2": 2415,
+    "donor_3": 2169
+  },
+  "donor_x_cell_class4": {
+    "LSC": {
+      "donor_1": 453,
+      "donor_2": 621,
+      "donor_3": 282,
+      "donor_4": 2155
+    },
+    "NON_LAYER": {
+      "donor_1": 1175,
+      "donor_2": 627,
+      "donor_3": 1611,
+      "donor_4": 2886
+    },
+    "basal": {
+      "donor_1": 403,
+      "donor_2": 291,
+      "donor_3": 162,
+      "donor_4": 2295
+    },
+    "differentiated": {
+      "donor_1": 602,
+      "donor_2": 876,
+      "donor_3": 114,
+      "donor_4": 4655
+    }
+  },
+  "n_donors": 4
+}

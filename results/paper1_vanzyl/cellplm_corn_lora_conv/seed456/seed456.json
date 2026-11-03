@@ -1,0 +1,84 @@
+{
+  "arm": "cellplm_corn_lora",
+  "script": "run_cellplm_corn_lora.py",
+  "seed": 456,
+  "recipe": "official CellTypeAnnotationPipeline with CORN ordinal head (mechanical port of corneal_fm/ordinal.py: K=3 -> K-1=2 threshold BCEs, threshold-count decode >= 0.5) + LoRA (r=8, alpha=16) on Flow_Attention query/key/value projections, trunk frozen; same LR 5e-3 (embedder 5e-4), wd 1e-7, plat scheduler, epochs 2000 configured, es=200, patience 25, hvg 3000, best-validation checkpoint selection",
+  "corn": {
+    "n_ordinal": 3,
+    "n_thresholds": 2,
+    "layer_order": [
+      "LSC",
+      "basal",
+      "differentiated"
+    ],
+    "class_to_ordinal": {
+      "0": 0,
+      "1": 1,
+      "2": 2
+    },
+    "decode": "count of sigmoid(logit) >= 0.5 (ordinal.py ordinal_decode)",
+    "loss": "mean BCE_with_logits over K-1 thresholds (ordinal.py compute_loss)",
+    "ordinal_lambda": 0.0
+  },
+  "lora": {
+    "r": 8,
+    "alpha": 16,
+    "targets": "query/key/value projections of all Flowformer self-attention layers",
+    "trainable_params": 722434
+  },
+  "training": {
+    "epochs_configured": 2000,
+    "epochs_actual": 454,
+    "best_valid_f1": 0.956,
+    "elapsed_min": 16.117239089806876,
+    "n_train": 38233,
+    "n_valid": 4249,
+    "panel_genes_after_preprocess": 2399,
+    "device": "cuda",
+    "torch": "2.13.0+cu130",
+    "seed": 456
+  },
+  "eval": {
+    "n_eval_cells": 20158,
+    "test_donor": "sanes2022_Hu0216",
+    "macro_f1": 0.9511310213697909,
+    "bootstrap_ci95": [
+      0.9476949116569647,
+      0.9544842988699844
+    ],
+    "n_boot": 1000,
+    "acc": 0.9587756721897014,
+    "rho_raw": 0.9208739987031209,
+    "rho_normed": 0.921506135397849,
+    "null_mean": 0.0058799183070625234,
+    "null_sd": 0.005664160525597847,
+    "null_z": 161.65258963845184,
+    "null_pctile": 1.0,
+    "n_null": 100
+  },
+  "frozen_baseline": {
+    "rho_raw": 0.8596069724248163,
+    "rho_normed": 0.8600260494805035,
+    "null_mean": 0.011035545118291445,
+    "null_sd": 0.006866672981473635,
+    "null_z": 123.6392801365084,
+    "null_pctile": 1.0,
+    "n_null": 100
+  },
+  "delta_rho": {
+    "frozen_rho_normed": 0.8600260494805035,
+    "delta_rho": -0.06148008591734544
+  },
+  "y_true_dist": {
+    "LSC": 8331,
+    "basal": 7563,
+    "differentiated": 4264
+  },
+  "pred_dist": {
+    "LSC": 8398,
+    "basal": 6954,
+    "differentiated": 4806
+  },
+  "generated_utc": "2026-10-19T09:47:29.339027+00:00",
+  "timestamp_utc": "2026-10-19T09:47:29.339036+00:00"
+}

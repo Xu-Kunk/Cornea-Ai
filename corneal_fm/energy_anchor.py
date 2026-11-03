@@ -78,9 +78,7 @@ N_STAGES = 4  # LSC(0) < TAC(1) < basal(2) < differentiated(3)
 STAGE_NAMES = ["LSC", "TAC", "basal", "differentiated"]
 
 
-def _rbf_kernel_pairwise(
-    z: torch.Tensor, sigma: float
-) -> torch.Tensor:
+def _rbf_kernel_pairwise(z: torch.Tensor, sigma: float) -> torch.Tensor:
     """RBF kernel matrix K_zz = exp(-||z_i - z_j||^2 / (2 sigma^2)).
 
     ``z`` is (n, H) float32. Computed with the |z_i|^2 + |z_j|^2 - 2 z_i.z_j
@@ -132,13 +130,13 @@ class EnergyAnchorTrainer(CAFTTrainer):
         self.anchor_lambda = float(anchor_lambda)
         self.class_to_stage = {int(k): int(v) for k, v in class_to_stage.items()}
         if not (1 <= anchor_hidden <= FINAL_HIDDEN):
-            raise ValueError(
-                f"anchor_hidden must be in 1..{FINAL_HIDDEN}; got {anchor_hidden}"
-            )
+            raise ValueError(f"anchor_hidden must be in 1..{FINAL_HIDDEN}; got {anchor_hidden}")
         self.anchor_hidden = int(anchor_hidden)
         self.ref_bandwidth_cells = int(ref_bandwidth_cells)
         self.stage_centroids: torch.Tensor | None = None  # (N_STAGES, H) float32
-        self.kernel_bandwidth: float | None = float(kernel_bandwidth) if kernel_bandwidth is not None else None
+        self.kernel_bandwidth: float | None = (
+            float(kernel_bandwidth) if kernel_bandwidth is not None else None
+        )
         self._epi_rows: list[int] | None = None
         if self.anchor_lambda != 0:
             self._precompute_reference()
@@ -179,7 +177,8 @@ class EnergyAnchorTrainer(CAFTTrainer):
             return
         labels_all = list(ds["label"])
         self._epi_rows = [
-            i for i, c in enumerate(labels_all)
+            i
+            for i, c in enumerate(labels_all)
             if self.class_to_stage.get(int(c), NON_LAYER) != NON_LAYER
         ]
         epi = self._epi_rows
@@ -309,7 +308,9 @@ class EnergyAnchorTrainer(CAFTTrainer):
             else:
                 sigma = float("nan")
             if not torch.isfinite(torch.as_tensor(sigma)) or sigma <= 0:
-                sigma = float(torch.sqrt(torch.as_tensor(float(hidden_size), dtype=torch.float32)) * 0.1)
+                sigma = float(
+                    torch.sqrt(torch.as_tensor(float(hidden_size), dtype=torch.float32)) * 0.1
+                )
                 print(
                     f"[EnergyAnchor] WARN degenerate bandwidth subsample; "
                     f"fallback sigma={sigma:.4f} (sqrt(H)*0.1).",
@@ -339,9 +340,7 @@ class EnergyAnchorTrainer(CAFTTrainer):
         else:
             attn = None
         need_hidden = bool(
-            self.anchor_lambda != 0
-            and self.stage_centroids is not None
-            and labels is not None
+            self.anchor_lambda != 0 and self.stage_centroids is not None and labels is not None
         )
         bert_out = model.bert(
             input_ids=input_ids,

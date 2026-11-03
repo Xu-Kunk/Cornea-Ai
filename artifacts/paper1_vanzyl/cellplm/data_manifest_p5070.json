@@ -1,0 +1,39 @@
+{
+  "protocol": "protocol_16_prep_cellplm_vanzyl.py (fix-9, GB10; migrated byte-identical)",
+  "source": "/home/dq/Codex/Ai/data/vanzyl_annotated.h5ad (not migrated)",
+  "source_sha256": "fad5e9a71ecd1208e0626049b638e789d22b52563d5a66740570d617df67f4e8",
+  "output": "/home/summer/cellplm_vanzyl/data/vanzyl_cellplm.h5ad (p5070 copy)",
+  "output_sha256": "9ee682780bf259ffce3d7094303c3fcd7f21c2579814fead062f2443723e07f9",
+  "sha_verified_on_p5070": true,
+  "analysis_set_rule": "leiden != \"0\" AND cell_class_4 in {LSC, basal, differentiated} (LOCKED PREREG \u00a77)",
+  "test_donor": "sanes2022_Hu0216",
+  "train_donors": [
+    "sanes2022_Hu0218",
+    "sanes2022_Hu0220",
+    "sanes2022_Hu0235",
+    "sanes2022_Pt14"
+  ],
+  "n_train": 38233,
+  "n_valid": 4249,
+  "n_test": 20158,
+  "split_rule": "90/10 cell-level train/valid on train-donor cells, stratified (donor x celltype), seed 42 (official CellPLM tutorial convention)",
+  "valid_frac": 0.1,
+  "split_seed": 42,
+  "columns_added": [
+    "batch",
+    "split",
+    "celltype"
+  ],
+  "X_source": "layers[\"counts\"] (raw counts; CellPLM embedder log1p contract)",
+  "n_genes": 13250,
+  "gene_overlap_with_cellplm": 0.839622641509434,
+  "cellplm_gene_set_size": 19374,
+  "timestamp_utc": "2026-08-19T11:33:13.549191+00:00",
+  "deviations": [
+    {
+      "id": "D1",
+      "item": "gene overlap",
+      "detail": "83.96% measured vs 99.21% research claim; recorded honestly, no workaround (carried from fix-9)"
+    }
+  ]
+}

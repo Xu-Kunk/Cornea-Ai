@@ -8,7 +8,6 @@ and a dry-run mode for batch-size discovery.
 from __future__ import annotations
 
 import copy
-import logging
 from pathlib import Path
 from typing import Any, ClassVar
 
@@ -18,7 +17,7 @@ from torch.cuda.amp import GradScaler, autocast
 from torch.utils.data import DataLoader, Dataset, Subset
 
 from corneal_fm.config import set_seed
-from corneal_fm.utils import count_parameters, get_device, get_logger
+from corneal_fm.utils import get_device, get_logger
 
 logger = get_logger(__name__)
 
@@ -321,7 +320,7 @@ class GeneformerTrainer:
         logger.info("Model saved to %s", save_path)
 
     @classmethod
-    def load(cls, path: Path) -> "GeneformerTrainer":
+    def load(cls, path: Path) -> GeneformerTrainer:
         """Load a previously saved model from a checkpoint.
 
         Parameters
@@ -478,7 +477,6 @@ class scGPTTrainer:
             Training history.
         """
         # Lazy imports
-        import scgpt  # type: ignore[import-untyped]
         from sklearn.model_selection import StratifiedKFold  # type: ignore[import-untyped]
 
         cfg = self.config
@@ -537,7 +535,11 @@ class scGPTTrainer:
             fold_model = copy.deepcopy(model)
             optimizer, scheduler = _get_optimizer(fold_model, lr, weight_decay, warmup_steps)
             scaler = GradScaler(enabled=use_amp)
-            criterion = nn.MSELoss() if cfg.get("scgpt_recon_loss", "mse") == "mse" else nn.KLDivLoss(reduction="batchmean")
+            criterion = (
+                nn.MSELoss()
+                if cfg.get("scgpt_recon_loss", "mse") == "mse"
+                else nn.KLDivLoss(reduction="batchmean")
+            )
 
             fold_best_loss = float("inf")
 
@@ -636,7 +638,7 @@ class scGPTTrainer:
         logger.info("Model saved to %s", save_path)
 
     @classmethod
-    def load(cls, path: Path) -> "scGPTTrainer":
+    def load(cls, path: Path) -> scGPTTrainer:
         """Load a previously saved scGPT model from a checkpoint.
 
         Parameters
@@ -689,7 +691,6 @@ class scGPTTrainer:
 
         Logs the number of matched and unmatched genes.
         """
-        import scgpt  # type: ignore[import-untyped]
 
         # Extract gene vocabulary from the dataset if available
         dataset_vocab: dict[str, int] | None = getattr(dataset, "gene_vocab", None)
@@ -718,9 +719,7 @@ class scGPTTrainer:
             if emb is not None and hasattr(emb, "weight"):
                 old_weight = emb.weight.data.clone()
                 # Keep only matched rows
-                matched_indices = [
-                    model_vocab[g] for g in dataset_vocab if g in model_vocab
-                ]
+                matched_indices = [model_vocab[g] for g in dataset_vocab if g in model_vocab]
                 new_weight = old_weight[matched_indices]
                 emb.weight = nn.Parameter(new_weight)
                 logger.info(
@@ -761,7 +760,11 @@ class scGPTTrainer:
         if n_freeze <= 0:
             return
         try:
-            layers = model.transformer.layers if hasattr(model, "transformer") else list(model.children())
+            layers = (
+                model.transformer.layers
+                if hasattr(model, "transformer")
+                else list(model.children())
+            )
             for i in range(min(n_freeze, len(layers))):
                 for param in layers[i].parameters():
                     param.requires_grad = False

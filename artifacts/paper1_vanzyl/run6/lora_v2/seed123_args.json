@@ -1,0 +1,58 @@
+{
+  "arm": "LoRA naive CE (QKV r=8 alpha=16; head + adapters trained; base trunk frozen)",
+  "seed": 123,
+  "epochs": 15,
+  "n_cls": 30,
+  "lora": {
+    "r": 8,
+    "alpha": 16
+  },
+  "val_split": {
+    "n_train": 38235,
+    "n_val": 4247
+  },
+  "best_val_f1": 0.8844247330623635,
+  "best_val_f1_epoch": 10,
+  "best_val_rho": 0.8914978775733258,
+  "best_val_rho_epoch": 14,
+  "test_donor_eval": {
+    "best_val": {
+      "macro_f1": {
+        "macro_f1": 0.9391941016555266,
+        "ci95_low": 0.9359089635154898,
+        "ci95_high": 0.9427163078923219
+      },
+      "rho_raw": 0.8756167220483223,
+      "rho_normed": 0.8755361004115508,
+      "null_mean": 0.013694856885832858,
+      "null_sd": 0.008068137921004337,
+      "null_z": 106.82034094658044,
+      "null_pctile": 1.0,
+      "pred_dist": {
+        "basal": 7119,
+        "differentiated": 4644,
+        "LSC": 8395
+      }
+    },
+    "final_epoch": {
+      "macro_f1": {
+        "macro_f1": 0.9352407440336371,
+        "ci95_low": 0.9313448575338564,
+        "ci95_high": 0.939008776171972
+      },
+      "rho_raw": 0.8416152711014948,
+      "rho_normed": 0.8406726261245568,
+      "null_mean": 0.015059469221488311,
+      "null_sd": 0.008494016986202517,
+      "null_z": 97.19937671942208,
+      "null_pctile": 1.0,
+      "pred_dist": {
+        "basal": 7892,
+        "differentiated": 3854,
+        "LSC": 8412
+      }
+    }
+  },
+  "wall_s": 7406.3218829631805,
+  "timestamp_utc": "2026-08-20T10:26:10+00:00"
+}

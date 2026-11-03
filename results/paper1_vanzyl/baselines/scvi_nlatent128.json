@@ -1,0 +1,53 @@
+{
+  "arm": "scvi_nlatent128",
+  "n_eval_cells": 20158,
+  "rho": {
+    "rho_raw": 0.8921734772507671,
+    "rho_normed": 0.8645047237983823,
+    "null_mean": 0.021392613497021564,
+    "null_sd": 0.010190712355882222,
+    "null_z": 82.73338318834057,
+    "null_pctile": 1.0,
+    "n_null": 100
+  },
+  "probe_f1": {
+    "f1_macro": 0.9729464728408663,
+    "f1_macro_sd": 0.0037089084600586283,
+    "f1_weighted": 0.9776612133115645,
+    "f1_weighted_sd": 0.0029146116570285346,
+    "n_repeats": 5,
+    "train_frac": 0.9,
+    "n_fit_cells_per_repeat": [
+      18142,
+      18142,
+      18142,
+      18142,
+      18142
+    ],
+    "n_eval_cells_per_repeat": [
+      2016,
+      2016,
+      2016,
+      2016,
+      2016
+    ],
+    "design": "split self-probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+  },
+  "transfer_f1": {
+    "f1_macro": 0.9450909211190689,
+    "f1_weighted": 0.9554151160280037,
+    "design": "train-fit probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+  },
+  "config": {
+    "n_latent": 128,
+    "max_epochs": 50,
+    "early_stopping_patience": 15,
+    "layer": "counts",
+    "batch_key": "donor_id",
+    "early_stopping": true,
+    "seed": 42,
+    "note": "train-fit only; test donor mapped via registry transfer with extend_categories=True (batch category of the held-out donor is never seen during training). max_epochs=50 capped for CPU feasibility (default 400 would be ~30h); standard scVI convergence reached well within this budget on 42k cells."
+  },
+  "wall_s": 40.7,
+  "timestamp_utc": "2026-08-19T12:11:13+00:00"
+}

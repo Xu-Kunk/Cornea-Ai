@@ -1,0 +1,16 @@
+[armb extra] seed=456 device=cuda
+checkpoint: /home/summer/corneal_scgpt/save/caft_gf_lam0.0_seed456_20260819-120545/model/checkpoint-2491 (save_dir caft_gf_lam0.0_seed456_20260819-120545)
+`torch_dtype` is deprecated! Use `dtype` instead!
+model loaded (31 classes); ckpt keys=201
+tokenized external (on-disk, all cells): 15827 columns ['input_ids', 'cell_type', 'author_cell_type', 'disease', 'tissue', 'donor_id', 'layer', 'length']
+epithelial filter: 14775/15827 cells; obs alignment (donor_id) dataset-vs-h5ad: True
+[W819 13:40:25.417731421 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 2147483648 bytes (free: 1280376832, total: 16611278848).
+    batch 100/462
+    batch 200/462
+    batch 300/462
+    batch 400/462
+    batch 462/462
+forward 394.6s -> (14775, 768)
+rho(raw)=+-0.0573 rho(L2-normed)=+-0.0630
+null(100): mean=+0.0063 sd=0.0063 z=-11.06 pctile=0.0%
+saved /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/gf_official_1epoch/eval_armb_seed456.json

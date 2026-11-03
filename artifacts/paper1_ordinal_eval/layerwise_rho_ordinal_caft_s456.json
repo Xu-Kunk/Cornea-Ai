@@ -1,0 +1,55 @@
+{
+  "model": "lam0.5_seed456",
+  "arm": "ordinal_caft",
+  "loss": "CORN ordinal",
+  "lambda": 0.5,
+  "seed": 456,
+  "checkpoint_path": "/home/dq/Codex/Ai/save/ordinal_gf_lam0.5_seed456_20260807-091349/model/checkpoint-7473",
+  "n_layers": 13,
+  "layer_labels": [
+    "embedding_output",
+    "transformer_layer_1",
+    "transformer_layer_2",
+    "transformer_layer_3",
+    "transformer_layer_4",
+    "transformer_layer_5",
+    "transformer_layer_6",
+    "transformer_layer_7",
+    "transformer_layer_8",
+    "transformer_layer_9",
+    "transformer_layer_10",
+    "transformer_layer_11",
+    "transformer_layer_12"
+  ],
+  "n_cells": 14775,
+  "layer_order": [
+    "LSC",
+    "TAC",
+    "basal",
+    "differentiated"
+  ],
+  "l2_normalized": false,
+  "dtype": "bfloat16",
+  "timestamp_utc": "2026-08-07T09:41:22+00:00",
+  "marker_gradient_rho": [
+    NaN,
+    0.39175125622806967,
+    0.5234317404558185,
+    0.793422036943106,
+    0.7113830477170209,
+    0.23284441224143984,
+    0.23723647594533767,
+    0.37567222065583306,
+    0.8274598723624951,
+    0.8127941247750624,
+    0.8276866883426955,
+    0.8372641017902994,
+    0.8321118830724256
+  ],
+  "sanity_gate": {
+    "layer12_rho": 0.8321118830724256,
+    "reference_rho": 0.8321118830724256,
+    "abs_diff": 0.0,
+    "passed": true
+  }
+}

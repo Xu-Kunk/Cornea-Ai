@@ -1,0 +1,7 @@
+=== lane.log 续作接手 2026-08-18 ===
+[2026-08-18 11:11:37] 接手核查：Gate1 JSON 已存在(20 RNA-seq/20 RiboSeq 区分+SHA256)，Gate2 namespace JSON+spotcheck 已存在，PXD028922 README 仅含 RAW+FASTA
+[2026-08-18 11:13:36] PXD028922: PRIDE归档仅RAW(5xPRG4+4xSjogren)+FASTA; 补充材料Table1.xlsx含MaxQuant定量表(Tears 1626蛋白) — processed定量可得
+[2026-08-18 11:17:09] manifest_v1.json 写入完成
+[2026-08-18 11:17:33] manifest_v1.json 写入完成
+[2026-08-18 11:18:00] startup_gate_report.md 写入; 4 门: G1 PASS / G2 PASS / G3 PARTIAL(上下文层) / G4 PASS
+[2026-08-18 11:18:00] lane 完成 — manifest_v1.json(249行) + startup_gate_report.md + lane.log

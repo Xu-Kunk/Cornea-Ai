@@ -1,0 +1,5 @@
+[2026-08-21T02:37:57+00:00] SKIP corn_lora_seed42: already DONE
+[2026-08-21T02:37:57+00:00] SKIP corn_lora_seed123: already DONE
+[2026-08-21T02:37:57+00:00] === E5 START CORN+LoRA seed456 (15 epochs) ===
+[2026-08-21T07:50:28+00:00] DONE E5 corn_lora_seed456: 312.5 min
+[2026-08-21T07:50:28+00:00] E5 runner finished

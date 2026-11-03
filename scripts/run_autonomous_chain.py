@@ -32,7 +32,7 @@ from pathlib import Path
 PROJECT = Path(__file__).resolve().parent.parent
 LAUNCH_LOG = PROJECT / "artifacts" / "paper1_method_arms" / "phase_a_launch.log"
 CHAIN_LOG = PROJECT / "artifacts" / "paper1_method_arms" / "autonomous_chain.log"
-PY = os.environ.get("PY", "python3")
+PY = os.environ.get("PY", "/home/dq/venv-ds/bin/python3")
 ENV = dict(os.environ, PYTORCH_CUDA_ALLOC_CONF="expandable_segments:True")
 
 POLL_S = 300

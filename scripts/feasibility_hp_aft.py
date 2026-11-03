@@ -16,7 +16,7 @@ by fix-7 (D5 ordinal), so this validates everything short of training:
 Runs entirely on CPU with fp32. No training is started.
 
 Usage:
-    python3 scripts/feasibility_hp_aft.py
+    /home/dq/venv-ds/bin/python3 scripts/feasibility_hp_aft.py
 """
 
 from __future__ import annotations

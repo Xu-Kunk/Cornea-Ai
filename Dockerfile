@@ -6,6 +6,7 @@
 # docs/GX10-deployment-checklist.md and config/env.yml. Do NOT use <=24.12: it ships
 # CUDA 12.6 / torch 2.6 with no Blackwell-consumer (sm_12x) codegen (NVIDIA optimizes
 # containers for Blackwell starting 25.01; DGX Spark playbooks pin 25.11-py3).
+# Pinned digest for arm64 (GB10 Grace-Blackwell, sm_121): sha256:4a85d8cf6fb3a943280960b8948cf4e9b6eca77b4414c68c9b2c7bb863f79b70
 FROM nvcr.io/nvidia/pytorch:25.11-py3
 
 WORKDIR /app

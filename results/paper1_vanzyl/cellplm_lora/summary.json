@@ -1,0 +1,148 @@
+{
+  "arm": "CellPLM LoRA-only (LoRA q/k/v r=8 alpha=16, trunk frozen)",
+  "dataset": "van Zyl annotated (third architecture, LoRA arm)",
+  "test_donor": "sanes2022_Hu0216",
+  "generated_utc": "2026-10-21T11:10:41+00:00",
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "per_seed": {
+    "42": {
+      "rho_normed": 0.873454522358692,
+      "rho_raw": 0.1984177427255543,
+      "macro_f1": 0.9577535327927805,
+      "acc": 0.9643813870423653,
+      "bootstrap_ci95": [
+        0.9545954296292274,
+        0.9607975109914428
+      ],
+      "null_z": 132.36308773145882,
+      "n_eval_cells": 20158,
+      "test_donor": "sanes2022_Hu0216",
+      "epochs_actual": 184,
+      "best_valid_f1": 0.9471,
+      "elapsed_min": 9.822843023141225,
+      "n_train": 38233,
+      "n_valid": 4249,
+      "frozen_rho_normed": 0.8651968848031372,
+      "delta_rho_vs_frozen": -0.008257637555554864,
+      "recipe": "LoRA QKV (r=8, alpha=16) on Flow_Attention projections; head + latent + adapters trained, base trunk frozen; official CellTypeAnnotationPipeline fit()",
+      "lora": {
+        "r": 8,
+        "alpha": 16
+      },
+      "timestamp_utc": "2026-08-21T09:13:13.013352+00:00"
+    },
+    "123": {
+      "rho_normed": 0.15419959144563664,
+      "rho_raw": 0.11720992021446901,
+      "macro_f1": 0.9595028299191739,
+      "acc": 0.9664649270760988,
+      "bootstrap_ci95": [
+        0.9565659096191088,
+        0.962662087323014
+      ],
+      "null_z": 22.457024186527534,
+      "n_eval_cells": 20158,
+      "test_donor": "sanes2022_Hu0216",
+      "epochs_actual": 366,
+      "best_valid_f1": 0.9521,
+      "elapsed_min": 6.8476062417030334,
+      "n_train": 38233,
+      "n_valid": 4249,
+      "frozen_rho_normed": 0.8025539340941316,
+      "delta_rho_vs_frozen": 0.6483543426484949,
+      "recipe": "LoRA QKV (r=8, alpha=16) on Flow_Attention projections; head + latent + adapters trained, base trunk frozen; official CellTypeAnnotationPipeline fit()",
+      "lora": {
+        "r": 8,
+        "alpha": 16
+      },
+      "timestamp_utc": "2026-10-21T10:56:09.216857+00:00"
+    },
+    "456": {
+      "rho_normed": 0.6262109091167055,
+      "rho_raw": 0.2536599029554904,
+      "macro_f1": 0.9516165752930412,
+      "acc": 0.9589741045738664,
+      "bootstrap_ci95": [
+        0.9483331094366949,
+        0.9550531508735279
+      ],
+      "null_z": 100.88157559128848,
+      "n_eval_cells": 20158,
+      "test_donor": "sanes2022_Hu0216",
+      "epochs_actual": 80,
+      "best_valid_f1": 0.9444,
+      "elapsed_min": 3.399670390288035,
+      "n_train": 38233,
+      "n_valid": 4249,
+      "frozen_rho_normed": 0.8600260494805035,
+      "delta_rho_vs_frozen": 0.23381514036379802,
+      "recipe": "LoRA QKV (r=8, alpha=16) on Flow_Attention projections; head + latent + adapters trained, base trunk frozen; official CellTypeAnnotationPipeline fit()",
+      "lora": {
+        "r": 8,
+        "alpha": 16
+      },
+      "timestamp_utc": "2026-10-21T11:00:40.754260+00:00"
+    }
+  },
+  "aggregate": {
+    "rho_normed": {
+      "mean": 0.5512883409736781,
+      "sd": 0.3654339301755462,
+      "sd_kind": "sample SD (ddof=1)",
+      "n": 3,
+      "per_seed": {
+        "42": 0.873454522358692,
+        "123": 0.15419959144563664,
+        "456": 0.6262109091167055
+      }
+    },
+    "rho_raw": {
+      "mean": 0.18976252196517124,
+      "sd": 0.06863551618742648,
+      "sd_kind": "sample SD (ddof=1)",
+      "n": 3,
+      "per_seed": {
+        "42": 0.1984177427255543,
+        "123": 0.11720992021446901,
+        "456": 0.2536599029554904
+      }
+    },
+    "macro_f1": {
+      "mean": 0.9562909793349985,
+      "sd": 0.004141563710689755,
+      "sd_kind": "sample SD (ddof=1)",
+      "n": 3,
+      "per_seed": {
+        "42": 0.9577535327927805,
+        "123": 0.9595028299191739,
+        "456": 0.9516165752930412
+      }
+    },
+    "epochs_actual": {
+      "mean": 210.0,
+      "sd": 144.76187343358058,
+      "sd_kind": "sample SD (ddof=1)",
+      "n": 3,
+      "per_seed": {
+        "42": 184,
+        "123": 366,
+        "456": 80
+      }
+    },
+    "elapsed_min": {
+      "mean": 6.690039885044098,
+      "sd": 3.214483945429129,
+      "sd_kind": "sample SD (ddof=1)",
+      "n": 3,
+      "per_seed": {
+        "42": 9.822843023141225,
+        "123": 6.8476062417030334,
+        "456": 3.399670390288035
+      }
+    }
+  }
+}

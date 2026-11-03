@@ -25,12 +25,12 @@ is to the presence of the TAC class:
 
 Outputs:
   tables/paper1/table_tac_sensitivity.csv  — tidy long-format numeric table
-  figures/paper1/figure_tac_sensitivity.{pdf,png} — 2x2 publication figure
+  figures/paper1/figureS9_tac_sensitivity.{pdf,png} — 2x2 publication figure
   (300-dpi PNG; rcParams/colour palette reused from
   scripts/generate_paper1_results_figures.py)
 
 Usage:
-    python3 scripts/analyze_tac_sensitivity.py
+    /home/dq/venv-ds/bin/python3 scripts/analyze_tac_sensitivity.py
 """
 
 from __future__ import annotations
@@ -57,6 +57,13 @@ import matplotlib.pyplot as plt
 import generate_paper1_results_figures as gfig  # noqa: E402
 
 from corneal_fm.evaluation import donor_level_macro_f1  # noqa: E402
+import matplotlib as mpl
+mpl.rcParams["pdf.fonttype"] = 42
+mpl.rcParams["ps.fonttype"] = 42
+mpl.rcParams["savefig.dpi"] = 300
+mpl.rcParams["font.family"] = "sans-serif"
+mpl.rcParams["font.sans-serif"] = ["Arial", "Liberation Sans",
+                                   "Helvetica", "DejaVu Sans"]
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -90,12 +97,12 @@ ARM_DISPLAY = {
     "caft_s42": "CAFT s42",
     "caft_s123": "CAFT s123",
     "caft_s456": "CAFT s456",
-    "frozen_gf": "frozen GF",
+    "frozen_gf": "Frozen GF",
 }
 
 ARM_GROUP_COLORS = {
     "naive": gfig.OI_BLUE,
-    "caft": gfig.OI_VERMILLION,
+    "caft": gfig.OI_ORANGE,  # v8fix arm-color lock: CAFT = orange (was vermillion)
     "frozen": gfig.OI_GRAY,
 }
 
@@ -301,15 +308,15 @@ def _grouped_bars(
             lo = [v - c[0] for v, c in zip(vals, ci[i])]
             hi = [c[1] - v for v, c in zip(vals, ci[i])]
             ax.bar(x + offset, vals, width, color=color, label=name,
-                   yerr=[lo, hi], capsize=2.0, linewidth=0.5,
+                   yerr=[lo, hi], capsize=3.0, linewidth=0.6,
                    edgecolor="#ffffff", error_kw={"elinewidth": 0.7})
         else:
             ax.bar(x + offset, vals, width, color=color, label=name,
-                   linewidth=0.5, edgecolor="#ffffff")
+                   linewidth=0.6, edgecolor="#ffffff")
     ax.set_xticks(x)
-    ax.set_xticklabels(x_labels, rotation=30, ha="right", fontsize=6.5)
+    ax.set_xticklabels(x_labels, rotation=60, ha="right", fontsize=6.0)
     ax.set_ylabel(ylabel)
-    ax.set_title(title, fontsize=9, fontweight="bold")
+    ax.set_title(title, fontsize=7.5, fontweight="bold")
     ax.legend(loc="lower left", fontsize=6.5, frameon=False)
 
 
@@ -331,7 +338,7 @@ def make_figure(results: dict[str, dict], out_dir: Path) -> list[Path]:
     donor_f1 = {c: [results[a]["with_tac"]["per_class_donor"][c]["f1"] for a in arms]
                 for c in CLASSES_4}
 
-    fig = plt.figure(figsize=(7, 7))
+    fig = plt.figure(figsize=(6.5, 6.5))
     gs = fig.add_gridspec(2, 2, left=0.09, right=0.985, top=0.93, bottom=0.10,
                           wspace=0.30, hspace=0.42)
     ax_a = fig.add_subplot(gs[0, 0])
@@ -345,30 +352,30 @@ def make_figure(results: dict[str, dict], out_dir: Path) -> list[Path]:
         [("with TAC", with_vals, gfig.OI_BLUE),
          ("without TAC", without_vals, gfig.OI_BLUEGREEN)],
         "Donor-level macro-F1",
-        "Macro-F1: with vs without TAC (bootstrap 95% CI)",
+        "Macro-F1 with vs without TAC (95% CI)",
         ci=[ci_w, ci_wo],
     )
     ax_a.set_ylim(0.0, 1.0)
     for i, v in enumerate(with_vals):
-        ax_a.text(i - 0.12, v + 0.012, f"{v:.3f}", fontsize=5.8, ha="center")
+        ax_a.text(i - 0.12, v + 0.012, f"{v:.3f}", fontsize=6.0, ha="center")
     for i, v in enumerate(without_vals):
-        ax_a.text(i + 0.12, v + 0.012, f"{v:.3f}", fontsize=5.8, ha="center")
+        ax_a.text(i + 0.12, v + 0.012, f"{v:.3f}", fontsize=6.0, ha="center")
     gfig.panel_label(fig, ax_a, "A")
 
     # ---- B: TAC-exclusion delta (without − with)
     deltas = [results[a]["delta_macro_f1"] for a in arms]
     colors = [gfig.OI_VERMILLION if d >= 0 else gfig.OI_BLUE for d in deltas]
-    ax_b.bar(np.arange(len(arms)), deltas, 0.6, color=colors, linewidth=0.5,
+    ax_b.bar(np.arange(len(arms)), deltas, 0.6, color=colors, linewidth=0.6,
              edgecolor="#ffffff")
     ax_b.axhline(0.0, color=gfig.OI_GRAY, lw=0.8)
     ax_b.set_xticks(np.arange(len(arms)))
-    ax_b.set_xticklabels(x_labels, rotation=30, ha="right", fontsize=6.5)
+    ax_b.set_xticklabels(x_labels, rotation=60, ha="right", fontsize=6.0)
     for i, d in enumerate(deltas):
-        ax_b.text(i, d + (0.004 if d >= 0 else -0.008), f"{d:+.3f}",
-                  fontsize=5.8, ha="center")
+        ax_b.text(i, d + (0.004 if d >= 0 else -0.008), f"{d:.3f}",
+                  fontsize=6.0, ha="center")
     ax_b.set_ylabel("\u0394 macro-F1 (without TAC \u2212 with TAC)")
-    ax_b.set_title("TAC-sensitivity: macro-F1 change on TAC exclusion",
-                   fontsize=9, fontweight="bold")
+    ax_b.set_title("Macro-F1 change on TAC exclusion",
+                   fontsize=7.5, fontweight="bold")
     gfig.panel_label(fig, ax_b, "B")
 
     # ---- C: per-class F1, cell level (pooled)
@@ -392,7 +399,7 @@ def make_figure(results: dict[str, dict], out_dir: Path) -> list[Path]:
     gfig.panel_label(fig, ax_d, "D")
 
     return gfig.save_figure(
-        fig, "figure_tac_sensitivity", out_dir,
+        fig, "figureS9_tac_sensitivity", out_dir,
         gfig.figure_metadata(
             "Figure - TAC sensitivity analysis (GSE153515 donor-level macro-F1)"
         ),

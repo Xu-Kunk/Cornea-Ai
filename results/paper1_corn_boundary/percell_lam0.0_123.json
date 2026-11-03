@@ -1,0 +1,56 @@
+{
+  "model": {
+    "arm": "lam0.0",
+    "lambda": 0.0,
+    "seed": 123,
+    "checkpoint": "/home/dq/Codex/Ai/save/ordinal_gf_lam0.0_seed123_20260806-144600/model/checkpoint-7473",
+    "step": 7473,
+    "epoch": 2.999096476257404,
+    "n_thresholds": 3
+  },
+  "external_test": {
+    "accession": "GSE153515",
+    "file": "/home/dq/Codex/Ai/data/gse153515_annotated.h5ad",
+    "n_cells": 14775,
+    "n_donors": 2,
+    "non_layer_excluded": true
+  },
+  "eval_classes": [
+    "LSC",
+    "TAC",
+    "basal",
+    "differentiated"
+  ],
+  "monotone_consistency": {
+    "definition": "P(y>=1) >= P(y>=2) >= P(y>=3) per cell (threshold sigmoid probabilities)",
+    "overall": 0.8719458544839256,
+    "per_stage": {
+      "LSC": {
+        "n": 3423,
+        "monotone_consistent": 0.8252994449313468
+      },
+      "TAC": {
+        "n": 171,
+        "monotone_consistent": 0.7309941520467836
+      },
+      "basal": {
+        "n": 6698,
+        "monotone_consistent": 0.989250522544043
+      },
+      "differentiated": {
+        "n": 4483,
+        "monotone_consistent": 0.7376756636181129
+      }
+    }
+  },
+  "permutation_null": {
+    "definition": "within-cell random permutation of the 3 threshold slots (unordered-head expectation)",
+    "n_draws": 1000,
+    "seed": 42,
+    "expected_consistency": 0.17415384094754655
+  },
+  "timing_seconds": 1327.4,
+  "device": "cuda",
+  "dtype": "torch.bfloat16",
+  "timestamp_utc": "2026-08-11T15:18:55+00:00"
+}

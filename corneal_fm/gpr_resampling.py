@@ -68,7 +68,9 @@ def paired_stratified_bootstrap(
         sampled = np.concatenate(
             [rng.choice(indices, size=len(indices), replace=True) for indices in layer_indices],
         )
-        before_centroids, before_masks = layer_centroids(before_embeddings[sampled], layers[sampled])
+        before_centroids, before_masks = layer_centroids(
+            before_embeddings[sampled], layers[sampled]
+        )
         after_centroids, after_masks = layer_centroids(after_embeddings[sampled], layers[sampled])
         before_score = continuity_score(before_centroids, sorted(before_masks))[0]
         after_score = continuity_score(after_centroids, sorted(after_masks))[0]

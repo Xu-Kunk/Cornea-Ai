@@ -1,0 +1,40 @@
+{
+  "rule": "test donor = max epithelial 3-tier cells (PREREG \u00a78, outcome-blind); train = other 4",
+  "analysis_set_rule": "leiden != '0' AND cell_class_4 in {LSC, basal, differentiated} (PREREG \u00a77)",
+  "layer_order": [
+    "LSC",
+    "basal",
+    "differentiated"
+  ],
+  "per_donor_3tier_counts": {
+    "sanes2022_Hu0216": 20158,
+    "sanes2022_Hu0218": 12561,
+    "sanes2022_Hu0220": 16705,
+    "sanes2022_Hu0235": 7782,
+    "sanes2022_Pt14": 5434
+  },
+  "test_donor": "sanes2022_Hu0216",
+  "train_donors": [
+    "sanes2022_Hu0218",
+    "sanes2022_Hu0220",
+    "sanes2022_Hu0235",
+    "sanes2022_Pt14"
+  ],
+  "n_cells_total_3tier": 62640,
+  "n_train_cells": 42482,
+  "n_test_cells": 20158,
+  "prepped_panel": {
+    "genes": 3856,
+    "tier": 4253,
+    "note": "shared scgpt_vanzyl.h5ad panel (protocol_02b, PREREG \u00a74 escalation)"
+  },
+  "h5ad_sha256": {
+    "vanzyl_annotated.h5ad": "fad5e9a71ecd1208e0626049b638e789d22b52563d5a66740570d617df67f4e8",
+    "scgpt_vanzyl.h5ad": "b6a1b53a3ec22d78ea2743238c2fbbdefebfff45b9e69d06ab4158acc4b00f83",
+    "vanzyl_train_3tier.h5ad": "9042ce3cb25fc5a4c8244e98b692c43761376da56d1841785065d8d676473688",
+    "vanzyl_test_3tier.h5ad": "be68d6054211157de6cc381e8d73450de91e1a2af5d3b780065fe6003f94be85",
+    "scgpt_vanzyl_train.h5ad": "b8a0a6db5c84355b34b819d3f9a72419d05132743eefd5b68978b2d1e14f2328",
+    "scgpt_vanzyl_test.h5ad": "f69b5ca770fc63a03a8d9a1fcd1959c563bd9bf9d73e54750900423b8e57321d"
+  },
+  "timestamp_utc": "2026-08-18T11:38:52Z"
+}

@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "model": "ctheodoris/Geneformer (Geneformer-V2-104M, HF snapshot)",
+    "snapshot": "/home/summer/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
+    "model_safetensors_sha256": "fff5cba29ddd8792991fa77b4872246fbe548a178cebda3775cdc72b67780e7f",
+    "model_safetensors_sha256_ok": true,
+    "num_labels_head": 4,
+    "head": "fresh untrained 4-class head (run_tier_b_eval FROZEN arm)",
+    "torch": "2.13.0+cu130",
+    "torch_cuda": "13.0",
+    "transformers": "4.57.6",
+    "device": "cuda",
+    "batch": 16,
+    "n_null": 100,
+    "seed": 42,
+    "rho_primary": "L2-normed cell_emb",
+    "layer_order": [
+      "LSC",
+      "basal",
+      "differentiated"
+    ],
+    "checkpoint_total": 202,
+    "checkpoint_loaded": 197,
+    "checkpoint_missing": [
+      "bert.pooler.dense.bias",
+      "bert.pooler.dense.weight",
+      "classifier.bias",
+      "classifier.weight"
+    ],
+    "checkpoint_unexpected": [
+      "cls.predictions.bias",
+      "cls.predictions.transform.LayerNorm.bias",
+      "cls.predictions.transform.LayerNorm.weight",
+      "cls.predictions.transform.dense.bias",
+      "cls.predictions.transform.dense.weight"
+    ],
+    "reference_GF_frozen": {
+      "rho": 0.8064,
+      "probe_f1": 0.4421
+    },
+    "reference_json": "artifacts/paper1_tier_b_eval/results_frozen_gf.json",
+    "G1_gate": "rho>=0.5 AND z>=3 (PREREG-2026-08-11, LOCKED)",
+    "deviations": [
+      "D1 dataset attrs lack leiden -> merged from locked h5ad obs by row order; donor_id sequence alignment asserted (align_ok=True)",
+      "D2 probe f1_macro_sd=None (deterministic untrained head)"
+    ],
+    "timestamp_utc": "2026-08-18T09:42:38+00:00"
+  },
+  "results": {
+    "vanzyl": {
+      "tag": "vanzyl",
+      "dataset": "/home/summer/corneal_scgpt/data/gf_tokenized_vanzyl.dataset",
+      "h5ad_obs": "/home/summer/corneal_scgpt/data/vanzyl_annotated.h5ad",
+      "label_col": "cell_class_4",
+      "n_cells_input": 80817,
+      "n_analysis": 62640,
+      "label_counts": {
+        "LSC": 22836,
+        "basal": 25332,
+        "differentiated": 14472
+      },
+      "exclusions": {
+        "rule": "leiden != '0' AND cell_class_4 in layer_order (PREREG-2026-08-11 amendment A)",
+        "n_input_cells": 80817,
+        "n_excluded_cluster0": 13584,
+        "n_excluded_nonlayer_or_other": 4593,
+        "excluded_cluster0_overlap_author_Ciliary_Muscle": 13477,
+        "excluded_cluster0_overlap_frac": 0.9921
+      },
+      "donor_alignment_dataset_vs_h5ad": true,
+      "rho_raw": 0.8295251113004484,
+      "rho_normed": 0.8292039662169904,
+      "null_mean": 0.009793965618685958,
+      "null_sd": 0.005335920955730742,
+      "null_z": 153.56486863214565,
+      "null_pctile": 1.0,
+      "probe": {
+        "arm": "frozen_gf_untrained_head (run_tier_b_eval FROZEN arm)",
+        "f1_macro": 0.10859059783094112,
+        "f1_macro_sd": null,
+        "f1_weighted": 0.1317237101300111,
+        "f1_donor_macro": 0.11046891434335841,
+        "per_donor_macro": {
+          "sanes2022_Hu0216": 0.11706179804957739,
+          "sanes2022_Hu0218": 0.11325028697374227,
+          "sanes2022_Hu0220": 0.0857261775179375,
+          "sanes2022_Hu0235": 0.13747538275840163,
+          "sanes2022_Pt14": 0.09883092641713331
+        },
+        "n_repeats": 1,
+        "predicted_class_counts": {
+          "LSC": 603,
+          "TAC": 42820,
+          "basal": 19217,
+          "differentiated": 0
+        },
+        "note": "GF probe = untrained-head F1 (reference results_frozen_gf.json 0.4421); NOT the scGPT LR probe (no GF train split for van Zyl)."
+      },
+      "forward_total_s": 1420.051709651947,
+      "forward_per_batch_s": 0.36272074320611675,
+      "n_batches": 3915,
+      "peak_gpu_gb": 4.142547968
+    }
+  },
+  "g1_verdict": {
+    "gate": "rho>=0.5 AND z>=3 (PREREG-2026-08-11, LOCKED)",
+    "rho_normed": 0.8292039662169904,
+    "rho_pass": true,
+    "z": 153.56486863214565,
+    "z_pass": true,
+    "verdict": "PASS -> GF control arm confirms axis; scGPT G1 interpretation proceeds per PREREG \u00a76/\u00a77"
+  }
+}

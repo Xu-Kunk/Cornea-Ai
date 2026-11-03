@@ -41,7 +41,7 @@ Outputs
 
 Usage
 -----
-    python3 scripts/protocol_15b_annotate_gse299152.py \
+    /home/dq/venv-ds/bin/python3 scripts/protocol_15b_annotate_gse299152.py \
         [--input data/gse299152/gse299152_human_raw.h5ad] \
         [--output data/gse299152/gse299152_annotated.h5ad] [--force] \
         [--seed 42] [--resolution 0.6]

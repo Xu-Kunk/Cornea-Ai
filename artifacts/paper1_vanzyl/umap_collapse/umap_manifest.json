@@ -1,0 +1,83 @@
+{
+  "panels": [
+    {
+      "tag": "cellplm_corn_123",
+      "arch": "cellplm",
+      "arm": "corn",
+      "seed": 123,
+      "coord_path": "_coords/cellplm_corn_123.npz"
+    },
+    {
+      "tag": "cellplm_corn_42",
+      "arch": "cellplm",
+      "arm": "corn",
+      "seed": 42,
+      "coord_path": "_coords/cellplm_corn_42.npz"
+    },
+    {
+      "tag": "cellplm_corn_456",
+      "arch": "cellplm",
+      "arm": "corn",
+      "seed": 456,
+      "coord_path": "_coords/cellplm_corn_456.npz"
+    },
+    {
+      "tag": "cellplm_frozen",
+      "arch": "cellplm",
+      "arm": "frozen",
+      "seed": null,
+      "coord_path": "_coords/cellplm_frozen.npz"
+    },
+    {
+      "tag": "cellplm_naive_123",
+      "arch": "cellplm",
+      "arm": "naive",
+      "seed": 123,
+      "coord_path": "_coords/cellplm_naive_123.npz"
+    },
+    {
+      "tag": "cellplm_naive_42",
+      "arch": "cellplm",
+      "arm": "naive",
+      "seed": 42,
+      "coord_path": "_coords/cellplm_naive_42.npz"
+    },
+    {
+      "tag": "cellplm_naive_456",
+      "arch": "cellplm",
+      "arm": "naive",
+      "seed": 456,
+      "coord_path": "_coords/cellplm_naive_456.npz"
+    },
+    {
+      "tag": "gf_frozen",
+      "arch": "gf",
+      "arm": "frozen",
+      "seed": null,
+      "coord_path": "_coords/gf_frozen.npz"
+    },
+    {
+      "tag": "scgpt_frozen",
+      "arch": "scgpt",
+      "arm": "frozen",
+      "seed": null,
+      "coord_path": "_coords/scgpt_frozen.npz"
+    },
+    {
+      "tag": "scgpt_naive_seed42",
+      "arch": "scgpt",
+      "arm": "naive",
+      "seed": 42,
+      "coord_path": "_coords/scgpt_naive_seed42.npz"
+    }
+  ],
+  "umap_kw": {
+    "n_neighbors": 15,
+    "min_dist": 0.1,
+    "random_state": 42,
+    "n_components": 2,
+    "n_jobs": 4
+  },
+  "embedding": "L2-normed CLS cell embedding",
+  "generated_utc": "2026-08-20T17:58:17+00:00"
+}

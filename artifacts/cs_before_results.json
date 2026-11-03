@@ -1,0 +1,41 @@
+{
+  "dataset": "corneal_20k_donor_split.h5ad",
+  "embedding": "PCA",
+  "n_pcs": 50,
+  "method_A_markers": {
+    "continuity_score": 0.633797417084376,
+    "pair_similarities": {
+      "TAC\u2194Basal": 0.6411741375923157,
+      "Basal\u2194Wing": 0.8536273837089539,
+      "Wing\u2194Squamous": 0.4065907299518585
+    },
+    "layer_adjacency_accuracy": 1.0,
+    "laa_distance_ratio": 0.35847583413124084,
+    "n_cells_per_layer": {
+      "LSC": 0,
+      "TAC": 3909,
+      "Basal": 2605,
+      "Wing": 2605,
+      "Squamous": 3909
+    }
+  },
+  "method_B_annotation": {
+    "continuity_score": 0.5476600974798203,
+    "pair_similarities": {
+      "LSC\u2194TAC": 0.2608007490634918,
+      "TAC\u2194Basal": 0.4629223048686981,
+      "Basal\u2194Wing": 0.855052649974823,
+      "Wing\u2194Squamous": 0.6118646860122681
+    },
+    "layer_adjacency_accuracy": 1.0,
+    "laa_distance_ratio": 0.8630872964859009,
+    "n_cells_per_layer": {
+      "LSC": 1110,
+      "TAC": 2742,
+      "Basal": 1415,
+      "Wing": 883,
+      "Squamous": 2172
+    }
+  },
+  "seed": 42
+}

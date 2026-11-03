@@ -1,0 +1,26 @@
+{
+  "cellplm_s42": {
+    "rho_frozen": 0.7562112266643481,
+    "rho_naive": 0.09285141834717539,
+    "rho_corn": 0.8073531185715641,
+    "collapse_detected": true,
+    "rescue_detected": true,
+    "verdict": "ROBUST"
+  },
+  "cellplm_s123": {
+    "rho_frozen": 0.7562112266643481,
+    "rho_naive": -0.10549081638742426,
+    "rho_corn": 0.7946451904309489,
+    "collapse_detected": true,
+    "rescue_detected": true,
+    "verdict": "ROBUST"
+  },
+  "cellplm_s456": {
+    "rho_frozen": 0.7562112266643481,
+    "rho_naive": 0.14864248353766596,
+    "rho_corn": 0.7960120188448186,
+    "collapse_detected": true,
+    "rescue_detected": true,
+    "verdict": "ROBUST"
+  }
+}

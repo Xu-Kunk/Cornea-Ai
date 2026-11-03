@@ -1,0 +1,839 @@
+{
+  "meta": {
+    "generated_utc": "2026-10-21T06:24:01+00:00",
+    "script": "scripts/audit_claim_delta_rho.py",
+    "purpose": "paired Delta-rho / Delta-LAA audit of the frozen -> fine-tuned claim",
+    "n_cells": 14775,
+    "n_donors": 2,
+    "donor_sizes": {
+      "donor_1": 5339,
+      "donor_2": 9436
+    },
+    "class_counts": {
+      "LSC": 3423,
+      "TAC": 171,
+      "basal": 6698,
+      "differentiated": 4483
+    },
+    "layer_order": [
+      "LSC",
+      "TAC",
+      "basal",
+      "differentiated"
+    ],
+    "n_boot": 2000,
+    "n_perm": 2000,
+    "bootstrap_seed": 20261021,
+    "permutation_seed": 20261022,
+    "resampling_unit": "cell, stratified by donor: cells drawn with replacement within each donor, donor sizes preserved. This is a stratified CELL bootstrap, not a donor-level bootstrap (only two donors).",
+    "axis_handling": {
+      "primary": "stage centroids refit on the resampled cells inside every replicate, per arm, then cells projected onto that axis",
+      "secondary": "stage-centroid axis estimated once on the full sample, per arm, and held fixed across replicates"
+    },
+    "candidate_neighbours_K": 256,
+    "wall_clock_seconds": 357.391309261322,
+    "bootstrap_seconds": 281.51294684410095,
+    "environment": {
+      "python": "3.12.3",
+      "numpy": "2.4.6",
+      "scipy": "1.18.0",
+      "scikit_learn": "1.9.0"
+    },
+    "input_files": {
+      "frozen_gf": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
+      "naive_s42": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_naive_s42.npz",
+      "naive_s123": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_naive_s123.npz",
+      "naive_s456": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_naive_s456.npz",
+      "caft_s42": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_caft_s42.npz",
+      "caft_s123": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_caft_s123.npz",
+      "caft_s456": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_caft_s456.npz"
+    },
+    "fast_path_checks": {
+      "frozen_gf": {
+        "rho_refit_vs_official": 0.0,
+        "rho_fixed_vs_official": 0.0,
+        "laa_fast_vs_official": 0.0
+      },
+      "naive_s42": {
+        "rho_refit_vs_official": 0.0,
+        "rho_fixed_vs_official": 0.0,
+        "laa_fast_vs_official": 0.0
+      },
+      "naive_s123": {
+        "rho_refit_vs_official": 0.0,
+        "rho_fixed_vs_official": 0.0,
+        "laa_fast_vs_official": 0.0
+      },
+      "naive_s456": {
+        "rho_refit_vs_official": 0.0,
+        "rho_fixed_vs_official": 0.0,
+        "laa_fast_vs_official": 0.0
+      },
+      "caft_s42": {
+        "rho_refit_vs_official": 0.0,
+        "rho_fixed_vs_official": 0.0,
+        "laa_fast_vs_official": 0.0
+      },
+      "caft_s123": {
+        "rho_refit_vs_official": 0.0,
+        "rho_fixed_vs_official": 0.0,
+        "laa_fast_vs_official": 0.0
+      },
+      "caft_s456": {
+        "rho_refit_vs_official": 0.0,
+        "rho_fixed_vs_official": 0.0,
+        "laa_fast_vs_official": 0.0
+      }
+    },
+    "replicate_fast_path_checks_max_abs_diff": {
+      "rho_refit": 1.1102230246251565e-16,
+      "rho_fixed": 1.1102230246251565e-16,
+      "laa": 0.0,
+      "laa_subset": 0.0
+    },
+    "not_computable": {
+      "delta_rho_ordinal_minus_naive": "NOT computable from archived arrays: the ordinal (CORN) arms store per-cell logits/probabilities (artifacts/paper1_corn_boundary/percell_lam0.0_*.npz) but no CLS embeddings, so rho cannot be recomputed without re-running inference."
+    }
+  },
+  "gate": {
+    "tolerance": 0.002,
+    "checks": {
+      "frozen_rho": {
+        "reproduced": 0.8063606041550953,
+        "expected": 0.8064,
+        "abs_diff": 3.9395844904754895e-05,
+        "passed": true
+      },
+      "frozen_laa": {
+        "reproduced": 0.966497461928934,
+        "expected": 0.9665,
+        "abs_diff": 2.5380710659828054e-06,
+        "passed": true
+      },
+      "naive_rho_s42": {
+        "reproduced": -0.04239536391926124,
+        "expected": -0.0424,
+        "abs_diff": 4.636080738758264e-06,
+        "passed": true
+      },
+      "naive_rho_s123": {
+        "reproduced": -0.03602503481100148,
+        "expected": -0.036,
+        "abs_diff": 2.5034811001481416e-05,
+        "passed": true
+      },
+      "naive_rho_s456": {
+        "reproduced": 0.053929088570711256,
+        "expected": 0.0539,
+        "abs_diff": 2.9088570711252593e-05,
+        "passed": true
+      },
+      "naive_rho_mean": {
+        "reproduced": -0.00816377005318382,
+        "expected": -0.0082,
+        "abs_diff": 3.622994681618148e-05,
+        "passed": true
+      },
+      "naive_laa_mean": {
+        "reproduced": 0.9768076706147774,
+        "expected": 0.9768,
+        "abs_diff": 7.670614777355311e-06,
+        "passed": true
+      }
+    },
+    "passed": true
+  },
+  "point_estimates": {
+    "frozen_gf": {
+      "rho": 0.8063606041550953,
+      "laa": 0.966497461928934
+    },
+    "naive_s42": {
+      "rho": -0.04239536391926124,
+      "laa": 0.9760406091370558
+    },
+    "naive_s123": {
+      "rho": -0.03602503481100148,
+      "laa": 0.9776649746192894
+    },
+    "naive_s456": {
+      "rho": 0.053929088570711256,
+      "laa": 0.9767174280879865
+    },
+    "caft_s42": {
+      "rho": 0.1912633203216378,
+      "laa": 0.9786125211505922
+    },
+    "caft_s123": {
+      "rho": 0.22978617184892414,
+      "laa": 0.9763790186125212
+    },
+    "caft_s456": {
+      "rho": 0.20947455566804998,
+      "laa": 0.9769204737732656
+    },
+    "naive_pooled_three_seed_mean": {
+      "rho": -0.00816377005318382,
+      "laa": 0.9768076706147774
+    },
+    "caft_pooled_three_seed_mean": {
+      "rho": 0.21017468261287064,
+      "laa": 0.9773040045121264
+    }
+  },
+  "paired_delta_rho": {
+    "definition": "rho_frozen - rho_adapted, evaluated on the same resampled cells",
+    "contrasts": {
+      "primary_naive_refit_axis": {
+        "naive_s42": {
+          "mean": 0.8466754889890115,
+          "sd": 0.037361832216481115,
+          "ci95_percentile": [
+            0.7708319125313198,
+            0.9209270972490277
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.8487559680743565,
+          "point_estimate_inside_ci": true
+        },
+        "naive_s123": {
+          "mean": 0.8408537293488896,
+          "sd": 0.038987985657990144,
+          "ci95_percentile": [
+            0.7631848167835903,
+            0.9173781356724232
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.8423856389660968,
+          "point_estimate_inside_ci": true
+        },
+        "naive_s456": {
+          "mean": 0.7556751273133607,
+          "sd": 0.04735258935930559,
+          "ci95_percentile": [
+            0.6759957183466934,
+            0.8598307828204411
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.752431515584384,
+          "point_estimate_inside_ci": true
+        },
+        "pooled_three_seed_mean": {
+          "mean": 0.8144014485504206,
+          "sd": 0.0405322240329218,
+          "ci95_percentile": [
+            0.7374559232799189,
+            0.898021153151779
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.8145243742082791,
+          "point_estimate_inside_ci": true
+        }
+      },
+      "secondary_naive_fixed_full_sample_axis": {
+        "naive_s42": {
+          "mean": 0.84866379419395,
+          "sd": 0.009516492118075313,
+          "ci95_percentile": [
+            0.8294252004626597,
+            0.8676639063147539
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.8487559680743565,
+          "point_estimate_inside_ci": true
+        },
+        "naive_s123": {
+          "mean": 0.8422994280321041,
+          "sd": 0.0095626046375371,
+          "ci95_percentile": [
+            0.8229003802887616,
+            0.8615482604343829
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.8423856389660968,
+          "point_estimate_inside_ci": true
+        },
+        "naive_s456": {
+          "mean": 0.7523152811924757,
+          "sd": 0.009309325968240014,
+          "ci95_percentile": [
+            0.7338792847289202,
+            0.770828546379169
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.752431515584384,
+          "point_estimate_inside_ci": true
+        },
+        "pooled_three_seed_mean": {
+          "mean": 0.8144261678061766,
+          "sd": 0.00941460888225824,
+          "ci95_percentile": [
+            0.7954351703067821,
+            0.8333943504403382
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.8145243742082791,
+          "point_estimate_inside_ci": true
+        }
+      },
+      "secondary_caft_refit_axis": {
+        "caft_s42": {
+          "mean": 0.6145758210978363,
+          "sd": 0.015113576802159141,
+          "ci95_percentile": [
+            0.5861080238916239,
+            0.645336321059967
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.6150972838334574,
+          "point_estimate_inside_ci": true
+        },
+        "caft_s123": {
+          "mean": 0.5787211669859278,
+          "sd": 0.034319977369838585,
+          "ci95_percentile": [
+            0.5308459146327049,
+            0.632778384459879
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.5765744323061711,
+          "point_estimate_inside_ci": true
+        },
+        "caft_s456": {
+          "mean": 0.5969123148264098,
+          "sd": 0.018607567324302902,
+          "ci95_percentile": [
+            0.5647742153816112,
+            0.6331039907778208
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.5968860484870453,
+          "point_estimate_inside_ci": true
+        },
+        "pooled_three_seed_mean": {
+          "mean": 0.5967364343033912,
+          "sd": 0.014258400195842279,
+          "ci95_percentile": [
+            0.5756834981937236,
+            0.6203976790818428
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.5961859215422246,
+          "point_estimate_inside_ci": true
+        }
+      },
+      "secondary_caft_fixed_full_sample_axis": {
+        "caft_s42": {
+          "mean": 0.6149825544201871,
+          "sd": 0.009161534775640683,
+          "ci95_percentile": [
+            0.597013452193574,
+            0.6333412034656596
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.6150972838334574,
+          "point_estimate_inside_ci": true
+        },
+        "caft_s123": {
+          "mean": 0.5765919388094325,
+          "sd": 0.010615385394396106,
+          "ci95_percentile": [
+            0.5556955344931497,
+            0.5966785249422503
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.5765744323061711,
+          "point_estimate_inside_ci": true
+        },
+        "caft_s456": {
+          "mean": 0.5968892005558121,
+          "sd": 0.010706215029745286,
+          "ci95_percentile": [
+            0.5756546019933181,
+            0.617188166676523
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.5968860484870453,
+          "point_estimate_inside_ci": true
+        },
+        "pooled_three_seed_mean": {
+          "mean": 0.5961545645951439,
+          "sd": 0.005036469911937691,
+          "ci95_percentile": [
+            0.5865002700593743,
+            0.6060155303171217
+          ],
+          "frac_le_zero": 0.0,
+          "point_estimate": 0.5961859215422246,
+          "point_estimate_inside_ci": true
+        }
+      }
+    },
+    "leave_one_donor_out": {
+      "naive": {
+        "donor_1": {
+          "n_cells": 5339,
+          "frozen_rho": 0.6078067550386683,
+          "frozen_laa": 0.9734032590372729,
+          "per_seed": {
+            "naive_s42": {
+              "rho": -0.2188303904100519,
+              "laa": 0.9752762689642255,
+              "delta_rho": 0.8266371454487202,
+              "delta_laa": -0.0018730099269526068
+            },
+            "naive_s123": {
+              "rho": -0.2783055977392646,
+              "laa": 0.9777111818692639,
+              "delta_rho": 0.8861123527779329,
+              "delta_laa": -0.004307922831990996
+            },
+            "naive_s456": {
+              "rho": -0.29774132228073863,
+              "laa": 0.9769619778984828,
+              "delta_rho": 0.9055480773194069,
+              "delta_laa": -0.003558718861209953
+            }
+          },
+          "pooled_three_seed_mean": {
+            "rho": -0.264959103476685,
+            "laa": 0.9766498095773241,
+            "delta_rho": 0.8727658585153533,
+            "delta_laa": -0.003246550540051185
+          }
+        },
+        "donor_2": {
+          "n_cells": 9436,
+          "frozen_rho": 0.8246584811733692,
+          "frozen_laa": 0.9648155998304366,
+          "per_seed": {
+            "naive_s42": {
+              "rho": 0.2381020022519191,
+              "laa": 0.978486646884273,
+              "delta_rho": 0.58655647892145,
+              "delta_laa": -0.013671047053836372
+            },
+            "naive_s123": {
+              "rho": 0.28973116586877457,
+              "laa": 0.9798643493005511,
+              "delta_rho": 0.5349273153045946,
+              "delta_laa": -0.015048749470114475
+            },
+            "naive_s456": {
+              "rho": 0.3348819185669676,
+              "laa": 0.9783806697753286,
+              "delta_rho": 0.48977656260640157,
+              "delta_laa": -0.013565069944891928
+            }
+          },
+          "pooled_three_seed_mean": {
+            "rho": 0.28757169556255374,
+            "laa": 0.9789105553200509,
+            "delta_rho": 0.5370867856108155,
+            "delta_laa": -0.014094955489614258
+          }
+        }
+      },
+      "caft": {
+        "donor_1": {
+          "n_cells": 5339,
+          "frozen_rho": 0.6078067550386683,
+          "frozen_laa": 0.9734032590372729,
+          "per_seed": {
+            "caft_s42": {
+              "rho": -0.058401698463096945,
+              "laa": 0.9788349878254354,
+              "delta_rho": 0.6662084535017653,
+              "delta_laa": -0.00543172878816256
+            },
+            "caft_s123": {
+              "rho": 0.3991126734876687,
+              "laa": 0.9754635699569207,
+              "delta_rho": 0.2086940815509996,
+              "delta_laa": -0.0020603109196478675
+            },
+            "caft_s456": {
+              "rho": 0.3887220102645755,
+              "laa": 0.9754635699569207,
+              "delta_rho": 0.21908474477409284,
+              "delta_laa": -0.0020603109196478675
+            }
+          },
+          "pooled_three_seed_mean": {
+            "rho": 0.24314432842971576,
+            "laa": 0.9765873759130924,
+            "delta_rho": 0.36466242660895254,
+            "delta_laa": -0.0031841168758195426
+          }
+        },
+        "donor_2": {
+          "n_cells": 9436,
+          "frozen_rho": 0.8246584811733692,
+          "frozen_laa": 0.9648155998304366,
+          "per_seed": {
+            "caft_s42": {
+              "rho": 0.4899488016642193,
+              "laa": 0.98007630351844,
+              "delta_rho": 0.33470967950914987,
+              "delta_laa": -0.015260703688003363
+            },
+            "caft_s123": {
+              "rho": 0.8844371028195634,
+              "laa": 0.9793344637558288,
+              "delta_rho": -0.059778621646194297,
+              "delta_laa": -0.014518863925392145
+            },
+            "caft_s456": {
+              "rho": 0.09157829709665045,
+              "laa": 0.9781687155574396,
+              "delta_rho": 0.7330801840767187,
+              "delta_laa": -0.013353115727002929
+            }
+          },
+          "pooled_three_seed_mean": {
+            "rho": 0.4886547338601444,
+            "laa": 0.9791931609439027,
+            "delta_rho": 0.33600374731322474,
+            "delta_laa": -0.014377561113466109
+          }
+        }
+      }
+    }
+  },
+  "paired_delta_laa": {
+    "definition": "LAA_frozen - LAA_adapted, evaluated on the same resampled cells",
+    "contrasts": {
+      "primary_naive": {
+        "naive_s42": {
+          "mean": -0.0034405076142131944,
+          "sd": 0.0008606588739059382,
+          "ci95_percentile": [
+            -0.005076142131979711,
+            -0.0016920473773266414
+          ],
+          "frac_le_zero": 1.0,
+          "point_estimate": -0.009543147208121772,
+          "point_estimate_inside_ci": false
+        },
+        "naive_s123": {
+          "mean": -0.003941252115059219,
+          "sd": 0.000869731420835377,
+          "ci95_percentile": [
+            -0.005685279187817249,
+            -0.002165820642977989
+          ],
+          "frac_le_zero": 1.0,
+          "point_estimate": -0.011167512690355319,
+          "point_estimate_inside_ci": false
+        },
+        "naive_s456": {
+          "mean": -0.003485380710659896,
+          "sd": 0.0008435365243244171,
+          "ci95_percentile": [
+            -0.0051438240270726965,
+            -0.0018950930626057128
+          ],
+          "frac_le_zero": 1.0,
+          "point_estimate": -0.010219966159052407,
+          "point_estimate_inside_ci": false
+        },
+        "pooled_three_seed_mean": {
+          "mean": -0.0036223801466441045,
+          "sd": 0.0007675552972169654,
+          "ci95_percentile": [
+            -0.005166384658770395,
+            -0.00214326001128029
+          ],
+          "frac_le_zero": 1.0,
+          "point_estimate": -0.010310208685843314,
+          "point_estimate_inside_ci": false
+        }
+      },
+      "secondary_caft": {
+        "caft_s42": {
+          "mean": -0.004248291032148896,
+          "sd": 0.0008490196349074379,
+          "ci95_percentile": [
+            -0.005888324873096431,
+            -0.002639593908629445
+          ],
+          "frac_le_zero": 1.0,
+          "point_estimate": -0.01211505922165812,
+          "point_estimate_inside_ci": false
+        },
+        "caft_s123": {
+          "mean": -0.003624602368866324,
+          "sd": 0.0008672986352883651,
+          "ci95_percentile": [
+            -0.005346869712351987,
+            -0.0018950930626057128
+          ],
+          "frac_le_zero": 1.0,
+          "point_estimate": -0.009881556683587145,
+          "point_estimate_inside_ci": false
+        },
+        "caft_s456": {
+          "mean": -0.003706463620981384,
+          "sd": 0.0008434247098073302,
+          "ci95_percentile": [
+            -0.005414551607444973,
+            -0.0020981387478850007
+          ],
+          "frac_le_zero": 1.0,
+          "point_estimate": -0.010423011844331587,
+          "point_estimate_inside_ci": false
+        },
+        "pooled_three_seed_mean": {
+          "mean": -0.003859785673998867,
+          "sd": 0.0007737931498760247,
+          "ci95_percentile": [
+            -0.005437112239142672,
+            -0.002391426959954976
+          ],
+          "frac_le_zero": 1.0,
+          "point_estimate": -0.010806542583192358,
+          "point_estimate_inside_ci": false
+        }
+      }
+    },
+    "diagnostic": "k-NN LAA is not Frechet-differentiable under a with-replacement cell bootstrap: resampled duplicates are distance-0 neighbours and are trivially adjacent, which inflates LAA in every replicate and shrinks/offsets the difference distribution. point_estimate_inside_ci records whether this artefact breaks the percentile interval; see supplementary_dedup_estimator for the duplicate-free interval.",
+    "supplementary_dedup_estimator": {
+      "definition": "same paired resamples collapsed to their unique cells before evaluating LAA (duplicates removed, so no distance-0 neighbours)",
+      "contrasts": {
+        "primary_naive": {
+          "naive_s42": {
+            "mean": -0.009344975233912313,
+            "sd": 0.0016910118667408604,
+            "ci95_percentile": [
+              -0.012674648074647826,
+              -0.006070039047397482
+            ],
+            "frac_le_zero": 1.0,
+            "point_estimate": -0.009543147208121772,
+            "point_estimate_inside_ci": true
+          },
+          "naive_s123": {
+            "mean": -0.010658839957375692,
+            "sd": 0.0016600871879758408,
+            "ci95_percentile": [
+              -0.013762702484532988,
+              -0.007200120878239707
+            ],
+            "frac_le_zero": 1.0,
+            "point_estimate": -0.011167512690355319,
+            "point_estimate_inside_ci": true
+          },
+          "naive_s456": {
+            "mean": -0.009441958822825239,
+            "sd": 0.0016266323388297462,
+            "ci95_percentile": [
+              -0.012633029447079638,
+              -0.006385952007267759
+            ],
+            "frac_le_zero": 1.0,
+            "point_estimate": -0.010219966159052407,
+            "point_estimate_inside_ci": true
+          },
+          "pooled_three_seed_mean": {
+            "mean": -0.009815258004704414,
+            "sd": 0.0014719568446149931,
+            "ci95_percentile": [
+              -0.012692658015979002,
+              -0.0069642664832378865
+            ],
+            "frac_le_zero": 1.0,
+            "point_estimate": -0.010310208685843314,
+            "point_estimate_inside_ci": true
+          }
+        },
+        "secondary_caft": {
+          "caft_s42": {
+            "mean": -0.011518542766537179,
+            "sd": 0.0016587058998466355,
+            "ci95_percentile": [
+              -0.014707777135870062,
+              -0.0084079392232089
+            ],
+            "frac_le_zero": 1.0,
+            "point_estimate": -0.01211505922165812,
+            "point_estimate_inside_ci": true
+          },
+          "caft_s123": {
+            "mean": -0.009834243159170983,
+            "sd": 0.0016792583891239118,
+            "ci95_percentile": [
+              -0.013093114133502157,
+              -0.006490484129624018
+            ],
+            "frac_le_zero": 1.0,
+            "point_estimate": -0.009881556683587145,
+            "point_estimate_inside_ci": true
+          },
+          "caft_s456": {
+            "mean": -0.01005607392429038,
+            "sd": 0.0016107585694884426,
+            "ci95_percentile": [
+              -0.013179077414696103,
+              -0.00696002270816066
+            ],
+            "frac_le_zero": 1.0,
+            "point_estimate": -0.010423011844331587,
+            "point_estimate_inside_ci": true
+          },
+          "pooled_three_seed_mean": {
+            "mean": -0.010469619949999516,
+            "sd": 0.001483099896153688,
+            "ci95_percentile": [
+              -0.013321969140192938,
+              -0.00759556255171107
+            ],
+            "frac_le_zero": 1.0,
+            "point_estimate": -0.010806542583192358,
+            "point_estimate_inside_ci": true
+          }
+        }
+      }
+    }
+  },
+  "laa_null": {
+    "method": "stage labels permuted across cells with class counts preserved; the nearest-neighbour graph is held fixed, so each permutation re-labels the same edges",
+    "analytic_expectation": {
+      "iid": 0.6423358293179416,
+      "finite_population": 0.6423116202905501
+    },
+    "analytic_expectation_note": "iid = sum_i p_i (p_{i-1}+p_i+p_{i+1}) with p_i the observed class proportions (the requested cross-check); finite_population replaces self-pairs with n_i(n_i-1)/(n(n-1))",
+    "per_arm": {
+      "frozen_gf": {
+        "observed": 0.966497461928934,
+        "null_mean": 0.6422669373942471,
+        "null_sd": 0.005249753571479387,
+        "null_p95": 0.6508291032148901,
+        "null_max": 0.6607106598984771,
+        "observed_minus_null_mean": 0.3242305245346869,
+        "observed_minus_null_p95": 0.315668358714044,
+        "upper_tail_p": 0.0004997501249375312
+      },
+      "naive_s42": {
+        "observed": 0.9760406091370558,
+        "null_mean": 0.6422831810490695,
+        "null_sd": 0.0040406433288293535,
+        "null_p95": 0.6487309644670051,
+        "null_max": 0.6542131979695431,
+        "observed_minus_null_mean": 0.33375742808798636,
+        "observed_minus_null_p95": 0.32730964467005075,
+        "upper_tail_p": 0.0004997501249375312
+      },
+      "naive_s123": {
+        "observed": 0.9776649746192894,
+        "null_mean": 0.6422954991539762,
+        "null_sd": 0.004032487555253494,
+        "null_p95": 0.6490693739424704,
+        "null_max": 0.6565143824027073,
+        "observed_minus_null_mean": 0.33536947546531315,
+        "observed_minus_null_p95": 0.3285956006768189,
+        "upper_tail_p": 0.0004997501249375312
+      },
+      "naive_s456": {
+        "observed": 0.9767174280879865,
+        "null_mean": 0.6422814551607445,
+        "null_sd": 0.004046181676891356,
+        "null_p95": 0.6489340101522842,
+        "null_max": 0.6555668358714044,
+        "observed_minus_null_mean": 0.3344359729272419,
+        "observed_minus_null_p95": 0.3277834179357022,
+        "upper_tail_p": 0.0004997501249375312
+      },
+      "caft_s42": {
+        "observed": 0.9786125211505922,
+        "null_mean": 0.6422040609137055,
+        "null_sd": 0.004081996886080063,
+        "null_p95": 0.6487986463620982,
+        "null_max": 0.656243654822335,
+        "observed_minus_null_mean": 0.33640846023688664,
+        "observed_minus_null_p95": 0.329813874788494,
+        "upper_tail_p": 0.0004997501249375312
+      },
+      "caft_s123": {
+        "observed": 0.9763790186125212,
+        "null_mean": 0.6423746192893401,
+        "null_sd": 0.0041285352527337844,
+        "null_p95": 0.6489340101522842,
+        "null_max": 0.6578003384094755,
+        "observed_minus_null_mean": 0.33400439932318104,
+        "observed_minus_null_p95": 0.32744500846023694,
+        "upper_tail_p": 0.0004997501249375312
+      },
+      "caft_s456": {
+        "observed": 0.9769204737732656,
+        "null_mean": 0.6422407106598985,
+        "null_sd": 0.004129884029164279,
+        "null_p95": 0.6487986463620982,
+        "null_max": 0.6567851099830795,
+        "observed_minus_null_mean": 0.3346797631133671,
+        "observed_minus_null_p95": 0.32812182741116747,
+        "upper_tail_p": 0.0004997501249375312
+      }
+    }
+  },
+  "laa_knn_variants": {
+    "note": "kth_neighbour_kK: fraction of cells whose K-th nearest neighbour (self excluded) is adjacent; K=1 is the paper's LAA. fraction_of_k_kK: mean over cells of the fraction of the K nearest neighbours that are adjacent.",
+    "per_arm": {
+      "frozen_gf": {
+        "kth_neighbour_k1": 0.966497461928934,
+        "fraction_of_k_k1": 0.966497461928934,
+        "kth_neighbour_k5": 0.9597292724196278,
+        "fraction_of_k_k5": 0.963181049069374,
+        "kth_neighbour_k10": 0.9579018612521151,
+        "fraction_of_k_k10": 0.9612588832487309
+      },
+      "naive_s42": {
+        "kth_neighbour_k1": 0.9760406091370558,
+        "fraction_of_k_k1": 0.9760406091370558,
+        "kth_neighbour_k5": 0.9685956006768189,
+        "fraction_of_k_k5": 0.9722368866328258,
+        "kth_neighbour_k10": 0.9677834179357022,
+        "fraction_of_k_k10": 0.9705516074450086
+      },
+      "naive_s123": {
+        "kth_neighbour_k1": 0.9776649746192894,
+        "fraction_of_k_k1": 0.9776649746192894,
+        "kth_neighbour_k5": 0.9712351945854484,
+        "fraction_of_k_k5": 0.9740236886632826,
+        "kth_neighbour_k10": 0.9682571912013537,
+        "fraction_of_k_k10": 0.9712148900169205
+      },
+      "naive_s456": {
+        "kth_neighbour_k1": 0.9767174280879865,
+        "fraction_of_k_k1": 0.9767174280879865,
+        "kth_neighbour_k5": 0.9701522842639594,
+        "fraction_of_k_k5": 0.9721556683587139,
+        "kth_neighbour_k10": 0.9678510998307953,
+        "fraction_of_k_k10": 0.9704500846023688
+      },
+      "caft_s42": {
+        "kth_neighbour_k1": 0.9786125211505922,
+        "fraction_of_k_k1": 0.9786125211505922,
+        "kth_neighbour_k5": 0.9724534686971236,
+        "fraction_of_k_k5": 0.9745651438240271,
+        "kth_neighbour_k10": 0.9683925549915398,
+        "fraction_of_k_k10": 0.972467005076142
+      },
+      "caft_s123": {
+        "kth_neighbour_k1": 0.9763790186125212,
+        "fraction_of_k_k1": 0.9763790186125212,
+        "kth_neighbour_k5": 0.9696785109983079,
+        "fraction_of_k_k5": 0.9734280879864636,
+        "kth_neighbour_k10": 0.9695431472081218,
+        "fraction_of_k_k10": 0.9715532994923859
+      },
+      "caft_s456": {
+        "kth_neighbour_k1": 0.9769204737732656,
+        "fraction_of_k_k1": 0.9769204737732656,
+        "kth_neighbour_k5": 0.9741455160744501,
+        "fraction_of_k_k5": 0.9738883248730964,
+        "kth_neighbour_k10": 0.9701522842639594,
+        "fraction_of_k_k10": 0.9723519458544839
+      }
+    }
+  }
+}

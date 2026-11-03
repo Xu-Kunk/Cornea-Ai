@@ -1,0 +1,170 @@
+{
+  "metric": "corneal_fm.evaluation.marker_gradient_correlation (per-layer-centroid principal axis, LSC -> differentiated)",
+  "external_test": "GSE153515, 14,775 epithelial cells, 2 donors",
+  "pairing_verified": "labels and donor arrays element-wise identical across arms (see per-pair n_cells and skipped)",
+  "created_utc": "2026-10-21T07:17:02+00:00",
+  "pairs": [
+    {
+      "pair": "frozen - naive",
+      "sign_convention": "delta = rho(arm_a) - rho(arm_b)",
+      "per_seed": {
+        "42": {
+          "rho_a": 0.8063606041550953,
+          "rho_b": -0.04239536391926124,
+          "delta": 0.8487559680743565,
+          "ci_lower": 0.7720884388310431,
+          "ci_upper": 0.9152315964969309,
+          "frac_boot_positive": 1.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
+          "source_b": "artifacts/paper1_tier_b_eval/percell_naive_s42.npz"
+        },
+        "123": {
+          "rho_a": 0.8063606041550953,
+          "rho_b": -0.03602503481100148,
+          "delta": 0.8423856389660968,
+          "ci_lower": 0.7629034661840617,
+          "ci_upper": 0.9133024660171352,
+          "frac_boot_positive": 1.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
+          "source_b": "artifacts/paper1_tier_b_eval/percell_naive_s123.npz"
+        },
+        "456": {
+          "rho_a": 0.8063606041550953,
+          "rho_b": 0.053929088570711256,
+          "delta": 0.752431515584384,
+          "ci_lower": 0.675630273923715,
+          "ci_upper": 0.8541568014488451,
+          "frac_boot_positive": 1.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
+          "source_b": "artifacts/paper1_tier_b_eval/percell_naive_s456.npz"
+        }
+      },
+      "skipped": [],
+      "n_boot": 2000,
+      "boot_seed": 42,
+      "mean_delta": 0.8145243742082791,
+      "sd_delta": 0.0538682428922844,
+      "sd_kind": "sample SD (ddof=1) over seeds"
+    },
+    {
+      "pair": "frozen - ordinal",
+      "sign_convention": "delta = rho(arm_a) - rho(arm_b)",
+      "per_seed": {
+        "42": {
+          "rho_a": 0.8063606041550953,
+          "rho_b": 0.8340699807044084,
+          "delta": -0.02770937654931316,
+          "ci_lower": -0.042403930709677,
+          "ci_upper": -0.017215783387447857,
+          "frac_boot_positive": 0.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
+          "source_b": "artifacts/archive/paper1_bio_validation/ordinal_emb_lam0.0_seed42.npz"
+        },
+        "123": {
+          "rho_a": 0.8063606041550953,
+          "rho_b": 0.8298826676104379,
+          "delta": -0.02352206345534269,
+          "ci_lower": -0.03778838618467257,
+          "ci_upper": -0.012959708764298786,
+          "frac_boot_positive": 0.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
+          "source_b": "artifacts/archive/paper1_bio_validation/ordinal_emb_lam0.0_seed123.npz"
+        },
+        "456": {
+          "rho_a": 0.8063606041550953,
+          "rho_b": 0.8350699357998647,
+          "delta": -0.02870933164476941,
+          "ci_lower": -0.0430125100481549,
+          "ci_upper": -0.018194636973222343,
+          "frac_boot_positive": 0.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
+          "source_b": "artifacts/archive/paper1_bio_validation/ordinal_emb_lam0.0_seed456.npz"
+        }
+      },
+      "skipped": [],
+      "n_boot": 2000,
+      "boot_seed": 42,
+      "mean_delta": -0.026646923883141754,
+      "sd_delta": 0.0027520069164430954,
+      "sd_kind": "sample SD (ddof=1) over seeds"
+    },
+    {
+      "pair": "naive - ordinal",
+      "sign_convention": "delta = rho(arm_a) - rho(arm_b)",
+      "per_seed": {
+        "42": {
+          "rho_a": -0.04239536391926124,
+          "rho_b": 0.8340699807044084,
+          "delta": -0.8764653446236697,
+          "ci_lower": -0.9381696177091867,
+          "ci_upper": -0.8054938013533637,
+          "frac_boot_positive": 0.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_naive_s42.npz",
+          "source_b": "artifacts/archive/paper1_bio_validation/ordinal_emb_lam0.0_seed42.npz"
+        },
+        "123": {
+          "rho_a": -0.03602503481100148,
+          "rho_b": 0.8298826676104379,
+          "delta": -0.8659077024214394,
+          "ci_lower": -0.9328507370244258,
+          "ci_upper": -0.7921634840075926,
+          "frac_boot_positive": 0.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_naive_s123.npz",
+          "source_b": "artifacts/archive/paper1_bio_validation/ordinal_emb_lam0.0_seed123.npz"
+        },
+        "456": {
+          "rho_a": 0.053929088570711256,
+          "rho_b": 0.8350699357998647,
+          "delta": -0.7811408472291534,
+          "ci_lower": -0.8795049591593463,
+          "ci_upper": -0.7094945089474732,
+          "frac_boot_positive": 0.0,
+          "n_boot": 2000,
+          "boot_seed": 42,
+          "resampling": "donor-stratified, cells with replacement within donor",
+          "n_cells": 14775,
+          "source_a": "artifacts/paper1_tier_b_eval/percell_naive_s456.npz",
+          "source_b": "artifacts/archive/paper1_bio_validation/ordinal_emb_lam0.0_seed456.npz"
+        }
+      },
+      "skipped": [],
+      "n_boot": 2000,
+      "boot_seed": 42,
+      "mean_delta": -0.8411712980914209,
+      "sd_delta": 0.05225521242194795,
+      "sd_kind": "sample SD (ddof=1) over seeds"
+    }
+  ]
+}

@@ -16,14 +16,12 @@
 # stopped before launch (it reserves ~97GB unified memory and freezes the box).
 # ============================================================================
 set -uo pipefail
-# Point CORNEAL_FM_DATA at the repository root (the directory containing scripts/).
-cd "${CORNEAL_FM_DATA:?set CORNEAL_FM_DATA to the repo root}"
-# Activate your Python environment first (e.g. `source .venv/bin/activate`).
-# source <your-venv>/bin/activate
+cd /home/dq/Codex/Ai
+source ~/venv-ds/bin/activate
 export HF_ENDPOINT=https://hf-mirror.com
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:False
-PY=python
-PRETRAINED="${HF_HOME:-$HOME/.cache/huggingface}/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M"
+PY=/home/dq/venv-ds/bin/python
+PRETRAINED=/home/dq/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M
 OUT=artifacts/day3-20260723
 PIPELOG=$OUT/day3_pipeline.log
 

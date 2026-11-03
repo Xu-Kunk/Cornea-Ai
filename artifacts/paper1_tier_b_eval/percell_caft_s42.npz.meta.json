@@ -1,0 +1,19 @@
+{
+  "model": "Geneformer-V2-104M (fine-tuned)",
+  "arm": "caft",
+  "lambda": 0.5,
+  "seed": 42,
+  "checkpoint_path": "/home/dq/Codex/Ai/save/caft_gf_lam0.5_seed42_20260801-200953/model/checkpoint-7473",
+  "n_cells_external": 14775,
+  "n_cells_internal": 6924,
+  "sanity_gate_external": {
+    "macro_f1": 0.633035230542859,
+    "ci_lower": 0.598864386213956,
+    "ci_upper": 0.667206074871762,
+    "laa": 0.9786125211505922,
+    "rho": 0.1912633203216378,
+    "ece": 0.12822561025683119
+  },
+  "sanity_gate_internal": null,
+  "timestamp_utc": "2026-08-03T08:40:37.409494+00:00"
+}

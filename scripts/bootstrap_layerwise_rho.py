@@ -35,12 +35,12 @@ What this script does
    distribution).
 
 Outputs (figures/paper1/)
-    figure7_layerwise_rho_bootstrap.csv  long-format CI table (per model,
+    figure2_layerwise_rho_bootstrap.csv  long-format CI table (per model,
         per bootstrapped layer): rho, ci_lower, ci_upper, ci_width, boot_se,
         n_boot, n_valid, boot_seed, ci_method, n_cells
-    figure7_layerwise_rho.csv            updated with ci_lower/ci_upper
+    figure2_layerwise_rho.csv            updated with ci_lower/ci_upper
         columns (NaN for layers without bootstrap data)
-    figure7_layerwise_rho.{pdf,png}      redrawn with 95% CI error bars at
+    figure2_layerwise_rho.{pdf,png}      redrawn with 95% CI error bars at
         the bootstrapped layer(s); identical style/colors/annotations to the
         original figure (reuses rcParams/colors/save_figure from
         generate_paper1_results_figures.py)
@@ -67,7 +67,7 @@ Methodology notes
   arms (paired bootstrap), which sharpens cross-arm comparisons.
 
 Usage:
-    python3 scripts/bootstrap_layerwise_rho.py \
+    /home/dq/venv-ds/bin/python3 scripts/bootstrap_layerwise_rho.py \
         [--n-boot 1000] [--seed 42] [--layers 12] [--workers 7]
 """
 
@@ -419,13 +419,13 @@ def _draw_figure7_with_ci(
 
     if csv_rows:
         csv_df = pd.DataFrame(csv_rows)
-        csv_path = out_dir / "figure7_layerwise_rho.csv"
+        csv_path = out_dir / "figure2_layerwise_rho.csv"
         csv_df.to_csv(csv_path, index=False, float_format="%.17g")
         print(f"  {len(csv_rows)} layerwise rho values -> {csv_path.name}")
 
     print(f"  {len(drawn_groups)} model group(s), layers 1-{len(layers)}")
     return save_figure(
-        fig, "figure7_layerwise_rho", out_dir,
+        fig, "figure2_layerwise_rho", out_dir,
         figure_metadata("Figure 7 - Layerwise differentiation-gradient Spearman rho"),
     )
 
@@ -506,31 +506,31 @@ def main() -> int:
         return 1
 
     boot_df = pd.DataFrame(all_rows)
-    boot_csv = out_dir / "figure7_layerwise_rho_bootstrap.csv"
+    boot_csv = out_dir / "figure2_layerwise_rho_bootstrap.csv"
     boot_df.to_csv(boot_csv, index=False, float_format="%.17g")
     print(f"{_ts()}  {len(boot_df)} bootstrap rows -> {boot_csv.name}")
 
-    # --- Merge CI columns into the existing figure7 CSV (non-bootstrapped
+    # --- Merge CI columns into the existing figure2 CSV (non-bootstrapped
     # --- layers keep NaN), preserving original values bit-exactly.
-    fig7_csv = out_dir / "figure7_layerwise_rho.csv"
-    if fig7_csv.is_file():
-        fig7_df = pd.read_csv(fig7_csv)
-        if "ci_lower" not in fig7_df.columns:
-            fig7_df["ci_lower"] = np.nan
-        if "ci_upper" not in fig7_df.columns:
-            fig7_df["ci_upper"] = np.nan
+    fig2_csv = out_dir / "figure2_layerwise_rho.csv"
+    if fig2_csv.is_file():
+        fig2_df = pd.read_csv(fig2_csv)
+        if "ci_lower" not in fig2_df.columns:
+            fig2_df["ci_lower"] = np.nan
+        if "ci_upper" not in fig2_df.columns:
+            fig2_df["ci_upper"] = np.nan
         for _, r in boot_df.iterrows():
             m = (
-                (fig7_df["model"] == r["model"])
-                & (fig7_df["layer"] == r["layer"])
+                (fig2_df["model"] == r["model"])
+                &                 (fig2_df["layer"] == r["layer"])
             )
-            fig7_df.loc[m, "ci_lower"] = r["ci_lower"]
-            fig7_df.loc[m, "ci_upper"] = r["ci_upper"]
-        fig7_df.to_csv(fig7_csv, index=False, float_format="%.17g")
-        print(f"{_ts()}  Updated {fig7_csv.name} with ci_lower/ci_upper "
+            fig2_df.loc[m, "ci_lower"] = r["ci_lower"]
+            fig2_df.loc[m, "ci_upper"] = r["ci_upper"]
+        fig2_df.to_csv(fig2_csv, index=False, float_format="%.17g")
+        print(f"{_ts()}  Updated {fig2_csv.name} with ci_lower/ci_upper "
               f"({int(boot_df['layer'].nunique())} bootstrapped layer(s))")
     else:
-        print(f"{_ts()}  [WARN] {fig7_csv.name} not found; "
+        print(f"{_ts()}  [WARN] {fig2_csv.name} not found; "
               f"skipping in-place CI merge")
 
     # --- Redraw Figure 7 with CI error bars -------------------------------

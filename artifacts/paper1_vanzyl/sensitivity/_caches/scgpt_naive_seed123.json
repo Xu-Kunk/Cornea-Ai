@@ -1,0 +1,24 @@
+{
+  "tag": "scgpt_naive_seed123",
+  "arch": "scgpt",
+  "arm": "naive",
+  "seed": 123,
+  "n_cells": 20158,
+  "n_cls": 30,
+  "test_donor": "sanes2022_Hu0216",
+  "layer_order": [
+    "LSC",
+    "basal",
+    "differentiated"
+  ],
+  "threads": 12,
+  "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/checkpoints",
+  "gate": {
+    "rho_normed_recomputed": 0.7575348252300481,
+    "rho_normed_locked": 0.757004058478477,
+    "abs_diff": 0.0005307667515711545,
+    "tol": 0.002,
+    "pass": true
+  },
+  "timestamp_utc": "2026-08-20T18:36:36+00:00"
+}

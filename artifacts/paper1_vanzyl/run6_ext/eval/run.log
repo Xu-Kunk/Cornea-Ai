@@ -1,0 +1,41 @@
+manifest: test_donor=sanes2022_Hu0216 n_test=20158 sha_train=b8a0a6db
+device=cuda torch=2.13.0+cu130
+naive mapping: 30 author classes -> 3-tier (majority)
+  CC_VenEndo             -> LSC            {'LSC': 1421}
+  Ciliary_Muscle         -> LSC            {'LSC': 57, 'basal': 13}
+  Conj_Epi-Basal         -> basal          {'basal': 537, 'LSC': 1}
+  Conj_Epi-Superficial   -> differentiated {'differentiated': 57, 'basal': 6, 'LSC': 1}
+  Conj_Epi-Wing          -> basal          {'basal': 376, 'differentiated': 65, 'LSC': 10}
+  Conj_Melanocyte        -> LSC            {'LSC': 6, 'basal': 1}
+  FibroX                 -> LSC            {'LSC': 94, 'basal': 2}
+  Goblet                 -> LSC            {'LSC': 233, 'basal': 1}
+  Immune                 -> LSC            {'LSC': 34}
+  K_Endo                 -> LSC            {'LSC': 3428, 'basal': 100, 'differentiated': 6}
+  K_Epi-Basal            -> basal          {'basal': 7171, 'LSC': 23, 'differentiated': 50}
+  K_Epi-Superficial      -> differentiated {'differentiated': 4686, 'basal': 109, 'LSC': 5}
+  K_Epi-TA               -> basal          {'basal': 280, 'differentiated': 12}
+  K_Epi-Wing             -> basal          {'basal': 5439, 'differentiated': 5140, 'LSC': 15}
+  K_Fibro                -> LSC            {'LSC': 943, 'basal': 33, 'differentiated': 38}
+  Limbal_Epi-Basal       -> basal          {'basal': 779, 'LSC': 1}
+  Limbal_Epi-Superficial -> differentiated {'differentiated': 16, 'LSC': 1, 'basal': 4}
+  Limbal_Epi-Wing        -> basal          {'basal': 658, 'differentiated': 138, 'LSC': 2}
+  Lymphatic_Endo         -> LSC            {'LSC': 514}
+  Lymphocyte             -> LSC            {'LSC': 217, 'basal': 4}
+  Macrophage             -> LSC            {'LSC': 708}
+  Mast                   -> LSC            {'LSC': 5}
+  Pericyte               -> LSC            {'LSC': 219, 'basal': 1}
+  Schlemm_Endo           -> LSC            {'LSC': 496}
+  Schwann                -> basal          {'basal': 2217, 'LSC': 10}
+  Sclera_Fibro           -> LSC            {'LSC': 517, 'basal': 1}
+  TM_Fibro               -> LSC            {'LSC': 2055, 'basal': 17}
+  Uveal_Fibro            -> LSC            {'LSC': 2927, 'basal': 19}
+  Uveal_Melanocyte       -> LSC            {'LSC': 2, 'basal': 1}
+  VascEndo               -> LSC            {'LSC': 560}
+test h5ad: (20158, 3856), donors all=sanes2022_Hu0216, y dist={'basal': 7563, 'differentiated': 4264, 'LSC': 8331}
+frozen baseline: (20158, 512) cells from G1 npz (donor-masked)
+frozen: rho_n=0.7887 z=99.3 probe_f1=0.9687
+=== eval naive seed789 ===
+  naive s789: F1=0.9433 CI=[0.9399,0.9467] rho_n=0.3671 z=39.0 (108s)
+=== eval naive seed2024 ===
+  naive s2024: F1=0.8887 CI=[0.8836,0.8932] rho_n=0.7474 z=82.7 (113s)
+DONE (run6_ext per-checkpoint eval)

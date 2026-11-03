@@ -28,7 +28,7 @@
 #   corneal_fm.evaluation importable (Tier-B evaluator present)
 #
 # Usage (GX10, clean shell, background):
-#   cd "$CORNEAL_FM_DATA" && chmod +x scripts/run_paper1_strict_fair.sh
+#   cd /home/dq/Codex/Ai && chmod +x scripts/run_paper1_strict_fair.sh
 #   nohup bash scripts/run_paper1_strict_fair.sh > artifacts/paper1_strict_fair/launcher.out 2>&1 &
 #   # monitor: tail -f artifacts/paper1_strict_fair/launcher.log
 # ============================================================================
@@ -38,7 +38,7 @@ cd "$(dirname "$0")/.."
 ROOT="$PWD"
 
 # ── Configuration (overridable via env) ──────────────────────────────────
-PY="${PY:-python3}"
+PY="${PY:-/home/dq/venv-ds/bin/python3}"
 LAMBDAS="${LAMBDAS:-0.0 0.5}"
 SEEDS="${SEEDS:-42 123 456}"
 EPOCHS="${EPOCHS:-3}"

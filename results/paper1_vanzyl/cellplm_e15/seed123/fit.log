@@ -1,0 +1,31 @@
+After filtering, 2399 genes remain.
+Epoch 0 | Train loss: 1.0704 | Valid loss: 0.9332
+Train ACC: 0.4079 | Valid ACC: 0.5536 | Train f1: 0.3247 | Valid f1: 0.5587 | Train pre: 0.4868 | Valid pre: 0.7162
+Epoch 1 | Train loss: 0.8426 | Valid loss: 0.5676
+Train ACC: 0.6316 | Valid ACC: 0.8075 | Train f1: 0.6309 | Valid f1: 0.8177 | Train pre: 0.7674 | Valid pre: 0.8506
+Epoch 2 | Train loss: 0.5043 | Valid loss: 0.3585
+Train ACC: 0.8072 | Valid ACC: 0.8553 | Train f1: 0.8070 | Valid f1: 0.8221 | Train pre: 0.8368 | Valid pre: 0.8354
+Epoch 3 | Train loss: 0.2947 | Valid loss: 0.3608
+Train ACC: 0.8650 | Valid ACC: 0.9135 | Train f1: 0.8574 | Valid f1: 0.8979 | Train pre: 0.8658 | Valid pre: 0.8970
+Epoch 4 | Train loss: 0.2524 | Valid loss: 0.2246
+Train ACC: 0.8985 | Valid ACC: 0.8910 | Train f1: 0.8964 | Valid f1: 0.9023 | Train pre: 0.8989 | Valid pre: 0.9257
+Epoch 5 | Train loss: 0.2556 | Valid loss: 0.3894
+Train ACC: 0.8748 | Valid ACC: 0.9017 | Train f1: 0.8722 | Valid f1: 0.8766 | Train pre: 0.9041 | Valid pre: 0.8852
+Epoch 6 | Train loss: 0.2270 | Valid loss: 0.2015
+Train ACC: 0.9199 | Valid ACC: 0.8882 | Train f1: 0.9069 | Valid f1: 0.8997 | Train pre: 0.9072 | Valid pre: 0.9231
+Epoch 7 | Train loss: 0.2085 | Valid loss: 0.2167
+Train ACC: 0.8840 | Valid ACC: 0.9335 | Train f1: 0.8950 | Valid f1: 0.9226 | Train pre: 0.9262 | Valid pre: 0.9186
+Epoch 8 | Train loss: 0.2061 | Valid loss: 0.1652
+Train ACC: 0.9193 | Valid ACC: 0.9357 | Train f1: 0.9143 | Valid f1: 0.9338 | Train pre: 0.9192 | Valid pre: 0.9322
+Epoch 9 | Train loss: 0.1780 | Valid loss: 0.1598
+Train ACC: 0.9042 | Valid ACC: 0.9233 | Train f1: 0.9093 | Valid f1: 0.9284 | Train pre: 0.9337 | Valid pre: 0.9352
+Epoch 10 | Train loss: 0.1713 | Valid loss: 0.2199
+Train ACC: 0.9289 | Valid ACC: 0.9324 | Train f1: 0.9274 | Valid f1: 0.9182 | Train pre: 0.9303 | Valid pre: 0.9149
+Epoch 11 | Train loss: 0.1563 | Valid loss: 0.1481
+Train ACC: 0.9315 | Valid ACC: 0.9265 | Train f1: 0.9288 | Valid f1: 0.9315 | Train pre: 0.9294 | Valid pre: 0.9381
+Epoch 12 | Train loss: 0.1709 | Valid loss: 0.1491
+Train ACC: 0.9051 | Valid ACC: 0.9455 | Train f1: 0.9127 | Valid f1: 0.9393 | Train pre: 0.9377 | Valid pre: 0.9352
+Epoch 13 | Train loss: 0.1629 | Valid loss: 0.1795
+Train ACC: 0.9371 | Valid ACC: 0.9368 | Train f1: 0.9275 | Valid f1: 0.9239 | Train pre: 0.9239 | Valid pre: 0.9199
+Epoch 14 | Train loss: 0.1534 | Valid loss: 0.1365
+Train ACC: 0.9309 | Valid ACC: 0.9388 | Train f1: 0.9319 | Valid f1: 0.9409 | Train pre: 0.9384 | Valid pre: 0.9433

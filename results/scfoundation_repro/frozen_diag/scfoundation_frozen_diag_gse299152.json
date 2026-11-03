@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "model": "genbio-ai/scFoundation",
+    "version": "01B-resolution (encoder 12x768, mae_autobin)",
+    "checkpoint_sha256": "9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9",
+    "checkpoint_keys_loaded": "full strict load via official model/load.py load_model_frommmf(ckpt,'cell')",
+    "device": "cuda",
+    "batch": "official get_embedding.py per-cell (1 cell/batch)",
+    "pool_type": "all",
+    "tgthighres": "a5",
+    "pre_normalized": "F",
+    "input_type": "singlecell",
+    "output_type": "cell",
+    "version_flag": "ce",
+    "n_null": 100,
+    "seed": 42,
+    "n_probe_repeats": 5,
+    "rho_primary": "L2-normed cell_emb",
+    "layer_order": [
+      "LSC",
+      "TAC",
+      "basal",
+      "differentiated"
+    ],
+    "corpus_status": "GSE299152 OUT-OF-CORPUS for scFoundation (GEO released 2025-11-18, post-cutoff; same audit as scGPT GSE299152=NOT IN); inference-only."
+  },
+  "results": {
+    "gse299152": {
+      "tag": "GSE299152 (cornea, post-cutoff; out-of-corpus for scFoundation)",
+      "n_cells": 21374,
+      "label_counts": {
+        "LSC": 15921,
+        "TAC": 0,
+        "basal": 1099,
+        "differentiated": 4354
+      },
+      "rho_raw": 0.7244828577853761,
+      "rho_normed": 0.7244027643470253,
+      "null_mean": 0.005978236481725877,
+      "null_sd": 0.0073811764109426355,
+      "null_z": 97.33198176922463,
+      "null_pctile": 1.0,
+      "probe_f1_macro": 0.969746430327838,
+      "probe_f1_macro_sd": 0.0023310644073977187,
+      "probe_f1_weighted": 0.9853458501301858,
+      "probe_f1_weighted_sd": 0.0011818951830470771,
+      "n_probe_repeats": 5,
+      "probe_split": "cell-level 80/20",
+      "probe_solver": "lbfgs",
+      "probe_C": 1.0,
+      "probe_max_iter": 1000,
+      "emb_dim": 3072,
+      "emb_dtype": "float32",
+      "forward_total_s": 5665.9,
+      "forward_per_batch_s": 0.2650837466080284,
+      "n_batches": 21374,
+      "peak_gpu_gb": 5.476687,
+      "genes_matched_vocab": 10296,
+      "genes_vocab": 19264,
+      "genes_input": 11274,
+      "mean_nnz_per_cell": 2589.470852437541,
+      "checkpoint_sha256": "9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9",
+      "corpus_note": "GSE299152 OUT-OF-CORPUS for scFoundation (GEO released 2025-11-18, post-cutoff; same audit as scGPT GSE299152=NOT IN); inference-only."
+    }
+  }
+}

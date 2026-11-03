@@ -130,6 +130,13 @@ def _ts() -> str:
     return datetime.now().strftime("[%H:%M:%S]")
 
 
+def _panel_tag(ax, label: str, size: float = 8.0,
+             x: float = -0.08) -> None:
+    """Axis-outside top-left panel label (ReAct v8fix / Cell Press)."""
+    ax.text(x, 1.05, label, transform=ax.transAxes, fontsize=size,
+            fontweight="bold", va="bottom", ha="left")
+
+
 def _parse_runs(runs_arg: str) -> list[tuple[float, int]]:
     runs: list[tuple[float, int]] = []
     for token in runs_arg.split(","):
@@ -661,19 +668,23 @@ def run_postprocess() -> int:
     from generate_paper1_results_figures import (  # noqa: PLC0415, E402
         figure_metadata,
         panel_label,
-        save_figure,
         setup_style,
     )
 
     setup_style()
+    # Explicit TrueType embedding (Type 42) — Cell Press requirement; the
+    # imported setup_style already sets it, kept here for self-containment.
+    import matplotlib as mpl
+    mpl.rcParams["pdf.fonttype"] = 42
+    mpl.rcParams["ps.fonttype"] = 42
     FIG_DIR.mkdir(parents=True, exist_ok=True)
 
     oi_blue = "#0072B2"
-    oi_vermillion = "#D55E00"
+    oi_orange = "#E69F00"
     oi_gray = "#999999"
-    arm_colors = {0.0: oi_blue, 0.5: oi_vermillion, "frozen": oi_gray}
+    # v8fix arm-color lock: naive=blue, CAFT=orange (was vermillion)
+    arm_colors = {0.0: oi_blue, 0.5: oi_orange, "frozen": oi_gray}
     arm_labels = {0.0: "Fine-tune λ=0", 0.5: "CAFT λ=0.5", "frozen": "Frozen GF"}
-    seed_ls = {42: "-", 123: "--", 456: ":"}
 
     percell = _load_percell_all()
 
@@ -681,9 +692,35 @@ def run_postprocess() -> int:
     classes = EVAL_CLASSES
     n_bins = 10
     s1_rows: list[dict] = []
-    fig, axes = plt.subplots(2, 2, figsize=(7.0, 6.0))
-    for ax, cls in zip(axes.ravel(), classes):
+
+    # Drop classes with no positive cells in the per-cell data (e.g. TAC can be
+    # absent from the internal holdout).  If only three classes remain, compress
+    # from a 2x2 grid to a single row so the empty panel does not waste space.
+    present_classes = []
+    for cls in classes:
         cls_idx = classes.index(cls)
+        for pc in percell.values():
+            if (pc["y_true_ext"] == cls).any():
+                present_classes.append(cls)
+                break
+
+    if len(present_classes) == 4:
+        fig, axes = plt.subplots(2, 2, figsize=(6.5, 5.57))
+        axes = axes.ravel()
+        layout_note = None
+    else:
+        n_cols = max(len(present_classes), 1)
+        fig, axes = plt.subplots(1, n_cols, figsize=(6.5, 2.45))
+        axes = np.atleast_1d(axes)
+        missing = [c for c in classes if c not in present_classes]
+        layout_note = f"Classes with no true cells omitted: {', '.join(missing)}." if missing else None
+
+    for ax, cls in zip(axes, present_classes):
+        cls_idx = classes.index(cls)
+        # per-family per-seed curves, keyed by bin index for envelope/mean
+        fam_curves: dict[str, list[tuple[list[float], list[float], list[int]]]] = {
+            "naive": [], "caft": []}
+        frozen_line: tuple[list[float], list[float]] | None = None
         for name, pc in percell.items():
             y_bin = (pc["y_true_ext"] == cls).astype(int)
             p = np.asarray(pc["probs_ext"][:, cls_idx], dtype=float)
@@ -692,47 +729,101 @@ def run_postprocess() -> int:
                 s1_rows.append({"model": name, "class": cls, **r})
             xs = [r["mean_pred"] for r in rows if r["n"] > 0]
             ys = [r["frac_positive"] for r in rows if r["n"] > 0]
+            bins = [r["bin"] for r in rows if r["n"] > 0]
             if name == "frozen_gf":
-                ax.plot(xs, ys, color=oi_gray, lw=1.4, label="Frozen GF")
+                frozen_line = (xs, ys)
             else:
-                lam = 0.0 if name.startswith("naive") else 0.5
-                seed = int(name.rsplit("s", 1)[1])
-                ax.plot(
-                    xs,
-                    ys,
-                    color=arm_colors[lam],
-                    ls=seed_ls[seed],
-                    lw=1.1,
-                    label=f"{arm_labels[lam]} s{seed}",
-                )
+                fam = "naive" if name.startswith("naive") else "caft"
+                lam = 0.0 if fam == "naive" else 0.5
+                fam_curves[fam].append((xs, ys, bins))
+                # light per-seed lines behind the family mean
+                ax.plot(xs, ys, color=arm_colors[lam], lw=0.8, alpha=0.35,
+                        zorder=2)
+        if frozen_line is not None:
+            ax.plot(*frozen_line, color=oi_gray, lw=1.4, zorder=3)
+        for fam, color in (("naive", arm_colors[0.0]), ("caft", arm_colors[0.5])):
+            if not fam_curves[fam]:
+                continue
+            agg: dict[int, list[tuple[float, float]]] = {}
+            for xs, ys, bins in fam_curves[fam]:
+                for x, y, b in zip(xs, ys, bins):
+                    agg.setdefault(int(b), []).append((x, y))
+            xs_m, ys_m, lo_l, hi_l = [], [], [], []
+            for b in sorted(agg):
+                pts = agg[b]
+                xs_m.append(float(np.mean([p[0] for p in pts])))
+                ys_v = [p[1] for p in pts]
+                ys_m.append(float(np.mean(ys_v)))
+                if len(pts) >= 2:
+                    lo_l.append(float(min(ys_v)))
+                    hi_l.append(float(max(ys_v)))
+                else:
+                    lo_l.append(float("nan"))
+                    hi_l.append(float("nan"))
+            xs_m = np.asarray(xs_m)
+            ys_m = np.asarray(ys_m)
+            lo_ok = ~np.isnan(lo_l)
+            if lo_ok.any():
+                ax.fill_between(xs_m[lo_ok], np.asarray(lo_l)[lo_ok],
+                                np.asarray(hi_l)[lo_ok], color=color,
+                                alpha=0.12, lw=0, zorder=1)
+            # family mean as the solid line (seeds 42/123/456 merged)
+            ax.plot(xs_m, ys_m, color=color, lw=1.6, zorder=3)
         ax.plot([0, 1], [0, 1], color="k", lw=0.6, ls=":", zorder=0)
         ax.set_xlim(0, 1)
         ax.set_ylim(0, 1)
         ax.set_xlabel("Predicted probability")
         ax.set_ylabel("Observed fraction")
         ax.set_title(cls)
-    panel_label(fig, axes.ravel()[0], "A")
-    panel_label(fig, axes.ravel()[1], "B")
-    panel_label(fig, axes.ravel()[2], "C")
-    panel_label(fig, axes.ravel()[3], "D")
-    fig.legend(loc="upper center", bbox_to_anchor=(0.5, 1.02), ncol=3, fontsize=7, frameon=False)
-    fig.tight_layout(rect=(0, 0, 1, 0.94))
-    save_figure(
-        fig,
-        "figureS1_calibration",
-        FIG_DIR,
-        figure_metadata("Figure S1. Per-class reliability diagrams (external test, 10 bins)."),
-    )
+    # Single shared legend below the panels.
+    leg_handles = [
+        plt.Line2D([0], [0], color=oi_gray, lw=1.6, label="Frozen GF"),
+        plt.Line2D([0], [0], color=arm_colors[0.0], lw=1.6,
+                   label="naive \u03bb=0 (seeds 42/123/456)"),
+        plt.Line2D([0], [0], color=arm_colors[0.5], lw=1.6,
+                   label="CAFT \u03bb=0.5 (seeds 42/123/456)"),
+    ]
+    for ax, letter in zip(axes, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+        _panel_tag(ax, letter)
+    fig.legend(handles=leg_handles, loc="lower center", ncol=3, fontsize=6.0,
+               frameon=False, bbox_to_anchor=(0.5, -0.02))
+    n_note = "n = 14,775 epithelial cells (GSE153515 external test)"
+    if layout_note:
+        n_note = layout_note + "  " + n_note
+    fig.text(0.5, 0.005, n_note, ha="center", va="bottom",
+             fontsize=6, color="#555555")
+    # v8fix: extra bottom margin + tight bounding box so the shared legend is
+    # not clipped by the figure edge.
+    fig.tight_layout(rect=(0, 0.10, 1, 0.98))
+    out_pdf = FIG_DIR / "figureS1_calibration.pdf"
+    out_png = FIG_DIR / "figureS1_calibration.png"
+    fig.savefig(out_pdf, dpi=300, metadata=figure_metadata(
+        "Figure S1. Per-class reliability diagrams (external test, 10 bins)."),
+        bbox_inches="tight", facecolor="white")
+    fig.savefig(out_png, dpi=300, bbox_inches="tight", facecolor="white")
+    plt.close(fig)
     pd.DataFrame(s1_rows).to_csv(FIG_DIR / "figureS1_calibration.csv", index=False)
     print(f"{_ts()} Figure S1 + figureS1_calibration.csv written")
 
     # ------------------------------------------------------------------ S2 --
     # (a) max-probability density: external vs internal, faceted by arm.
     arms = [("frozen", ["frozen_gf"]), (0.0, ["naive_s42", "naive_s123", "naive_s456"]), (0.5, ["caft_s42", "caft_s123", "caft_s456"])]
-    fig2, axes2 = plt.subplots(2, 3, figsize=(9.5, 6.0))
+    # Use GridSpec so the lower row can span the full width with only two
+    # panels, avoiding the empty 1/3 dead space of a 2x3 grid.
+    fig2 = plt.figure(figsize=(6.5, 4.3))
+    gs = fig2.add_gridspec(
+        2, 3, left=0.08, right=0.94, top=0.93, bottom=0.10,
+        wspace=0.35, hspace=0.45,
+    )
+    ax_a = fig2.add_subplot(gs[0, 0])
+    ax_b = fig2.add_subplot(gs[0, 1])
+    ax_c = fig2.add_subplot(gs[0, 2])
+    ax_d = fig2.add_subplot(gs[1, 0:2])
+    ax_e = fig2.add_subplot(gs[1, 2])
+
     s2_rows: list[dict] = []
     for col, (arm, names) in enumerate(arms):
-        ax = axes2[0, col]
+        ax = (ax_a, ax_b, ax_c)[col]
         for split_key, split_label in (("ext", "External"), ("int", "Internal")):
             maxp = np.concatenate([np.max(percell[n][f"probs_{split_key}"], axis=1) for n in names])
             for n in names:
@@ -745,13 +836,27 @@ def run_postprocess() -> int:
         ax.set_xlabel("Max predicted probability")
         ax.set_ylabel("Density")
         ax.set_title(arm_labels[arm])
-    panel_label(fig2, axes2[0, 0], "A")
-    panel_label(fig2, axes2[0, 1], "B")
-    panel_label(fig2, axes2[0, 2], "C")
+        # v8fix: per-panel legend for internal vs external density curves.
+        ax.legend(loc="upper right", frameon=False, fontsize=6.5)
+    panel_label(fig2, ax_a, "A")
+    panel_label(fig2, ax_b, "B")
+    panel_label(fig2, ax_c, "C")
 
     # (b) per-donor ECE + per-donor mean confidence (external, 2 donors).
     donors = np.unique(percell["frozen_gf"]["donor_ext"])
     model_names = ["frozen_gf"] + [f"{ARM_NAMES[lam]}_s{seed}" for lam in LAMBDAS for seed in SEEDS]
+    # v8fix: locked donor palette (donor_1 = Okabe-Ito blue, donor_2 = orange)
+    # and underscore-free display names on the shared axis.
+    donor_colors = {"donor_1": oi_blue, "donor_2": oi_orange}
+
+
+    def _display_name(name: str) -> str:
+        if name == "frozen_gf":
+            return "Frozen GF"
+        arm, seed = name.rsplit("_s", 1)
+        return f"{'naive' if arm == 'naive' else 'CAFT'} s{seed}"
+
+
     ece_by_donor: dict[str, list[float]] = {d: [] for d in donors}
     conf_by_donor: dict[str, list[float]] = {d: [] for d in donors}
     idx_map = {c: i for i, c in enumerate(classes)}
@@ -766,26 +871,42 @@ def run_postprocess() -> int:
     x = np.arange(len(model_names))
     width = 0.38
     for d, off in zip(donors, (-width / 2, width / 2)):
-        axes2[1, 0].bar(x + off, ece_by_donor[d], width, label=str(d))
-        axes2[1, 1].bar(x + off, conf_by_donor[d], width, label=str(d))
-    for ax, title in (
-        (axes2[1, 0], "Per-donor ECE (external)"),
-        (axes2[1, 1], "Per-donor mean confidence (external)"),
-    ):
+        ax_d.bar(x + off, ece_by_donor[d], width, label=str(d),
+                 color=donor_colors.get(str(d), oi_gray))
+        ax_e.bar(x + off, conf_by_donor[d], width, label=str(d),
+                 color=donor_colors.get(str(d), oi_gray))
+    for ax, title, ylabel in ((ax_d, "Per-donor ECE (external)", "ECE"),
+                                (ax_e, "Per-donor mean confidence (external)", "Mean confidence")):
         ax.set_xticks(x)
-        ax.set_xticklabels(model_names, rotation=45, ha="right", fontsize=6)
-        ax.legend(fontsize=7, frameon=False)
+        ax.set_xticklabels([_display_name(n) for n in model_names],
+                           rotation=45, ha="right", fontsize=6.5)
         ax.set_title(title)
-    axes2[1, 2].axis("off")
-    panel_label(fig2, axes2[1, 0], "D")
-    panel_label(fig2, axes2[1, 1], "E")
-    fig2.tight_layout()
-    save_figure(
-        fig2,
-        "figureS2_ood",
-        FIG_DIR,
-        figure_metadata("Figure S2. OOD analysis: max-probability density and per-donor calibration."),
+        ax.set_ylabel(ylabel)
+    # Shared donor legend, placed outside the right of panel D so it never
+    # overlaps the bars in E.
+    handles = [
+        plt.Line2D([0], [0], color=donor_colors[d], marker="s", ls="none",
+                     markersize=7, label=f"Donor {d[-1]}")
+        for d in donors
+    ]
+    ax_d.legend(handles=handles, loc="upper left", fontsize=6.5, frameon=False,
+                bbox_to_anchor=(0.0, 1.04))
+    _panel_tag(ax_d, "D")
+    _panel_tag(ax_e, "E", x=-0.24)
+    # v8fix: extra bottom margin for the -line model labels (45° rotation).
+    fig2.text(0.5, 0.005,
+              "n = 14,775 epithelial cells (GSE153515 external test)",
+              ha="center", va="bottom", fontsize=6, color="#555555")
+    fig2.tight_layout(rect=(0, 0.14, 1, 0.93))
+    out_pdf2 = FIG_DIR / "figureS2_ood.pdf"
+    out_png2 = FIG_DIR / "figureS2_ood.png"
+    meta2 = figure_metadata(
+        "Figure S2. OOD analysis: max-probability density and per-donor calibration."
     )
+    fig2.savefig(out_pdf2, dpi=300, metadata=meta2, bbox_inches="tight",
+                 facecolor="white")
+    fig2.savefig(out_png2, dpi=300, bbox_inches="tight", facecolor="white")
+    plt.close(fig2)
     per_donor_rows = []
     for name, (d) in [(n, d) for n in model_names for d in donors]:
         per_donor_rows.append(

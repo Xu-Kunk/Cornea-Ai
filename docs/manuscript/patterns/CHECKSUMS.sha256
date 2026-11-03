@@ -1,0 +1,9 @@
+# Paper1 v32 — bibliography verified (Crossref/DataCite), metadata corrected, cited-only bib (2026-10-23)
+# verify: sha256sum -c CHECKSUMS.sha256
+f1eca6d3ac72849a7fc5ab2d5a3e6102107b0eafb74bc1843cc0197ffad50a6f  latex/paper1.tex
+84b37be9896430f25962371beec663f2fb641ccac24e6c8cf18e21fe8a6d400a  latex/paper1.bib
+1fac7776f28a1fb093de8358bfdab055d6c8d05ea5f6a08fbe4479103ecb5a67  latex/build/paper1.pdf
+5bb338e36cc464f7654121b17a018d2092e544bf2028e64f26a8bbc274da9c21  supplementary/supplementary_information.tex
+86d370738f2dee35166ebb57c8955149a2c28b052223bd9d5e5ad8a919b4027d  supplementary/build/supplementary_information.pdf
+86d370738f2dee35166ebb57c8955149a2c28b052223bd9d5e5ad8a919b4027d  paper1_supplementary_information.pdf
+3002e55b12501b8bfb1e7f9879c24bd6f23d38c681e3904ade2e8f08e530c585  ../../../figures/paper1/figure_manifest.json

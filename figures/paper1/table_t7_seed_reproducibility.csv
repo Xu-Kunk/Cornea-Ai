@@ -1,0 +1,4 @@
+arm,seed,macro_f1,LAA,marker_gradient_rho,ECE
+Fine-tune λ=0,42,0.6542,0.976,-0.0424,0.0763
+Fine-tune λ=0,123,0.642,0.9777,-0.036,0.1248
+Fine-tune λ=0,456,0.6515,0.9767,0.0539,0.1013

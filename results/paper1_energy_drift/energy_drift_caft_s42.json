@@ -1,0 +1,41 @@
+{
+  "arm": "caft_s42",
+  "label": "CAFT (lam 0.5, s42)",
+  "source": "percell",
+  "n_layers": 1,
+  "layer_labels": [
+    "final_hidden_state_12"
+  ],
+  "drift": [
+    {
+      "mmd_drift": 0.585113,
+      "discriminator_auc": 1.0,
+      "bandwidth_sigma": 1.349084,
+      "n_pre": 4000,
+      "n_post": 4000,
+      "layer": "final_hidden_state_12"
+    }
+  ],
+  "rho_layerwise_reference": [
+    NaN,
+    0.4072831528201618,
+    0.6070506390842474,
+    0.8338613690417829,
+    0.7728881135082815,
+    0.4312492104606351,
+    0.26838156688888454,
+    0.45373008884763677,
+    0.5489143150448137,
+    0.8581414098764525,
+    0.8422409880244466,
+    0.1893099188904674,
+    0.1912633203216378
+  ],
+  "protocol": {
+    "normalization": "L2-normalised both sides for drift metrics",
+    "mmd": "RBF biased MMD^2, median-heuristic sigma",
+    "auc": "logistic discriminator, 5-fold stratified CV, z-scored",
+    "seed": 42
+  },
+  "timestamp_utc": "2026-08-05T09:50:56+00:00"
+}

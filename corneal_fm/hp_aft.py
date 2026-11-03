@@ -6,7 +6,8 @@ embedding at the FINAL hidden state (Spearman rho 0.806 pretrained -> ~ -0.04
 naive), while the 13-layer measurement localises the collapse: L1-L4 RETAIN
 gradient (L3 peaks at 0.8380, above frozen 0.7656) and L5-L12 COLLAPSE (L12
 -0.0424). CAFT (lambda=0.5, continuity constrained on the FINAL representation
-only, hidden state 12) only partially restores L12 (+0.210) and never
+only, hidden state 12) never executed its continuity term (a dead hook; the archived +0.210
+was run-to-run nondeterminism, an honest negative) and never
 recovers the collapse; the causal-head-ablation (C2) shows the collapse lives
 inside the body weights, i.e. classification training *overwrites* the
 head-proximal (upper) layers.
@@ -115,9 +116,7 @@ def parse_cont_layers(spec: str) -> list[int]:
     return sorted(out)
 
 
-def freeze_upper_layers(
-    model: Any, freeze_from_hidden: int = 5
-) -> tuple[int, int]:
+def freeze_upper_layers(model: Any, freeze_from_hidden: int = 5) -> tuple[int, int]:
     """Freeze encoder layers whose hidden-state index >= freeze_from_hidden.
 
     Mapping (rho-diagnostic indexing): hidden state h is the output of
@@ -241,7 +240,7 @@ class HPATrainer(CAFTTrainer):
             n_frozen, n_train = freeze_upper_layers(self.model, self.freeze_from_hidden)
             print(
                 f"[HPA] FROZEN hidden states {self.freeze_from_hidden}..12 "
-                f"({n_frozen/1e6:.2f}M params frozen; {n_train/1e6:.2f}M trainable)",
+                f"({n_frozen / 1e6:.2f}M params frozen; {n_train / 1e6:.2f}M trainable)",
                 flush=True,
             )
 
@@ -286,8 +285,11 @@ class HPATrainer(CAFTTrainer):
         self.model.eval()
         n_cont = len(self.cont_layers)
         sums = torch.zeros(
-            n_cont, self.n_layers, self.model.config.hidden_size,
-            device=device, dtype=dtype,
+            n_cont,
+            self.n_layers,
+            self.model.config.hidden_size,
+            device=device,
+            dtype=dtype,
         )
         counts = torch.zeros(n_cont, self.n_layers, device=device)
         epi = self._epi_rows

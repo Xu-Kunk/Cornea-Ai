@@ -1,0 +1,15 @@
+{
+  "seed": 456,
+  "checkpoint": "/home/summer/corneal_scgpt/save/caft_gf_lam0.0_seed456_20260819-120545/model/checkpoint-2491",
+  "n_cells": 14775,
+  "donor_alignment_ok": true,
+  "rho_raw": -0.057270315767597356,
+  "rho_normed": -0.06304497961111255,
+  "null_n": 100,
+  "null_mean": 0.006312599406425645,
+  "null_sd": 0.006271540530881455,
+  "null_z": -11.059097629365093,
+  "null_pctile": 0.0,
+  "convention": "L2-normed primary (G1 frozen-diagnosis); label-shuffle rng default_rng(42)",
+  "timestamp_utc": "2026-08-19T05:47:03+00:00"
+}

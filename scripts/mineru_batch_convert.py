@@ -4,9 +4,13 @@
 Usage:
     python scripts/mineru_batch_convert.py [--batch-size 5] [--poll-interval 10]
 
-Reads all PDFs from docs/SCI-refeference/, uploads via MinerU cloud API,
+Reads all PDFs from docs/SCI-reference/, uploads via MinerU cloud API,
 polls for completion, downloads results, and extracts Markdown files
-into docs/SCI-refeference-markdown/.
+into docs/SCI-reference-markdown/.
+
+Note (2026-10-19): the converted markdown was merged into the topic folders
+(01-scFM/ ... 08-Unclassified/) in 2026-09; OUT_DIR is a legacy target and this
+script is retained for provenance only.
 """
 
 import argparse
@@ -22,17 +26,16 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 API_BASE = "https://mineru.net/api/v4"
-TOKEN = os.environ.get(
-    "MINERU_TOKEN",
-    "",  # REDACTED: was a hardcoded MinerU API key; set MINERU_TOKEN instead
-)
+TOKEN = os.environ.get("MINERU_TOKEN")
+if not TOKEN:
+    raise RuntimeError("请先设置环境变量 MINERU_TOKEN")
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
     "Content-Type": "application/json",
 }
 
-PDF_DIR = Path("docs/SCI-refeference")
-OUT_DIR = Path("docs/SCI-refeference-markdown")
+PDF_DIR = Path("docs/SCI-reference")
+OUT_DIR = Path("docs/SCI-reference-markdown")
 PROGRESS_FILE = OUT_DIR / "_progress.json"
 
 

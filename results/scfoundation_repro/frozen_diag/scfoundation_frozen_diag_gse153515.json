@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "model": "genbio-ai/scFoundation",
+    "version": "01B-resolution (encoder 12x768, mae_autobin)",
+    "checkpoint_sha256": "9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9",
+    "checkpoint_keys_loaded": "full strict load via official model/load.py load_model_frommmf(ckpt,'cell')",
+    "device": "cuda",
+    "batch": "official get_embedding.py per-cell (1 cell/batch)",
+    "pool_type": "all",
+    "tgthighres": "a5",
+    "pre_normalized": "F",
+    "input_type": "singlecell",
+    "output_type": "cell",
+    "version_flag": "ce",
+    "n_null": 100,
+    "seed": 42,
+    "n_probe_repeats": 5,
+    "rho_primary": "L2-normed cell_emb",
+    "layer_order": [
+      "LSC",
+      "TAC",
+      "basal",
+      "differentiated"
+    ],
+    "corpus_status": "GSE153515 plausibly OUT-OF-CORPUS for scFoundation's 50M-cell corpus (census/curation date mismatch, same audit as scGPT GSE153515=NOT IN); inference-only, no pretraining overlap claim."
+  },
+  "results": {
+    "gse153515": {
+      "tag": "GSE153515 (cornea; out-of-corpus for scFoundation 50M-cell corpus)",
+      "n_cells": 14775,
+      "label_counts": {
+        "LSC": 3423,
+        "TAC": 171,
+        "basal": 6698,
+        "differentiated": 4483
+      },
+      "rho_raw": 0.7482291588968331,
+      "rho_normed": 0.7481632776757305,
+      "null_mean": 0.006772744583066944,
+      "null_sd": 0.006202341801465433,
+      "null_z": 119.53396907559892,
+      "null_pctile": 1.0,
+      "probe_f1_macro": 0.9452534084238418,
+      "probe_f1_macro_sd": 0.005817035407421286,
+      "probe_f1_weighted": 0.9662459448145754,
+      "probe_f1_weighted_sd": 0.0007800000650949782,
+      "n_probe_repeats": 5,
+      "probe_split": "cell-level 80/20",
+      "probe_solver": "lbfgs",
+      "probe_C": 1.0,
+      "probe_max_iter": 1000,
+      "emb_dim": 3072,
+      "emb_dtype": "float32",
+      "forward_total_s": 3368.6,
+      "forward_per_batch_s": 0.2279932318104907,
+      "n_batches": 14775,
+      "peak_gpu_gb": 3.43767,
+      "genes_matched_vocab": 9162,
+      "genes_vocab": 19264,
+      "genes_input": 9175,
+      "mean_nnz_per_cell": 2470.6425719120134,
+      "checkpoint_sha256": "9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9",
+      "corpus_note": "GSE153515 plausibly OUT-OF-CORPUS for scFoundation's 50M-cell corpus (census/curation date mismatch, same audit as scGPT GSE153515=NOT IN); inference-only, no pretraining overlap claim."
+    }
+  }
+}

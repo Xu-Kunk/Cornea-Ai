@@ -90,7 +90,7 @@ def load_config(config_path: str | Path) -> dict[str, Any]:
     if not config_path.is_file():
         raise FileNotFoundError(f"Config file not found: {config_path}")
 
-    with open(config_path, "r", encoding="utf-8") as fh:
+    with open(config_path, encoding="utf-8") as fh:
         overrides: dict[str, Any] = yaml.safe_load(fh) or {}
 
     config = _DEFAULT_CONFIG.copy()

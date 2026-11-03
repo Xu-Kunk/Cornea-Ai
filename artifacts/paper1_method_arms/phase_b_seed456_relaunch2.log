@@ -1,0 +1,16 @@
+[18:37:45] pre-flight checks …
+  ✓ GPU temp: 37 °C
+[18:37:45] all pre-flight checks passed.
+
+[18:37:45] grid: 1 runs -> [('soft_spearman', 0.5, 456)]
+[18:37:45] soft_spearman λ=0.5 seed=456  ready (GPU 37 °C, 106 GiB avail)
+
+[18:37:45] soft_spearman λ=0.5 seed=456  training starting …
+[02:41:55] soft_spearman λ=0.5 seed=456  TRAINED (484.2 min)  → method_soft_spearman_lam0.5_seed456_20260814-183748
+
+[02:41:55] status -> /home/dq/Codex/Ai/artifacts/paper1_method_arms/runs_status.json
+
+============================================================
+Paper 1 method arms: 1/1 runs trained
+============================================================
+After Phase A, pick lambdas and run: --summary  /  --arm <arm> --lambdas "<chosen>" --seeds "123,456"

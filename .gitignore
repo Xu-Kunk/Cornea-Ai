@@ -1,40 +1,33 @@
-# .gitignore
+# Data, weights and derived caches (not distributed; see Data and Code Availability)
+data/
+save/
+*.h5ad
+*.npz
+*.npy
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.arrow
+*.tar.gz
+*.zip
+*/external_tokenized/
+*.dataset/
+# Environments and caches
 .venv/
-.mypy_cache/
+.venv-cellplm/
 __pycache__/
-.pytest_cache/
-.ruff_cache/
-.env
-.env.local
 *.pyc
-*.pyo
-node_modules/
-dist/
-build/
-.DS_Store
-Thumbs.db
-*.tmp
-*.bak
-
-# Agent caches (not project content)
+.ruff_cache/
+.pytest_cache/
 .codegraph/
 .omo/
-
-# Large data files (download via scripts/download_*.py or protocol_12/13)
-data/*.h5ad
-data/*.csv
-data/*.gz
-data/*.tar
-data/epidermis/
-data/gf_tokenized_*/
-data/corneal_*.h5ad
-
-# Model checkpoints
-checkpoints/
-*.pt
-*.ckpt
-*.safetensors
-
-# Generated presentation exports
-.frontend-slides/
-*.html  # except explicitly tracked ones
+.opencode/
+node_modules/
+# Internal working files
+tasks/
+notes/
+docs/changes/
+docs/research/
+docs/SCI-reference/
+*.tex.bak

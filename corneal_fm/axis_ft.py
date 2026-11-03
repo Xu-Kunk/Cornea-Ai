@@ -121,8 +121,7 @@ class AxisFTTrainer(Trainer):
         w = np.asarray(axis_w, dtype=float).reshape(-1)
         if w.shape[0] != int(self.model.config.hidden_size):
             raise ValueError(
-                f"axis_w dim {w.shape[0]} != hidden_size "
-                f"{self.model.config.hidden_size}"
+                f"axis_w dim {w.shape[0]} != hidden_size {self.model.config.hidden_size}"
             )
         self._w = torch.tensor(w, dtype=torch.float32)
         self.anchor_layer = (
@@ -164,9 +163,7 @@ class AxisFTTrainer(Trainer):
             # with the padded length, and the per-row writes (emb[idx] = cls)
             # make the result order-independent — mirrors axis_ref.compute_axis.
             if "length" in ds.column_names:
-                self._frozen_rows = sorted(
-                    self._frozen_rows, key=lambda i: int(ds["length"][i])
-                )
+                self._frozen_rows = sorted(self._frozen_rows, key=lambda i: int(ds["length"][i]))
         device = self.model.device
         hidden = int(self.model.config.hidden_size)
         n_hidden = int(self.model.config.num_hidden_layers)

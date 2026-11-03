@@ -1,0 +1,20 @@
+[2026-07-31 21:15:55] ====================================================
+[2026-07-31 21:15:55] P1-O2 strict-fair CAFT launcher
+[2026-07-31 21:15:55] grid: λ∈{0.0 0.5} × seed∈{42 123 456} | epochs=3 | data=corneal_100k_donor_split.h5ad
+[2026-07-31 21:15:55] manifest: artifacts/paper1_fair_split/manifest.json | logs: /home/dq/Codex/Ai/artifacts/paper1_strict_fair
+[2026-07-31 21:15:55] ====================================================
+[2026-07-31 21:15:55] ── Pre-flight checks ──
+[2026-07-31 21:15:55] OK: swap off
+[2026-07-31 21:15:55] OK: vllm.service not active (inactive
+inactive)
+[2026-07-31 21:15:55] OK: no docker vllm container
+[2026-07-31 21:15:55] OK: disk free = 214 GB
+[2026-07-31 21:15:55] OK: GPU temp 43C < 60C
+[2026-07-31 21:15:56] OK: corneal_fm.evaluation importable (Tier-B evaluator present)
+[2026-07-31 21:15:56] OK: train data + split manifest present
+[2026-07-31 21:15:56] ── All pre-flight checks passed ──
+[2026-07-31 21:15:56] ──── λ=0.0 seed=42  training start ────
+[2026-07-31 21:16:00] FAIL λ=0.0 seed=42  (rc=1; latest dir: /home/dq/Codex/Ai/save/caft_gf_lam0.0_seed42_20260731-211559); log: /home/dq/Codex/Ai/artifacts/paper1_strict_fair/caft_lam0.0_seed42.log
+[2026-07-31 21:16:00] ──── λ=0.0 seed=123  training start ────
+[2026-07-31 21:16:04] FAIL λ=0.0 seed=123  (rc=1; latest dir: /home/dq/Codex/Ai/save/caft_gf_lam0.0_seed123_20260731-211603); log: /home/dq/Codex/Ai/artifacts/paper1_strict_fair/caft_lam0.0_seed123.log
+[2026-07-31 21:16:04] ──── λ=0.0 seed=456  training start ────

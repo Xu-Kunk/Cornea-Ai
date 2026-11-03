@@ -1,0 +1,77 @@
+/usr/lib/python3.12/functools.py:909: ImplicitModificationWarning: Transforming to str index.
+  return dispatch(args[0].__class__)(*args, **kw)
+[10:05:14]  External test accession: gse153515
+[10:05:14]  Config: /home/summer/corneal_scgpt/config/external_test_gse153515.yml
+[10:05:14]  External data: /home/summer/corneal_scgpt/data/gse153515_annotated.h5ad
+[10:05:14]  Static checks: {'config_exists': True, 'config_locked': True, 'manifest_exists': True, 'manifest_donor_overlap': 0, 'manifest_donor_overlap_ok': True, 'fair_protocol_epochs': 3, 'legacy_data_refs': [], 'legacy_data_rejected': True, 'external_test_file': '/home/summer/corneal_scgpt/data/gse153515_annotated.h5ad', 'external_test_exists': True, 'train_data_file': '/home/summer/corneal_scgpt/data/corneal_100k_donor_split.h5ad', 'train_data_exists': True, 'passed': True}
+[10:05:14]  Runs requested: [('caft_gf', 0.0, 42)]
+[10:05:14]  GPU detected: NVIDIA GeForce RTX 5070 Ti
+[10:05:14]  Device: cuda
+[10:05:15]  Reading gse153515_annotated.h5ad ...
+[10:05:16]  Promoted layers['counts'] -> X (scaled matrix found in X).
+Tokenizing /tmp/tierb_tokenize_js0m4od1/external.h5ad
+  0%|          | 0/31 [00:00<?, ?it/s]  3%|▎         | 1/31 [00:00<00:08,  3.44it/s]  6%|▋         | 2/31 [00:00<00:08,  3.46it/s] 10%|▉         | 3/31 [00:00<00:08,  3.46it/s] 13%|█▎        | 4/31 [00:01<00:07,  3.53it/s] 16%|█▌        | 5/31 [00:01<00:07,  3.50it/s] 19%|█▉        | 6/31 [00:01<00:07,  3.47it/s] 23%|██▎       | 7/31 [00:02<00:06,  3.52it/s] 26%|██▌       | 8/31 [00:02<00:06,  3.55it/s] 29%|██▉       | 9/31 [00:02<00:06,  3.57it/s] 32%|███▏      | 10/31 [00:02<00:05,  3.60it/s] 35%|███▌      | 11/31 [00:03<00:06,  3.13it/s] 39%|███▊      | 12/31 [00:03<00:05,  3.22it/s] 42%|████▏     | 13/31 [00:03<00:05,  3.35it/s] 45%|████▌     | 14/31 [00:04<00:04,  3.45it/s] 48%|████▊     | 15/31 [00:04<00:04,  3.52it/s] 52%|█████▏    | 16/31 [00:04<00:04,  3.57it/s] 55%|█████▍    | 17/31 [00:04<00:03,  3.61it/s] 58%|█████▊    | 18/31 [00:05<00:03,  3.63it/s] 61%|██████▏   | 19/31 [00:05<00:03,  3.65it/s] 65%|██████▍   | 20/31 [00:05<00:02,  3.67it/s] 68%|██████▊   | 21/31 [00:05<00:02,  3.68it/s] 71%|███████   | 22/31 [00:06<00:02,  3.69it/s] 74%|███████▍  | 23/31 [00:06<00:02,  3.71it/s] 77%|███████▋  | 24/31 [00:06<00:01,  3.71it/s] 81%|████████  | 25/31 [00:07<00:01,  3.71it/s] 84%|████████▍ | 26/31 [00:07<00:01,  3.72it/s] 87%|████████▋ | 27/31 [00:07<00:01,  3.71it/s] 90%|█████████ | 28/31 [00:07<00:00,  3.71it/s] 94%|█████████▎| 29/31 [00:08<00:00,  3.72it/s] 97%|█████████▋| 30/31 [00:08<00:00,  3.72it/s]100%|██████████| 31/31 [00:08<00:00,  3.79it/s]100%|██████████| 31/31 [00:08<00:00,  3.59it/s]
+/tmp/tierb_tokenize_js0m4od1/external.h5ad has no column attribute 'filter_pass'; tokenizing all cells.
+Creating dataset.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[10:05:40]  Tokenized 15827 cells -> /home/summer/corneal_scgpt/artifacts/paper1_tier_b_eval/external_tokenized/cell.dataset
+[10:05:41]  Epithelial filter: 14775/15827 cells (NON_LAYER excluded).
+[10:05:41]  External eval cells: 14775
+[10:05:41]  Training data (leakage checks): 99606 cells
+
+[10:05:41]  === arm=caft_gf lam=0.0 seed=42 step=2491 (/home/summer/corneal_scgpt/save/caft_gf_lam0.0_seed42_20260818-234513/model/checkpoint-2491) ===
+[10:05:41]  id->class map: 31 classes (e.g. 3 -> Limbus_Epi-C1)
+[10:05:49]    inference batch 10/462
+[10:05:57]    inference batch 20/462
+[10:06:05]    inference batch 30/462
+[10:06:20]    inference batch 40/462
+[10:06:36]    inference batch 50/462
+[10:06:52]    inference batch 60/462
+[10:07:08]    inference batch 70/462
+[10:07:23]    inference batch 80/462
+[10:07:39]    inference batch 90/462
+[10:07:55]    inference batch 100/462
+[10:08:04]    inference batch 110/462
+[10:08:12]    inference batch 120/462
+[10:08:19]    inference batch 130/462
+[10:08:27]    inference batch 140/462
+[10:08:40]    inference batch 150/462
+[10:08:56]    inference batch 160/462
+[10:09:11]    inference batch 170/462
+[10:09:26]    inference batch 180/462
+[10:09:41]    inference batch 190/462
+[10:09:57]    inference batch 200/462
+[10:10:12]    inference batch 210/462
+[10:10:25]    inference batch 220/462
+[10:10:32]    inference batch 230/462
+[10:10:39]    inference batch 240/462
+[10:10:46]    inference batch 250/462
+[10:10:54]    inference batch 260/462
+[10:11:07]    inference batch 270/462
+[10:11:22]    inference batch 280/462
+[10:11:37]    inference batch 290/462
+[10:11:52]    inference batch 300/462
+[10:12:06]    inference batch 310/462
+[10:12:22]    inference batch 320/462
+[10:12:37]    inference batch 330/462
+[10:12:50]    inference batch 340/462
+[10:12:58]    inference batch 350/462
+[10:13:05]    inference batch 360/462
+[10:13:12]    inference batch 370/462
+[10:13:19]    inference batch 380/462
+[10:13:32]    inference batch 390/462
+[10:13:47]    inference batch 400/462
+[10:14:01]    inference batch 410/462
+[10:14:16]    inference batch 420/462
+[10:14:31]    inference batch 430/462
+[10:14:46]    inference batch 440/462
+[10:15:01]    inference batch 450/462
+[10:15:15]    inference batch 460/462
+[10:15:16]    inference batch 462/462
+[10:15:16]  Predicted epithelial: 14524/14775
+[10:15:18]  Saved /home/summer/corneal_scgpt/artifacts/paper1_tier_b_eval/results_0.0_42.json
+
+[10:15:18]  Saved /home/summer/corneal_scgpt/artifacts/paper1_tier_b_eval/summary.csv
+    arm  lambda  seed      checkpoint  macro_f1  ci_lower  ci_upper      LAA  marker_gradient_rho      ECE
+caft_gf     0.0    42 checkpoint-2491  0.639734  0.604558  0.674911 0.976988             0.200754 0.046536
+[10:15:18]  Done.

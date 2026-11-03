@@ -1,0 +1,5 @@
+arm,class,precision,recall,f1,support,n_seeds
+Fine-tune λ=0,LSC,0.9776,0.7658,0.8588,3423.0,3
+Fine-tune λ=0,TAC,0.0,0.0,0.0,171.0,3
+Fine-tune λ=0,basal,0.8041,0.9941,0.889,6698.0,3
+Fine-tune λ=0,differentiated,0.9339,0.7482,0.8306,4483.0,3

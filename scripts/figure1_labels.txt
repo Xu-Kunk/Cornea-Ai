@@ -1,0 +1,72 @@
+ 8.00 pt | #222222 | bold   | A. Cross-architecture collapse spectrum
+ 8.00 pt | #222222 | bold   | B. Fine-tuning strategies: gradient fidelity
+ 8.00 pt | #222222 | bold   | C. Three-domain validation & statistical control
+ 7.00 pt | #222222 | bold   | Same-corpus fine-tuning: three architectures, one collapse pattern
+ 6.50 pt | #5A5A5A | normal | Corneal epithelium differentiation continuum (LSC → basal → differentiated)
+ 7.00 pt | #5F5F5F | bold   | Geneformer
+ 6.50 pt | #5A5A5A | normal | V2-104M
+ 6.50 pt | #8A8A8A | normal | 12-layer BERT
+ 6.50 pt | #5F5F5F | bold   | Collapse: deterministic
+ 6.50 pt | #5F5F5F | normal | ρ 0.806 → −0.008
+ 7.00 pt | #0072B2 | bold   | scGPT
+ 6.50 pt | #5A5A5A | normal | human 47M
+ 6.50 pt | #8A8A8A | normal | 12-layer Transformer
+ 6.50 pt | #0072B2 | bold   | Collapse: bistable
+ 6.50 pt | #0072B2 | normal | ρ 0.789 → −0.09 / 0.83
+ 7.00 pt | #009E73 | bold   | CellPLM
+ 6.50 pt | #5A5A5A | normal | 85M
+ 6.50 pt | #8A8A8A | normal | 4-layer Flowformer
+ 6.50 pt | #009E73 | bold   | Collapse: deterministic
+ 6.50 pt | #009E73 | normal | ρ 0.865 → −0.007
+ 7.00 pt | #005C4F | bold   | [Best recipe] CORN + LoRA preserves gradient at top accuracy
+ 7.00 pt | #005C4F | bold   | CORN + LoRA
+ 7.00 pt | #005C4F | bold   | ρ 0.924 · F1 0.967
+ 6.50 pt | #5A5A5A | normal | scGPT · r=8 α=16
+ 6.50 pt | #8A8A8A | normal | ordinal prior + parameter efficiency
+ 6.50 pt | #009E73 | bold   | CORN
+ 7.00 pt | #009E73 | bold   | ρ 0.833
+ 6.50 pt | #56B4E9 | bold   | LoRA
+ 7.00 pt | #56B4E9 | bold   | ρ 0.834
+ 6.50 pt | #005C4F | bold   | CORN+LoRA
+ 7.00 pt | #005C4F | bold   | ρ 0.924
+ 6.50 pt | #56B4E9 | bold   | CellPLM LoRA
+ 6.50 pt | #56B4E9 | normal | ρ 0.874
+ 6.50 pt | #5A5A5A | bold   | Controls:
+ 6.50 pt | #0072B2 | bold   | Naive FT
+ 6.50 pt | #0072B2 | normal | CE collapse
+ 6.50 pt | #8A8A8A | normal | ρ −0.008
+ 6.50 pt | #222222 | bold   | CAFT
+ 6.50 pt | #5A5A5A | normal | failed
+ 6.50 pt | #222222 | bold   | AA-FT
+ 6.50 pt | #5A5A5A | normal | partial
+ 6.50 pt | #222222 | bold   | soft-Sp
+ 6.50 pt | #5A5A5A | normal | unstable
+ 6.50 pt | #222222 | bold   | flow
+ 6.50 pt | #5A5A5A | normal | refused
+ 6.50 pt | #5F5F5F | bold   | Head-init perturbation
+ 6.50 pt | #5A5A5A | normal | CLS head determines fate
+ 6.50 pt | #8A8A8A | normal | 2/3 variants kept ρ>0.65
+ 6.50 pt | #56B4E9 | bold   | CellPLM LoRA
+ 6.50 pt | #5A5A5A | normal | cross-architecture
+ 6.50 pt | #8A8A8A | normal | ρ 0.874 (vs frozen 0.865)
+ 7.00 pt | #222222 | bold   | Same-corpus
+ 6.50 pt | #5A5A5A | normal | GSE153515 · catastrophic
+ 6.50 pt | #222222 | normal | ρ 0.806 → −0.008
+ 7.00 pt | #222222 | bold   | Out-of-corpus
+ 6.50 pt | #5A5A5A | normal | GSE299152 · mild
+ 6.50 pt | #222222 | normal | ρ 0.707 → 0.641
+ 7.00 pt | #222222 | bold   | Cross-tissue
+ 6.50 pt | #5A5A5A | normal | GSE147424 · reversed
+ 6.50 pt | #222222 | normal | ρ 0.24 → 0.46
+ 6.50 pt | #009E73 | bold   | BH-FDR: 20/21 significant (q<0.05)
+ 6.50 pt | #8A8A8A | normal | full details in Supplementary Tables
+ 6.50 pt | #5F5F5F | bold   | Permutation nulls: observed z ≈ 120
+ 6.50 pt | #8A8A8A | normal | full details in Supplementary Tables
+ 6.50 pt | #005C4F | bold   | CORN+LoRA: best recipe ρ 0.924
+ 6.50 pt | #8A8A8A | normal | full details in Supplementary Tables
+ 6.50 pt | #5A5A5A | normal | frozen
+ 6.50 pt | #5A5A5A | normal | naive FT
+ 6.50 pt | #5A5A5A | normal | CORN
+ 6.50 pt | #5A5A5A | normal | LoRA
+ 6.50 pt | #5A5A5A | normal | CORN+LoRA
+ 6.50 pt | #5A5A5A | normal | negatives

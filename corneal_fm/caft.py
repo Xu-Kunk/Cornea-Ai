@@ -16,7 +16,6 @@ import pickle
 from pathlib import Path
 from typing import Any
 
-import numpy as np
 import torch
 import torch.nn.functional as F
 from transformers import BertForSequenceClassification, Trainer, TrainingArguments
@@ -28,8 +27,10 @@ NON_LAYER = -1
 # 2026-07-23 (artifacts/day3-20260723/S3/mapping_ratification.md): Epi-PMC/Epi-TDC
 # corrected (the earlier code had them reversed vs the KRT3/KRT12 gradient).
 CELL_TYPE_TO_LAYER = {
-    "LPC": 0, "Fetal_Epi/LSC/LPC": 0,
-    "Limbus_Epi-C1": 1, "Limbus_Epi-C2": 1,
+    "LPC": 0,
+    "Fetal_Epi/LSC/LPC": 0,
+    "Limbus_Epi-C1": 1,
+    "Limbus_Epi-C2": 1,
     "Epi-PMC": 2,
     "Epi-TDC/PMC": 3,
     "Epi-TDC": 4,
@@ -74,6 +75,7 @@ class CAFTTrainer(Trainer):
         if token_dictionary_file is None:
             try:
                 from geneformer.classifier import TOKEN_DICTIONARY_FILE
+
                 token_dictionary_file = TOKEN_DICTIONARY_FILE
             except Exception:
                 return DEFAULT_PAD_ID
@@ -112,7 +114,9 @@ class CAFTTrainer(Trainer):
             for s in range(0, n, self.centroid_batch):
                 batch = ds[s : s + self.centroid_batch]
                 ids = torch.tensor(batch["input_ids"], device=device)
-                length = torch.as_tensor(batch.get("length", ids.ne(self.pad_id).sum(1).tolist()), device=device)
+                length = torch.as_tensor(
+                    batch.get("length", ids.ne(self.pad_id).sum(1).tolist()), device=device
+                )
                 labels = torch.as_tensor(batch["label"], device=device)
                 z = F.normalize(self._embed(ids, length), dim=-1)
                 for cls_id in labels.unique().tolist():
@@ -147,7 +151,9 @@ class CAFTTrainer(Trainer):
         if labels is not None:
             loss_cls = F.cross_entropy(logits, labels)
         else:
-            loss_cls = F.cross_entropy(logits, torch.zeros(input_ids.size(0), dtype=torch.long, device=device))
+            loss_cls = F.cross_entropy(
+                logits, torch.zeros(input_ids.size(0), dtype=torch.long, device=device)
+            )
         if self.caft_lambda == 0 or self.layer_centroids is None or labels is None:
             loss = loss_cls
         else:
@@ -175,7 +181,13 @@ class CAFTTrainer(Trainer):
                     L_cont = -torch.stack(sims).mean()
                     loss = loss_cls + self.caft_lambda * L_cont
                     if self.state.global_step % 50 == 0:
-                        self.log({"L_cls": float(loss_cls), "L_cont": float(L_cont), "caft_loss": float(loss)})
+                        self.log(
+                            {
+                                "L_cls": float(loss_cls),
+                                "L_cont": float(L_cont),
+                                "caft_loss": float(loss),
+                            }
+                        )
                 else:
                     loss = loss_cls
         return (loss, bert_out) if return_outputs else loss
@@ -184,7 +196,7 @@ class CAFTTrainer(Trainer):
 def load_pretrained_classifier(
     model_directory: str | Path,
     num_classes: int,
-    torch_dtype: "torch.dtype | None" = None,
+    torch_dtype: torch.dtype | None = None,
 ) -> BertForSequenceClassification:
     """Load Geneformer as a sequence-classification model.
 

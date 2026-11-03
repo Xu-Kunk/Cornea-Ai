@@ -4,11 +4,10 @@
 # Output: artifacts/paper1_tier_b_eval_gse299152/
 # Usage: nohup bash scripts/run_gse299152_eval.sh > artifacts/paper1_tier_b_eval_gse299152/queue.log 2>&1 &
 set -euo pipefail
-: "${CORNEAL_FM_DATA:?set CORNEAL_FM_DATA to the repo root}"
 
-EVAL="${VENV_PYTHON:-python3}"
-SCRIPT="$CORNEAL_FM_DATA/scripts/run_tier_b_eval.py"
-OUTDIR="$CORNEAL_FM_DATA/artifacts/paper1_tier_b_eval_gse299152"
+EVAL=/home/dq/venv-ds/bin/python3
+SCRIPT=/home/dq/Codex/Ai/scripts/run_tier_b_eval.py
+OUTDIR=/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval_gse299152
 mkdir -p "$OUTDIR"
 
 RUNS="caft_gf:0.0:42,caft_gf:0.0:123,caft_gf:0.0:456,ordinal_gf:0.0:42,ordinal_gf:0.0:123,ordinal_gf:0.0:456,ordinal_gf:0.5:42,ordinal_gf:0.5:123,ordinal_gf:0.5:456"

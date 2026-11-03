@@ -8,6 +8,12 @@ from pathlib import Path
 import numpy as np
 from numpy.typing import NDArray
 
+from corneal_fm.gpr_contract import (
+    EMBEDDING_SOURCE,
+    comparison_contract,
+    provenance,
+    single_contract,
+)
 from corneal_fm.gpr_embeddings import (
     dataset_identity,
     extract_embeddings,
@@ -16,16 +22,9 @@ from corneal_fm.gpr_embeddings import (
     require_layers,
     resolve_checkpoint,
 )
-from corneal_fm.gpr_contract import (
-    EMBEDDING_SOURCE,
-    comparison_contract,
-    provenance,
-    single_contract,
-)
 from corneal_fm.gpr_metrics import (
     CONTINUITY_FORMULA,
     LAYER_NAMES,
-    NORMALIZATION_CONTRACT,
     N_LAYERS,
     MetricProvenance,
     continuity_score,
@@ -63,9 +62,7 @@ def _summarize(
     adjacency = layer_adjacency_accuracy(centroids, present)
     adjacency_score = adjacency[0] if isinstance(adjacency, tuple) else adjacency
     return {
-        "mode": "checkpoint"
-        if provenance.embedding_source == EMBEDDING_SOURCE
-        else "embedding",
+        "mode": "checkpoint" if provenance.embedding_source == EMBEDDING_SOURCE else "embedding",
         "source": provenance.checkpoint_path,
         "n_cells": int(len(layers)),
         "embedding_dim": int(embeddings.shape[1]),

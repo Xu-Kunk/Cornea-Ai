@@ -1,0 +1,746 @@
+{
+  "percell_naive_s42.npz": {
+    "model": "Geneformer-V2-104M (fine-tuned)",
+    "lam": 0.0,
+    "seed": 42,
+    "independent": {
+      "macro_f1": 0.6541863606043621,
+      "ci_lower": 0.6330936250502407,
+      "ci_upper": 0.6752790961584836,
+      "per_donor": {
+        "donor_1": 0.6752790961584836,
+        "donor_2": 0.6330936250502407
+      },
+      "per_class": {
+        "LSC": {
+          "precision": 0.9731518940787054,
+          "recall": 0.8199566160520607,
+          "f1": 0.8900100908173562,
+          "support": 3227
+        },
+        "TAC": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 171
+        },
+        "basal": {
+          "precision": 0.8161187438665358,
+          "recall": 0.9932815765900269,
+          "f1": 0.8960269360269361,
+          "support": 6698
+        },
+        "differentiated": {
+          "precision": 0.9348887683125339,
+          "recall": 0.770917225950783,
+          "f1": 0.8450220696419813,
+          "support": 4470
+        }
+      },
+      "confusion": [
+        [
+          2646,
+          8,
+          369,
+          204
+        ],
+        [
+          17,
+          0,
+          152,
+          2
+        ],
+        [
+          11,
+          0,
+          6653,
+          34
+        ],
+        [
+          45,
+          1,
+          978,
+          3446
+        ]
+      ],
+      "laa": 0.9760406091370558,
+      "rho": -0.04239536391926124,
+      "ece": 0.07630756476556204,
+      "ece_project_binning": 0.07630756476556204,
+      "ece_std_binning": 0.04596782333033782,
+      "laa_seconds": 1.2
+    },
+    "meta_gate": {
+      "macro_f1": 0.6541863606043621,
+      "ci_lower": 0.6330936250502407,
+      "ci_upper": 0.6752790961584836,
+      "laa": 0.9760406091370558,
+      "rho": -0.04239536391926124,
+      "ece": 0.07630756476556204
+    },
+    "diff_vs_meta": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "laa": 0.0,
+      "rho": 0.0,
+      "ece": 0.0
+    },
+    "diff_vs_results_json": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "rho": 0.0,
+      "laa": 0.0,
+      "ece": 0.0
+    },
+    "layerwise_L12_rho": -0.04239536391926124,
+    "rho_diff_vs_layerwise_L12": 0.0
+  },
+  "percell_naive_s123.npz": {
+    "model": "Geneformer-V2-104M (fine-tuned)",
+    "lam": 0.0,
+    "seed": 123,
+    "independent": {
+      "macro_f1": 0.641991505068463,
+      "ci_lower": 0.6108827365102585,
+      "ci_upper": 0.6731002736266675,
+      "per_donor": {
+        "donor_1": 0.6731002736266675,
+        "donor_2": 0.6108827365102585
+      },
+      "per_class": {
+        "LSC": {
+          "precision": 0.9784580498866213,
+          "recall": 0.7998146431881371,
+          "f1": 0.8801631820499745,
+          "support": 3237
+        },
+        "TAC": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 171
+        },
+        "basal": {
+          "precision": 0.7879825286270806,
+          "recall": 0.9965661391460138,
+          "f1": 0.8800843826224536,
+          "support": 6698
+        },
+        "differentiated": {
+          "precision": 0.9340468614405554,
+          "recall": 0.7220483005366727,
+          "f1": 0.8144784966578382,
+          "support": 4472
+        }
+      },
+      "confusion": [
+        [
+          2589,
+          2,
+          440,
+          206
+        ],
+        [
+          17,
+          0,
+          152,
+          2
+        ],
+        [
+          3,
+          0,
+          6675,
+          20
+        ],
+        [
+          37,
+          2,
+          1204,
+          3229
+        ]
+      ],
+      "laa": 0.9776649746192894,
+      "rho": -0.03602503481100148,
+      "ece": 0.12476490856010511,
+      "ece_project_binning": 0.12476490856010511,
+      "ece_std_binning": 0.06899350051777475,
+      "laa_seconds": 1.2
+    },
+    "meta_gate": {
+      "macro_f1": 0.641991505068463,
+      "ci_lower": 0.6108827365102585,
+      "ci_upper": 0.6731002736266675,
+      "laa": 0.9776649746192894,
+      "rho": -0.03602503481100148,
+      "ece": 0.12476490856010511
+    },
+    "diff_vs_meta": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "laa": 0.0,
+      "rho": 0.0,
+      "ece": 0.0
+    },
+    "diff_vs_results_json": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "rho": 0.0,
+      "laa": 0.0,
+      "ece": 0.0
+    },
+    "layerwise_L12_rho": -0.03602503481100148,
+    "rho_diff_vs_layerwise_L12": 0.0
+  },
+  "percell_naive_s456.npz": {
+    "model": "Geneformer-V2-104M (fine-tuned)",
+    "lam": 0.0,
+    "seed": 456,
+    "independent": {
+      "macro_f1": 0.6515084581425847,
+      "ci_lower": 0.6259929572193061,
+      "ci_upper": 0.6770239590658632,
+      "per_donor": {
+        "donor_1": 0.6770239590658632,
+        "donor_2": 0.6259929572193061
+      },
+      "per_class": {
+        "LSC": {
+          "precision": 0.9813363195222098,
+          "recall": 0.819769254755223,
+          "f1": 0.8933061501868842,
+          "support": 3207
+        },
+        "TAC": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 171
+        },
+        "basal": {
+          "precision": 0.8080709857785341,
+          "recall": 0.9925350851000299,
+          "f1": 0.8908542713567839,
+          "support": 6698
+        },
+        "differentiated": {
+          "precision": 0.9328008812999173,
+          "recall": 0.758226997985225,
+          "f1": 0.8365028402074586,
+          "support": 4467
+        }
+      },
+      "confusion": [
+        [
+          2629,
+          6,
+          377,
+          195
+        ],
+        [
+          18,
+          0,
+          147,
+          6
+        ],
+        [
+          7,
+          0,
+          6648,
+          43
+        ],
+        [
+          25,
+          0,
+          1055,
+          3387
+        ]
+      ],
+      "laa": 0.9767174280879865,
+      "rho": 0.053929088570711256,
+      "ece": 0.10126468191099822,
+      "ece_project_binning": 0.10126468191099822,
+      "ece_std_binning": 0.057425459482440766,
+      "laa_seconds": 1.2
+    },
+    "meta_gate": {
+      "macro_f1": 0.6515084581425847,
+      "ci_lower": 0.6259929572193061,
+      "ci_upper": 0.6770239590658632,
+      "laa": 0.9767174280879865,
+      "rho": 0.053929088570711256,
+      "ece": 0.10126468191099822
+    },
+    "diff_vs_meta": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "laa": 0.0,
+      "rho": 0.0,
+      "ece": 0.0
+    },
+    "diff_vs_results_json": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "rho": 0.0,
+      "laa": 0.0,
+      "ece": 0.0
+    },
+    "layerwise_L12_rho": 0.053929088570711256,
+    "rho_diff_vs_layerwise_L12": 0.0
+  },
+  "percell_caft_s42.npz": {
+    "model": "Geneformer-V2-104M (fine-tuned)",
+    "lam": 0.5,
+    "seed": 42,
+    "independent": {
+      "macro_f1": 0.633035230542859,
+      "ci_lower": 0.598864386213956,
+      "ci_upper": 0.667206074871762,
+      "per_donor": {
+        "donor_1": 0.667206074871762,
+        "donor_2": 0.598864386213956
+      },
+      "per_class": {
+        "LSC": {
+          "precision": 0.9774292272379494,
+          "recall": 0.7922480620155039,
+          "f1": 0.8751498544271279,
+          "support": 3225
+        },
+        "TAC": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 171
+        },
+        "basal": {
+          "precision": 0.7764336396417355,
+          "recall": 0.9965661391460138,
+          "f1": 0.8728342595619484,
+          "support": 6698
+        },
+        "differentiated": {
+          "precision": 0.9349544072948328,
+          "recall": 0.6872207327971404,
+          "f1": 0.7921710018027299,
+          "support": 4476
+        }
+      },
+      "confusion": [
+        [
+          2555,
+          65,
+          410,
+          195
+        ],
+        [
+          16,
+          0,
+          153,
+          2
+        ],
+        [
+          5,
+          1,
+          6675,
+          17
+        ],
+        [
+          38,
+          3,
+          1359,
+          3076
+        ]
+      ],
+      "laa": 0.9786125211505922,
+      "rho": 0.1912633203216378,
+      "ece": 0.12822561025683119,
+      "ece_project_binning": 0.12822561025683119,
+      "ece_std_binning": 0.06951247019953856,
+      "laa_seconds": 1.2
+    },
+    "meta_gate": {
+      "macro_f1": 0.633035230542859,
+      "ci_lower": 0.598864386213956,
+      "ci_upper": 0.667206074871762,
+      "laa": 0.9786125211505922,
+      "rho": 0.1912633203216378,
+      "ece": 0.12822561025683119
+    },
+    "diff_vs_meta": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "laa": 0.0,
+      "rho": 0.0,
+      "ece": 0.0
+    },
+    "diff_vs_results_json": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "rho": 0.0,
+      "laa": 0.0,
+      "ece": 0.0
+    },
+    "layerwise_L12_rho": 0.1912633203216378,
+    "rho_diff_vs_layerwise_L12": 0.0
+  },
+  "percell_caft_s123.npz": {
+    "model": "Geneformer-V2-104M (fine-tuned)",
+    "lam": 0.5,
+    "seed": 123,
+    "independent": {
+      "macro_f1": 0.6559014281442512,
+      "ci_lower": 0.6322125461039465,
+      "ci_upper": 0.6795903101845561,
+      "per_donor": {
+        "donor_1": 0.6795903101845561,
+        "donor_2": 0.6322125461039465
+      },
+      "per_class": {
+        "LSC": {
+          "precision": 0.9822440498677748,
+          "recall": 0.8135168961201502,
+          "f1": 0.8899537908608592,
+          "support": 3196
+        },
+        "TAC": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 171
+        },
+        "basal": {
+          "precision": 0.8176116098880827,
+          "recall": 0.9925350851000299,
+          "f1": 0.8966214849281813,
+          "support": 6698
+        },
+        "differentiated": {
+          "precision": 0.9363295880149812,
+          "recall": 0.7828226347573249,
+          "f1": 0.8527226215129735,
+          "support": 4471
+        }
+      },
+      "confusion": [
+        [
+          2600,
+          20,
+          383,
+          193
+        ],
+        [
+          16,
+          0,
+          152,
+          3
+        ],
+        [
+          8,
+          0,
+          6648,
+          42
+        ],
+        [
+          23,
+          0,
+          948,
+          3500
+        ]
+      ],
+      "laa": 0.9763790186125212,
+      "rho": 0.22978617184892414,
+      "ece": 0.09218776329877898,
+      "ece_project_binning": 0.09218776329877898,
+      "ece_std_binning": 0.05256171981946295,
+      "laa_seconds": 1.2
+    },
+    "meta_gate": {
+      "macro_f1": 0.6559014281442512,
+      "ci_lower": 0.6322125461039465,
+      "ci_upper": 0.6795903101845561,
+      "laa": 0.9763790186125212,
+      "rho": 0.22978617184892414,
+      "ece": 0.09218776329877898
+    },
+    "diff_vs_meta": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "laa": 0.0,
+      "rho": 0.0,
+      "ece": 0.0
+    },
+    "diff_vs_results_json": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "rho": 0.0,
+      "laa": 0.0,
+      "ece": 0.0
+    },
+    "layerwise_L12_rho": 0.22978617184892414,
+    "rho_diff_vs_layerwise_L12": 0.0
+  },
+  "percell_caft_s456.npz": {
+    "model": "Geneformer-V2-104M (fine-tuned)",
+    "lam": 0.5,
+    "seed": 456,
+    "independent": {
+      "macro_f1": 0.646385033435612,
+      "ci_lower": 0.6180376188740581,
+      "ci_upper": 0.6747324479971659,
+      "per_donor": {
+        "donor_1": 0.6747324479971659,
+        "donor_2": 0.6180376188740581
+      },
+      "per_class": {
+        "LSC": {
+          "precision": 0.981881264456438,
+          "recall": 0.7924704418170504,
+          "f1": 0.8770661157024794,
+          "support": 3214
+        },
+        "TAC": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 171
+        },
+        "basal": {
+          "precision": 0.7986344034499281,
+          "recall": 0.9953717527620185,
+          "f1": 0.8862156054765387,
+          "support": 6698
+        },
+        "differentiated": {
+          "precision": 0.933983286908078,
+          "recall": 0.7497763864042933,
+          "f1": 0.8318035226990821,
+          "support": 4472
+        }
+      },
+      "confusion": [
+        [
+          2547,
+          22,
+          439,
+          206
+        ],
+        [
+          15,
+          0,
+          154,
+          2
+        ],
+        [
+          2,
+          0,
+          6667,
+          29
+        ],
+        [
+          30,
+          1,
+          1088,
+          3353
+        ]
+      ],
+      "laa": 0.9769204737732656,
+      "rho": 0.20947455566804998,
+      "ece": 0.10470854030578719,
+      "ece_project_binning": 0.10470854030578719,
+      "ece_std_binning": 0.05798132695246434,
+      "laa_seconds": 1.3
+    },
+    "meta_gate": {
+      "macro_f1": 0.646385033435612,
+      "ci_lower": 0.6180376188740581,
+      "ci_upper": 0.6747324479971659,
+      "laa": 0.9769204737732656,
+      "rho": 0.20947455566804998,
+      "ece": 0.10470854030578719
+    },
+    "diff_vs_meta": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "laa": 0.0,
+      "rho": 0.0,
+      "ece": 0.0
+    },
+    "diff_vs_results_json": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "rho": 0.0,
+      "laa": 0.0,
+      "ece": 0.0
+    },
+    "layerwise_L12_rho": 0.20947455566804998,
+    "rho_diff_vs_layerwise_L12": 0.0
+  },
+  "percell_frozen_gf.npz": {
+    "model": "Geneformer-V2-104M (frozen)",
+    "lam": null,
+    "seed": null,
+    "independent": {
+      "macro_f1": 0.44210402467707344,
+      "ci_lower": 0.37490247473654575,
+      "ci_upper": 0.5093055746176011,
+      "per_donor": {
+        "donor_1": 0.5093055746176011,
+        "donor_2": 0.37490247473654575
+      },
+      "per_class": {
+        "LSC": {
+          "precision": 0.6542332741267022,
+          "recall": 0.6606875934230194,
+          "f1": 0.657444593187565,
+          "support": 3345
+        },
+        "TAC": {
+          "precision": 0.004594820384294068,
+          "recall": 0.06432748538011696,
+          "f1": 0.008576998050682261,
+          "support": 171
+        },
+        "basal": {
+          "precision": 0.9836956521739131,
+          "recall": 0.21628080657206872,
+          "f1": 0.3545977715195298,
+          "support": 6695
+        },
+        "differentiated": {
+          "precision": 0.5547651006711409,
+          "recall": 0.9219272808387241,
+          "f1": 0.6927009134333362,
+          "support": 4483
+        }
+      },
+      "confusion": [
+        [
+          2210,
+          745,
+          3,
+          387
+        ],
+        [
+          85,
+          11,
+          17,
+          58
+        ],
+        [
+          933,
+          1442,
+          1448,
+          2872
+        ],
+        [
+          150,
+          196,
+          4,
+          4133
+        ]
+      ],
+      "laa": 0.966497461928934,
+      "rho": 0.8063606041550953,
+      "ece": 0.5966870024745902,
+      "ece_project_binning": 0.5966870024745902,
+      "ece_std_binning": 0.300960838821265,
+      "laa_seconds": 1.5
+    },
+    "meta_gate": {
+      "macro_f1": 0.44210402467707344,
+      "ci_lower": 0.37490247473654575,
+      "ci_upper": 0.5093055746176011,
+      "laa": 0.966497461928934,
+      "rho": 0.8063606041550953,
+      "ece": 0.5966870024745902
+    },
+    "diff_vs_meta": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "laa": 0.0,
+      "rho": 0.0,
+      "ece": 0.0
+    },
+    "diff_vs_results_json": {
+      "macro_f1": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "rho": 0.0,
+      "laa": 0.0,
+      "ece": 0.0
+    },
+    "layerwise_L12_rho": 0.8063606041550953,
+    "rho_diff_vs_layerwise_L12": 0.0
+  },
+  "layerwise_summary": {
+    "n_models": 7,
+    "sanity_gate_all_passed": true,
+    "sanity_gate": {
+      "frozen_gf": {
+        "layer12_rho": 0.8063606041550953,
+        "reference_rho": 0.8063606041550953,
+        "abs_diff": 0.0,
+        "passed": true
+      },
+      "lam0.0_seed42": {
+        "layer12_rho": -0.04239536391926124,
+        "reference_rho": -0.04239536391926124,
+        "abs_diff": 0.0,
+        "passed": true
+      },
+      "lam0.0_seed123": {
+        "layer12_rho": -0.03602503481100148,
+        "reference_rho": -0.03602503481100148,
+        "abs_diff": 0.0,
+        "passed": true
+      },
+      "lam0.0_seed456": {
+        "layer12_rho": 0.053929088570711256,
+        "reference_rho": 0.053929088570711256,
+        "abs_diff": 0.0,
+        "passed": true
+      },
+      "lam0.5_seed42": {
+        "layer12_rho": 0.1912633203216378,
+        "reference_rho": 0.1912633203216378,
+        "abs_diff": 0.0,
+        "passed": true
+      },
+      "lam0.5_seed123": {
+        "layer12_rho": 0.22978617184892414,
+        "reference_rho": 0.22978617184892414,
+        "abs_diff": 0.0,
+        "passed": true
+      },
+      "lam0.5_seed456": {
+        "layer12_rho": 0.20947455566804998,
+        "reference_rho": 0.20947455566804998,
+        "abs_diff": 0.0,
+        "passed": true
+      }
+    },
+    "L0_nan_for_all": true,
+    "L1_by_model": {
+      "frozen_gf": 0.45945502015632855,
+      "lam0.0_seed42": 0.40677032431086757,
+      "lam0.0_seed123": 0.4092582054648971,
+      "lam0.0_seed456": 0.42224632410620666,
+      "lam0.5_seed42": 0.4072831528201618,
+      "lam0.5_seed123": 0.4125988568065165,
+      "lam0.5_seed456": 0.4139399805344298
+    }
+  }
+}

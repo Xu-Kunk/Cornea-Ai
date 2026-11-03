@@ -1,0 +1,416 @@
+{
+  "meta": {
+    "task": "van Zyl LOO (test donor Hu0220) scGPT final evaluation (approved supplementary)",
+    "eval_set": "sanes2022_Hu0220",
+    "n_eval_cells": 16705,
+    "layer_order": [
+      "LSC",
+      "basal",
+      "differentiated"
+    ],
+    "checkpoints": {
+      "best_val": "model_best_val.pt (val macro-F1, official)",
+      "final_epoch": "model_epoch15.pt (sensitivity)"
+    },
+    "bootstrap": {
+      "n": 1000,
+      "seed": 42,
+      "level": "cell-level"
+    },
+    "null": {
+      "n": 100,
+      "seed": 42,
+      "primary": "L2-normed"
+    },
+    "frozen_baseline_test_donor": {
+      "rho_normed": 0.794588736728114,
+      "z": 93.09051688523675,
+      "probe_f1_macro": 0.9451555847079464
+    },
+    "naive_mapping": {
+      "method": "data-driven majority cell_class_4 per author class on the TRAIN-90% subset (same cells as training)",
+      "mapping": {
+        "K_Epi-Basal": "basal",
+        "K_Epi-Wing": "basal",
+        "K_Epi-Superficial": "differentiated",
+        "K_Endo": "LSC",
+        "K_Fibro": "LSC",
+        "K_Epi-TA": "basal",
+        "Immune": "LSC",
+        "Conj_Epi-Basal": "basal",
+        "Limbal_Epi-Wing": "basal",
+        "Conj_Epi-Wing": "basal",
+        "Limbal_Epi-Basal": "basal",
+        "Conj_Epi-Superficial": "differentiated",
+        "Limbal_Epi-Superficial": "differentiated",
+        "Uveal_Fibro": "LSC",
+        "Schwann": "basal",
+        "Macrophage": "LSC",
+        "TM_Fibro": "LSC",
+        "Schlemm_Endo": "LSC",
+        "VascEndo": "LSC",
+        "Lymphocyte": "LSC",
+        "Ciliary_Muscle": "LSC",
+        "Pericyte": "LSC",
+        "FibroX": "LSC",
+        "Mast": "LSC",
+        "Sclera_Fibro": "LSC",
+        "Lymphatic_Endo": "LSC",
+        "CC_VenEndo": "LSC",
+        "Conj_Melanocyte": "LSC",
+        "Goblet": "differentiated"
+      },
+      "contingency": {
+        "K_Epi-Basal": {
+          "basal": 5404,
+          "LSC": 31,
+          "differentiated": 32
+        },
+        "K_Epi-Wing": {
+          "differentiated": 5032,
+          "basal": 5346,
+          "LSC": 32
+        },
+        "K_Epi-Superficial": {
+          "differentiated": 4784,
+          "basal": 33,
+          "LSC": 7
+        },
+        "K_Endo": {
+          "LSC": 4365,
+          "basal": 88,
+          "differentiated": 6
+        },
+        "K_Fibro": {
+          "LSC": 833,
+          "differentiated": 39,
+          "basal": 26
+        },
+        "K_Epi-TA": {
+          "basal": 137,
+          "differentiated": 9
+        },
+        "Immune": {
+          "LSC": 71
+        },
+        "Conj_Epi-Basal": {
+          "basal": 635,
+          "LSC": 1
+        },
+        "Limbal_Epi-Wing": {
+          "basal": 620,
+          "differentiated": 3,
+          "LSC": 2
+        },
+        "Conj_Epi-Wing": {
+          "basal": 487,
+          "differentiated": 41,
+          "LSC": 9
+        },
+        "Limbal_Epi-Basal": {
+          "basal": 800,
+          "LSC": 1
+        },
+        "Conj_Epi-Superficial": {
+          "differentiated": 178,
+          "basal": 5,
+          "LSC": 1
+        },
+        "Limbal_Epi-Superficial": {
+          "basal": 9,
+          "differentiated": 45
+        },
+        "Uveal_Fibro": {
+          "LSC": 3764,
+          "basal": 19
+        },
+        "Schwann": {
+          "basal": 2597,
+          "LSC": 6
+        },
+        "Macrophage": {
+          "LSC": 1026
+        },
+        "TM_Fibro": {
+          "LSC": 1326,
+          "basal": 19
+        },
+        "Schlemm_Endo": {
+          "LSC": 338
+        },
+        "VascEndo": {
+          "LSC": 432
+        },
+        "Lymphocyte": {
+          "LSC": 327,
+          "basal": 6,
+          "differentiated": 1
+        },
+        "Ciliary_Muscle": {
+          "LSC": 46,
+          "basal": 16
+        },
+        "Pericyte": {
+          "LSC": 258,
+          "basal": 2
+        },
+        "FibroX": {
+          "LSC": 103,
+          "basal": 1
+        },
+        "Mast": {
+          "LSC": 18
+        },
+        "Sclera_Fibro": {
+          "LSC": 343,
+          "basal": 1
+        },
+        "Lymphatic_Endo": {
+          "LSC": 443
+        },
+        "CC_VenEndo": {
+          "LSC": 1055
+        },
+        "Conj_Melanocyte": {
+          "LSC": 4,
+          "basal": 1
+        },
+        "Goblet": {
+          "differentiated": 42,
+          "basal": 2,
+          "LSC": 35
+        }
+      }
+    },
+    "timestamp_utc": "2026-08-20T20:02:37+00:00"
+  },
+  "frozen_baseline": {
+    "arm": "frozen",
+    "seed": null,
+    "n_eval_cells": 16705,
+    "test_donor": "sanes2022_Hu0220",
+    "source": "/home/summer/corneal_scgpt/artifacts/g1_scgpt/vanzyl_cell_emb.npz",
+    "rho": {
+      "rho_raw": 0.7945284679767083,
+      "rho_normed": 0.794588736728114,
+      "null_mean": 0.013021173791018338,
+      "null_sd": 0.008395780677645423,
+      "null_z": 93.09051688523675,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "probe_f1": {
+      "f1_macro": 0.9451555847079464,
+      "f1_macro_sd": 0.0040718002762140226,
+      "f1_weighted": 0.9560376946339829,
+      "f1_weighted_sd": 0.0025693144938514,
+      "n_repeats": 5,
+      "train_frac": 0.9,
+      "n_fit_cells_per_repeat": [
+        15034,
+        15034,
+        15034,
+        15034,
+        15034
+      ],
+      "n_eval_cells_per_repeat": [
+        1671,
+        1671,
+        1671,
+        1671,
+        1671
+      ],
+      "design": "split self-probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+    },
+    "label_counts": {
+      "LSC": 6307,
+      "basal": 7273,
+      "differentiated": 3125
+    },
+    "metric_code": "scgpt_frozen_diag_rebuild.py (unchanged; G1 rebuild)",
+    "timestamp_utc": "2026-08-20T11:13:00.171535+00:00",
+    "wall_s": 111.9
+  },
+  "per_seed_per_ckpt": {
+    "s42_best_val": {
+      "seed": 42,
+      "n_cls": 29,
+      "n_eval_cells": 16705,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed42/model_best_val.pt",
+      "pred_dist": {
+        "basal": 9974,
+        "LSC": 6147,
+        "differentiated": 584
+      },
+      "macro_f1": {
+        "macro_f1": 0.6752696973085559,
+        "ci95_low": 0.6688006041437183,
+        "ci95_high": 0.6824675055487994,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.7972443880058748,
+      "rho_normed": 0.797627290077489,
+      "null_mean": 0.015772148576301093,
+      "null_sd": 0.008925140235154038,
+      "null_z": 87.60144052657499,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "s42_final_epoch": {
+      "seed": 42,
+      "n_cls": 29,
+      "n_eval_cells": 16705,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed42/model_epoch15.pt",
+      "pred_dist": {
+        "basal": 9934,
+        "LSC": 6148,
+        "differentiated": 623
+      },
+      "macro_f1": {
+        "macro_f1": 0.6780166575495784,
+        "ci95_low": 0.6715783649382072,
+        "ci95_high": 0.6851897961598089,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.45753034745352744,
+      "rho_normed": 0.45552239621425894,
+      "null_mean": 0.0182121227982716,
+      "null_sd": 0.009718069556484134,
+      "null_z": 44.99970605007691,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "s123_best_val": {
+      "seed": 123,
+      "n_cls": 29,
+      "n_eval_cells": 16705,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed123/model_best_val.pt",
+      "pred_dist": {
+        "basal": 9957,
+        "LSC": 6136,
+        "differentiated": 612
+      },
+      "macro_f1": {
+        "macro_f1": 0.6803524861391564,
+        "ci95_low": 0.6740149749649109,
+        "ci95_high": 0.6879233590358516,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.6493972880122276,
+      "rho_normed": 0.6477935227382958,
+      "null_mean": 0.017083095399786825,
+      "null_sd": 0.009024315000549153,
+      "null_z": 69.89011656841862,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "s123_final_epoch": {
+      "seed": 123,
+      "n_cls": 29,
+      "n_eval_cells": 16705,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed123/model_epoch15.pt",
+      "pred_dist": {
+        "basal": 10107,
+        "LSC": 6115,
+        "differentiated": 483
+      },
+      "macro_f1": {
+        "macro_f1": 0.6572455878176504,
+        "ci95_low": 0.6511692728483565,
+        "ci95_high": 0.663591161954593,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.44763119682637065,
+      "rho_normed": 0.44673210596261476,
+      "null_mean": 0.017560180878414884,
+      "null_sd": 0.009880653700039321,
+      "null_z": 43.435580085403856,
+      "null_pctile": 1.0,
+      "n_null": 100
+    }
+  },
+  "aggregate": {
+    "best_val": {
+      "macro_f1": {
+        "mean": 0.6778110917238562,
+        "sd": 0.0035940744494568824,
+        "min": 0.6752696973085559,
+        "max": 0.6803524861391564,
+        "ci95": [
+          0.645520134283051,
+          0.7101020491646615
+        ],
+        "per_seed": {
+          "s42": 0.6752696973085559,
+          "s123": 0.6803524861391564
+        }
+      },
+      "rho_normed": {
+        "mean": 0.7227104064078924,
+        "sd": 0.10594847293627095,
+        "min": 0.6477935227382958,
+        "max": 0.797627290077489,
+        "ci95": [
+          -0.22918351749800192,
+          1.6746043303137867
+        ],
+        "per_seed": {
+          "s42": 0.797627290077489,
+          "s123": 0.6477935227382958
+        }
+      },
+      "rho_raw_mean": 0.7233208380090512,
+      "null_z": {
+        "mean": 78.7457785474968,
+        "per_seed": {
+          "s42": 87.60144052657499,
+          "s123": 69.89011656841862
+        }
+      },
+      "ci_method": "t(df=1) mean +/- 12.706*sd/sqrt(2)"
+    },
+    "final_epoch": {
+      "macro_f1": {
+        "mean": 0.6676311226836145,
+        "sd": 0.014687364259944928,
+        "min": 0.6572455878176504,
+        "max": 0.6780166575495784,
+        "ci95": [
+          0.5356725166766759,
+          0.799589728690553
+        ],
+        "per_seed": {
+          "s42": 0.6780166575495784,
+          "s123": 0.6572455878176504
+        }
+      },
+      "rho_normed": {
+        "mean": 0.4511272510884369,
+        "sd": 0.006215673845535606,
+        "min": 0.44673210596261476,
+        "max": 0.45552239621425894,
+        "ci95": [
+          0.3952825371197414,
+          0.5069719650571324
+        ],
+        "per_seed": {
+          "s42": 0.45552239621425894,
+          "s123": 0.44673210596261476
+        }
+      },
+      "rho_raw_mean": 0.4525807721399491,
+      "null_z": {
+        "mean": 44.21764306774038,
+        "per_seed": {
+          "s42": 44.99970605007691,
+          "s123": 43.435580085403856
+        }
+      },
+      "ci_method": "t(df=1) mean +/- 12.706*sd/sqrt(2)"
+    }
+  }
+}

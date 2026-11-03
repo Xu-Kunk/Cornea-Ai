@@ -1,0 +1,92 @@
+[14:45:56] pre-flight checks …
+  ✓ GPU temp: 54 °C
+[14:45:56] all pre-flight checks passed.
+
+[14:45:56] grid: λ∈[0.0, 0.5] × seed∈[42, 123, 456] → 6 runs (mode=train+eval)
+[14:45:56] λ=0.0 seed=42  already trained (ORDINAL_DONE) → skip
+
+[14:45:56] λ=0.0 seed=42  eval already present → skip
+[14:45:56] λ=0.0 seed=123  ready (GPU 54 °C, 99 GiB avail)
+
+[14:45:56] λ=0.0 seed=123  ordinal training starting …
+[22:27:38] λ=0.0 seed=123  TRAINED (461.7 min)  → ordinal_gf_lam0.0_seed123_20260806-144600
+[22:27:38] λ=0.0 seed=123  evaluating …
+[22:39:06] λ=0.0 seed=123  EVAL FAILED (rc=1)
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/dq/Codex/Ai/corneal_fm/evaluation.py:500: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho, _ = spearmanr(pseudotime, ordinals)
+Traceback (most recent call last):
+  File "/home/dq/Codex/Ai/scripts/run_ordinal_eval.py", line 438, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/dq/Codex/Ai/scripts/run_ordinal_eval.py", line 334, in main
+    results = evaluate_on_external_test(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dq/Codex/Ai/corneal_fm/evaluation.py", line 650, in evaluate_on_external_test
+    "timestamp_utc": datetime.now(datetime.UTC).isoformat(timespec="seconds"),
+                                  ^^^^^^^^^^^^
+AttributeError: type object 'datetime.datetime' has no attribute 'UTC'
+
+[22:39:06] λ=0.0 seed=456  ready (GPU 64 °C, 94 GiB avail)
+
+[22:39:06] λ=0.0 seed=456  ordinal training starting …
+[06:13:51] λ=0.0 seed=456  TRAINED (454.7 min)  → ordinal_gf_lam0.0_seed456_20260806-223909
+[06:13:51] λ=0.0 seed=456  evaluating …
+[06:24:20] λ=0.0 seed=456  evaluated → results_0.0_456.json
+[06:24:20] λ=0.5 seed=42  already trained (ORDINAL_DONE) → skip
+
+[06:24:20] λ=0.5 seed=42  eval already present → skip
+[06:24:20] λ=0.5 seed=123  ready (GPU 63 °C, 95 GiB avail)
+
+[06:24:20] λ=0.5 seed=123  ordinal training starting …
+[09:13:44] λ=0.5 seed=123  TRAIN FAILED (rc=-9, 169.4 min); log: /home/dq/Codex/Ai/artifacts/paper1_ordinal_eval/logs/ordinal_lam0.5_seed123.log
+00/7473 [2:45:41<1:03:51,  1.32it/s]
+                                                       
+{'loss': -0.2223, 'grad_norm': 3.296875, 'learning_rate': 3.638319231320809e-05, 'epoch': 0.96}
+
+ 32%|███▏      | 2400/7473 [2:45:41<1:03:51,  1.32it/s]
+                                                       
+{'L_ord': 0.1448974758386612, 'L_cont': -0.91015625, 'ordinal_loss': -0.3101806640625, 'epoch': 0.96}
+
+ 32%|███▏      | 2400/7473 [2:45:41<1:03:51,  1.32it/s]
+                                                       
+{'L_ord': 0.17708741128444672, 'L_cont': -0.91796875, 'ordinal_loss': -0.2818969488143921, 'epoch': 0.96}
+
+ 32%|███▏      | 2400/7473 [2:45:42<1:03:51,  1.32it/s]
+                                                       
+{'L_ord': 0.06097819283604622, 'L_cont': -0.921875, 'ordinal_loss': -0.3999592959880829, 'epoch': 0.96}
+
+ 32%|███▏      | 2400/7473 [2:45:43<1:03:51,  1.32it/s]
+                                                       
+{'L_ord': 0.04266764596104622, 'L_cont': -0.921875, 'ordinal_loss': -0.4182698428630829, 'epoch': 0.96}
+
+ 32%|███▏      | 2400/7473 [2:45:44<1:03:51,  1.32it/s]
+ 32%|███▏      | 2401/7473 [2:45:45<2:29:11,  1.76s/it]
+ 32%|███▏      | 2402/7473 [2:45:49<3:28:35,  2.47s/it]
+ 32%|███▏      | 2403/7473 [2:45:53<4:10:29,  2.96s/it]
+ 32%|███▏      | 2404/7473 [2:45:57<4:39:11,  3.30s/it]
+ 32%|███▏      | 2405/7473 [2:46:04<6:00:38,  4.27s/it]
+ 32%|███▏      | 2406/7473 [2:46:13<8:04:38,  5.74s/it]
+ 32%|███▏      | 2407/7473 [2:46:22<9:20:54,  6.64s/it]
+ 32%|███▏      | 2408/7473 [2:46:30<10:04:38,  7.16s/it]
+ 32%|███▏      | 2409/7473 [2:46:38<10:20:07,  7.35s/it]
+ 32%|███▏      | 2410/7473 [2:46:45<10:19:04,  7.34s/it]
+                                                        
+{'loss': -0.3758, 'grad_norm': 5.34375, 'learning_rate': 3.631148716477843e-05, 'epoch': 0.97}
+
+ 32%|███▏      | 2410/7473 [2:46:45<10:19:04,  7.34s/it]
+ 32%|███▏      | 2411/7473 [2:46:52<10:12:15,  7.26s/it]
+ 32%|███▏      | 2412/7473 [2:46:59<9:59:18,  7.11s/it] 
+[09:13:44] λ=0.5 seed=456  ready (GPU 61 °C, 90 GiB avail)
+
+[09:13:44] λ=0.5 seed=456  ordinal training starting …
+[17:30:46] λ=0.5 seed=456  TRAINED (497.0 min)  → ordinal_gf_lam0.5_seed456_20260807-091349
+[17:30:46] λ=0.5 seed=456  evaluating …
+[17:41:24] λ=0.5 seed=456  evaluated → results_0.5_456.json
+
+[17:41:24] status -> /home/dq/Codex/Ai/artifacts/paper1_ordinal_eval/runs_status.json
+
+============================================================
+D5 ordinal grid: 4/6 runs trained+evaluated
+============================================================
+Run complete but PARTIAL; relaunch to resume (idempotent).

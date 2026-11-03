@@ -182,9 +182,7 @@ def default_geneformer_dicts() -> tuple[str, str]:
     td = glob(os.path.join(snap, "geneformer", "token_dictionary*.pkl"))
     gd = glob(os.path.join(snap, "geneformer", "gene_name_id_dict*.pkl"))
     if not td or not gd:
-        raise FileNotFoundError(
-            f"token/gene-name dicts not found under {snap}/geneformer/"
-        )
+        raise FileNotFoundError(f"token/gene-name dicts not found under {snap}/geneformer/")
     return td[0], gd[0]
 
 
@@ -213,9 +211,7 @@ def marker_token_ranks(
     return out
 
 
-def batch_presence(
-    ids: torch.Tensor, ranks: dict[str, int | None]
-) -> dict[str, torch.Tensor]:
+def batch_presence(ids: torch.Tensor, ranks: dict[str, int | None]) -> dict[str, torch.Tensor]:
     """Per-batch marker presence: ``{gene: (b,) bool}`` for the given ranks.
 
     ``ids`` is the padded ``(b, seq)`` token tensor; padding is token 0 which
@@ -259,9 +255,7 @@ def marker_scores_from_presence(
         vals = [zs[g] for g in syms if g in zs]
         group_z[group] = np.mean(vals, axis=0) if vals else None
     if all(v is None for v in group_z.values()):
-        raise ValueError(
-            f"no marker gene could be resolved to a token rank (got {list(zs)})"
-        )
+        raise ValueError(f"no marker gene could be resolved to a token rank (got {list(zs)})")
     score = np.zeros(n, dtype=float)
     for group in _MARKER_GROUPS:
         gz = group_z[group]
@@ -271,9 +265,7 @@ def marker_scores_from_presence(
     return score
 
 
-def pca_unit_axis(
-    embeddings: np.ndarray, scores: np.ndarray
-) -> tuple[np.ndarray, float]:
+def pca_unit_axis(embeddings: np.ndarray, scores: np.ndarray) -> tuple[np.ndarray, float]:
     """PCA-1 axis: first singular vector of the centred embeddings.
 
     The singular-vector sign is arbitrary; it is oriented so that the Pearson
@@ -296,9 +288,7 @@ def pca_unit_axis(
     return w, rho
 
 
-def centroid_pca_axis(
-    embeddings: np.ndarray, ordinals: np.ndarray
-) -> tuple[np.ndarray, float]:
+def centroid_pca_axis(embeddings: np.ndarray, ordinals: np.ndarray) -> tuple[np.ndarray, float]:
     """Per-layer-centroid PCA axis — the eval metric's training-side analog.
 
     Mirrors ``corneal_fm.evaluation.marker_gradient_correlation`` EXACTLY
@@ -318,9 +308,7 @@ def centroid_pca_axis(
     if emb.shape[0] < 2:
         raise ValueError("need >= 2 cells for a centroid-PCA axis")
     if emb.shape[0] != ords.shape[0]:
-        raise ValueError(
-            f"embedding/ordinal length mismatch: {emb.shape[0]} != {ords.shape[0]}"
-        )
+        raise ValueError(f"embedding/ordinal length mismatch: {emb.shape[0]} != {ords.shape[0]}")
     present = np.unique(ords).astype(int)
     if len(present) < 2:
         raise ValueError("need >= 2 ordinal layers for a centroid-PCA axis")
@@ -380,9 +368,7 @@ def optimize_axis(
         w.data = w.data / (w.data.norm() + 1e-12)
     w_final = w.detach().numpy()
     rho_final = float(spearmanr(emb @ w_final, s).statistic)
-    method = (
-        "soft_spearman_refined" if rho_final >= rho0 - 1e-6 else "pca_fallback"
-    )
+    method = "soft_spearman_refined" if rho_final >= rho0 - 1e-6 else "pca_fallback"
     return w_final, method, rho_final
 
 
@@ -456,9 +442,7 @@ def cache_axis(axis: AxisResult, cache_path: str | Path) -> Path:
     return path
 
 
-def load_cached_axis(
-    cache_path: str | Path, cache_key: str
-) -> AxisResult | None:
+def load_cached_axis(cache_path: str | Path, cache_key: str) -> AxisResult | None:
     """Load the cached axis iff it exists and matches ``cache_key``."""
     path = Path(cache_path)
     if not path.is_file():
@@ -473,13 +457,20 @@ def load_cached_axis(
 
 
 def axis_cache_key(
-    prepared_train: str | Path,
+    source_data: str | Path,
     model_dir: str | Path,
     marker_genes: dict[str, list[str]] | None = None,
     extra: str = "v2",
     mode: str = DEFAULT_AXIS_MODE,
+    source_checksum: str = "",
 ) -> str:
-    """Stable cache key: dataset + model + marker set + schema + axis mode.
+    """Stable cache key: source dataset + model + marker set + schema + axis mode.
+
+    ``source_data`` is the SOURCE training h5ad (seed-independent), NOT the
+    run-local prepared dataset: the frozen axis is fixed by the frozen model
+    plus the source cells, so it must be reused across seeds/arms instead of
+    recomputed per run. ``source_checksum`` (from the fair-split manifest)
+    pins the source content so a changed source never reuses a stale axis.
 
     ``mode`` is baked into the key (and the schema was bumped to v2 for the
     new primary definition) so a changed axis definition NEVER loads an older
@@ -490,8 +481,8 @@ def axis_cache_key(
     genes = marker_genes if marker_genes is not None else MARKER_GENES
     flat = ",".join(f"{g}:{','.join(v)}" for g, v in genes.items())
     payload = (
-        f"{Path(prepared_train).resolve()}|{Path(model_dir).resolve()}|{flat}"
-        f"|{SCHEMA}|{extra}|mode={mode}"
+        f"{Path(source_data).resolve()}|{source_checksum}|{Path(model_dir).resolve()}"
+        f"|{flat}|{SCHEMA}|{extra}|mode={mode}"
     )
     return hashlib.sha256(payload.encode()).hexdigest()[:24]
 
@@ -608,16 +599,12 @@ def compute_axis(
         if class_to_layer.get(int(c), NON_LAYER) != NON_LAYER
     ]
     if len(epi_rows) < 2:
-        raise ValueError(
-            f"need >= 2 epithelial training cells for the axis; got {len(epi_rows)}"
-        )
+        raise ValueError(f"need >= 2 epithelial training cells for the axis; got {len(epi_rows)}")
 
     device = model.device
     model.eval()
     rank_info = marker_token_ranks(token_dictionary, gene_name_id_dictionary)
-    missing = {
-        g for group in rank_info.values() for g, r in group.items() if r is None
-    }
+    missing = {g for group in rank_info.values() for g, r in group.items() if r is None}
     if missing:
         print(
             f"[axis_ref] WARN marker genes missing from the Geneformer vocab "
@@ -626,9 +613,7 @@ def compute_axis(
         )
 
     # presence accumulation per gene (genes with rank None are skipped)
-    active = {
-        g: r for group in rank_info.values() for g, r in group.items() if r is not None
-    }
+    active = {g: r for group in rank_info.values() for g, r in group.items() if r is not None}
 
     def _presence_scores() -> np.ndarray:
         """Marker scores over ALL epi cells (ids-only pass, NO model forward).
@@ -725,9 +710,7 @@ def compute_axis(
     ordinals = None
     if class_to_ordinal is not None:
         labels_epi = [int(ds["label"][i]) for i in epi_rows]
-        ordinals = np.asarray(
-            [class_to_ordinal.get(c, NON_LAYER) for c in labels_epi], dtype=int
-        )
+        ordinals = np.asarray([class_to_ordinal.get(c, NON_LAYER) for c in labels_epi], dtype=int)
 
     if mode == "centroid_pca":
         # --- PRIMARY: per-layer-centroid PCA axis on ALL epithelial cells ---
@@ -750,10 +733,7 @@ def compute_axis(
         # Ordinals aligned to the (possibly length-sorted) rows: each row's
         # own label, so no index bookkeeping.
         ord_all = np.asarray(
-            [
-                class_to_ordinal.get(int(ds["label"][i]), NON_LAYER)
-                for i in rows_all
-            ],
+            [class_to_ordinal.get(int(ds["label"][i]), NON_LAYER) for i in rows_all],
             dtype=int,
         )
         if len(emb_all) != len(ord_all):
@@ -764,9 +744,7 @@ def compute_axis(
         # stratified subsample exactly as the marker_score mode does below,
         # so the new cache record carries the marker axis for comparison. ---
         scores = _presence_scores()
-        sub_idx = _stratified_subsample_indices(
-            len(epi_rows), ordinals, int(max_cells), seed=seed
-        )
+        sub_idx = _stratified_subsample_indices(len(epi_rows), ordinals, int(max_cells), seed=seed)
         sub_rows = [epi_rows[i] for i in sub_idx]
         order = _length_order(sub_rows)
         if order is not None:
@@ -777,9 +755,7 @@ def compute_axis(
             sub_scores = sub_scores[order]
         if len(sub_emb) != len(sub_scores):
             raise RuntimeError("embedding/marker-score length mismatch")
-        pca_w, _marker_method, rho_pca = optimize_axis(
-            sub_emb, sub_scores, seed=seed
-        )
+        pca_w, _marker_method, rho_pca = optimize_axis(sub_emb, sub_scores, seed=seed)
         axis = AxisResult(
             w=w,
             pca_w=pca_w,
@@ -802,9 +778,7 @@ def compute_axis(
         # would be pure GPU waste for bit-identical results (same seeded RNG,
         # same cells, same scores). The subsample rows are sorted by
         # ascending length to tighten per-batch padding.
-        sub_idx = _stratified_subsample_indices(
-            len(epi_rows), ordinals, int(max_cells), seed=seed
-        )
+        sub_idx = _stratified_subsample_indices(len(epi_rows), ordinals, int(max_cells), seed=seed)
         sub_rows = [epi_rows[i] for i in sub_idx]
         order = _length_order(sub_rows)
         if order is not None:

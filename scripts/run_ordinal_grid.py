@@ -51,7 +51,7 @@ SEEDS = [42, 123, 456]
 EPOCHS = 3
 DATA_FILE = "corneal_100k_donor_split.h5ad"
 SPLIT_MANIFEST = "artifacts/paper1_fair_split/manifest.json"
-PY = os.environ.get("PY", "python3")
+PY = os.environ.get("PY", "/home/dq/venv-ds/bin/python3")
 RUN_TIMEOUT_S = 172800  # 48 h per run
 
 # Robust GX10 guards (same as run_lambda_grid.py): never start a run hot or

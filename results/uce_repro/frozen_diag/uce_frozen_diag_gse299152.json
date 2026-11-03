@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "model": "snap-stanford/UCE",
+    "version": "33-layer transformer (d_model 1280, d_hid 5120, nhead 20, token_dim 5120, pad_length 1536, sample_size 1024)",
+    "checkpoint": "33l_8ep_1024t_1280.torch",
+    "checkpoint_sha256": "3f458726196308e171611ed28394b55865708749f82af68cfd7771d5dfee661e",
+    "checkpoint_keys_loaded": "official evaluate.py TransformerModel load_state_dict(strict=True)",
+    "device": "cuda",
+    "batch_size": 25,
+    "cell_embedding": "CLS token output of transformer encoder, L2-normalized (obsm X_uce, dim 1280)",
+    "sampling": "expression-weighted np.random.choice(sample_size=1024, replace=True) per cell + chromosome-order shuffle (official eval_data.sample_cell_sentences)",
+    "sample_repeats": 3,
+    "sample_seeds": [
+      42,
+      123,
+      456
+    ],
+    "n_null": 100,
+    "seed": 42,
+    "n_probe_repeats": 5,
+    "rho_primary": "L2-normed cell_emb",
+    "layer_order": [
+      "LSC",
+      "TAC",
+      "basal",
+      "differentiated"
+    ],
+    "corpus_status": "GSE299152 (GEO 2025-11-18) is out-of-corpus by construction: UCE pretraining census snapshot 2023-04-25 predates it; also absent from every queryable census snapshot (2023-05-15 .. 2025-11-08)."
+  },
+  "results": {
+    "gse299152": {
+      "tag": "GSE299152 (cornea, post-cutoff 2025-11-18; out-of-corpus for UCE)",
+      "n_cells": 21374,
+      "label_counts": {
+        "LSC": 15921,
+        "TAC": 0,
+        "basal": 1099,
+        "differentiated": 4354
+      },
+      "sample_strategy": "3 full-pass repeats (seeds 42/123/456), metrics averaged across repeats",
+      "per_repeat": [
+        {
+          "sample_seed": 123,
+          "rho_raw": 0.7093412444699597,
+          "rho_normed": 0.7093412444699597,
+          "null_mean": 0.005475742422035913,
+          "null_sd": 0.007460514770678147,
+          "null_z": 94.34543375134203,
+          "null_pctile": 1.0,
+          "probe_f1_macro": 0.9193477201330902,
+          "probe_f1_macro_sd": 0.009557418400496391,
+          "probe_f1_weighted": 0.9603944446373236,
+          "probe_f1_weighted_sd": 0.0032259247514234615
+        },
+        {
+          "sample_seed": 42,
+          "rho_raw": 0.7048939422924986,
+          "rho_normed": 0.7048939422924986,
+          "null_mean": 0.004174960934424036,
+          "null_sd": 0.007143221361228301,
+          "null_z": 98.09565543655273,
+          "null_pctile": 1.0,
+          "probe_f1_macro": 0.9140083648547014,
+          "probe_f1_macro_sd": 0.0057047727181431486,
+          "probe_f1_weighted": 0.9594719977798626,
+          "probe_f1_weighted_sd": 0.002211631659303017
+        },
+        {
+          "sample_seed": 456,
+          "rho_raw": 0.7074761488958422,
+          "rho_normed": 0.7074761488958422,
+          "null_mean": 0.005026197360366381,
+          "null_sd": 0.006836921556925129,
+          "null_z": 102.74360261219658,
+          "null_pctile": 1.0,
+          "probe_f1_macro": 0.9145055706850431,
+          "probe_f1_macro_sd": 0.0091492902711813,
+          "probe_f1_weighted": 0.9602042748149838,
+          "probe_f1_weighted_sd": 0.003635134321244018
+        }
+      ],
+      "rho_raw": 0.7072371118861002,
+      "rho_normed": 0.7072371118861002,
+      "rho_raw_spread": 0.004447302177461143,
+      "rho_normed_spread": 0.004447302177461143,
+      "null_mean": 0.0048923002389421105,
+      "null_sd": 0.007146885896277193,
+      "null_z": 98.39489726669711,
+      "null_pctile": 1.0,
+      "probe_f1_macro": 0.9159538852242782,
+      "probe_f1_macro_sd": 0.008137160463273613,
+      "probe_f1_weighted": 0.9600235724107233,
+      "probe_f1_weighted_sd": 0.0030242302439901655,
+      "n_probe_repeats": 5,
+      "n_sample_repeats": 3,
+      "sample_seeds": [
+        42,
+        123,
+        456
+      ],
+      "probe_split": "cell-level 80/20",
+      "probe_solver": "lbfgs",
+      "probe_C": 1.0,
+      "probe_max_iter": 1000,
+      "emb_dim": 1280,
+      "emb_dtype": "float32",
+      "emb_norm": "L2-normalized CLS cell embedding (official obsm X_uce)",
+      "forward_total_s": 12011.1,
+      "forward_per_batch_s": 14.048727425844485,
+      "n_batches": 855,
+      "batch_size": 25,
+      "peak_gpu_gb": 7.998525,
+      "genes_matched_vocab": 10310,
+      "genes_vocab": 19790,
+      "genes_input": 11274,
+      "mean_nnz_per_cell": 2591.844343595022,
+      "checkpoint_sha256": "3f458726196308e171611ed28394b55865708749f82af68cfd7771d5dfee661e",
+      "corpus_note": "GSE299152 (GEO 2025-11-18) is out-of-corpus by construction: UCE pretraining census snapshot 2023-04-25 predates it; also absent from every queryable census snapshot (2023-05-15 .. 2025-11-08)."
+    }
+  }
+}

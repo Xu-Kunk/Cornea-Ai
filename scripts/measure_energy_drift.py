@@ -39,12 +39,12 @@ Existing fine-tuned arms (locked checkpoints, read-only):
 
 Usage:
   # final-layer drift, full data, zero inference (seconds):
-  python3 scripts/measure_energy_drift.py --source percell
+  /home/dq/venv-ds/bin/python3 scripts/measure_energy_drift.py --source percell
   # per-layer drift smoke on a subsample (CPU, ~20-30 min @300 cells):
-  python3 scripts/measure_energy_drift.py \
+  /home/dq/venv-ds/bin/python3 scripts/measure_energy_drift.py \
       --source layerwise --max-cells 300 --device cpu
   # full per-layer run (queue on GPU when free, or overnight CPU @3000 cells):
-  python3 scripts/measure_energy_drift.py \
+  /home/dq/venv-ds/bin/python3 scripts/measure_energy_drift.py \
       --source layerwise --max-cells 3000 --batch-size 32
 """
 

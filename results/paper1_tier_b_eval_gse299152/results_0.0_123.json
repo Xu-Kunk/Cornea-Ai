@@ -1,0 +1,170 @@
+{
+  "provenance": {
+    "script": "corneal_fm/evaluation.py",
+    "accession": "GSE299152",
+    "external_test_file": "data/gse299152/gse299152_annotated.h5ad",
+    "n_external_cells": 21374,
+    "n_eval_cells": 21374,
+    "n_eval_donors": 3,
+    "classes": [
+      "LSC",
+      "TAC",
+      "basal",
+      "differentiated"
+    ],
+    "layer_order": [
+      "LSC",
+      "TAC",
+      "basal",
+      "differentiated"
+    ],
+    "n_boot": 1000,
+    "seed": 42,
+    "timestamp_utc": "2026-08-11T06:56:19+00:00"
+  },
+  "leakage": {
+    "train_donors": [
+      "14613",
+      "14823",
+      "15057",
+      "15176",
+      "15183",
+      "15205",
+      "15209",
+      "15232",
+      "15357",
+      "246z",
+      "257t",
+      "283p",
+      "atlanta_a230245",
+      "bcm_21_0999",
+      "bcm_21_3104",
+      "bcm_22_0075",
+      "bcm_22_0200",
+      "bcm_22_0389",
+      "bcm_22_0434",
+      "bcm_22_0458",
+      "bcm_22_0485",
+      "bcm_22_0496",
+      "bcm_22_0500",
+      "bcm_22_0698",
+      "bcm_22_0769",
+      "bcm_22_0784",
+      "bcm_22_0952",
+      "bcm_23_0131",
+      "bcm_23_0170",
+      "bcm_23_0222",
+      "bcm_23_0229",
+      "bcm_23_0358",
+      "bcm_23_0362",
+      "chakravarti_cornea2",
+      "chakravarti_cornea3",
+      "dickman_cornea01",
+      "dickman_cornea04",
+      "dickman_cornea05",
+      "fetus12_13w0d",
+      "fetus1_17w1d",
+      "fetus5_16w1d",
+      "fetus6_18w2d",
+      "fetus7_19w5d",
+      "lei_22_49449",
+      "li_donor72",
+      "li_donor73",
+      "pooled [dickman_cornea07,dickman_cornea08]",
+      "shi_donor1",
+      "shi_donor3"
+    ],
+    "external_donors": [
+      "donor2046",
+      "donor2206",
+      "donor3748"
+    ],
+    "donor_overlap": [],
+    "donor_disjoint": true,
+    "train_studies": [
+      "chakravarti_GSE218123",
+      "chen_cornea",
+      "chen_fetal",
+      "chen_limbus",
+      "chen_sclera",
+      "dickman_GSE186433",
+      "lako_adult_GSE155683",
+      "lako_fetal_GSE155683",
+      "li_GSE147979",
+      "shi_GSE157474"
+    ],
+    "external_accession": "GSE299152",
+    "source_overlap": [],
+    "source_disjoint": true,
+    "legacy_cell_level_split": false,
+    "passed": true
+  },
+  "primary_endpoint": {
+    "metric": "donor_level_macro_f1",
+    "macro_f1": 0.4539331157864989,
+    "ci_lower": 0.4317109068493658,
+    "ci_upper": 0.47841896130820305,
+    "per_donor": {
+      "Donor2046": 0.47841896130820305,
+      "Donor2206": 0.45166947920192796,
+      "Donor3748": 0.43171090684936575
+    }
+  },
+  "per_class": {
+    "LSC": {
+      "precision": 0.986784140969163,
+      "recall": 0.04220840399472395,
+      "f1": 0.08095410191543187,
+      "support": 15921
+    },
+    "TAC": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0
+    },
+    "basal": {
+      "precision": 0.9414182939362795,
+      "recall": 0.8334849863512284,
+      "f1": 0.8841698841698842,
+      "support": 1099
+    },
+    "differentiated": {
+      "precision": 0.8334045279794959,
+      "recall": 0.8961874138723014,
+      "f1": 0.8636564851704294,
+      "support": 4354
+    }
+  },
+  "confusion": [
+    [
+      672,
+      585,
+      5,
+      644
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      7,
+      11,
+      916,
+      136
+    ],
+    [
+      2,
+      4,
+      52,
+      3902
+    ]
+  ],
+  "secondary_endpoints": {
+    "layer_adjacency_accuracy": 0.9856835407504445,
+    "marker_gradient_rank_correlation": 0.6307428653668269,
+    "expected_calibration_error": 0.03128867185812526
+  }
+}

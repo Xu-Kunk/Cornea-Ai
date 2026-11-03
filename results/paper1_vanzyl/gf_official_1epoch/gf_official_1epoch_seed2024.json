@@ -1,0 +1,37 @@
+{
+  "seed": 2024,
+  "save_dir": "caft_gf_lam0.0_seed2024_20260819-174907",
+  "training": {
+    "epochs": 1,
+    "lr": 5e-05,
+    "per_device_batch": 8,
+    "grad_accum": 4,
+    "effective_batch": 32,
+    "warmup_steps": 500,
+    "weight_decay": 0.001,
+    "train_cells": 79684,
+    "num_classes": 31,
+    "caft_lambda": 0.0,
+    "strict_fair": true,
+    "manifest_sha256": "f4393ae16959ed8e1923661a5e7849bb93d220bb202cb77c6f1dcb85549b8cd6",
+    "elapsed_min": 189.87,
+    "CAFT_DONE": true
+  },
+  "eval": {
+    "donor_macro_f1": 0.6387288578817348,
+    "ci_lower": 0.6066975915360073,
+    "ci_upper": 0.6707601242274623,
+    "rho_raw_tierb": 0.0915060275837454,
+    "rho_raw": 0.09146869560689924,
+    "rho_normed": 0.09367618697785837,
+    "null_z": 14.137732351513653,
+    "null_pctile": 1.0,
+    "LAA": 0.9773942470389171,
+    "ECE": 0.04604487157272341
+  },
+  "reference_3epoch": {
+    "rho_raw": null,
+    "donor_macro_f1": null,
+    "note": "3-epoch reference exists only for Arm B seeds 42/123/456 (E3 seeds: null)"
+  }
+}

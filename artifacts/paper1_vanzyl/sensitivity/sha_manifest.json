@@ -1,0 +1,11 @@
+{
+  "files": {
+    "scgpt_naive_seed42.npz": "dd3b7fbc21cf6acba909881f63bbb5f09379db8cb7cd722e1e03dd4c9b600153",
+    "cellplm/seed123/cell_emb.npz": "19d663a5525326f60f7c3102ab927304d7525b139c783584d3c55e0264114881",
+    "cellplm/seed42/cell_emb.npz": "0f3e861d76097ea73f1fc62aa26eb882d41e2fd13da265edfa7cb73ffeae0d24",
+    "cellplm/seed456/cell_emb.npz": "2d8cb47a33d909869d1750157927dd1cfc3617c36cf8034097f31077b1269ece",
+    "vanzyl_cell_emb.npz": "0ac7e259fd39cdd440e8c37515722737e4c5fe60743b8905c4b43971826117fd",
+    "gf_vanzyl_cell_emb.npz": "f13e12084ba50b66a58da2461d8c90a465457ef47e837117d62103c6fd74f90d"
+  },
+  "generated_utc": "2026-08-20T17:58:13+00:00"
+}

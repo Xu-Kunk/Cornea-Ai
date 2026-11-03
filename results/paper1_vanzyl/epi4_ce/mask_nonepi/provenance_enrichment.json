@@ -1,0 +1,61 @@
+{
+  "generated_utc": "2026-10-22T02:32:48+00:00",
+  "variant_dir": "results/paper1_vanzyl/epi4_ce/mask_nonepi",
+  "additive_only": true,
+  "files": [
+    {
+      "seed": 42,
+      "record": "results/paper1_vanzyl/epi4_ce/mask_nonepi/seed42/eval_gse153515.json",
+      "sha256_before": "d404266497d49c52fd6e298dd8ccdca5e2f9d56ee6708dd6218ca691884b280b",
+      "sha256_after": "f807fe137ab7f460ab736afc832b91366e22e3957eea5c8125bc0313c041366c",
+      "added_keys": [
+        "archived_inputs",
+        "record_sha256_at_enrichment"
+      ],
+      "notes_extended": true,
+      "per_class_f1": {
+        "LSC": 0.8688018208421395,
+        "TAC": 0.0,
+        "basal": 0.9063162937110791,
+        "differentiated": 0.8584697550214792
+      },
+      "confusion_rows": 4
+    },
+    {
+      "seed": 123,
+      "record": "results/paper1_vanzyl/epi4_ce/mask_nonepi/seed123/eval_gse153515.json",
+      "sha256_before": "620233466c6ee566f823294eeb890abbcb766b8c64d925b3ad73bb2d0c6882e7",
+      "sha256_after": "1ba51281cfcf46af29a887e47bcb21bcd3f8052397bc795fc876e230023d2f26",
+      "added_keys": [
+        "archived_inputs",
+        "record_sha256_at_enrichment"
+      ],
+      "notes_extended": true,
+      "per_class_f1": {
+        "LSC": 0.8547430830039525,
+        "TAC": 0.0,
+        "basal": 0.894489247311828,
+        "differentiated": 0.8419550481626829
+      },
+      "confusion_rows": 4
+    },
+    {
+      "seed": 456,
+      "record": "results/paper1_vanzyl/epi4_ce/mask_nonepi/seed456/eval_gse153515.json",
+      "sha256_before": "b68b54915afff291ce84f18bf1f2e27ecc588e6507de20c2ac6cf025bb0d4784",
+      "sha256_after": "a96e7186f04a74189a25a19a5a431bd0afaeb41f601d1d2c5954752aced69722",
+      "added_keys": [
+        "archived_inputs",
+        "record_sha256_at_enrichment"
+      ],
+      "notes_extended": true,
+      "per_class_f1": {
+        "LSC": 0.8503570835409401,
+        "TAC": 0.0,
+        "basal": 0.8956210781998516,
+        "differentiated": 0.8433536871770785
+      },
+      "confusion_rows": 4
+    }
+  ]
+}

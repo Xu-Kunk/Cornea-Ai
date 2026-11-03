@@ -1,0 +1,169 @@
+{
+  "description": "CellRefine corneal marker gene prototypes for Corneal-FM A3 ablation",
+  "references": [
+    "Collin et al. 2021, Ocul Surf — Human corneal single-cell atlas",
+    "Ligocki et al. 2021, Sci Rep — Adult corneal cell subtypes",
+    "CellRefine: Weerasekara et al. 2026, arXiv:2605.07938"
+  ],
+  "n_cell_types": 12,
+  "n_lineage_edges": 12,
+  "domain": "ocular_surface",
+  "prototypes": {
+    "corneal_superficial": {
+      "cell_type": "corneal_superficial",
+      "genes": [
+        "KRT12",
+        "KRT3",
+        "CLU",
+        "ALDH3A1",
+        "KRT5",
+        "EPCAM"
+      ],
+      "n_genes": 6
+    },
+    "corneal_wing": {
+      "cell_type": "corneal_wing",
+      "genes": [
+        "KRT12",
+        "KRT3",
+        "TKT",
+        "SOD2",
+        "KRT5",
+        "EPCAM"
+      ],
+      "n_genes": 6
+    },
+    "corneal_basal": {
+      "cell_type": "corneal_basal",
+      "genes": [
+        "PAX6",
+        "KRT15",
+        "TP63",
+        "ITGB4",
+        "KRT5",
+        "KRT14"
+      ],
+      "n_genes": 6
+    },
+    "TAC1": {
+      "cell_type": "TAC1",
+      "genes": [
+        "MKI67",
+        "TOP2A",
+        "CCNB1",
+        "PCNA",
+        "KRT5",
+        "KRT14"
+      ],
+      "n_genes": 6
+    },
+    "TAC2": {
+      "cell_type": "TAC2",
+      "genes": [
+        "MKI67",
+        "TOP2A",
+        "CCNB1",
+        "PCNA",
+        "KRT5",
+        "KRT14"
+      ],
+      "n_genes": 6
+    },
+    "LSC": {
+      "cell_type": "LSC",
+      "genes": [
+        "ABCG2",
+        "KRT15",
+        "TP63",
+        "NGFR",
+        "KRT5",
+        "KRT14"
+      ],
+      "n_genes": 6
+    },
+    "keratocyte": {
+      "cell_type": "keratocyte",
+      "genes": [
+        "KERA",
+        "LUM",
+        "DCN",
+        "ALDH3A1",
+        "COL1A1",
+        "VIM"
+      ],
+      "n_genes": 6
+    },
+    "corneal_endothelial": {
+      "cell_type": "corneal_endothelial",
+      "genes": [
+        "SLC4A11",
+        "COL8A2",
+        "TJP1",
+        "CDH2",
+        "VIM",
+        "CDH1"
+      ],
+      "n_genes": 6
+    },
+    "conjunctival_epithelial": {
+      "cell_type": "conjunctival_epithelial",
+      "genes": [
+        "KRT4",
+        "KRT13",
+        "MUC5AC",
+        "KRT19",
+        "KRT5",
+        "EPCAM"
+      ],
+      "n_genes": 6
+    },
+    "goblet_cell": {
+      "cell_type": "goblet_cell",
+      "genes": [
+        "MUC5AC",
+        "SPDEF",
+        "KRT7",
+        "TFF3",
+        "KRT19",
+        "EPCAM"
+      ],
+      "n_genes": 6
+    },
+    "immune_cell": {
+      "cell_type": "immune_cell",
+      "genes": [
+        "CD3D",
+        "CD14",
+        "MS4A1",
+        "NKG7",
+        "PTPRC"
+      ],
+      "n_genes": 5
+    },
+    "vascular_endothelial": {
+      "cell_type": "vascular_endothelial",
+      "genes": [
+        "PECAM1",
+        "CDH5",
+        "VWF",
+        "CLDN5",
+        "VIM"
+      ],
+      "n_genes": 5
+    }
+  },
+  "lineage_tree": {
+    "TAC1": "LSC",
+    "TAC2": "LSC",
+    "corneal_superficial": "corneal_wing",
+    "corneal_wing": "corneal_basal",
+    "corneal_basal": "LSC",
+    "LSC": null,
+    "goblet_cell": "conjunctival_epithelial",
+    "conjunctival_epithelial": null,
+    "keratocyte": null,
+    "corneal_endothelial": null,
+    "vascular_endothelial": null,
+    "immune_cell": null
+  }
+}

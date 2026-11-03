@@ -1,0 +1,62 @@
+{
+  "arm": "PREREG-2026-08-11 §9 Arm B — GF official 1-epoch budget control",
+  "created_utc": "2026-08-18T16:10:00Z",
+  "migration": {
+    "note": "All files rsynced local -> p5070 (/home/summer/corneal_scgpt); remote sha256 verified post-migration",
+    "files": [
+      {"local": "data/corneal_100k_donor_split.h5ad", "remote": "data/corneal_100k_donor_split.h5ad",
+       "size_bytes": 4071980278, "sha256": "bc357c7d57977ab8af95cc97a33d257dc5273919f21cb1792d54f97646bb39b6",
+       "expected": "manifest.json checksums.train_h5ad (MATCH)"},
+      {"local": "data/gse153515_annotated.h5ad", "remote": "data/gse153515_annotated.h5ad",
+       "size_bytes": 2069737424, "sha256": "2e4ef3081a40f4b3034dafbaec68506744f5b8c12d81eacb414e64dac25ede2b",
+       "expected": "local source sha (MATCH; GSE153515 LOCKED external test)"},
+      {"local": "config/default_train_args.yml", "remote": "config/default_train_args.yml",
+       "sha256": "199c318c6d99c2698b7ec878df4c1261114c2f8cb5c1fd2492a60a8ad1452028", "expected": "local (MATCH)"},
+      {"local": "config/external_test_gse153515.yml", "remote": "config/external_test_gse153515.yml",
+       "sha256": "7d1664e9ad65a9bd5f64cf7790bec9dc6084ace80906c0b3fdd6c1880fdbc120", "expected": "local (MATCH)"},
+      {"local": "artifacts/paper1_fair_split/manifest.json", "remote": "artifacts/paper1_fair_split/manifest.json",
+       "sha256": "f4393ae16959ed8e1923661a5e7849bb93d220bb202cb77c6f1dcb85549b8cd6",
+       "expected": "LOCKED run caft_args.json manifest_sha256 (MATCH)"},
+      {"local": "scripts/run_tier_b_eval.py", "remote": "scripts/run_tier_b_eval.py",
+       "sha256": "1e2e942f02d1d4fe92b2b9661c0fdda92f200eaf1b73e95b3d1e7b95f5401d1f", "expected": "local (MATCH)"},
+      {"local": "scripts/caft_gf.py (LOCKED, sha bdeacd18...)", "remote": "scripts/caft_gf_arm_b.py",
+       "sha256": "d40db11730d238af79d5eee5205c7d8aa2419e80285c5714e2fb741bce6c5b43",
+       "expected": "Arm B adaptation: ONLY A1 (epochs 1|3) + A2 (basename path check) + docstring; diff-verified"},
+      {"local": "artifacts/paper1_vanzyl/gf_official_1epoch/eval_armb_extra.py",
+       "remote": "scripts/eval_armb_extra.py", "sha256": "d6772b9ecf99ebb69bf0c4388489dd487fbc0b8a85f54f0327f783c29572fbbd"},
+      {"local": "artifacts/paper1_vanzyl/gf_official_1epoch/merge_armb_summary.py",
+       "remote": "scripts/merge_armb_summary.py", "sha256": "0b5beb4e5b04c58f3a34fdba9202ee2a0c4d803139d6c5392914cdd088ce551d"},
+      {"local": "artifacts/paper1_vanzyl/gf_official_1epoch/run_armb_driver.sh",
+       "remote": "scripts/run_armb_driver.sh", "sha256": "ebc0d01429755802dce3eb34242f7b6b6e87062977e0bd565d5c19f94409ba78"}
+    ],
+    "corneal_fm_parity": "all 7 key files sha256-identical local<->p5070 (caft.py/config.py/utils.py/evaluation.py/gf_compat.py/trainer.py/__init__.py) — no migration needed"
+  },
+  "weights": {
+    "snapshot": "/home/summer/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
+    "model_safetensors_sha256": "fff5cba29ddd8792991fa77b4872246fbe548a178cebda3775cdc72b67780e7f",
+    "verified": "rsync 2026-08-18 17:02 UTC+8; remote=local=content-addressed name"
+  },
+  "recipe_locked": {
+    "source": "save/caft_gf_lam0.0_seed42_20260731-211824/caft_args.json (LOCKED 3-epoch run)",
+    "epochs_arm_b": 1,
+    "epochs_reference_3ep": 3,
+    "lr": 0.00005,
+    "weight_decay": 0.001,
+    "warmup_steps": 500,
+    "lr_scheduler": "linear",
+    "per_device_train_batch_size": 8,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_size": 32,
+    "max_grad_norm": 1.0,
+    "precision": "bf16 weights + bf16 autocast",
+    "gradient_checkpointing": true,
+    "save_strategy": "epoch",
+    "load_best_model_at_end": false,
+    "train_cells": 79684,
+    "num_classes": 31,
+    "caft_lambda": 0.0,
+    "data": "corneal_100k_donor_split.h5ad (99,606 cells, 49 train donors; manifest bc357c7d...) -> layer tokenize -> prepare_data 80/20 -> 79,684",
+    "reference_3epoch_results": {"rho_raw_seed_mean": -0.0082, "f1_seed_mean": 0.6492,
+      "per_seed_rho_raw": {"42": -0.04239536391926124, "123": -0.03602503481100148, "456": 0.053929088570711256}}
+  }
+}

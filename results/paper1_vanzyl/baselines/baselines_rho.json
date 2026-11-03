@@ -1,0 +1,487 @@
+{
+  "meta": {
+    "task": "E2 strong statistical baselines on van Zyl (PREREG \u00a78 split)",
+    "eval_set": "sanes2022_Hu0216",
+    "n_train_cells": 42482,
+    "n_test_cells": 20158,
+    "layer_order": [
+      "LSC",
+      "basal",
+      "differentiated"
+    ],
+    "null": {
+      "n": 100,
+      "seed": 42,
+      "primary": "L2-normed"
+    },
+    "probe": {
+      "n_repeats": 5,
+      "design": "split self-probe (frozen-arm design)"
+    },
+    "rho_metric": "corneal_fm.evaluation.marker_gradient_correlation (UNCHANGED)",
+    "timestamp_utc": "2026-08-19T12:11:13+00:00"
+  },
+  "comparison_table": [
+    {
+      "arm": "harmony_nh2000_npc50",
+      "rho_normed": 0.8401388609993163,
+      "null_z": 84.69619619765591,
+      "probe_f1_macro": 0.9528626613664104,
+      "transfer_f1_macro": 0.9363156981737233
+    },
+    {
+      "arm": "hvg_pca_nh2000_npc100",
+      "rho_normed": 0.8494648148372966,
+      "null_z": 79.06279768546692,
+      "probe_f1_macro": 0.9526032479178983,
+      "transfer_f1_macro": 0.9399798827458382
+    },
+    {
+      "arm": "hvg_pca_nh2000_npc50",
+      "rho_normed": 0.8415825246475579,
+      "null_z": 88.6688311521115,
+      "probe_f1_macro": 0.9534346156030248,
+      "transfer_f1_macro": 0.9385067199697893
+    },
+    {
+      "arm": "hvg_pca_nh5000_npc100",
+      "rho_normed": 0.8521978851403852,
+      "null_z": 93.39122801373945,
+      "probe_f1_macro": 0.9664400924361157,
+      "transfer_f1_macro": 0.9576987876724251
+    },
+    {
+      "arm": "hvg_pca_nh5000_npc50",
+      "rho_normed": 0.8490816102214429,
+      "null_z": 99.9929045798776,
+      "probe_f1_macro": 0.9660332373331869,
+      "transfer_f1_macro": 0.9579831875128219
+    },
+    {
+      "arm": "scvi_nlatent128",
+      "rho_normed": 0.8645047237983823,
+      "null_z": 82.73338318834057,
+      "probe_f1_macro": 0.9729464728408663,
+      "transfer_f1_macro": 0.9450909211190689
+    }
+  ],
+  "reference_arms": {
+    "frozen": {
+      "rho_normed": 0.7887175099644741,
+      "null_z": 99.33951779616848,
+      "probe_f1_macro": 0.9687073512802424
+    },
+    "naive_6run": {
+      "rho_normed_mean": 0.5553638814603911,
+      "rho_normed_per_seed": {
+        "s42": 0.2726777141764461,
+        "s123": 0.757004058478477,
+        "s456": 0.6364098717262503
+      },
+      "f1_macro_mean": 0.9225322494477419
+    },
+    "ordinal_6run": {
+      "rho_normed_mean": 0.8187866300135648,
+      "rho_normed_per_seed": {
+        "s42": 0.6471383526479226,
+        "s123": 0.9071417592154635,
+        "s456": 0.9020797781773086
+      },
+      "f1_macro_mean": 0.9587088159161735
+    },
+    "naive_15ep_bestval": {
+      "rho_normed_mean": 0.43953082348086125,
+      "rho_normed_per_seed": {
+        "s42": 0.3373216109354251,
+        "s123": 0.5773592007333337,
+        "s456": 0.403911658773825
+      },
+      "f1_macro_mean": 0.931091367949278
+    },
+    "naive_15ep_final": {
+      "rho_normed_mean": 0.5022878042665772,
+      "rho_normed_per_seed": {
+        "s42": -0.09080210865102475,
+        "s123": 0.8329304211974096,
+        "s456": 0.7647351002533468
+      },
+      "f1_macro_mean": 0.8878987901332799
+    }
+  },
+  "gates": {
+    "Q1_baseline_keeps_gradient": {
+      "rule": "rho_baseline >= 0.5 (holds gradient at the level frozen scFM 'should' keep before fine-tuning)",
+      "per_baseline": {
+        "harmony_nh2000_npc50": true,
+        "hvg_pca_nh2000_npc100": true,
+        "hvg_pca_nh2000_npc50": true,
+        "hvg_pca_nh5000_npc100": true,
+        "hvg_pca_nh5000_npc50": true,
+        "scvi_nlatent128": true
+      }
+    },
+    "Q2_baseline_vs_frozen": {
+      "rule": "rho_baseline >= rho_frozen(=0.7887) - 0.10 (within 0.10 of the frozen scFM gradient)",
+      "frozen_rho": 0.7887175099644741,
+      "per_baseline": {
+        "harmony_nh2000_npc50": {
+          "rho": 0.8401388609993163,
+          "diff_vs_frozen": 0.051421351034842244,
+          "within_0.10": true
+        },
+        "hvg_pca_nh2000_npc100": {
+          "rho": 0.8494648148372966,
+          "diff_vs_frozen": 0.06074730487282254,
+          "within_0.10": true
+        },
+        "hvg_pca_nh2000_npc50": {
+          "rho": 0.8415825246475579,
+          "diff_vs_frozen": 0.0528650146830838,
+          "within_0.10": true
+        },
+        "hvg_pca_nh5000_npc100": {
+          "rho": 0.8521978851403852,
+          "diff_vs_frozen": 0.0634803751759111,
+          "within_0.10": true
+        },
+        "hvg_pca_nh5000_npc50": {
+          "rho": 0.8490816102214429,
+          "diff_vs_frozen": 0.06036410025696881,
+          "within_0.10": true
+        },
+        "scvi_nlatent128": {
+          "rho": 0.8645047237983823,
+          "diff_vs_frozen": 0.07578721383390818,
+          "within_0.10": true
+        }
+      }
+    },
+    "Q3_scfm_beats_simple_baselines": {
+      "rule": "frozen scFM rho > every baseline rho (supports 'scFM has value')",
+      "frozen_rho": 0.7887175099644741,
+      "max_baseline_rho": 0.8645047237983823,
+      "beats_all": false
+    }
+  },
+  "baselines": {
+    "harmony_nh2000_npc50": {
+      "arm": "harmony_nh2000_npc50",
+      "n_eval_cells": 20158,
+      "rho": {
+        "rho_raw": 0.8747617950242335,
+        "rho_normed": 0.8401388609993163,
+        "null_mean": 0.01647021024739211,
+        "null_sd": 0.009724978071384987,
+        "null_z": 84.69619619765591,
+        "null_pctile": 1.0,
+        "n_null": 100
+      },
+      "probe_f1": {
+        "f1_macro": 0.9528626613664104,
+        "f1_macro_sd": 0.003989602660142094,
+        "f1_weighted": 0.9611458445455489,
+        "f1_weighted_sd": 0.003597784564962224,
+        "n_repeats": 5,
+        "train_frac": 0.9,
+        "n_fit_cells_per_repeat": [
+          18142,
+          18142,
+          18142,
+          18142,
+          18142
+        ],
+        "n_eval_cells_per_repeat": [
+          2016,
+          2016,
+          2016,
+          2016,
+          2016
+        ],
+        "design": "split self-probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "transfer_f1": {
+        "f1_macro": 0.9363156981737233,
+        "f1_weighted": 0.9466347580035245,
+        "design": "train-fit probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "config": {
+        "n_hvg": 2000,
+        "n_pc": 50,
+        "hvg_flavor": "seurat",
+        "hvg_selection": "train-only",
+        "scaled": "StandardScaler (train params)",
+        "pca_fit": "train-only",
+        "expression": "X = log1p(10k-normalized, CELLxGENE pipeline)",
+        "harmony": {
+          "theta": 2,
+          "batch_key": "donor_id",
+          "n_batches": 5,
+          "note": "test donor participates in batch-correction fit (standard integration usage); frozen scFM sees no test donor, so any baseline advantage is conservative for scFM"
+        }
+      },
+      "wall_s": 3.3,
+      "timestamp_utc": "2026-08-19T07:32:30+00:00"
+    },
+    "hvg_pca_nh2000_npc100": {
+      "arm": "hvg_pca_nh2000_npc100",
+      "n_eval_cells": 20158,
+      "rho": {
+        "rho_raw": 0.8785215988358321,
+        "rho_normed": 0.8494648148372966,
+        "null_mean": 0.019863178200515183,
+        "null_sd": 0.010492945619470234,
+        "null_z": 79.06279768546692,
+        "null_pctile": 1.0,
+        "n_null": 100
+      },
+      "probe_f1": {
+        "f1_macro": 0.9526032479178983,
+        "f1_macro_sd": 0.003916328108329992,
+        "f1_weighted": 0.960857180107235,
+        "f1_weighted_sd": 0.003525283514971607,
+        "n_repeats": 5,
+        "train_frac": 0.9,
+        "n_fit_cells_per_repeat": [
+          18142,
+          18142,
+          18142,
+          18142,
+          18142
+        ],
+        "n_eval_cells_per_repeat": [
+          2016,
+          2016,
+          2016,
+          2016,
+          2016
+        ],
+        "design": "split self-probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "transfer_f1": {
+        "f1_macro": 0.9399798827458382,
+        "f1_weighted": 0.9496812476619293,
+        "design": "train-fit probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "config": {
+        "n_hvg": 2000,
+        "n_pc": 100,
+        "hvg_flavor": "seurat",
+        "hvg_selection": "train-only",
+        "scaled": "StandardScaler (train params)",
+        "pca_fit": "train-only",
+        "expression": "X = log1p(10k-normalized, CELLxGENE pipeline)"
+      },
+      "wall_s": 6.1,
+      "timestamp_utc": "2026-08-19T07:29:22+00:00"
+    },
+    "hvg_pca_nh2000_npc50": {
+      "arm": "hvg_pca_nh2000_npc50",
+      "n_eval_cells": 20158,
+      "rho": {
+        "rho_raw": 0.8782548040272667,
+        "rho_normed": 0.8415825246475579,
+        "null_mean": 0.015986806688037796,
+        "null_sd": 0.009311002606352278,
+        "null_z": 88.6688311521115,
+        "null_pctile": 1.0,
+        "n_null": 100
+      },
+      "probe_f1": {
+        "f1_macro": 0.9534346156030248,
+        "f1_macro_sd": 0.004490133953969652,
+        "f1_weighted": 0.9615644836608477,
+        "f1_weighted_sd": 0.0041779376993591,
+        "n_repeats": 5,
+        "train_frac": 0.9,
+        "n_fit_cells_per_repeat": [
+          18142,
+          18142,
+          18142,
+          18142,
+          18142
+        ],
+        "n_eval_cells_per_repeat": [
+          2016,
+          2016,
+          2016,
+          2016,
+          2016
+        ],
+        "design": "split self-probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "transfer_f1": {
+        "f1_macro": 0.9385067199697893,
+        "f1_weighted": 0.9484057394134322,
+        "design": "train-fit probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "config": {
+        "n_hvg": 2000,
+        "n_pc": 50,
+        "hvg_flavor": "seurat",
+        "hvg_selection": "train-only",
+        "scaled": "StandardScaler (train params)",
+        "pca_fit": "train-only",
+        "expression": "X = log1p(10k-normalized, CELLxGENE pipeline)"
+      },
+      "wall_s": 2.9,
+      "timestamp_utc": "2026-08-19T07:28:47+00:00"
+    },
+    "hvg_pca_nh5000_npc100": {
+      "arm": "hvg_pca_nh5000_npc100",
+      "n_eval_cells": 20158,
+      "rho": {
+        "rho_raw": 0.8875783473142673,
+        "rho_normed": 0.8521978851403852,
+        "null_mean": 0.016374606388320504,
+        "null_sd": 0.008949697916265762,
+        "null_z": 93.39122801373945,
+        "null_pctile": 1.0,
+        "n_null": 100
+      },
+      "probe_f1": {
+        "f1_macro": 0.9664400924361157,
+        "f1_macro_sd": 0.0028573001532924466,
+        "f1_weighted": 0.9720692393971314,
+        "f1_weighted_sd": 0.002462729832387228,
+        "n_repeats": 5,
+        "train_frac": 0.9,
+        "n_fit_cells_per_repeat": [
+          18142,
+          18142,
+          18142,
+          18142,
+          18142
+        ],
+        "n_eval_cells_per_repeat": [
+          2016,
+          2016,
+          2016,
+          2016,
+          2016
+        ],
+        "design": "split self-probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "transfer_f1": {
+        "f1_macro": 0.9576987876724251,
+        "f1_weighted": 0.9648608687811615,
+        "design": "train-fit probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "config": {
+        "n_hvg": 5000,
+        "n_pc": 100,
+        "hvg_flavor": "seurat",
+        "hvg_selection": "train-only",
+        "scaled": "StandardScaler (train params)",
+        "pca_fit": "train-only",
+        "expression": "X = log1p(10k-normalized, CELLxGENE pipeline)"
+      },
+      "wall_s": 7.1,
+      "timestamp_utc": "2026-08-19T07:29:44+00:00"
+    },
+    "hvg_pca_nh5000_npc50": {
+      "arm": "hvg_pca_nh5000_npc50",
+      "n_eval_cells": 20158,
+      "rho": {
+        "rho_raw": 0.8881868174802869,
+        "rho_normed": 0.8490816102214429,
+        "null_mean": 0.01400477191484789,
+        "null_sd": 0.008351360947211093,
+        "null_z": 99.9929045798776,
+        "null_pctile": 1.0,
+        "n_null": 100
+      },
+      "probe_f1": {
+        "f1_macro": 0.9660332373331869,
+        "f1_macro_sd": 0.002298380844941002,
+        "f1_weighted": 0.971801116143031,
+        "f1_weighted_sd": 0.002051296188941249,
+        "n_repeats": 5,
+        "train_frac": 0.9,
+        "n_fit_cells_per_repeat": [
+          18142,
+          18142,
+          18142,
+          18142,
+          18142
+        ],
+        "n_eval_cells_per_repeat": [
+          2016,
+          2016,
+          2016,
+          2016,
+          2016
+        ],
+        "design": "split self-probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "transfer_f1": {
+        "f1_macro": 0.9579831875128219,
+        "f1_weighted": 0.9649572188264379,
+        "design": "train-fit probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "config": {
+        "n_hvg": 5000,
+        "n_pc": 50,
+        "hvg_flavor": "seurat",
+        "hvg_selection": "train-only",
+        "scaled": "StandardScaler (train params)",
+        "pca_fit": "train-only",
+        "expression": "X = log1p(10k-normalized, CELLxGENE pipeline)"
+      },
+      "wall_s": 2.5,
+      "timestamp_utc": "2026-08-19T07:29:04+00:00"
+    },
+    "scvi_nlatent128": {
+      "arm": "scvi_nlatent128",
+      "n_eval_cells": 20158,
+      "rho": {
+        "rho_raw": 0.8921734772507671,
+        "rho_normed": 0.8645047237983823,
+        "null_mean": 0.021392613497021564,
+        "null_sd": 0.010190712355882222,
+        "null_z": 82.73338318834057,
+        "null_pctile": 1.0,
+        "n_null": 100
+      },
+      "probe_f1": {
+        "f1_macro": 0.9729464728408663,
+        "f1_macro_sd": 0.0037089084600586283,
+        "f1_weighted": 0.9776612133115645,
+        "f1_weighted_sd": 0.0029146116570285346,
+        "n_repeats": 5,
+        "train_frac": 0.9,
+        "n_fit_cells_per_repeat": [
+          18142,
+          18142,
+          18142,
+          18142,
+          18142
+        ],
+        "n_eval_cells_per_repeat": [
+          2016,
+          2016,
+          2016,
+          2016,
+          2016
+        ],
+        "design": "split self-probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "transfer_f1": {
+        "f1_macro": 0.9450909211190689,
+        "f1_weighted": 0.9554151160280037,
+        "design": "train-fit probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+      },
+      "config": {
+        "n_latent": 128,
+        "max_epochs": 50,
+        "early_stopping_patience": 15,
+        "layer": "counts",
+        "batch_key": "donor_id",
+        "early_stopping": true,
+        "seed": 42,
+        "note": "train-fit only; test donor mapped via registry transfer with extend_categories=True (batch category of the held-out donor is never seen during training). max_epochs=50 capped for CPU feasibility (default 400 would be ~30h); standard scVI convergence reached well within this budget on 42k cells."
+      },
+      "wall_s": 40.7,
+      "timestamp_utc": "2026-08-19T12:11:13+00:00"
+    }
+  }
+}

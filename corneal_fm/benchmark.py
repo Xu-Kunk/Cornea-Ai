@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
+import pandas as pd  # type: ignore[import-untyped]
 import torch
 from torch.utils.data import DataLoader, Dataset
 
@@ -108,9 +109,7 @@ class Benchmark:
                     targets_np.tolist() if hasattr(targets_np, "tolist") else list(targets_np)
                 )
 
-        report = classification_report(
-            all_targets, all_preds, output_dict=True, zero_division=0
-        )
+        report = classification_report(all_targets, all_preds, output_dict=True, zero_division=0)
         macro_avg = report.get("macro avg", {})
         accuracy = accuracy_score(all_targets, all_preds)
         kappa = cohen_kappa_score(all_targets, all_preds)
@@ -123,7 +122,11 @@ class Benchmark:
             "kappa": float(kappa),
             "n_samples": len(all_targets),
         }
-        logger.info("E1 Cell Classification: accuracy=%.4f, macro_f1=%.4f", results["accuracy"], results["macro_f1"])
+        logger.info(
+            "E1 Cell Classification: accuracy=%.4f, macro_f1=%.4f",
+            results["accuracy"],
+            results["macro_f1"],
+        )
         return results
 
     # ------------------------------------------------------------------
@@ -200,7 +203,9 @@ class Benchmark:
             "spearman_r": float(spearman_r),
             "n_genes": len(all_targets),
         }
-        logger.info("E2 Perturbation: pearson_r=%.4f, p=%.4e", results["pearson_r"], results["p_value"])
+        logger.info(
+            "E2 Perturbation: pearson_r=%.4f, p=%.4e", results["pearson_r"], results["p_value"]
+        )
         return results
 
     # ------------------------------------------------------------------
@@ -341,7 +346,12 @@ class Benchmark:
                 )
 
         if not all_embeds:
-            return {"silhouette_score": 0.0, "centroid_distance": 0.0, "n_conditions": 0, "n_cells": 0}
+            return {
+                "silhouette_score": 0.0,
+                "centroid_distance": 0.0,
+                "n_conditions": 0,
+                "n_cells": 0,
+            }
 
         embeddings = np.concatenate(all_embeds, axis=0)
         labels_array = np.array(all_labels)
@@ -397,7 +407,7 @@ class Benchmark:
         target_genes: list[str] | None = None,
         ortholog_map: dict[str, str] | None = None,
         condition_labels: list[int] | None = None,
-    ) -> "pd.DataFrame":
+    ) -> pd.DataFrame:
         """Run all four evaluation tasks and return a results table.
 
         Parameters
@@ -420,8 +430,6 @@ class Benchmark:
         pd.DataFrame
             Results table with tasks as rows and metrics as columns.
         """
-        import pandas as pd  # type: ignore[import-untyped]
-
         model = model.to(self.device)
         model.eval()
 
@@ -445,7 +453,11 @@ class Benchmark:
 
         # E3
         species_data: dict[str, Dataset] = {}
-        if "e3_human" in datasets and "e3_mouse" in datasets and self.config.get("eval_cross_species", False):
+        if (
+            "e3_human" in datasets
+            and "e3_mouse" in datasets
+            and self.config.get("eval_cross_species", False)
+        ):
             species_data["human"] = datasets["e3_human"]
             species_data["mouse"] = datasets["e3_mouse"]
             e3 = self.e3_cross_species(model, species_data, ortholog_map=ortholog_map)
@@ -472,7 +484,7 @@ class Benchmark:
 
     def plot_results(
         self,
-        results: "pd.DataFrame",
+        results: pd.DataFrame,
         save_dir: str | Path,
     ) -> None:
         """Generate publication-quality benchmark summary plots.

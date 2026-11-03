@@ -1,0 +1,139 @@
+manifest: test_donor=sanes2022_Hu0216 n_test=20158 sha_train=b8a0a6db
+device=cuda torch=2.13.0+cu130
+naive mapping: 30 author classes -> 3-tier (majority)
+  CC_VenEndo             -> LSC            {'LSC': 1421}
+  Ciliary_Muscle         -> LSC            {'LSC': 57, 'basal': 13}
+  Conj_Epi-Basal         -> basal          {'basal': 537, 'LSC': 1}
+  Conj_Epi-Superficial   -> differentiated {'differentiated': 57, 'basal': 6, 'LSC': 1}
+  Conj_Epi-Wing          -> basal          {'basal': 376, 'differentiated': 65, 'LSC': 10}
+  Conj_Melanocyte        -> LSC            {'LSC': 6, 'basal': 1}
+  FibroX                 -> LSC            {'LSC': 94, 'basal': 2}
+  Goblet                 -> LSC            {'LSC': 233, 'basal': 1}
+  Immune                 -> LSC            {'LSC': 34}
+  K_Endo                 -> LSC            {'LSC': 3428, 'basal': 100, 'differentiated': 6}
+  K_Epi-Basal            -> basal          {'basal': 7171, 'LSC': 23, 'differentiated': 50}
+  K_Epi-Superficial      -> differentiated {'differentiated': 4686, 'basal': 109, 'LSC': 5}
+  K_Epi-TA               -> basal          {'basal': 280, 'differentiated': 12}
+  K_Epi-Wing             -> basal          {'basal': 5439, 'differentiated': 5140, 'LSC': 15}
+  K_Fibro                -> LSC            {'LSC': 943, 'basal': 33, 'differentiated': 38}
+  Limbal_Epi-Basal       -> basal          {'basal': 779, 'LSC': 1}
+  Limbal_Epi-Superficial -> differentiated {'differentiated': 16, 'LSC': 1, 'basal': 4}
+  Limbal_Epi-Wing        -> basal          {'basal': 658, 'differentiated': 138, 'LSC': 2}
+  Lymphatic_Endo         -> LSC            {'LSC': 514}
+  Lymphocyte             -> LSC            {'LSC': 217, 'basal': 4}
+  Macrophage             -> LSC            {'LSC': 708}
+  Mast                   -> LSC            {'LSC': 5}
+  Pericyte               -> LSC            {'LSC': 219, 'basal': 1}
+  Schlemm_Endo           -> LSC            {'LSC': 496}
+  Schwann                -> basal          {'basal': 2217, 'LSC': 10}
+  Sclera_Fibro           -> LSC            {'LSC': 517, 'basal': 1}
+  TM_Fibro               -> LSC            {'LSC': 2055, 'basal': 17}
+  Uveal_Fibro            -> LSC            {'LSC': 2927, 'basal': 19}
+  Uveal_Melanocyte       -> LSC            {'LSC': 2, 'basal': 1}
+  VascEndo               -> LSC            {'LSC': 560}
+test h5ad: (20158, 3856), donors all=sanes2022_Hu0216, y dist={'basal': 7563, 'differentiated': 4264, 'LSC': 8331}
+frozen baseline: (20158, 512) cells from G1 npz (donor-masked)
+frozen: rho_n=0.7887 z=99.3 probe_f1=0.9687
+=== eval naive seed42 ===
+  naive s42: F1=0.9325 CI=[0.9288,0.9362] rho_n=0.2727 z=27.5 (84s)
+=== eval naive seed123 ===
+  naive s123: F1=0.9207 CI=[0.9166,0.9250] rho_n=0.7570 z=78.5 (84s)
+=== eval naive seed456 ===
+  naive s456: F1=0.9144 CI=[0.9098,0.9185] rho_n=0.6364 z=68.0 (83s)
+=== eval ordinal seed42 ===
+  ordinal s42: F1=0.9594 CI=[0.9564,0.9626] rho_n=0.6471 z=102.6 (84s)
+=== eval ordinal seed123 ===
+  ordinal s123: F1=0.9504 CI=[0.9471,0.9534] rho_n=0.9071 z=141.0 (84s)
+=== eval ordinal seed456 ===
+  ordinal s456: F1=0.9663 CI=[0.9635,0.9691] rho_n=0.9021 z=146.9 (83s)
+saved /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/eval/summary_vanzyl_6run.json
+=== gates ===
+{
+ "G0_revised": {
+  "rule": "F1_ce >= 0.55 AND F1_ce >= F1_frz - 0.10 (F1_frz=0.9494)",
+  "threshold_f1_ce_min": 0.55,
+  "threshold_f1_ce_vs_frz": 0.8494,
+  "per_seed": {
+   "s42": {
+    "f1_ce": 0.9324977725939533,
+    "pass_f1_ge_0.55": true,
+    "pass_f1_ge_frz_minus_0.10": true,
+    "G0_pass": true
+   },
+   "s123": {
+    "f1_ce": 0.9207401106794163,
+    "pass_f1_ge_0.55": true,
+    "pass_f1_ge_frz_minus_0.10": true,
+    "G0_pass": true
+   },
+   "s456": {
+    "f1_ce": 0.9143588650698561,
+    "pass_f1_ge_0.55": true,
+    "pass_f1_ge_frz_minus_0.10": true,
+    "G0_pass": true
+   }
+  },
+  "aggregate_naive_f1_ci": [
+   0.8996731230232174,
+   0.9453913758722664
+  ],
+  "G0_pass_aggregate": true
+ },
+ "G0_original_descriptive": {
+  "rule": "F1_ce >= 0.55 AND F1_ce - F1_frz >= 0.10 (F1_frz=0.9494)",
+  "per_seed_gain": {
+   "s42": -0.0169,
+   "s123": -0.0287,
+   "s456": -0.035
+  },
+  "aggregate_gain": -0.0269,
+  "note": "descriptive only (original gate superseded by G0 revision)"
+ },
+ "claim1_rho_ce_le_0.2": {
+  "rule": "rho_ce <= 0.2 (catastrophic collapse => same-corpus principle)",
+  "per_seed": {
+   "s42": 0.2726777141764461,
+   "s123": 0.757004058478477,
+   "s456": 0.6364098717262503
+  },
+  "aggregate_mean": 0.5553638814603911,
+  "aggregate_ci95": [
+   -0.07101134758634264,
+   1.1817391105071247
+  ],
+  "PASS_rho_le_0.2": false
+ },
+ "delta_rho": {
+  "rule": "drho = rho_frz(test-donor) - rho_ce >= 0.3 with CI not crossing 0",
+  "rho_frz_test_donor": 0.7887175099644741,
+  "per_seed": {
+   "s42": 0.516,
+   "s123": 0.0317,
+   "s456": 0.1523
+  },
+  "aggregate_mean": 0.2334,
+  "aggregate_ci95": [
+   -0.393,
+   0.8597
+  ],
+  "PASS_drho_ge_0.3": true,
+  "PASS_ci_not_crossing_0": true
+ },
+ "ordinal_rescue": {
+  "rule": "rho_ord >= rho_ce + 0.2 AND the two-arm CIs do not overlap",
+  "rho_ce_mean": 0.5553638814603911,
+  "rho_ce_ci95": [
+   -0.07101134758634264,
+   1.1817391105071247
+  ],
+  "rho_ord_mean": 0.8187866300135648,
+  "rho_ord_ci95": [
+   0.4494318358261743,
+   1.1881414242009551
+  ],
+  "diff_ord_minus_ce": 0.2634,
+  "PASS_rho_ord_ge_rho_ce_plus_0.2": true,
+  "PASS_ci_non_overlap": false
+ }
+}
+DONE

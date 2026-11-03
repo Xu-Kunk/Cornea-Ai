@@ -1,0 +1,4 @@
+arm,source,macro_f1,ci_lower,ci_upper,n_seeds,donor_1,donor_2
+Fine-tune λ=0,external (GSE153515),0.6492,0.6233,0.6751,3,0.6751,0.6233
+HVG/PCA + logreg (internal),internal (training split),0.7787,,,,,
+scFM frozen Geneformer (internal),internal (training split),0.8834,,,,,

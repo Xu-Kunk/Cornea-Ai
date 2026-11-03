@@ -13,6 +13,20 @@ seeds 42/123/456, external eval GSE153515):
                          (corneal_fm.soft_spearman.SoftSpearmanTrainer)
     --arm flow           L = L_CE + lambda * mean adjacent-pair mid-point
                          flow deviation (corneal_fm.flow_consistency)
+    --arm ce             L = L_CE only, plain cross-entropy over the active
+                         label space (--label-space), no auxiliary term; the
+                         trainer is the same CAFTTrainer at lambda=0 the naive
+                         arm uses, so this isolates supervision / label set
+
+Label space (``--label-space``, default ``author31`` = the locked behaviour):
+
+* ``author31`` — 31 author_cell_type classes, unchanged for every existing
+  invocation (byte-identical defaults, same code path).
+* ``epi4`` — the training partition is filtered to epithelial cells only
+  (NON_LAYER dropped) and labels collapse to the 4 evaluation stage classes
+  (LSC=0 < TAC=1 < basal=2 < differentiated=3; wing and squamous both map to
+  differentiated). Only valid with ``--arm ce`` (the CE-over-4-stages
+  baseline); the ordinal arms already consume this mapping at loss time.
 
 All three swap ONLY the loss on the shared locked pipeline: same tokenizer /
 donor split / Classifier.prepare_data / HF training arguments as
@@ -79,7 +93,12 @@ from corneal_fm.axis_ref import (
     compute_axis,
     default_geneformer_dicts,
 )
-from corneal_fm.caft import class_to_layer_map, load_pretrained_classifier
+from corneal_fm.caft import (
+    NON_LAYER,
+    build_caft_trainer,
+    class_to_layer_map,
+    load_pretrained_classifier,
+)
 from corneal_fm.config import archive_script, get_save_dir, load_config, set_seed
 from corneal_fm.flow_consistency import build_flow_trainer
 from corneal_fm.ordinal import N_ORDINAL, class_to_ordinal_map
@@ -98,10 +117,17 @@ GRADIENT_ACCUMULATION_STEPS = 4
 _HF_SNAP_GLOB = os.path.expanduser(
     "~/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/*/Geneformer-V2-104M"
 )
-VALID_ARMS = ("axis_ft", "soft_spearman", "flow")
+VALID_ARMS = ("axis_ft", "soft_spearman", "flow", "ce")
 # 4-class CE head (the naive arm's head); ordinal labels at loss time.
 N_CE_CLASSES = N_ORDINAL
-DEFAULT_LAMBDA = {"axis_ft": 0.5, "soft_spearman": 0.5, "flow": 0.5}
+DEFAULT_LAMBDA = {"axis_ft": 0.5, "soft_spearman": 0.5, "flow": 0.5, "ce": 0.0}
+# Label space: author31 = the locked 31 author_cell_type classes (default,
+# unchanged for every pre-existing invocation); epi4 = epithelial cells only,
+# labels collapsed to the 4 evaluation stages (LSC<TAC<basal<differentiated).
+LABEL_SPACES = ("author31", "epi4")
+DEFAULT_LABEL_SPACE = "author31"
+# Canonical stage names of the 4-class label space (== evaluation class set).
+EPI4_CLASS_NAMES = {0: "LSC", 1: "TAC", 2: "basal", 3: "differentiated"}
 
 
 def _marker(save_dir, text):
@@ -118,6 +144,45 @@ def _locate_pretrained() -> str:
     return hits[0]
 
 
+def apply_label_space(train_data, id_class_dict, label_space):
+    """Restrict the prepared train dataset to ``label_space``.
+
+    Returns ``(train_data, id_class_dict, info)``.
+
+    ``author31`` (default) returns the inputs untouched — the locked pipeline.
+
+    ``epi4`` drops every cell whose author_cell_type has no cardinal stage
+    (``class_to_ordinal_map`` -> NON_LAYER, the same NON_LAYER set the ordinal
+    head masks) and rewrites ``label`` to the 4-class stage index
+    (LSC=0 < TAC=1 < basal=2 < differentiated=3, wing+squamous merged into
+    differentiated). The returned class dictionary is the 4-class one, so a
+    plain CE head over it trains on exactly the external-evaluation class set.
+    """
+    if label_space == DEFAULT_LABEL_SPACE:
+        return train_data, id_class_dict, {"dropped_non_epithelial": 0}
+
+    class_to_ordinal = class_to_ordinal_map(id_class_dict)
+    stage = [class_to_ordinal[int(c)] for c in train_data["label"]]
+    keep = [i for i, s in enumerate(stage) if s != NON_LAYER]
+    epi = train_data.select(keep).map(
+        lambda batch: {
+            "label": [class_to_ordinal[int(c)] for c in batch["label"]],
+        },
+        batched=True,
+        desc=f"{label_space} labels",
+    )
+    id_class_dict_epi4 = {i: EPI4_CLASS_NAMES[i] for i in range(N_ORDINAL)}
+    info = {
+        "dropped_non_epithelial": len(stage) - len(keep),
+        "kept_epithelial": len(keep),
+        "stage_counts": {
+            EPI4_CLASS_NAMES[i]: int(sum(1 for s in stage if s == i))
+            for i in range(N_ORDINAL)
+        },
+    }
+    return epi, id_class_dict_epi4, info
+
+
 @click.command()
 @click.option("--config", default=None, help="YAML config (default: config/default_train_args.yml).")
 @click.option("--data_file", default=DEFAULT_DATA_FILE, help="Source h5ad under CORNEAL_FM_DATA.")
@@ -125,7 +190,13 @@ def _locate_pretrained() -> str:
 @click.option("--batch_size", default=None, type=int, help="Per-device batch size.")
 @click.option("--lr", default=None, type=float, help="Learning rate.")
 @click.option("--arm", type=click.Choice(list(VALID_ARMS)), required=True,
-              help="Loss arm: axis_ft | soft_spearman | flow.")
+              help="Loss arm: axis_ft | soft_spearman | flow | ce (plain CE).")
+@click.option("--label-space", "label_space", default=DEFAULT_LABEL_SPACE,
+              type=click.Choice(list(LABEL_SPACES)),
+              help="Label space: author31 (default, the locked 31 author "
+                   "classes) | epi4 (epithelial cells only, labels collapsed "
+                   "to the 4 stages LSC/TAC/basal/differentiated; requires "
+                   "--arm ce).")
 @click.option("--lambda-arm", "lambda_arm", default=None, type=float,
               help="Arm loss weight λ (default per arm: 0.5). 0 = plain CE.")
 @click.option("--anchor-layer", "anchor_layer", default=None, type=int,
@@ -169,6 +240,7 @@ def main(
     gene_name_id_dict: str | None,
     seed: int,
     axis_mode: str,
+    label_space: str,
     strict_fair: bool,
     split_manifest: str | None,
     prepared_train: str | None,
@@ -187,13 +259,26 @@ def main(
     batch_size = batch_size if batch_size is not None else int(mp.get("batch_size", 16))
     lr = lr if lr is not None else float(mp.get("learning_rate", 5e-5))
     lam = DEFAULT_LAMBDA[arm] if lambda_arm is None else float(lambda_arm)
+    if label_space != DEFAULT_LABEL_SPACE and arm != "ce":
+        # The epi4 arm is a plain-CE baseline; an auxiliary loss term would
+        # conflate "CE supervision" with the arm's own regulariser.
+        raise click.UsageError(
+            f"--label-space {label_space} is only defined for --arm ce "
+            f"(got --arm {arm})"
+        )
+    if arm == "ce" and lam != 0.0:
+        raise click.UsageError(f"--arm ce requires lambda=0 (got {lam})")
 
-    save_dir = get_save_dir(f"method_{arm}", f"lam{lam}_seed{seed}")
+    # The default label space keeps the historical directory prefix; a
+    # non-default one is tagged into the prefix so runs never collide.
+    arm_tag = arm if label_space == DEFAULT_LABEL_SPACE else f"{arm}_{label_space}"
+    save_dir = get_save_dir(f"method_{arm_tag}", f"lam{lam}_seed{seed}")
     save_dir.mkdir(parents=True, exist_ok=True)
     _marker(
         save_dir,
         f"START arm={arm} lambda={lam} epochs={epochs} bs={batch_size} lr={lr} "
-        f"seed={seed} strict_fair={strict_fair} axis_mode={axis_mode}",
+        f"seed={seed} strict_fair={strict_fair} axis_mode={axis_mode} "
+        f"label_space={label_space}",
     )
     archive_script(__file__, save_dir)
 
@@ -205,7 +290,7 @@ def main(
             token_dictionary=token_dictionary, gene_name_id_dict=gene_name_id_dict,
             split_manifest=split_manifest, manifest=manifest, manifest_hash=manifest_hash,
             prepared_train=prepared_train, strict_fair=strict_fair,
-            axis_mode=axis_mode,
+            axis_mode=axis_mode, label_space=label_space,
         )
     except Exception:
         tb = traceback.format_exc()
@@ -221,7 +306,7 @@ def _run_arm(
     *, anchor_layer=None, tau_scale=0.1, k_pairs=256, min_cells_per_class=2,
     token_dictionary=None, gene_name_id_dict=None,
     split_manifest=None, manifest=None, manifest_hash=None, prepared_train=None,
-    strict_fair=False, axis_mode=DEFAULT_AXIS_MODE,
+    strict_fair=False, axis_mode=DEFAULT_AXIS_MODE, label_space=DEFAULT_LABEL_SPACE,
 ):
     logger.info("Device GPU mem: %s", check_gpu_memory())
     src = DATA / data_file
@@ -270,6 +355,17 @@ def _run_arm(
     drop_cols = [c for c in train_data.column_names if c not in keep]
     if drop_cols:
         train_data = train_data.remove_columns(drop_cols)
+    # Label-space restriction (default author31 = no-op). epi4 filters to
+    # epithelial cells and rewrites 'label' to the 4 stage classes BEFORE the
+    # index column is added, so 'idx' stays contiguous.
+    train_data, idc, label_space_info = apply_label_space(train_data, idc, label_space)
+    if label_space != DEFAULT_LABEL_SPACE:
+        _marker(
+            save_dir,
+            f"LABEL_SPACE {label_space} kept={label_space_info['kept_epithelial']} "
+            f"dropped={label_space_info['dropped_non_epithelial']} "
+            f"stages={label_space_info['stage_counts']}",
+        )
     if "idx" not in train_data.column_names:
         train_data = train_data.add_column("idx", list(range(len(train_data))))
     _marker(save_dir, f"PREPARED train={len(train_data)} num_classes={len(idc)}")
@@ -278,8 +374,11 @@ def _run_arm(
     # (3) frozen differentiation axis (cached; fixed before training)
     torch_dtype = torch.bfloat16 if torch.cuda.is_available() else torch.float32
     model_dir = _locate_pretrained()
+    # The plain-CE arm uses no auxiliary term, so no head other than its own
+    # label space is ever built/used; every pre-existing arm keeps N_CE_CLASSES.
+    n_ce_classes = len(idc) if arm == "ce" else N_CE_CLASSES
     model = load_pretrained_classifier(
-        model_dir, num_classes=N_CE_CLASSES, torch_dtype=torch_dtype
+        model_dir, num_classes=n_ce_classes, torch_dtype=torch_dtype
     )
     # Move the frozen model to GPU NOW: compute_axis() forwards it over all
     # epithelial training cells before any training starts, and
@@ -288,30 +387,40 @@ def _run_arm(
     # with the GPU idle (axis_ref.py compute_axis -> model.bert).
     if torch.cuda.is_available():
         model = model.to("cuda")
-    td_file = token_dictionary or default_geneformer_dicts()[0]
-    gd_file = gene_name_id_dict or default_geneformer_dicts()[1]
-    cache_key = axis_cache_key(prep_train, model_dir, mode=axis_mode)
-    class_to_ordinal = class_to_ordinal_map(idc)
-    axis = compute_axis(
-        model,
-        train_data,
-        class_to_layer_map(idc),
-        td_file, gd_file,
-        class_to_ordinal=class_to_ordinal,
-        cache_path=AXIS_CACHE_FILE,
-        cache_key=cache_key,
-        mode=axis_mode,
-    )
-    axis_w = axis.w
-    _marker(
-        save_dir,
-        f"AXIS mode={axis.mode} method={axis.method} rho_marker={axis.rho_marker:.4f} "
-        f"rho_pca={axis.rho_pca:.4f} cache={AXIS_CACHE_FILE}",
-    )
-    logger.info(
-        "axis ready: mode=%s method=%s rho_marker=%.4f",
-        axis.mode, axis.method, axis.rho_marker,
-    )
+    axis_w = None
+    axis = None
+    cache_key = None
+    if arm == "ce":
+        # No continuity/anchor/soft-rank term -> the frozen axis is unused.
+        _marker(save_dir, "AXIS skipped (arm=ce has no auxiliary term)")
+    else:
+        td_file = token_dictionary or default_geneformer_dicts()[0]
+        gd_file = gene_name_id_dict or default_geneformer_dicts()[1]
+        source_checksum = (manifest or {}).get("input_checksums", {}).get("train_h5ad", "")
+        cache_key = axis_cache_key(
+            src, model_dir, mode=axis_mode, source_checksum=source_checksum
+        )
+        class_to_ordinal = class_to_ordinal_map(idc)
+        axis = compute_axis(
+            model,
+            train_data,
+            class_to_layer_map(idc),
+            td_file, gd_file,
+            class_to_ordinal=class_to_ordinal,
+            cache_path=AXIS_CACHE_FILE,
+            cache_key=cache_key,
+            mode=axis_mode,
+        )
+        axis_w = axis.w
+        _marker(
+            save_dir,
+            f"AXIS mode={axis.mode} method={axis.method} rho_marker={axis.rho_marker:.4f} "
+            f"rho_pca={axis.rho_pca:.4f} cache={AXIS_CACHE_FILE}",
+        )
+        logger.info(
+            "axis ready: mode=%s method=%s rho_marker=%.4f",
+            axis.mode, axis.method, axis.rho_marker,
+        )
     # Return the axis forward's reserved GPU pool to the driver before the
     # training phase (GB10 unified memory: the caching allocator's retained
     # segments + training allocations push the kernel toward its OOM watermark
@@ -346,7 +455,15 @@ def _run_arm(
         "report_to": [],
     }
     out_dir = str(Path(save_dir) / "model")
-    if arm == "axis_ft":
+    if arm == "ce":
+        # Plain CE over the active label space: the SAME CAFTTrainer (and the
+        # same collator/bf16/optimiser settings) the naive arm is built from,
+        # at lambda=0.0, so no auxiliary term is in the graph.
+        trainer = build_caft_trainer(
+            model, train_data, idc, caft_lambda=0.0,
+            training_args_kwargs=targs, output_directory=out_dir,
+        )
+    elif arm == "axis_ft":
         trainer = build_axis_ft_trainer(
             model, train_data, idc, axis_w, axis_lambda=lam,
             training_args_kwargs=targs, output_directory=out_dir,
@@ -380,17 +497,18 @@ def _run_arm(
                     "axis_ft": "CE + lambda*||P_A(h-h0)||^2 (P_A = w w^T, frozen)",
                     "soft_spearman": "CE + lambda*(1 - rho_soft(proj_A(h), y))",
                     "flow": "CE + lambda*mean adjacent-pair mid-point flow deviation",
+                    "ce": "plain CE over the active label space (no auxiliary term)",
                 }[arm],
                 "axis": {
                     "cache": str(AXIS_CACHE_FILE),
                     "cache_key": cache_key,
-                    "mode": axis.mode,
-                    "method": axis.method,
-                    "rho_marker": axis.rho_marker,
-                    "rho_pca": axis.rho_pca,
-                    "n_cells": axis.n_cells,
-                    "n_axis_cells": axis.n_axis_cells,
-                    "marker_status": axis.marker_status,
+                    "mode": axis.mode if axis is not None else None,
+                    "method": axis.method if axis is not None else None,
+                    "rho_marker": axis.rho_marker if axis is not None else None,
+                    "rho_pca": axis.rho_pca if axis is not None else None,
+                    "n_cells": axis.n_cells if axis is not None else None,
+                    "n_axis_cells": axis.n_axis_cells if axis is not None else None,
+                    "marker_status": axis.marker_status if axis is not None else None,
                 },
                 "arm_hyperparams": {
                     "anchor_layer": anchor_layer,
@@ -398,7 +516,10 @@ def _run_arm(
                     "k_pairs": k_pairs,
                     "min_cells_per_class": min_cells_per_class,
                 },
-                "n_ce_classes": N_CE_CLASSES,
+                "label_space": label_space,
+                "label_space_info": label_space_info,
+                "class_names": {int(k): str(v) for k, v in idc.items()},
+                "n_ce_classes": n_ce_classes,
                 "layer_dist": info["layer_dist"],
                 "num_classes": len(idc),
                 "train_cells": len(train_data),

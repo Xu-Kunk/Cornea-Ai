@@ -1,0 +1,43 @@
+{
+  "arm": "CellPLM consistency: epidermis",
+  "test_donor": "epidermis",
+  "layer_order": [
+    "basal",
+    "suprabasal",
+    "spinous",
+    "differentiated"
+  ],
+  "seeds": [
+    "123",
+    "42"
+  ],
+  "rho_normed": {
+    "mean": 0.8351647222639029,
+    "sd": 0.005512817270970166,
+    "per_seed": {
+      "42": 0.8312665717881577,
+      "123": 0.8390628727396483
+    }
+  },
+  "rho_raw_mean": 0.8896924114286933,
+  "null_z_mean": 45.30499405756425,
+  "macro_f1": {
+    "mean": 0.7822530197746072,
+    "sd": 0.007297087313436526,
+    "per_seed": {
+      "42": 0.7770931998523659,
+      "123": 0.7874128396968485
+    }
+  },
+  "frozen_rho_mean": 0.09361397797181531,
+  "delta_rho_per_seed": {
+    "42": -0.7282197314590361,
+    "123": -0.7548817571251393
+  },
+  "collapse_rate_delta_gt_0.15": 0.0,
+  "epochs_actual": {
+    "42": 122,
+    "123": 85
+  },
+  "timestamp_utc": "2026-08-21T13:15:37.465201+00:00"
+}

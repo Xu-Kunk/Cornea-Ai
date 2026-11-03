@@ -1,0 +1,35 @@
+{
+ "task": "BH-FDR full grid over all rho comparisons (Task 2)",
+ "frozen_at": "2026-08-20T16:48:35.497120+00:00",
+ "p_value_rule": "one-sided upper-tail p = Phi(-z) from label-shuffle z (H1: rho > 0); z = (rho_obs - null_mean)/null_sd",
+ "fdr_method": "Benjamini-Hochberg step-up, q=0.05, identical bh_fdr() to scripts/fdr_nulls_analysis.py",
+ "family_membership": "one primary row per (arm x architecture x dataset x tissue); headline rho with ITS OWN label-shuffle z; sensitivity checkpoints listed in grid only (no pseudo-replication); rows without locally available z excluded from FDR family (disclosed)",
+ "local_null": {
+  "n": 100,
+  "seed": 42,
+  "metric": "corneal_fm.evaluation.marker_gradient_correlation (unchanged)"
+ },
+ "q_threshold": 0.05,
+ "input_sha256": {
+  "artifacts/paper1_fdr_nulls/null_controls.json": "87a7cf7e6099bf3ebf84ec6ab3d62623c4e75a67dbc03978bf552d161f184893",
+  "artifacts/paper1_vanzyl/run6/eval/summary_vanzyl_6run.json": "2b4a282631ea81305d358990b56dbdc3f68778f0aa53c63db6ebf09d1946b65a",
+  "artifacts/paper1_vanzyl/convergence/final_test_eval.json": "34406a81dabe9b3d3a7ad92fa2861c95dff648dc76eedd68e158ce6b0a439058",
+  "artifacts/paper1_vanzyl/cornea2/summary_cornea2.json": "4c4644bc4228b399ac811d53ec5db427d49b08117a9dfee5a5270c44f07f97ae",
+  "artifacts/paper1_vanzyl/cross_tissue/final_test_eval.json": "44bf9f9584d5bae106f8ae374ae674d5c7a4ba322c8ceba436ee342a444ae81e",
+  "artifacts/paper1_vanzyl/cross_tissue/epidermis_test_frozen_diag.json": "4bc7f1b994eb2c7b91346b9f1f430ff055f941855779dd7b6440427e076075be",
+  "artifacts/paper1_vanzyl/loo/frozen_baseline_loo220.json": "180bf71d602d32a3d852fe78dfc2b51324448c74b5224f0c600289c655b3a8aa",
+  "artifacts/paper1_vanzyl/gf_official_1epoch/gf_official_1epoch_summary.json": "df27d60a2118b4fafb3cd06d696883b9181bf37e3394b95336a2748aa0be5c38",
+  "artifacts/paper1_vanzyl/gf_official_1epoch/gf_official_1epoch_seed42.json": "9ef8be1e8eb8c8925897cfb6df0832140ddc8e141f87c710a958226b43414c9e",
+  "artifacts/paper1_vanzyl/gf_official_1epoch/gf_official_1epoch_seed123.json": "91f41054393d9ab6b04e2f43d67d2fea2945242b9523ba44838ca6e893ec8231",
+  "artifacts/paper1_vanzyl/gf_official_1epoch/gf_official_1epoch_seed456.json": "cb9a52fe37f0e390534d7daf4195241e7f12bd1f7cfb2ad53782452b80463af6",
+  "artifacts/paper1_vanzyl/gf_official_1epoch/gf_official_1epoch_seed789.json": "22a4156410d05c5850d29339d6859e38eb293e521f02b77e1a739adf75f8c0cf",
+  "artifacts/paper1_vanzyl/gf_official_1epoch/gf_official_1epoch_seed2024.json": "223e55473ead4df0aaf0029a7a3514820b799aa1f56cff07634fb0724da7356e",
+  "artifacts/paper1_vanzyl/gf_official_1epoch/gf_official_1epoch_seed31415.json": "0e0ba3de12f895da8cf8fbe5ac8c4d77417a086a902941808e2577a791b08c8f",
+  "artifacts/paper1_tier_b_eval_gse299152/summary.csv": "e40e08fc654f6061323323a065a61a2698a172d3098d11fb01361a9947a623b8",
+  "artifacts/paper1_epidermis_eval/epidermis_rho_results.json": "01f0573cfeed65ad446bfe79461d362989f54d62b17161893e13dd3b8892b2af",
+  "artifacts/paper1_epidermis_eval/embeddings.npz": "fe45cb8e15b4c5fc73015783850cdcadf794a28ed750f9d312e235faf39b07e3",
+  "artifacts/paper1_epidermis_eval_gse202352/gse202352_rho_results.json": "728fb26166124ac7b096e4e50d1cd8f641eed0a3070e4190524a3bf315975523",
+  "artifacts/paper1_epidermis_eval_gse202352/embeddings.npz": "cf426d1b8dbb45f48535e2946c7183e33665f23f1f244ca3a7d16e082c7245c3",
+  "artifacts/paper1_vanzyl/cellplm/seed42/frozen_emb.npz": "8146a4772616a0d5044e4f487f8bbb90034f8f193ba56e0ca6c3ec4149940203"
+ }
+}

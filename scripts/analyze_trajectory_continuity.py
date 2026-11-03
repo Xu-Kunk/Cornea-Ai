@@ -1,8 +1,15 @@
 #!/usr/bin/env python
 """Per-cell trajectory-continuity analysis across the 7 Paper 1 model arms.
 
-Turns the Paper 1 Discussion claim ("CAFT preserves the differentiation
-trajectory; naive fine-tuning destroys it") from inference into a measurement.
+Tests the earlier framing that "CAFT preserves the differentiation trajectory
+while naive fine-tuning destroys it", by measuring each arm's inferred
+trajectory against the frozen reference ordering. **The measurement does not
+support that framing.** Measured on the external test set: frozen rho = 0.850
+(95% CI 0.842-0.858), CE-naive rho = 0.323-0.348, CAFT-intended rho =
+0.372-0.428. CAFT-intended sits only marginally above CE-naive with overlapping
+per-seed intervals, and both are far below frozen. The manuscript therefore
+states "CAFT is intermediate" and makes no trajectory-preservation claim; do not
+restate the original framing in any downstream text or figure caption.
 
 For each of the 7 arms (frozen Geneformer-V2-104M, naive FT lambda=0 and CAFT
 lambda=0.5 x seeds {42,123,456}) we run UNSUPERVISED trajectory inference on
@@ -49,11 +56,11 @@ Metrics per arm:
 
 Reads only  artifacts/paper1_tier_b_eval/percell_*.npz (read-only).
 Writes only:
-  figures/paper1/figure_trajectory_continuity.{pdf,png}
+  figures/paper1/figure3_trajectory_continuity.{pdf,png}
   tables/paper1/table_trajectory_continuity.csv
 
 Usage:
-    python3 scripts/analyze_trajectory_continuity.py
+    /home/dq/venv-ds/bin/python3 scripts/analyze_trajectory_continuity.py
     ... --preprocess l2pca      # per-cell L2 normalise before PCA
     ... --root lsc_medoid       # root = medoid of LSC cells (frozen space)
 """
@@ -113,10 +120,11 @@ LAYER_ORDER_4 = ["LSC", "TAC", "basal", "differentiated"]
 SEEDS = [42, 123, 456]
 N_EXT = 14775
 
-# Seed -> shade within the group hue family (blue-green = naive FT, pink =
-# CAFT), frozen = dark gray — identical to figure7_layerwise_rho conventions.
-_NAIVE_SEED_COLORS = {42: OI_BLUEGREEN, 123: "#5EC4AB", 456: "#005A40"}
-_CAFT_SEED_COLORS = {42: OI_PINK, 123: "#E0A6C9", 456: "#9C4E73"}
+# Seed -> shade within the group hue family (v6 unified mapping): naive =
+# blue family, CAFT = orange family (v8fix lock), frozen = dark gray —
+# identical to figure2_layerwise_rho conventions.
+_NAIVE_SEED_COLORS = {42: "#0072B2", 123: "#56B4E9", 456: "#003C66"}
+_CAFT_SEED_COLORS = {42: "#E69F00", 123: "#F2C14E", 456: "#A06A00"}
 _FROZEN_RHO_COLOR = "#333333"
 
 ARMS: list[dict[str, Any]] = (
@@ -353,10 +361,10 @@ def stratified_consistency(ref_pt: np.ndarray, inf_pt: np.ndarray, q: int) -> fl
 
 def render_figure(results: pd.DataFrame, strat_lines: dict[str, np.ndarray | None],
                   q: int, out_dir: Path) -> list[Path]:
-    """figure_trajectory_continuity: A) inferred-vs-frozen-reference rho per arm
+    """figure3_trajectory_continuity: A) inferred-vs-frozen-reference rho per arm
     with bootstrap 95% CI; B) stratified consistency (median inferred
     pseudotime per frozen-reference decile, min-max scaled per arm)."""
-    fig = plt.figure(figsize=(7, 3.5))
+    fig = plt.figure(figsize=(6.5, 3.25))
 
     def _color(row: pd.Series) -> str:
         if row["arm"] == "frozen":
@@ -379,44 +387,83 @@ def render_figure(results: pd.DataFrame, strat_lines: dict[str, np.ndarray | Non
     ax.axhline(0.0, color=OI_GRAY, ls=":", lw=0.7, zorder=1)
     ax.set_xticks(list(results.index))
     ax.set_xticklabels(
-        [r["arm"] if r["arm"] == "frozen" else f"{r['arm']}\ns{r['seed']}"
+        [r["arm"] if r["arm"] == "frozen" else f"{'CAFT' if r['arm'] == 'caft' else 'naive'}\ns{int(r['seed'])}"
          for _, r in results.iterrows()],
         fontsize=6.5,
     )
     ax.set_ylabel("Spearman \u03c1 (DPT vs frozen reference pseudotime)")
-    ax.set_title("A  Trajectory continuity vs frozen reference", fontsize=9,
+    ax.set_title("Trajectory continuity vs frozen reference", fontsize=9,
                  fontweight="bold", loc="left")
     lo = min(0.0, results["ci_lower"].min())
     hi = results["ci_upper"].max()
-    ax.set_ylim(lo - 0.15, hi + 0.15)
+    ax.set_ylim(lo - 0.15, max(hi + 0.15, 1.05))
+    ax.set_yticks([0.0, 0.25, 0.5, 0.75, 1.0])
     panel_label(fig, ax, "A")
 
     # ---- Panel B: stratified consistency --------------------------------
+    # v8fix (obs-1): per-seed curves merged into family envelope + mean line;
+    # the 3-entry legend is parked in the upper-left corner with a white box
+    # (was a 7-entry all-fine-tuned legend that crowded the panel).
     ax = fig.add_subplot(1, 2, 2)
+    fam_curves: dict[str, list[np.ndarray]] = {"naive": [], "caft": []}
+    frozen_med: np.ndarray | None = None
     for _, row in results.iterrows():
         color = _color(row)
-        label = "frozen GF" if row["arm"] == "frozen" else \
-            f"{row['arm']} \u03bb={'0' if row['arm'] == 'naive' else '0.5'} " \
-            f"s{row['seed']}"
         med = strat_lines.get(row["key"])
         if med is None or len(med) == 0:
             continue
         y = med - med.min()
         span = med.max() - med.min()
         y = y / span if span > 0 else np.zeros_like(y)
-        ax.plot(np.arange(len(med)), y, marker="o", ms=3.5, lw=1.1,
-                color=color, label=label, zorder=3)
+        if row["arm"] == "frozen":
+            frozen_med = y
+            ax.plot(np.arange(len(y)), y, marker="o", ms=3.5, lw=1.8,
+                    color=color, zorder=3)
+        else:
+            fam = "naive" if row["arm"] == "naive" else "caft"
+            fam_curves[fam].append(y)
+            ax.plot(np.arange(len(y)), y, marker="o", ms=2.5, lw=0.8,
+                    color=color, alpha=0.35, zorder=2)
+    for fam, color in (("naive", OI_BLUE), ("caft", OI_ORANGE)):
+        curves = fam_curves[fam]
+        if not curves:
+            continue
+        mat = np.vstack(curves)
+        mean_y = mat.mean(axis=0)
+        lo = mat.min(axis=0)
+        hi = mat.max(axis=0)
+        xs = np.arange(len(mean_y))
+        ax.fill_between(xs, lo, hi, color=color, alpha=0.12, lw=0, zorder=1)
+        ax.plot(xs, mean_y, marker="o", ms=3.5, lw=1.6, color=color, zorder=3)
     ax.set_xlabel("Frozen reference pseudotime decile (0 = LSC end)")
     ax.set_ylabel("Median inferred pseudotime (scaled)")
-    ax.set_title("B  Stratified consistency", fontsize=9, fontweight="bold",
+    ax.set_title("Stratified consistency", fontsize=9, fontweight="bold",
                  loc="left")
     ax.set_xticks(range(0, q, max(1, q // 5)))
-    ax.legend(fontsize=6, loc="upper left", frameon=False)
+    ax.set_ylim(-0.1, 1.1)
+    ax.set_yticks([0.0, 0.25, 0.5, 0.75, 1.0])
+    handles = [
+        plt.Line2D([0], [0], color=_FROZEN_RHO_COLOR, lw=1.8, label="frozen GF"),
+    ]
+    if fam_curves["naive"]:
+        handles.append(plt.Line2D([0], [0], color=OI_BLUE, lw=1.6,
+                                  label="naive (mean \u00b1 seed range)"))
+    if fam_curves["caft"]:
+        handles.append(plt.Line2D([0], [0], color=OI_ORANGE, lw=1.6,
+                                  label="CAFT (mean \u00b1 seed range)"))
+    ax.legend(handles=handles, fontsize=6.5, loc="upper left", frameon=True,
+              framealpha=0.9, borderpad=0.4, handlelength=1.4)
     panel_label(fig, ax, "B")
-    fig.tight_layout()
+    fig.text(
+        0.5, 0.005,
+        "Error bars: bootstrap 95% CI (n = 14,775 external-test epithelial "
+        "cells); DPT vs frozen layer-centroid PCA pseudotime reference.",
+        ha="center", va="bottom", fontsize=6.3, color="#555555",
+    )
+    fig.tight_layout(rect=(0.0, 0.045, 1.0, 1.0))
 
     return save_figure(
-        fig, "figure_trajectory_continuity", out_dir,
+        fig, "figure3_trajectory_continuity", out_dir,
         figure_metadata("Figure 8 - Trajectory continuity across Paper 1 arms "
                         "(DPT vs frozen layer-centroid PCA reference)"),
     )
@@ -452,6 +499,9 @@ def main() -> int:
     fig_dir = Path(args.fig_dir)
     table_dir = Path(args.table_dir)
     setup_style()
+    import matplotlib as mpl
+    mpl.rcParams["pdf.fonttype"] = 42
+    mpl.rcParams["ps.fonttype"] = 42
 
     # ---- frozen (reference) arm loaded first -----------------------------
     frozen_cfg = next(a for a in ARMS if a["arm"] == "frozen")

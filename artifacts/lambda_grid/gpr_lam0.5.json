@@ -1,0 +1,129 @@
+{
+  "contract": {
+    "embedding": {
+      "source": "geneformer.last_hidden_state",
+      "pooling": "raw_cls",
+      "normalization": "per_cell_l2_then_layer_centroid_mean_then_l2"
+    },
+    "metric": {
+      "formula": "CS=mean(cos(unit(mean(unit(cell_embeddings[layer_i]))),unit(mean(unit(cell_embeddings[layer_i+1])))));GPR=CS_after/CS_before",
+      "layer_order": [
+        "LSC",
+        "TAC",
+        "basal",
+        "wing",
+        "squamous"
+      ]
+    },
+    "dataset": {
+      "path": "/home/dq/Codex/Ai/save/caft_gf_lam0.0_seed42_20260724-085100/corneal_layer_subset_tk/cell.dataset",
+      "fingerprint": "huggingface:aacc2b91f55f503f"
+    },
+    "checkpoints": {
+      "before": "/home/dq/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
+      "after": "/home/dq/Codex/Ai/save/caft_gf_lam0.5_seed42_20260728-230110/model/checkpoint-7500"
+    },
+    "resampling": {
+      "method": "paired_stratified_percentile",
+      "seed": 42,
+      "n_boot": 1000
+    }
+  },
+  "primary": {
+    "metric_name": "raw_cls_same_space_gpr",
+    "ceiling_sensitive": true,
+    "cs_before": 0.9892847687005997,
+    "cs_after": 0.20767871290445328,
+    "gpr": 0.20992814149684522,
+    "absolute_delta": -0.7816060557961464,
+    "interpretation": "degraded",
+    "pair_similarity_before": {
+      "LSC->TAC": 0.9908,
+      "TAC->basal": 0.9887,
+      "basal->wing": 0.9889,
+      "wing->squamous": 0.9887
+    },
+    "pair_similarity_after": {
+      "LSC->TAC": 0.154,
+      "TAC->basal": 0.1564,
+      "basal->wing": 0.1573,
+      "wing->squamous": 0.3629
+    },
+    "per_adjacent_pair_delta": {
+      "LSC->TAC": -0.8368,
+      "TAC->basal": -0.8323,
+      "basal->wing": -0.8316,
+      "wing->squamous": -0.6258
+    },
+    "paired_stratified_bootstrap_95ci": {
+      "cs_before": {
+        "ci_low": 0.9889280676841736,
+        "ci_high": 0.9896110862493515
+      },
+      "cs_after": {
+        "ci_low": 0.19969683447852732,
+        "ci_high": 0.2157349182292819
+      },
+      "gpr": {
+        "ci_low": 0.20191317865068056,
+        "ci_high": 0.21803653371443596
+      },
+      "absolute_delta": {
+        "ci_low": -0.7893492422997952,
+        "ci_high": -0.7736675724387169
+      }
+    }
+  },
+  "sensitivity": {
+    "mean_pool": {
+      "metric_name": "mean_pool_same_space_gpr_sensitivity",
+      "cs_before": 0.9778468459844589,
+      "cs_after": 0.6157723665237427,
+      "gpr": 0.6297227107214387,
+      "absolute_delta": -0.36207447946071625,
+      "interpretation": "degraded",
+      "pair_similarity_before": {
+        "LSC->TAC": 0.9797,
+        "TAC->basal": 0.9746,
+        "basal->wing": 0.9772,
+        "wing->squamous": 0.9798
+      },
+      "pair_similarity_after": {
+        "LSC->TAC": 0.6281,
+        "TAC->basal": 0.5527,
+        "basal->wing": 0.5598,
+        "wing->squamous": 0.7224
+      },
+      "per_adjacent_pair_delta": {
+        "LSC->TAC": -0.3516,
+        "TAC->basal": -0.42190000000000005,
+        "basal->wing": -0.4174,
+        "wing->squamous": -0.25739999999999996
+      }
+    }
+  },
+  "diagnostics": {
+    "anisotropy": {
+      "raw_cls": {
+        "before": {
+          "mean_resultant_length": 0.9632428884506226,
+          "mean_pairwise_cosine": 0.9278345108032227
+        },
+        "after": {
+          "mean_resultant_length": 0.28937655687332153,
+          "mean_pairwise_cosine": 0.083708256483078
+        }
+      },
+      "mean_pool": {
+        "before": {
+          "mean_resultant_length": 0.9335283041000366,
+          "mean_pairwise_cosine": 0.8714708685874939
+        },
+        "after": {
+          "mean_resultant_length": 0.6145625114440918,
+          "mean_pairwise_cosine": 0.37766629457473755
+        }
+      }
+    }
+  }
+}

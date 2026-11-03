@@ -1,0 +1,75 @@
+{
+  "arm": "cellplm_corn",
+  "seed": 123,
+  "recipe": "official CellTypeAnnotationPipeline with CORN ordinal head (mechanical port of corneal_fm/ordinal.py: K=3 -> K-1=2 threshold BCEs, threshold-count decode >= 0.5); same LR 5e-3 (embedder 5e-4), wd 1e-7, plat scheduler, epochs 2000 cap, es=200, patience 25, hvg 3000, best-valid-F1 checkpoint; head MLP identical to official AnnotationHead except output width K-1",
+  "corn": {
+    "n_ordinal": 3,
+    "n_thresholds": 2,
+    "layer_order": [
+      "LSC",
+      "basal",
+      "differentiated"
+    ],
+    "class_to_ordinal": {
+      "0": 0,
+      "1": 1,
+      "2": 2
+    },
+    "decode": "count of sigmoid(logit) >= 0.5 (ordinal.py ordinal_decode)",
+    "loss": "mean BCE_with_logits over K-1 thresholds (ordinal.py compute_loss)",
+    "ordinal_lambda": 0.0
+  },
+  "training": {
+    "epochs_actual": 123,
+    "best_valid_f1": 0.9704,
+    "elapsed_min": 23.964179702599843,
+    "n_train": 38233,
+    "n_valid": 4249,
+    "panel_genes_after_preprocess": 2399,
+    "device": "cuda",
+    "torch": "2.13.0+cu130",
+    "seed": 123
+  },
+  "eval": {
+    "n_eval_cells": 20158,
+    "test_donor": "sanes2022_Hu0216",
+    "macro_f1": 0.9713118075553503,
+    "bootstrap_ci95": [
+      0.9687653190906923,
+      0.9738318025250118
+    ],
+    "n_boot": 1000,
+    "acc": 0.9764857624764361,
+    "rho_raw": 0.9198847555293301,
+    "rho_normed": 0.916322850776735,
+    "null_mean": 0.0061597118687883486,
+    "null_sd": 0.005454896497342334,
+    "null_z": 166.8525038653593,
+    "null_pctile": 1.0,
+    "n_null": 100
+  },
+  "frozen_baseline": {
+    "rho_raw": 0.8045374994819748,
+    "rho_normed": 0.8025539590992938,
+    "null_mean": 0.011132786248134933,
+    "null_sd": 0.006810699499330717,
+    "null_z": 116.20262690035455,
+    "null_pctile": 1.0,
+    "n_null": 100
+  },
+  "delta_rho": {
+    "frozen_rho_normed": 0.8025539590992938,
+    "delta_rho": -0.1137688916774412
+  },
+  "y_true_dist": {
+    "LSC": 8331,
+    "basal": 7563,
+    "differentiated": 4264
+  },
+  "pred_dist": {
+    "LSC": 8368,
+    "basal": 7671,
+    "differentiated": 4119
+  },
+  "timestamp_utc": "2026-08-19T14:14:47.566095+00:00"
+}

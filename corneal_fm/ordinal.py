@@ -80,7 +80,8 @@ def class_to_ordinal_map(id_class_dict: dict) -> dict:
 
 
 def ordinal_decode(
-    logits: np.ndarray, threshold: float = 0.5,
+    logits: np.ndarray,
+    threshold: float = 0.5,
 ) -> tuple[np.ndarray, np.ndarray]:
     """CORN inference: (n, K-1) threshold logits -> (n,) class 0..K-1.
 
@@ -168,7 +169,8 @@ class OrdinalTrainer(CAFTTrainer):
         if getattr(self, "_epi_rows", None) is None:
             labels_all = list(ds["label"])
             self._epi_rows = [
-                i for i, c in enumerate(labels_all)
+                i
+                for i, c in enumerate(labels_all)
                 if self.class_to_layer.get(int(c), NON_LAYER) != NON_LAYER
             ]
         device = self.model.device

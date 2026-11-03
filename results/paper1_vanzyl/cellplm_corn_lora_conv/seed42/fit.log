@@ -1,0 +1,712 @@
+After filtering, 2399 genes remain.
+Epoch 0 | Train loss: 0.6710 | Valid loss: 0.6068
+Train ACC: 0.3928 | Valid ACC: 0.3340 | Train f1: 0.3426 | Valid f1: 0.1980 | Train pre: 0.4369 | Valid pre: 0.4728
+Epoch 1 | Train loss: 0.5781 | Valid loss: 0.4942
+Train ACC: 0.3563 | Valid ACC: 0.3336 | Train f1: 0.2387 | Valid f1: 0.1970 | Train pre: 0.5212 | Valid pre: 0.4727
+Epoch 2 | Train loss: 0.4877 | Valid loss: 0.4013
+Train ACC: 0.3487 | Valid ACC: 0.4056 | Train f1: 0.2263 | Valid f1: 0.3427 | Train pre: 0.5163 | Valid pre: 0.7578
+Epoch 3 | Train loss: 0.4064 | Valid loss: 0.2987
+Train ACC: 0.4260 | Valid ACC: 0.7110 | Train f1: 0.3638 | Valid f1: 0.7327 | Train pre: 0.7792 | Valid pre: 0.8011
+Epoch 4 | Train loss: 0.3077 | Valid loss: 0.2327
+Train ACC: 0.7009 | Valid ACC: 0.8602 | Train f1: 0.7059 | Valid f1: 0.8400 | Train pre: 0.7951 | Valid pre: 0.8380
+Epoch 5 | Train loss: 0.2458 | Valid loss: 0.2336
+Train ACC: 0.8348 | Valid ACC: 0.8464 | Train f1: 0.8239 | Valid f1: 0.8102 | Train pre: 0.8242 | Valid pre: 0.8265
+Epoch 6 | Train loss: 0.2155 | Valid loss: 0.2021
+Train ACC: 0.8377 | Valid ACC: 0.8593 | Train f1: 0.8173 | Valid f1: 0.8329 | Train pre: 0.8187 | Valid pre: 0.8368
+Epoch 7 | Train loss: 0.1814 | Valid loss: 0.1606
+Train ACC: 0.8335 | Valid ACC: 0.8715 | Train f1: 0.8325 | Valid f1: 0.8583 | Train pre: 0.8393 | Valid pre: 0.8538
+Epoch 8 | Train loss: 0.1707 | Valid loss: 0.1686
+Train ACC: 0.8393 | Valid ACC: 0.8893 | Train f1: 0.8452 | Valid f1: 0.8711 | Train pre: 0.8627 | Valid pre: 0.8691
+Epoch 9 | Train loss: 0.1605 | Valid loss: 0.1430
+Train ACC: 0.8523 | Valid ACC: 0.9057 | Train f1: 0.8579 | Valid f1: 0.8942 | Train pre: 0.8769 | Valid pre: 0.8897
+Epoch 10 | Train loss: 0.1507 | Valid loss: 0.1596
+Train ACC: 0.8655 | Valid ACC: 0.9013 | Train f1: 0.8674 | Valid f1: 0.8817 | Train pre: 0.8775 | Valid pre: 0.8836
+Epoch 11 | Train loss: 0.1372 | Valid loss: 0.1184
+Train ACC: 0.8819 | Valid ACC: 0.9183 | Train f1: 0.8814 | Valid f1: 0.9074 | Train pre: 0.8821 | Valid pre: 0.9037
+Epoch 12 | Train loss: 0.1358 | Valid loss: 0.1294
+Train ACC: 0.8683 | Valid ACC: 0.9116 | Train f1: 0.8757 | Valid f1: 0.8955 | Train pre: 0.8946 | Valid pre: 0.8942
+Epoch 13 | Train loss: 0.1349 | Valid loss: 0.1466
+Train ACC: 0.8852 | Valid ACC: 0.9016 | Train f1: 0.8823 | Valid f1: 0.8803 | Train pre: 0.8863 | Valid pre: 0.8845
+Epoch 14 | Train loss: 0.1320 | Valid loss: 0.1054
+Train ACC: 0.8679 | Valid ACC: 0.9229 | Train f1: 0.8726 | Valid f1: 0.9117 | Train pre: 0.8946 | Valid pre: 0.9076
+Epoch 15 | Train loss: 0.1274 | Valid loss: 0.1360
+Train ACC: 0.8818 | Valid ACC: 0.9032 | Train f1: 0.8812 | Valid f1: 0.8825 | Train pre: 0.8895 | Valid pre: 0.8845
+Epoch 16 | Train loss: 0.1220 | Valid loss: 0.1085
+Train ACC: 0.8882 | Valid ACC: 0.9202 | Train f1: 0.8892 | Valid f1: 0.9081 | Train pre: 0.8962 | Valid pre: 0.9044
+Epoch 17 | Train loss: 0.1174 | Valid loss: 0.1118
+Train ACC: 0.8870 | Valid ACC: 0.9196 | Train f1: 0.8914 | Valid f1: 0.9059 | Train pre: 0.8980 | Valid pre: 0.9021
+Epoch 18 | Train loss: 0.1163 | Valid loss: 0.1277
+Train ACC: 0.8915 | Valid ACC: 0.9107 | Train f1: 0.8952 | Valid f1: 0.8929 | Train pre: 0.9012 | Valid pre: 0.8917
+Epoch 19 | Train loss: 0.1144 | Valid loss: 0.1026
+Train ACC: 0.8948 | Valid ACC: 0.9299 | Train f1: 0.8964 | Valid f1: 0.9204 | Train pre: 0.9013 | Valid pre: 0.9161
+Epoch 20 | Train loss: 0.1141 | Valid loss: 0.1316
+Train ACC: 0.8873 | Valid ACC: 0.9085 | Train f1: 0.8934 | Valid f1: 0.8887 | Train pre: 0.9060 | Valid pre: 0.8898
+Epoch 21 | Train loss: 0.1110 | Valid loss: 0.1150
+Train ACC: 0.9002 | Valid ACC: 0.9145 | Train f1: 0.9012 | Valid f1: 0.8974 | Train pre: 0.9058 | Valid pre: 0.8961
+Epoch 22 | Train loss: 0.1104 | Valid loss: 0.1007
+Train ACC: 0.9007 | Valid ACC: 0.9244 | Train f1: 0.9021 | Valid f1: 0.9106 | Train pre: 0.9056 | Valid pre: 0.9072
+Epoch 23 | Train loss: 0.1104 | Valid loss: 0.1413
+Train ACC: 0.8892 | Valid ACC: 0.9040 | Train f1: 0.8959 | Valid f1: 0.8802 | Train pre: 0.9084 | Valid pre: 0.8866
+Epoch 24 | Train loss: 0.1099 | Valid loss: 0.0866
+Train ACC: 0.9107 | Valid ACC: 0.9318 | Train f1: 0.9041 | Valid f1: 0.9261 | Train pre: 0.9014 | Valid pre: 0.9225
+Epoch 25 | Train loss: 0.1143 | Valid loss: 0.1253
+Train ACC: 0.8924 | Valid ACC: 0.9090 | Train f1: 0.8965 | Valid f1: 0.8890 | Train pre: 0.9119 | Valid pre: 0.8903
+Epoch 26 | Train loss: 0.1095 | Valid loss: 0.1246
+Train ACC: 0.8883 | Valid ACC: 0.9090 | Train f1: 0.8917 | Valid f1: 0.8903 | Train pre: 0.9030 | Valid pre: 0.8906
+Epoch 27 | Train loss: 0.1057 | Valid loss: 0.1077
+Train ACC: 0.9026 | Valid ACC: 0.9196 | Train f1: 0.9036 | Valid f1: 0.9031 | Train pre: 0.9057 | Valid pre: 0.9011
+Epoch 28 | Train loss: 0.1074 | Valid loss: 0.1007
+Train ACC: 0.9036 | Valid ACC: 0.9299 | Train f1: 0.9033 | Valid f1: 0.9176 | Train pre: 0.9047 | Valid pre: 0.9134
+Epoch 29 | Train loss: 0.1100 | Valid loss: 0.1082
+Train ACC: 0.8953 | Valid ACC: 0.9215 | Train f1: 0.8989 | Valid f1: 0.9053 | Train pre: 0.9085 | Valid pre: 0.9031
+Epoch 30 | Train loss: 0.1039 | Valid loss: 0.1218
+Train ACC: 0.9075 | Valid ACC: 0.9100 | Train f1: 0.9081 | Valid f1: 0.8897 | Train pre: 0.9107 | Valid pre: 0.8911
+Epoch 31 | Train loss: 0.1001 | Valid loss: 0.0828
+Train ACC: 0.9132 | Valid ACC: 0.9360 | Train f1: 0.9108 | Valid f1: 0.9312 | Train pre: 0.9099 | Valid pre: 0.9279
+Epoch 32 | Train loss: 0.0977 | Valid loss: 0.0952
+Train ACC: 0.8979 | Valid ACC: 0.9337 | Train f1: 0.9060 | Valid f1: 0.9227 | Train pre: 0.9215 | Valid pre: 0.9183
+Epoch 33 | Train loss: 0.0955 | Valid loss: 0.1012
+Train ACC: 0.9144 | Valid ACC: 0.9339 | Train f1: 0.9160 | Valid f1: 0.9249 | Train pre: 0.9178 | Valid pre: 0.9203
+Epoch 34 | Train loss: 0.0959 | Valid loss: 0.1022
+Train ACC: 0.9169 | Valid ACC: 0.9327 | Train f1: 0.9153 | Valid f1: 0.9191 | Train pre: 0.9152 | Valid pre: 0.9153
+Epoch 35 | Train loss: 0.0950 | Valid loss: 0.0840
+Train ACC: 0.9121 | Valid ACC: 0.9365 | Train f1: 0.9132 | Valid f1: 0.9328 | Train pre: 0.9165 | Valid pre: 0.9300
+Epoch 36 | Train loss: 0.1008 | Valid loss: 0.1160
+Train ACC: 0.9148 | Valid ACC: 0.9247 | Train f1: 0.9116 | Valid f1: 0.9070 | Train pre: 0.9137 | Valid pre: 0.9059
+Epoch 37 | Train loss: 0.1052 | Valid loss: 0.1078
+Train ACC: 0.8889 | Valid ACC: 0.9215 | Train f1: 0.8970 | Valid f1: 0.9019 | Train pre: 0.9176 | Valid pre: 0.9026
+Epoch 38 | Train loss: 0.0943 | Valid loss: 0.1075
+Train ACC: 0.9164 | Valid ACC: 0.9236 | Train f1: 0.9164 | Valid f1: 0.9053 | Train pre: 0.9177 | Valid pre: 0.9049
+Epoch 39 | Train loss: 0.0912 | Valid loss: 0.0843
+Train ACC: 0.9193 | Valid ACC: 0.9336 | Train f1: 0.9178 | Valid f1: 0.9190 | Train pre: 0.9168 | Valid pre: 0.9156
+Epoch 40 | Train loss: 0.0931 | Valid loss: 0.1230
+Train ACC: 0.9113 | Valid ACC: 0.9197 | Train f1: 0.9129 | Valid f1: 0.9000 | Train pre: 0.9168 | Valid pre: 0.9011
+Epoch 41 | Train loss: 0.0966 | Valid loss: 0.0873
+Train ACC: 0.9181 | Valid ACC: 0.9313 | Train f1: 0.9174 | Valid f1: 0.9159 | Train pre: 0.9181 | Valid pre: 0.9130
+Epoch 42 | Train loss: 0.0933 | Valid loss: 0.1083
+Train ACC: 0.9131 | Valid ACC: 0.9244 | Train f1: 0.9132 | Valid f1: 0.9061 | Train pre: 0.9159 | Valid pre: 0.9055
+Epoch 43 | Train loss: 0.0930 | Valid loss: 0.1417
+Train ACC: 0.9100 | Valid ACC: 0.9066 | Train f1: 0.9165 | Valid f1: 0.8826 | Train pre: 0.9258 | Valid pre: 0.8894
+Epoch 44 | Train loss: 0.0990 | Valid loss: 0.0770
+Train ACC: 0.9149 | Valid ACC: 0.9407 | Train f1: 0.9116 | Valid f1: 0.9340 | Train pre: 0.9106 | Valid pre: 0.9298
+Epoch 45 | Train loss: 0.1004 | Valid loss: 0.1160
+Train ACC: 0.9063 | Valid ACC: 0.9298 | Train f1: 0.9099 | Valid f1: 0.9137 | Train pre: 0.9189 | Valid pre: 0.9113
+Epoch 46 | Train loss: 0.0929 | Valid loss: 0.0825
+Train ACC: 0.9211 | Valid ACC: 0.9423 | Train f1: 0.9189 | Valid f1: 0.9378 | Train pre: 0.9180 | Valid pre: 0.9344
+Epoch 47 | Train loss: 0.0894 | Valid loss: 0.1150
+Train ACC: 0.9196 | Valid ACC: 0.9224 | Train f1: 0.9211 | Valid f1: 0.9032 | Train pre: 0.9241 | Valid pre: 0.9035
+Epoch 48 | Train loss: 0.0942 | Valid loss: 0.0920
+Train ACC: 0.9108 | Valid ACC: 0.9400 | Train f1: 0.9142 | Valid f1: 0.9344 | Train pre: 0.9221 | Valid pre: 0.9306
+Epoch 49 | Train loss: 0.0867 | Valid loss: 0.1188
+Train ACC: 0.9200 | Valid ACC: 0.9242 | Train f1: 0.9235 | Valid f1: 0.9054 | Train pre: 0.9288 | Valid pre: 0.9051
+Epoch 50 | Train loss: 0.0892 | Valid loss: 0.0862
+Train ACC: 0.9231 | Valid ACC: 0.9413 | Train f1: 0.9201 | Valid f1: 0.9397 | Train pre: 0.9188 | Valid pre: 0.9382
+Epoch 51 | Train loss: 0.0914 | Valid loss: 0.1005
+Train ACC: 0.9164 | Valid ACC: 0.9372 | Train f1: 0.9184 | Valid f1: 0.9248 | Train pre: 0.9215 | Valid pre: 0.9205
+Epoch 52 | Train loss: 0.0890 | Valid loss: 0.0834
+Train ACC: 0.9159 | Valid ACC: 0.9392 | Train f1: 0.9186 | Valid f1: 0.9258 | Train pre: 0.9263 | Valid pre: 0.9218
+Epoch 53 | Train loss: 0.0928 | Valid loss: 0.1114
+Train ACC: 0.9189 | Valid ACC: 0.9180 | Train f1: 0.9170 | Valid f1: 0.8972 | Train pre: 0.9193 | Valid pre: 0.8994
+Epoch 54 | Train loss: 0.0896 | Valid loss: 0.0912
+Train ACC: 0.9154 | Valid ACC: 0.9366 | Train f1: 0.9185 | Valid f1: 0.9223 | Train pre: 0.9242 | Valid pre: 0.9187
+Epoch 55 | Train loss: 0.0869 | Valid loss: 0.1021
+Train ACC: 0.9263 | Valid ACC: 0.9325 | Train f1: 0.9247 | Valid f1: 0.9163 | Train pre: 0.9244 | Valid pre: 0.9138
+Epoch 56 | Train loss: 0.0858 | Valid loss: 0.0908
+Train ACC: 0.9191 | Valid ACC: 0.9345 | Train f1: 0.9222 | Valid f1: 0.9182 | Train pre: 0.9272 | Valid pre: 0.9156
+Epoch 57 | Train loss: 0.0848 | Valid loss: 0.0836
+Train ACC: 0.9249 | Valid ACC: 0.9424 | Train f1: 0.9256 | Valid f1: 0.9314 | Train pre: 0.9267 | Valid pre: 0.9268
+Epoch 58 | Train loss: 0.0862 | Valid loss: 0.0946
+Train ACC: 0.9186 | Valid ACC: 0.9338 | Train f1: 0.9230 | Valid f1: 0.9172 | Train pre: 0.9288 | Valid pre: 0.9149
+Epoch 59 | Train loss: 0.0858 | Valid loss: 0.0843
+Train ACC: 0.9249 | Valid ACC: 0.9410 | Train f1: 0.9229 | Valid f1: 0.9293 | Train pre: 0.9214 | Valid pre: 0.9248
+Epoch 60 | Train loss: 0.0831 | Valid loss: 0.1048
+Train ACC: 0.9235 | Valid ACC: 0.9260 | Train f1: 0.9264 | Valid f1: 0.9071 | Train pre: 0.9299 | Valid pre: 0.9070
+Epoch 61 | Train loss: 0.0876 | Valid loss: 0.0766
+Train ACC: 0.9253 | Valid ACC: 0.9440 | Train f1: 0.9230 | Valid f1: 0.9337 | Train pre: 0.9232 | Valid pre: 0.9289
+Epoch 62 | Train loss: 0.0857 | Valid loss: 0.1070
+Train ACC: 0.9183 | Valid ACC: 0.9340 | Train f1: 0.9216 | Valid f1: 0.9232 | Train pre: 0.9255 | Valid pre: 0.9188
+Epoch 63 | Train loss: 0.0909 | Valid loss: 0.0852
+Train ACC: 0.9224 | Valid ACC: 0.9420 | Train f1: 0.9223 | Valid f1: 0.9356 | Train pre: 0.9246 | Valid pre: 0.9315
+Epoch 64 | Train loss: 0.0880 | Valid loss: 0.0836
+Train ACC: 0.9213 | Valid ACC: 0.9402 | Train f1: 0.9225 | Valid f1: 0.9275 | Train pre: 0.9252 | Valid pre: 0.9232
+Epoch 65 | Train loss: 0.0868 | Valid loss: 0.1214
+Train ACC: 0.9101 | Valid ACC: 0.9196 | Train f1: 0.9173 | Valid f1: 0.8989 | Train pre: 0.9289 | Valid pre: 0.9010
+Epoch 66 | Train loss: 0.0847 | Valid loss: 0.0856
+Train ACC: 0.9265 | Valid ACC: 0.9450 | Train f1: 0.9247 | Valid f1: 0.9349 | Train pre: 0.9240 | Valid pre: 0.9302
+Epoch 67 | Train loss: 0.0856 | Valid loss: 0.1183
+Train ACC: 0.9245 | Valid ACC: 0.9197 | Train f1: 0.9261 | Valid f1: 0.8991 | Train pre: 0.9299 | Valid pre: 0.9010
+Epoch 68 | Train loss: 0.0891 | Valid loss: 0.0901
+Train ACC: 0.9171 | Valid ACC: 0.9359 | Train f1: 0.9194 | Valid f1: 0.9210 | Train pre: 0.9254 | Valid pre: 0.9176
+Epoch 69 | Train loss: 0.0832 | Valid loss: 0.0961
+Train ACC: 0.9245 | Valid ACC: 0.9322 | Train f1: 0.9247 | Valid f1: 0.9154 | Train pre: 0.9253 | Valid pre: 0.9133
+Epoch 70 | Train loss: 0.0807 | Valid loss: 0.1057
+Train ACC: 0.9238 | Valid ACC: 0.9264 | Train f1: 0.9267 | Valid f1: 0.9077 | Train pre: 0.9308 | Valid pre: 0.9074
+Epoch 71 | Train loss: 0.0829 | Valid loss: 0.0949
+Train ACC: 0.9289 | Valid ACC: 0.9310 | Train f1: 0.9273 | Valid f1: 0.9144 | Train pre: 0.9262 | Valid pre: 0.9123
+Epoch 72 | Train loss: 0.0836 | Valid loss: 0.0990
+Train ACC: 0.9235 | Valid ACC: 0.9240 | Train f1: 0.9245 | Valid f1: 0.9047 | Train pre: 0.9259 | Valid pre: 0.9049
+Epoch 73 | Train loss: 0.0800 | Valid loss: 0.0916
+Train ACC: 0.9266 | Valid ACC: 0.9339 | Train f1: 0.9287 | Valid f1: 0.9175 | Train pre: 0.9313 | Valid pre: 0.9151
+Epoch 74 | Train loss: 0.0796 | Valid loss: 0.1031
+Train ACC: 0.9243 | Valid ACC: 0.9256 | Train f1: 0.9258 | Valid f1: 0.9064 | Train pre: 0.9275 | Valid pre: 0.9065
+Epoch 75 | Train loss: 0.0808 | Valid loss: 0.0832
+Train ACC: 0.9266 | Valid ACC: 0.9350 | Train f1: 0.9268 | Valid f1: 0.9196 | Train pre: 0.9275 | Valid pre: 0.9165
+Epoch 76 | Train loss: 0.0821 | Valid loss: 0.1004
+Train ACC: 0.9273 | Valid ACC: 0.9329 | Train f1: 0.9282 | Valid f1: 0.9164 | Train pre: 0.9304 | Valid pre: 0.9141
+Epoch 77 | Train loss: 0.0801 | Valid loss: 0.0837
+Train ACC: 0.9267 | Valid ACC: 0.9426 | Train f1: 0.9288 | Valid f1: 0.9296 | Train pre: 0.9313 | Valid pre: 0.9253
+Epoch 78 | Train loss: 0.0791 | Valid loss: 0.0891
+Train ACC: 0.9251 | Valid ACC: 0.9346 | Train f1: 0.9273 | Valid f1: 0.9182 | Train pre: 0.9309 | Valid pre: 0.9158
+Epoch 79 | Train loss: 0.0800 | Valid loss: 0.1040
+Train ACC: 0.9253 | Valid ACC: 0.9262 | Train f1: 0.9273 | Valid f1: 0.9070 | Train pre: 0.9298 | Valid pre: 0.9071
+Epoch 80 | Train loss: 0.0804 | Valid loss: 0.0725
+Train ACC: 0.9314 | Valid ACC: 0.9493 | Train f1: 0.9285 | Valid f1: 0.9436 | Train pre: 0.9268 | Valid pre: 0.9397
+Epoch 81 | Train loss: 0.0797 | Valid loss: 0.0921
+Train ACC: 0.9253 | Valid ACC: 0.9291 | Train f1: 0.9272 | Valid f1: 0.9115 | Train pre: 0.9320 | Valid pre: 0.9102
+Epoch 82 | Train loss: 0.0807 | Valid loss: 0.0829
+Train ACC: 0.9250 | Valid ACC: 0.9472 | Train f1: 0.9267 | Valid f1: 0.9376 | Train pre: 0.9286 | Valid pre: 0.9328
+Epoch 83 | Train loss: 0.0811 | Valid loss: 0.0911
+Train ACC: 0.9265 | Valid ACC: 0.9380 | Train f1: 0.9273 | Valid f1: 0.9231 | Train pre: 0.9285 | Valid pre: 0.9197
+Epoch 84 | Train loss: 0.0796 | Valid loss: 0.0688
+Train ACC: 0.9283 | Valid ACC: 0.9496 | Train f1: 0.9286 | Valid f1: 0.9411 | Train pre: 0.9296 | Valid pre: 0.9364
+Epoch 85 | Train loss: 0.0795 | Valid loss: 0.0965
+Train ACC: 0.9264 | Valid ACC: 0.9407 | Train f1: 0.9265 | Valid f1: 0.9290 | Train pre: 0.9288 | Valid pre: 0.9245
+Epoch 86 | Train loss: 0.0827 | Valid loss: 0.0770
+Train ACC: 0.9242 | Valid ACC: 0.9451 | Train f1: 0.9244 | Valid f1: 0.9371 | Train pre: 0.9253 | Valid pre: 0.9325
+Epoch 87 | Train loss: 0.0836 | Valid loss: 0.0946
+Train ACC: 0.9234 | Valid ACC: 0.9292 | Train f1: 0.9259 | Valid f1: 0.9115 | Train pre: 0.9330 | Valid pre: 0.9102
+Epoch 88 | Train loss: 0.0820 | Valid loss: 0.0960
+Train ACC: 0.9182 | Valid ACC: 0.9294 | Train f1: 0.9244 | Valid f1: 0.9117 | Train pre: 0.9340 | Valid pre: 0.9105
+Epoch 89 | Train loss: 0.0868 | Valid loss: 0.0900
+Train ACC: 0.9238 | Valid ACC: 0.9319 | Train f1: 0.9204 | Valid f1: 0.9149 | Train pre: 0.9207 | Valid pre: 0.9130
+Epoch 90 | Train loss: 0.0828 | Valid loss: 0.0924
+Train ACC: 0.9217 | Valid ACC: 0.9339 | Train f1: 0.9248 | Valid f1: 0.9173 | Train pre: 0.9301 | Valid pre: 0.9152
+Epoch 91 | Train loss: 0.0822 | Valid loss: 0.0791
+Train ACC: 0.9283 | Valid ACC: 0.9465 | Train f1: 0.9258 | Valid f1: 0.9372 | Train pre: 0.9256 | Valid pre: 0.9324
+Epoch 92 | Train loss: 0.0796 | Valid loss: 0.0841
+Train ACC: 0.9215 | Valid ACC: 0.9428 | Train f1: 0.9273 | Valid f1: 0.9303 | Train pre: 0.9350 | Valid pre: 0.9259
+Epoch 93 | Train loss: 0.0784 | Valid loss: 0.0865
+Train ACC: 0.9283 | Valid ACC: 0.9373 | Train f1: 0.9302 | Valid f1: 0.9224 | Train pre: 0.9327 | Valid pre: 0.9190
+Epoch 94 | Train loss: 0.0783 | Valid loss: 0.0833
+Train ACC: 0.9270 | Valid ACC: 0.9395 | Train f1: 0.9293 | Valid f1: 0.9250 | Train pre: 0.9322 | Valid pre: 0.9214
+Epoch 95 | Train loss: 0.0789 | Valid loss: 0.0868
+Train ACC: 0.9277 | Valid ACC: 0.9376 | Train f1: 0.9300 | Valid f1: 0.9215 | Train pre: 0.9328 | Valid pre: 0.9188
+Epoch 96 | Train loss: 0.0798 | Valid loss: 0.0886
+Train ACC: 0.9253 | Valid ACC: 0.9345 | Train f1: 0.9271 | Valid f1: 0.9179 | Train pre: 0.9293 | Valid pre: 0.9157
+Epoch 97 | Train loss: 0.0761 | Valid loss: 0.0903
+Train ACC: 0.9310 | Valid ACC: 0.9381 | Train f1: 0.9307 | Valid f1: 0.9225 | Train pre: 0.9311 | Valid pre: 0.9195
+Epoch 98 | Train loss: 0.0785 | Valid loss: 0.0749
+Train ACC: 0.9274 | Valid ACC: 0.9475 | Train f1: 0.9290 | Valid f1: 0.9369 | Train pre: 0.9311 | Valid pre: 0.9321
+Epoch 99 | Train loss: 0.0808 | Valid loss: 0.0889
+Train ACC: 0.9284 | Valid ACC: 0.9392 | Train f1: 0.9272 | Valid f1: 0.9246 | Train pre: 0.9273 | Valid pre: 0.9211
+Epoch 100 | Train loss: 0.0777 | Valid loss: 0.0863
+Train ACC: 0.9242 | Valid ACC: 0.9381 | Train f1: 0.9281 | Valid f1: 0.9227 | Train pre: 0.9332 | Valid pre: 0.9195
+Epoch 101 | Train loss: 0.0811 | Valid loss: 0.0918
+Train ACC: 0.9291 | Valid ACC: 0.9333 | Train f1: 0.9296 | Valid f1: 0.9159 | Train pre: 0.9305 | Valid pre: 0.9143
+Epoch 102 | Train loss: 0.0775 | Valid loss: 0.0853
+Train ACC: 0.9275 | Valid ACC: 0.9392 | Train f1: 0.9292 | Valid f1: 0.9238 | Train pre: 0.9311 | Valid pre: 0.9207
+Epoch 103 | Train loss: 0.0782 | Valid loss: 0.0754
+Train ACC: 0.9290 | Valid ACC: 0.9500 | Train f1: 0.9301 | Valid f1: 0.9413 | Train pre: 0.9325 | Valid pre: 0.9366
+Epoch 104 | Train loss: 0.0809 | Valid loss: 0.0937
+Train ACC: 0.9229 | Valid ACC: 0.9314 | Train f1: 0.9273 | Valid f1: 0.9138 | Train pre: 0.9338 | Valid pre: 0.9123
+Epoch 105 | Train loss: 0.0813 | Valid loss: 0.0808
+Train ACC: 0.9259 | Valid ACC: 0.9455 | Train f1: 0.9264 | Valid f1: 0.9339 | Train pre: 0.9281 | Valid pre: 0.9293
+Epoch 106 | Train loss: 0.0791 | Valid loss: 0.0834
+Train ACC: 0.9317 | Valid ACC: 0.9382 | Train f1: 0.9296 | Valid f1: 0.9231 | Train pre: 0.9284 | Valid pre: 0.9199
+Epoch 107 | Train loss: 0.0795 | Valid loss: 0.0802
+Train ACC: 0.9278 | Valid ACC: 0.9428 | Train f1: 0.9308 | Valid f1: 0.9295 | Train pre: 0.9348 | Valid pre: 0.9254
+Epoch 108 | Train loss: 0.0768 | Valid loss: 0.0884
+Train ACC: 0.9309 | Valid ACC: 0.9410 | Train f1: 0.9312 | Valid f1: 0.9266 | Train pre: 0.9319 | Valid pre: 0.9229
+Epoch 109 | Train loss: 0.0775 | Valid loss: 0.0759
+Train ACC: 0.9311 | Valid ACC: 0.9465 | Train f1: 0.9320 | Valid f1: 0.9353 | Train pre: 0.9335 | Valid pre: 0.9306
+Epoch 110 | Train loss: 0.0753 | Valid loss: 0.0808
+Train ACC: 0.9307 | Valid ACC: 0.9445 | Train f1: 0.9319 | Valid f1: 0.9309 | Train pre: 0.9332 | Valid pre: 0.9268
+Epoch 111 | Train loss: 0.0733 | Valid loss: 0.0850
+Train ACC: 0.9332 | Valid ACC: 0.9409 | Train f1: 0.9319 | Valid f1: 0.9265 | Train pre: 0.9308 | Valid pre: 0.9228
+Epoch 112 | Train loss: 0.0772 | Valid loss: 0.0794
+Train ACC: 0.9278 | Valid ACC: 0.9440 | Train f1: 0.9293 | Valid f1: 0.9302 | Train pre: 0.9309 | Valid pre: 0.9262
+Epoch 113 | Train loss: 0.0755 | Valid loss: 0.0809
+Train ACC: 0.9285 | Valid ACC: 0.9444 | Train f1: 0.9313 | Valid f1: 0.9312 | Train pre: 0.9345 | Valid pre: 0.9270
+Epoch 114 | Train loss: 0.0762 | Valid loss: 0.0810
+Train ACC: 0.9272 | Valid ACC: 0.9425 | Train f1: 0.9306 | Valid f1: 0.9281 | Train pre: 0.9345 | Valid pre: 0.9244
+Epoch 115 | Train loss: 0.0778 | Valid loss: 0.0735
+Train ACC: 0.9326 | Valid ACC: 0.9509 | Train f1: 0.9319 | Valid f1: 0.9401 | Train pre: 0.9316 | Valid pre: 0.9353
+Epoch 116 | Train loss: 0.0751 | Valid loss: 0.0810
+Train ACC: 0.9332 | Valid ACC: 0.9439 | Train f1: 0.9340 | Valid f1: 0.9295 | Train pre: 0.9350 | Valid pre: 0.9258
+Epoch 117 | Train loss: 0.0739 | Valid loss: 0.0727
+Train ACC: 0.9337 | Valid ACC: 0.9503 | Train f1: 0.9342 | Valid f1: 0.9420 | Train pre: 0.9351 | Valid pre: 0.9374
+Epoch 118 | Train loss: 0.0735 | Valid loss: 0.0846
+Train ACC: 0.9306 | Valid ACC: 0.9420 | Train f1: 0.9336 | Valid f1: 0.9277 | Train pre: 0.9373 | Valid pre: 0.9239
+Epoch 119 | Train loss: 0.0750 | Valid loss: 0.0686
+Train ACC: 0.9323 | Valid ACC: 0.9515 | Train f1: 0.9325 | Valid f1: 0.9477 | Train pre: 0.9329 | Valid pre: 0.9447
+Epoch 120 | Train loss: 0.0777 | Valid loss: 0.0892
+Train ACC: 0.9238 | Valid ACC: 0.9362 | Train f1: 0.9294 | Valid f1: 0.9202 | Train pre: 0.9369 | Valid pre: 0.9176
+Epoch 121 | Train loss: 0.0798 | Valid loss: 0.0809
+Train ACC: 0.9292 | Valid ACC: 0.9465 | Train f1: 0.9290 | Valid f1: 0.9341 | Train pre: 0.9308 | Valid pre: 0.9297
+Epoch 122 | Train loss: 0.0792 | Valid loss: 0.0721
+Train ACC: 0.9309 | Valid ACC: 0.9527 | Train f1: 0.9285 | Valid f1: 0.9475 | Train pre: 0.9279 | Valid pre: 0.9438
+Epoch 123 | Train loss: 0.0805 | Valid loss: 0.0799
+Train ACC: 0.9256 | Valid ACC: 0.9422 | Train f1: 0.9281 | Valid f1: 0.9283 | Train pre: 0.9322 | Valid pre: 0.9244
+Epoch 124 | Train loss: 0.0772 | Valid loss: 0.0716
+Train ACC: 0.9271 | Valid ACC: 0.9526 | Train f1: 0.9321 | Valid f1: 0.9435 | Train pre: 0.9384 | Valid pre: 0.9386
+Epoch 125 | Train loss: 0.0777 | Valid loss: 0.0973
+Train ACC: 0.9277 | Valid ACC: 0.9344 | Train f1: 0.9296 | Valid f1: 0.9175 | Train pre: 0.9318 | Valid pre: 0.9154
+Epoch 126 | Train loss: 0.0785 | Valid loss: 0.0739
+Train ACC: 0.9309 | Valid ACC: 0.9483 | Train f1: 0.9302 | Valid f1: 0.9392 | Train pre: 0.9312 | Valid pre: 0.9344
+Epoch 127 | Train loss: 0.0780 | Valid loss: 0.0850
+Train ACC: 0.9270 | Valid ACC: 0.9454 | Train f1: 0.9295 | Valid f1: 0.9327 | Train pre: 0.9326 | Valid pre: 0.9284
+Epoch 128 | Train loss: 0.0770 | Valid loss: 0.0746
+Train ACC: 0.9258 | Valid ACC: 0.9480 | Train f1: 0.9310 | Valid f1: 0.9378 | Train pre: 0.9389 | Valid pre: 0.9330
+Epoch 129 | Train loss: 0.0744 | Valid loss: 0.0790
+Train ACC: 0.9315 | Valid ACC: 0.9436 | Train f1: 0.9314 | Valid f1: 0.9297 | Train pre: 0.9318 | Valid pre: 0.9258
+Epoch 130 | Train loss: 0.0772 | Valid loss: 0.0756
+Train ACC: 0.9299 | Valid ACC: 0.9428 | Train f1: 0.9297 | Valid f1: 0.9292 | Train pre: 0.9298 | Valid pre: 0.9253
+Epoch 131 | Train loss: 0.0773 | Valid loss: 0.0763
+Train ACC: 0.9281 | Valid ACC: 0.9450 | Train f1: 0.9304 | Valid f1: 0.9309 | Train pre: 0.9331 | Valid pre: 0.9270
+Epoch 132 | Train loss: 0.0747 | Valid loss: 0.0745
+Train ACC: 0.9343 | Valid ACC: 0.9524 | Train f1: 0.9346 | Valid f1: 0.9445 | Train pre: 0.9351 | Valid pre: 0.9399
+Epoch 133 | Train loss: 0.0783 | Valid loss: 0.0795
+Train ACC: 0.9289 | Valid ACC: 0.9453 | Train f1: 0.9301 | Valid f1: 0.9327 | Train pre: 0.9320 | Valid pre: 0.9283
+Epoch 134 | Train loss: 0.0760 | Valid loss: 0.0682
+Train ACC: 0.9284 | Valid ACC: 0.9512 | Train f1: 0.9314 | Valid f1: 0.9436 | Train pre: 0.9362 | Valid pre: 0.9390
+Epoch 135 | Train loss: 0.0743 | Valid loss: 0.0777
+Train ACC: 0.9342 | Valid ACC: 0.9487 | Train f1: 0.9325 | Valid f1: 0.9372 | Train pre: 0.9320 | Valid pre: 0.9325
+Epoch 136 | Train loss: 0.0748 | Valid loss: 0.0805
+Train ACC: 0.9301 | Valid ACC: 0.9449 | Train f1: 0.9332 | Valid f1: 0.9318 | Train pre: 0.9367 | Valid pre: 0.9275
+Epoch 137 | Train loss: 0.0763 | Valid loss: 0.0671
+Train ACC: 0.9319 | Valid ACC: 0.9537 | Train f1: 0.9314 | Valid f1: 0.9463 | Train pre: 0.9314 | Valid pre: 0.9418
+Epoch 138 | Train loss: 0.0743 | Valid loss: 0.0761
+Train ACC: 0.9273 | Valid ACC: 0.9489 | Train f1: 0.9322 | Valid f1: 0.9379 | Train pre: 0.9380 | Valid pre: 0.9331
+Epoch 139 | Train loss: 0.0744 | Valid loss: 0.0677
+Train ACC: 0.9336 | Valid ACC: 0.9556 | Train f1: 0.9332 | Valid f1: 0.9489 | Train pre: 0.9331 | Valid pre: 0.9446
+Epoch 140 | Train loss: 0.0734 | Valid loss: 0.0762
+Train ACC: 0.9308 | Valid ACC: 0.9471 | Train f1: 0.9334 | Valid f1: 0.9351 | Train pre: 0.9363 | Valid pre: 0.9305
+Epoch 141 | Train loss: 0.0726 | Valid loss: 0.0746
+Train ACC: 0.9331 | Valid ACC: 0.9489 | Train f1: 0.9355 | Valid f1: 0.9375 | Train pre: 0.9381 | Valid pre: 0.9328
+Epoch 142 | Train loss: 0.0715 | Valid loss: 0.0725
+Train ACC: 0.9356 | Valid ACC: 0.9507 | Train f1: 0.9361 | Valid f1: 0.9407 | Train pre: 0.9366 | Valid pre: 0.9359
+Epoch 143 | Train loss: 0.0735 | Valid loss: 0.0757
+Train ACC: 0.9335 | Valid ACC: 0.9479 | Train f1: 0.9346 | Valid f1: 0.9356 | Train pre: 0.9363 | Valid pre: 0.9311
+Epoch 144 | Train loss: 0.0741 | Valid loss: 0.0692
+Train ACC: 0.9314 | Valid ACC: 0.9535 | Train f1: 0.9325 | Valid f1: 0.9445 | Train pre: 0.9344 | Valid pre: 0.9397
+Epoch 145 | Train loss: 0.0735 | Valid loss: 0.0817
+Train ACC: 0.9318 | Valid ACC: 0.9425 | Train f1: 0.9335 | Valid f1: 0.9283 | Train pre: 0.9358 | Valid pre: 0.9245
+Epoch 146 | Train loss: 0.0745 | Valid loss: 0.0706
+Train ACC: 0.9366 | Valid ACC: 0.9505 | Train f1: 0.9347 | Valid f1: 0.9398 | Train pre: 0.9336 | Valid pre: 0.9350
+Epoch 147 | Train loss: 0.0730 | Valid loss: 0.0726
+Train ACC: 0.9308 | Valid ACC: 0.9511 | Train f1: 0.9333 | Valid f1: 0.9403 | Train pre: 0.9366 | Valid pre: 0.9355
+Epoch 148 | Train loss: 0.0747 | Valid loss: 0.0664
+Train ACC: 0.9319 | Valid ACC: 0.9560 | Train f1: 0.9312 | Valid f1: 0.9507 | Train pre: 0.9308 | Valid pre: 0.9469
+Epoch 149 | Train loss: 0.0742 | Valid loss: 0.0690
+Train ACC: 0.9286 | Valid ACC: 0.9527 | Train f1: 0.9321 | Valid f1: 0.9444 | Train pre: 0.9359 | Valid pre: 0.9397
+Epoch 150 | Train loss: 0.0729 | Valid loss: 0.0677
+Train ACC: 0.9344 | Valid ACC: 0.9539 | Train f1: 0.9358 | Valid f1: 0.9514 | Train pre: 0.9379 | Valid pre: 0.9492
+Epoch 151 | Train loss: 0.0714 | Valid loss: 0.0827
+Train ACC: 0.9350 | Valid ACC: 0.9434 | Train f1: 0.9361 | Valid f1: 0.9288 | Train pre: 0.9378 | Valid pre: 0.9252
+Epoch 152 | Train loss: 0.0738 | Valid loss: 0.0635
+Train ACC: 0.9313 | Valid ACC: 0.9563 | Train f1: 0.9323 | Valid f1: 0.9481 | Train pre: 0.9341 | Valid pre: 0.9433
+Epoch 153 | Train loss: 0.0746 | Valid loss: 0.1015
+Train ACC: 0.9292 | Valid ACC: 0.9316 | Train f1: 0.9328 | Valid f1: 0.9129 | Train pre: 0.9375 | Valid pre: 0.9125
+Epoch 154 | Train loss: 0.0751 | Valid loss: 0.0602
+Train ACC: 0.9356 | Valid ACC: 0.9576 | Train f1: 0.9328 | Valid f1: 0.9520 | Train pre: 0.9329 | Valid pre: 0.9480
+Epoch 155 | Train loss: 0.0762 | Valid loss: 0.0826
+Train ACC: 0.9289 | Valid ACC: 0.9368 | Train f1: 0.9306 | Valid f1: 0.9199 | Train pre: 0.9339 | Valid pre: 0.9178
+Epoch 156 | Train loss: 0.0750 | Valid loss: 0.0641
+Train ACC: 0.9308 | Valid ACC: 0.9566 | Train f1: 0.9314 | Valid f1: 0.9502 | Train pre: 0.9334 | Valid pre: 0.9459
+Epoch 157 | Train loss: 0.0729 | Valid loss: 0.0862
+Train ACC: 0.9343 | Valid ACC: 0.9443 | Train f1: 0.9360 | Valid f1: 0.9298 | Train pre: 0.9394 | Valid pre: 0.9260
+Epoch 158 | Train loss: 0.0753 | Valid loss: 0.0714
+Train ACC: 0.9297 | Valid ACC: 0.9485 | Train f1: 0.9326 | Valid f1: 0.9359 | Train pre: 0.9362 | Valid pre: 0.9314
+Epoch 159 | Train loss: 0.0738 | Valid loss: 0.0788
+Train ACC: 0.9332 | Valid ACC: 0.9423 | Train f1: 0.9337 | Valid f1: 0.9274 | Train pre: 0.9346 | Valid pre: 0.9239
+Epoch 160 | Train loss: 0.0742 | Valid loss: 0.0725
+Train ACC: 0.9350 | Valid ACC: 0.9502 | Train f1: 0.9326 | Valid f1: 0.9396 | Train pre: 0.9307 | Valid pre: 0.9347
+Epoch 161 | Train loss: 0.0731 | Valid loss: 0.0755
+Train ACC: 0.9317 | Valid ACC: 0.9466 | Train f1: 0.9346 | Valid f1: 0.9342 | Train pre: 0.9383 | Valid pre: 0.9297
+Epoch 162 | Train loss: 0.0737 | Valid loss: 0.0702
+Train ACC: 0.9336 | Valid ACC: 0.9535 | Train f1: 0.9346 | Valid f1: 0.9439 | Train pre: 0.9365 | Valid pre: 0.9390
+Epoch 163 | Train loss: 0.0728 | Valid loss: 0.0815
+Train ACC: 0.9314 | Valid ACC: 0.9437 | Train f1: 0.9341 | Valid f1: 0.9291 | Train pre: 0.9376 | Valid pre: 0.9254
+Epoch 164 | Train loss: 0.0771 | Valid loss: 0.0786
+Train ACC: 0.9326 | Valid ACC: 0.9394 | Train f1: 0.9318 | Valid f1: 0.9236 | Train pre: 0.9319 | Valid pre: 0.9208
+Epoch 165 | Train loss: 0.0745 | Valid loss: 0.0683
+Train ACC: 0.9296 | Valid ACC: 0.9528 | Train f1: 0.9338 | Valid f1: 0.9444 | Train pre: 0.9386 | Valid pre: 0.9396
+Epoch 166 | Train loss: 0.0725 | Valid loss: 0.0760
+Train ACC: 0.9368 | Valid ACC: 0.9488 | Train f1: 0.9359 | Valid f1: 0.9374 | Train pre: 0.9356 | Valid pre: 0.9327
+Epoch 167 | Train loss: 0.0715 | Valid loss: 0.0732
+Train ACC: 0.9344 | Valid ACC: 0.9465 | Train f1: 0.9360 | Valid f1: 0.9335 | Train pre: 0.9378 | Valid pre: 0.9291
+Epoch 168 | Train loss: 0.0730 | Valid loss: 0.0895
+Train ACC: 0.9366 | Valid ACC: 0.9385 | Train f1: 0.9363 | Valid f1: 0.9220 | Train pre: 0.9364 | Valid pre: 0.9196
+Epoch 169 | Train loss: 0.0738 | Valid loss: 0.0734
+Train ACC: 0.9355 | Valid ACC: 0.9486 | Train f1: 0.9346 | Valid f1: 0.9361 | Train pre: 0.9344 | Valid pre: 0.9316
+Epoch 170 | Train loss: 0.0746 | Valid loss: 0.0823
+Train ACC: 0.9300 | Valid ACC: 0.9404 | Train f1: 0.9327 | Valid f1: 0.9242 | Train pre: 0.9358 | Valid pre: 0.9215
+Epoch 171 | Train loss: 0.0720 | Valid loss: 0.0732
+Train ACC: 0.9331 | Valid ACC: 0.9492 | Train f1: 0.9342 | Valid f1: 0.9364 | Train pre: 0.9355 | Valid pre: 0.9319
+Epoch 172 | Train loss: 0.0718 | Valid loss: 0.0801
+Train ACC: 0.9350 | Valid ACC: 0.9440 | Train f1: 0.9363 | Valid f1: 0.9293 | Train pre: 0.9380 | Valid pre: 0.9257
+Epoch 173 | Train loss: 0.0732 | Valid loss: 0.0726
+Train ACC: 0.9311 | Valid ACC: 0.9482 | Train f1: 0.9321 | Valid f1: 0.9352 | Train pre: 0.9334 | Valid pre: 0.9308
+Epoch 174 | Train loss: 0.0720 | Valid loss: 0.0813
+Train ACC: 0.9316 | Valid ACC: 0.9444 | Train f1: 0.9353 | Valid f1: 0.9296 | Train pre: 0.9395 | Valid pre: 0.9260
+Epoch 175 | Train loss: 0.0717 | Valid loss: 0.0689
+Train ACC: 0.9367 | Valid ACC: 0.9540 | Train f1: 0.9363 | Valid f1: 0.9443 | Train pre: 0.9364 | Valid pre: 0.9394
+Epoch 176 | Train loss: 0.0713 | Valid loss: 0.0777
+Train ACC: 0.9357 | Valid ACC: 0.9447 | Train f1: 0.9358 | Valid f1: 0.9298 | Train pre: 0.9361 | Valid pre: 0.9263
+Epoch 177 | Train loss: 0.0725 | Valid loss: 0.0685
+Train ACC: 0.9328 | Valid ACC: 0.9512 | Train f1: 0.9354 | Valid f1: 0.9401 | Train pre: 0.9387 | Valid pre: 0.9353
+Epoch 178 | Train loss: 0.0714 | Valid loss: 0.0799
+Train ACC: 0.9307 | Valid ACC: 0.9463 | Train f1: 0.9332 | Valid f1: 0.9326 | Train pre: 0.9363 | Valid pre: 0.9285
+Epoch 179 | Train loss: 0.0705 | Valid loss: 0.0741
+Train ACC: 0.9367 | Valid ACC: 0.9499 | Train f1: 0.9375 | Valid f1: 0.9371 | Train pre: 0.9386 | Valid pre: 0.9326
+Epoch 180 | Train loss: 0.0698 | Valid loss: 0.0752
+Train ACC: 0.9334 | Valid ACC: 0.9478 | Train f1: 0.9349 | Valid f1: 0.9341 | Train pre: 0.9367 | Valid pre: 0.9299
+Epoch 181 | Train loss: 0.0702 | Valid loss: 0.0760
+Train ACC: 0.9357 | Valid ACC: 0.9475 | Train f1: 0.9371 | Valid f1: 0.9336 | Train pre: 0.9388 | Valid pre: 0.9295
+Epoch 182 | Train loss: 0.0695 | Valid loss: 0.0773
+Train ACC: 0.9364 | Valid ACC: 0.9476 | Train f1: 0.9369 | Valid f1: 0.9338 | Train pre: 0.9376 | Valid pre: 0.9297
+Epoch 183 | Train loss: 0.0719 | Valid loss: 0.0729
+Train ACC: 0.9322 | Valid ACC: 0.9491 | Train f1: 0.9334 | Valid f1: 0.9361 | Train pre: 0.9350 | Valid pre: 0.9317
+Epoch 184 | Train loss: 0.0698 | Valid loss: 0.0712
+Train ACC: 0.9376 | Valid ACC: 0.9489 | Train f1: 0.9376 | Valid f1: 0.9363 | Train pre: 0.9381 | Valid pre: 0.9318
+Epoch 185 | Train loss: 0.0711 | Valid loss: 0.0707
+Train ACC: 0.9349 | Valid ACC: 0.9526 | Train f1: 0.9364 | Valid f1: 0.9409 | Train pre: 0.9382 | Valid pre: 0.9361
+Epoch 186 | Train loss: 0.0715 | Valid loss: 0.0724
+Train ACC: 0.9330 | Valid ACC: 0.9509 | Train f1: 0.9335 | Valid f1: 0.9390 | Train pre: 0.9343 | Valid pre: 0.9343
+Epoch 187 | Train loss: 0.0693 | Valid loss: 0.0721
+Train ACC: 0.9354 | Valid ACC: 0.9495 | Train f1: 0.9376 | Valid f1: 0.9368 | Train pre: 0.9401 | Valid pre: 0.9324
+Epoch 188 | Train loss: 0.0710 | Valid loss: 0.0721
+Train ACC: 0.9349 | Valid ACC: 0.9503 | Train f1: 0.9361 | Valid f1: 0.9385 | Train pre: 0.9377 | Valid pre: 0.9338
+Epoch 189 | Train loss: 0.0716 | Valid loss: 0.0664
+Train ACC: 0.9339 | Valid ACC: 0.9545 | Train f1: 0.9352 | Valid f1: 0.9453 | Train pre: 0.9368 | Valid pre: 0.9404
+Epoch 190 | Train loss: 0.0693 | Valid loss: 0.0709
+Train ACC: 0.9392 | Valid ACC: 0.9510 | Train f1: 0.9392 | Valid f1: 0.9392 | Train pre: 0.9394 | Valid pre: 0.9345
+Epoch 191 | Train loss: 0.0706 | Valid loss: 0.0714
+Train ACC: 0.9363 | Valid ACC: 0.9494 | Train f1: 0.9374 | Valid f1: 0.9368 | Train pre: 0.9387 | Valid pre: 0.9323
+Epoch 192 | Train loss: 0.0704 | Valid loss: 0.0682
+Train ACC: 0.9359 | Valid ACC: 0.9547 | Train f1: 0.9358 | Valid f1: 0.9444 | Train pre: 0.9360 | Valid pre: 0.9395
+Epoch 193 | Train loss: 0.0704 | Valid loss: 0.0764
+Train ACC: 0.9344 | Valid ACC: 0.9456 | Train f1: 0.9354 | Valid f1: 0.9314 | Train pre: 0.9364 | Valid pre: 0.9275
+Epoch 194 | Train loss: 0.0719 | Valid loss: 0.0674
+Train ACC: 0.9305 | Valid ACC: 0.9517 | Train f1: 0.9331 | Valid f1: 0.9406 | Train pre: 0.9360 | Valid pre: 0.9358
+Epoch 195 | Train loss: 0.0712 | Valid loss: 0.0718
+Train ACC: 0.9368 | Valid ACC: 0.9491 | Train f1: 0.9368 | Valid f1: 0.9366 | Train pre: 0.9371 | Valid pre: 0.9320
+Epoch 196 | Train loss: 0.0700 | Valid loss: 0.0692
+Train ACC: 0.9385 | Valid ACC: 0.9532 | Train f1: 0.9385 | Valid f1: 0.9427 | Train pre: 0.9388 | Valid pre: 0.9379
+Epoch 197 | Train loss: 0.0698 | Valid loss: 0.0700
+Train ACC: 0.9325 | Valid ACC: 0.9520 | Train f1: 0.9362 | Valid f1: 0.9409 | Train pre: 0.9407 | Valid pre: 0.9360
+Epoch 198 | Train loss: 0.0691 | Valid loss: 0.0744
+Train ACC: 0.9384 | Valid ACC: 0.9497 | Train f1: 0.9388 | Valid f1: 0.9371 | Train pre: 0.9395 | Valid pre: 0.9326
+Epoch 199 | Train loss: 0.0710 | Valid loss: 0.0664
+Train ACC: 0.9316 | Valid ACC: 0.9551 | Train f1: 0.9352 | Valid f1: 0.9462 | Train pre: 0.9394 | Valid pre: 0.9414
+Epoch 200 | Train loss: 0.0690 | Valid loss: 0.0735
+Train ACC: 0.9378 | Valid ACC: 0.9497 | Train f1: 0.9380 | Valid f1: 0.9365 | Train pre: 0.9384 | Valid pre: 0.9321
+Epoch 201 | Train loss: 0.0704 | Valid loss: 0.0656
+Train ACC: 0.9365 | Valid ACC: 0.9540 | Train f1: 0.9377 | Valid f1: 0.9439 | Train pre: 0.9393 | Valid pre: 0.9390
+Epoch 202 | Train loss: 0.0694 | Valid loss: 0.0740
+Train ACC: 0.9383 | Valid ACC: 0.9491 | Train f1: 0.9396 | Valid f1: 0.9358 | Train pre: 0.9413 | Valid pre: 0.9314
+Epoch 203 | Train loss: 0.0683 | Valid loss: 0.0723
+Train ACC: 0.9384 | Valid ACC: 0.9511 | Train f1: 0.9388 | Valid f1: 0.9398 | Train pre: 0.9393 | Valid pre: 0.9351
+Epoch 204 | Train loss: 0.0721 | Valid loss: 0.0729
+Train ACC: 0.9318 | Valid ACC: 0.9504 | Train f1: 0.9343 | Valid f1: 0.9372 | Train pre: 0.9375 | Valid pre: 0.9328
+Epoch 205 | Train loss: 0.0693 | Valid loss: 0.0771
+Train ACC: 0.9361 | Valid ACC: 0.9444 | Train f1: 0.9368 | Valid f1: 0.9298 | Train pre: 0.9377 | Valid pre: 0.9261
+Epoch 206 | Train loss: 0.0720 | Valid loss: 0.0714
+Train ACC: 0.9341 | Valid ACC: 0.9512 | Train f1: 0.9349 | Valid f1: 0.9390 | Train pre: 0.9360 | Valid pre: 0.9343
+Epoch 207 | Train loss: 0.0711 | Valid loss: 0.0765
+Train ACC: 0.9354 | Valid ACC: 0.9475 | Train f1: 0.9369 | Valid f1: 0.9336 | Train pre: 0.9391 | Valid pre: 0.9295
+Epoch 208 | Train loss: 0.0695 | Valid loss: 0.0706
+Train ACC: 0.9358 | Valid ACC: 0.9515 | Train f1: 0.9369 | Valid f1: 0.9393 | Train pre: 0.9384 | Valid pre: 0.9346
+Epoch 209 | Train loss: 0.0694 | Valid loss: 0.0753
+Train ACC: 0.9363 | Valid ACC: 0.9483 | Train f1: 0.9370 | Valid f1: 0.9346 | Train pre: 0.9378 | Valid pre: 0.9304
+Epoch 210 | Train loss: 0.0713 | Valid loss: 0.0697
+Train ACC: 0.9345 | Valid ACC: 0.9519 | Train f1: 0.9345 | Valid f1: 0.9397 | Train pre: 0.9352 | Valid pre: 0.9351
+Epoch 211 | Train loss: 0.0714 | Valid loss: 0.0772
+Train ACC: 0.9324 | Valid ACC: 0.9430 | Train f1: 0.9343 | Valid f1: 0.9277 | Train pre: 0.9364 | Valid pre: 0.9243
+Epoch 212 | Train loss: 0.0685 | Valid loss: 0.0725
+Train ACC: 0.9348 | Valid ACC: 0.9531 | Train f1: 0.9369 | Valid f1: 0.9408 | Train pre: 0.9392 | Valid pre: 0.9361
+Epoch 213 | Train loss: 0.0709 | Valid loss: 0.0738
+Train ACC: 0.9324 | Valid ACC: 0.9511 | Train f1: 0.9349 | Valid f1: 0.9380 | Train pre: 0.9378 | Valid pre: 0.9335
+Epoch 214 | Train loss: 0.0680 | Valid loss: 0.0675
+Train ACC: 0.9385 | Valid ACC: 0.9538 | Train f1: 0.9375 | Valid f1: 0.9424 | Train pre: 0.9369 | Valid pre: 0.9375
+Epoch 215 | Train loss: 0.0683 | Valid loss: 0.0732
+Train ACC: 0.9362 | Valid ACC: 0.9502 | Train f1: 0.9378 | Valid f1: 0.9368 | Train pre: 0.9398 | Valid pre: 0.9324
+Epoch 216 | Train loss: 0.0706 | Valid loss: 0.0716
+Train ACC: 0.9350 | Valid ACC: 0.9504 | Train f1: 0.9347 | Valid f1: 0.9376 | Train pre: 0.9346 | Valid pre: 0.9331
+Epoch 217 | Train loss: 0.0696 | Valid loss: 0.0749
+Train ACC: 0.9324 | Valid ACC: 0.9496 | Train f1: 0.9362 | Valid f1: 0.9365 | Train pre: 0.9405 | Valid pre: 0.9320
+Epoch 218 | Train loss: 0.0717 | Valid loss: 0.0724
+Train ACC: 0.9360 | Valid ACC: 0.9515 | Train f1: 0.9338 | Valid f1: 0.9390 | Train pre: 0.9319 | Valid pre: 0.9344
+Epoch 219 | Train loss: 0.0700 | Valid loss: 0.0693
+Train ACC: 0.9342 | Valid ACC: 0.9517 | Train f1: 0.9368 | Valid f1: 0.9406 | Train pre: 0.9396 | Valid pre: 0.9358
+Epoch 220 | Train loss: 0.0711 | Valid loss: 0.0757
+Train ACC: 0.9350 | Valid ACC: 0.9485 | Train f1: 0.9335 | Valid f1: 0.9346 | Train pre: 0.9328 | Valid pre: 0.9304
+Epoch 221 | Train loss: 0.0683 | Valid loss: 0.0680
+Train ACC: 0.9366 | Valid ACC: 0.9525 | Train f1: 0.9396 | Valid f1: 0.9422 | Train pre: 0.9431 | Valid pre: 0.9373
+Epoch 222 | Train loss: 0.0690 | Valid loss: 0.0790
+Train ACC: 0.9385 | Valid ACC: 0.9451 | Train f1: 0.9381 | Valid f1: 0.9303 | Train pre: 0.9381 | Valid pre: 0.9266
+Epoch 223 | Train loss: 0.0693 | Valid loss: 0.0658
+Train ACC: 0.9394 | Valid ACC: 0.9538 | Train f1: 0.9395 | Valid f1: 0.9434 | Train pre: 0.9397 | Valid pre: 0.9385
+Epoch 224 | Train loss: 0.0702 | Valid loss: 0.0821
+Train ACC: 0.9320 | Valid ACC: 0.9395 | Train f1: 0.9350 | Valid f1: 0.9228 | Train pre: 0.9392 | Valid pre: 0.9205
+Epoch 225 | Train loss: 0.0718 | Valid loss: 0.0685
+Train ACC: 0.9347 | Valid ACC: 0.9517 | Train f1: 0.9340 | Valid f1: 0.9410 | Train pre: 0.9334 | Valid pre: 0.9362
+Epoch 226 | Train loss: 0.0691 | Valid loss: 0.0866
+Train ACC: 0.9313 | Valid ACC: 0.9415 | Train f1: 0.9351 | Valid f1: 0.9258 | Train pre: 0.9398 | Valid pre: 0.9227
+Epoch 227 | Train loss: 0.0711 | Valid loss: 0.0692
+Train ACC: 0.9380 | Valid ACC: 0.9508 | Train f1: 0.9374 | Valid f1: 0.9387 | Train pre: 0.9373 | Valid pre: 0.9341
+Epoch 228 | Train loss: 0.0701 | Valid loss: 0.0736
+Train ACC: 0.9336 | Valid ACC: 0.9454 | Train f1: 0.9356 | Valid f1: 0.9312 | Train pre: 0.9385 | Valid pre: 0.9273
+Epoch 229 | Train loss: 0.0680 | Valid loss: 0.0685
+Train ACC: 0.9397 | Valid ACC: 0.9486 | Train f1: 0.9378 | Valid f1: 0.9363 | Train pre: 0.9367 | Valid pre: 0.9317
+Epoch 230 | Train loss: 0.0698 | Valid loss: 0.0712
+Train ACC: 0.9389 | Valid ACC: 0.9508 | Train f1: 0.9382 | Valid f1: 0.9394 | Train pre: 0.9378 | Valid pre: 0.9346
+Epoch 231 | Train loss: 0.0712 | Valid loss: 0.0767
+Train ACC: 0.9358 | Valid ACC: 0.9484 | Train f1: 0.9360 | Valid f1: 0.9354 | Train pre: 0.9366 | Valid pre: 0.9310
+Epoch 232 | Train loss: 0.0684 | Valid loss: 0.0627
+Train ACC: 0.9352 | Valid ACC: 0.9557 | Train f1: 0.9369 | Valid f1: 0.9485 | Train pre: 0.9388 | Valid pre: 0.9440
+Epoch 233 | Train loss: 0.0717 | Valid loss: 0.0774
+Train ACC: 0.9323 | Valid ACC: 0.9452 | Train f1: 0.9347 | Valid f1: 0.9305 | Train pre: 0.9374 | Valid pre: 0.9268
+Epoch 234 | Train loss: 0.0701 | Valid loss: 0.0651
+Train ACC: 0.9346 | Valid ACC: 0.9530 | Train f1: 0.9346 | Valid f1: 0.9427 | Train pre: 0.9352 | Valid pre: 0.9378
+Epoch 235 | Train loss: 0.0704 | Valid loss: 0.0666
+Train ACC: 0.9326 | Valid ACC: 0.9533 | Train f1: 0.9343 | Valid f1: 0.9423 | Train pre: 0.9365 | Valid pre: 0.9374
+Epoch 236 | Train loss: 0.0670 | Valid loss: 0.0680
+Train ACC: 0.9390 | Valid ACC: 0.9496 | Train f1: 0.9389 | Valid f1: 0.9378 | Train pre: 0.9391 | Valid pre: 0.9330
+Epoch 237 | Train loss: 0.0703 | Valid loss: 0.0630
+Train ACC: 0.9375 | Valid ACC: 0.9550 | Train f1: 0.9368 | Valid f1: 0.9460 | Train pre: 0.9361 | Valid pre: 0.9411
+Epoch 238 | Train loss: 0.0701 | Valid loss: 0.0719
+Train ACC: 0.9342 | Valid ACC: 0.9513 | Train f1: 0.9368 | Valid f1: 0.9386 | Train pre: 0.9398 | Valid pre: 0.9340
+Epoch 239 | Train loss: 0.0687 | Valid loss: 0.0664
+Train ACC: 0.9375 | Valid ACC: 0.9537 | Train f1: 0.9368 | Valid f1: 0.9428 | Train pre: 0.9366 | Valid pre: 0.9379
+Epoch 240 | Train loss: 0.0668 | Valid loss: 0.0680
+Train ACC: 0.9374 | Valid ACC: 0.9497 | Train f1: 0.9386 | Valid f1: 0.9384 | Train pre: 0.9399 | Valid pre: 0.9336
+Epoch 241 | Train loss: 0.0712 | Valid loss: 0.0725
+Train ACC: 0.9349 | Valid ACC: 0.9488 | Train f1: 0.9365 | Valid f1: 0.9355 | Train pre: 0.9382 | Valid pre: 0.9312
+Epoch 242 | Train loss: 0.0701 | Valid loss: 0.0673
+Train ACC: 0.9336 | Valid ACC: 0.9550 | Train f1: 0.9354 | Valid f1: 0.9434 | Train pre: 0.9378 | Valid pre: 0.9385
+Epoch 243 | Train loss: 0.0682 | Valid loss: 0.0709
+Train ACC: 0.9398 | Valid ACC: 0.9538 | Train f1: 0.9400 | Valid f1: 0.9421 | Train pre: 0.9405 | Valid pre: 0.9373
+Epoch 244 | Train loss: 0.0674 | Valid loss: 0.0682
+Train ACC: 0.9372 | Valid ACC: 0.9528 | Train f1: 0.9387 | Valid f1: 0.9425 | Train pre: 0.9404 | Valid pre: 0.9376
+Epoch 245 | Train loss: 0.0692 | Valid loss: 0.0786
+Train ACC: 0.9346 | Valid ACC: 0.9460 | Train f1: 0.9366 | Valid f1: 0.9315 | Train pre: 0.9388 | Valid pre: 0.9277
+Epoch 246 | Train loss: 0.0690 | Valid loss: 0.0671
+Train ACC: 0.9364 | Valid ACC: 0.9544 | Train f1: 0.9361 | Valid f1: 0.9435 | Train pre: 0.9364 | Valid pre: 0.9386
+Epoch 247 | Train loss: 0.0681 | Valid loss: 0.0692
+Train ACC: 0.9352 | Valid ACC: 0.9495 | Train f1: 0.9377 | Valid f1: 0.9369 | Train pre: 0.9409 | Valid pre: 0.9323
+Epoch 248 | Train loss: 0.0692 | Valid loss: 0.0733
+Train ACC: 0.9384 | Valid ACC: 0.9479 | Train f1: 0.9389 | Valid f1: 0.9343 | Train pre: 0.9396 | Valid pre: 0.9301
+Epoch 249 | Train loss: 0.0665 | Valid loss: 0.0673
+Train ACC: 0.9436 | Valid ACC: 0.9540 | Train f1: 0.9423 | Valid f1: 0.9444 | Train pre: 0.9411 | Valid pre: 0.9394
+Epoch 250 | Train loss: 0.0692 | Valid loss: 0.0683
+Train ACC: 0.9370 | Valid ACC: 0.9545 | Train f1: 0.9393 | Valid f1: 0.9433 | Train pre: 0.9418 | Valid pre: 0.9384
+Epoch 251 | Train loss: 0.0682 | Valid loss: 0.0703
+Train ACC: 0.9368 | Valid ACC: 0.9524 | Train f1: 0.9391 | Valid f1: 0.9400 | Train pre: 0.9418 | Valid pre: 0.9353
+Epoch 252 | Train loss: 0.0689 | Valid loss: 0.0635
+Train ACC: 0.9373 | Valid ACC: 0.9544 | Train f1: 0.9381 | Valid f1: 0.9456 | Train pre: 0.9392 | Valid pre: 0.9407
+Epoch 253 | Train loss: 0.0676 | Valid loss: 0.0658
+Train ACC: 0.9390 | Valid ACC: 0.9542 | Train f1: 0.9407 | Valid f1: 0.9461 | Train pre: 0.9426 | Valid pre: 0.9414
+Epoch 254 | Train loss: 0.0681 | Valid loss: 0.0696
+Train ACC: 0.9380 | Valid ACC: 0.9528 | Train f1: 0.9384 | Valid f1: 0.9414 | Train pre: 0.9391 | Valid pre: 0.9365
+Epoch 255 | Train loss: 0.0691 | Valid loss: 0.0645
+Train ACC: 0.9370 | Valid ACC: 0.9550 | Train f1: 0.9381 | Valid f1: 0.9462 | Train pre: 0.9393 | Valid pre: 0.9414
+Epoch 256 | Train loss: 0.0681 | Valid loss: 0.0694
+Train ACC: 0.9361 | Valid ACC: 0.9528 | Train f1: 0.9374 | Valid f1: 0.9420 | Train pre: 0.9394 | Valid pre: 0.9371
+Epoch 257 | Train loss: 0.0662 | Valid loss: 0.0634
+Train ACC: 0.9391 | Valid ACC: 0.9551 | Train f1: 0.9390 | Valid f1: 0.9469 | Train pre: 0.9390 | Valid pre: 0.9421
+Epoch 258 | Train loss: 0.0698 | Valid loss: 0.0674
+Train ACC: 0.9335 | Valid ACC: 0.9530 | Train f1: 0.9347 | Valid f1: 0.9423 | Train pre: 0.9362 | Valid pre: 0.9374
+Epoch 259 | Train loss: 0.0676 | Valid loss: 0.0629
+Train ACC: 0.9432 | Valid ACC: 0.9555 | Train f1: 0.9406 | Valid f1: 0.9469 | Train pre: 0.9386 | Valid pre: 0.9421
+Epoch 260 | Train loss: 0.0677 | Valid loss: 0.0620
+Train ACC: 0.9365 | Valid ACC: 0.9558 | Train f1: 0.9385 | Valid f1: 0.9481 | Train pre: 0.9408 | Valid pre: 0.9434
+Epoch 261 | Train loss: 0.0668 | Valid loss: 0.0710
+Train ACC: 0.9396 | Valid ACC: 0.9510 | Train f1: 0.9401 | Valid f1: 0.9394 | Train pre: 0.9409 | Valid pre: 0.9347
+Epoch 262 | Train loss: 0.0676 | Valid loss: 0.0656
+Train ACC: 0.9397 | Valid ACC: 0.9522 | Train f1: 0.9393 | Valid f1: 0.9428 | Train pre: 0.9391 | Valid pre: 0.9380
+Epoch 263 | Train loss: 0.0671 | Valid loss: 0.0684
+Train ACC: 0.9387 | Valid ACC: 0.9528 | Train f1: 0.9411 | Valid f1: 0.9425 | Train pre: 0.9437 | Valid pre: 0.9376
+Epoch 264 | Train loss: 0.0679 | Valid loss: 0.0692
+Train ACC: 0.9373 | Valid ACC: 0.9527 | Train f1: 0.9390 | Valid f1: 0.9417 | Train pre: 0.9410 | Valid pre: 0.9367
+Epoch 265 | Train loss: 0.0681 | Valid loss: 0.0674
+Train ACC: 0.9353 | Valid ACC: 0.9500 | Train f1: 0.9367 | Valid f1: 0.9382 | Train pre: 0.9385 | Valid pre: 0.9335
+Epoch 266 | Train loss: 0.0677 | Valid loss: 0.0678
+Train ACC: 0.9373 | Valid ACC: 0.9537 | Train f1: 0.9398 | Valid f1: 0.9428 | Train pre: 0.9426 | Valid pre: 0.9379
+Epoch 267 | Train loss: 0.0670 | Valid loss: 0.0686
+Train ACC: 0.9399 | Valid ACC: 0.9527 | Train f1: 0.9395 | Valid f1: 0.9417 | Train pre: 0.9396 | Valid pre: 0.9367
+Epoch 268 | Train loss: 0.0674 | Valid loss: 0.0681
+Train ACC: 0.9394 | Valid ACC: 0.9504 | Train f1: 0.9414 | Valid f1: 0.9389 | Train pre: 0.9435 | Valid pre: 0.9342
+Epoch 269 | Train loss: 0.0676 | Valid loss: 0.0674
+Train ACC: 0.9411 | Valid ACC: 0.9520 | Train f1: 0.9408 | Valid f1: 0.9416 | Train pre: 0.9406 | Valid pre: 0.9366
+Epoch 270 | Train loss: 0.0670 | Valid loss: 0.0684
+Train ACC: 0.9410 | Valid ACC: 0.9528 | Train f1: 0.9402 | Valid f1: 0.9418 | Train pre: 0.9396 | Valid pre: 0.9369
+Epoch 271 | Train loss: 0.0679 | Valid loss: 0.0654
+Train ACC: 0.9346 | Valid ACC: 0.9509 | Train f1: 0.9372 | Valid f1: 0.9407 | Train pre: 0.9401 | Valid pre: 0.9358
+Epoch 272 | Train loss: 0.0658 | Valid loss: 0.0708
+Train ACC: 0.9388 | Valid ACC: 0.9501 | Train f1: 0.9393 | Valid f1: 0.9376 | Train pre: 0.9400 | Valid pre: 0.9330
+Epoch 273 | Train loss: 0.0684 | Valid loss: 0.0667
+Train ACC: 0.9382 | Valid ACC: 0.9535 | Train f1: 0.9378 | Valid f1: 0.9432 | Train pre: 0.9380 | Valid pre: 0.9383
+Epoch 274 | Train loss: 0.0679 | Valid loss: 0.0735
+Train ACC: 0.9385 | Valid ACC: 0.9459 | Train f1: 0.9403 | Valid f1: 0.9328 | Train pre: 0.9423 | Valid pre: 0.9285
+Epoch 275 | Train loss: 0.0681 | Valid loss: 0.0704
+Train ACC: 0.9399 | Valid ACC: 0.9508 | Train f1: 0.9396 | Valid f1: 0.9392 | Train pre: 0.9394 | Valid pre: 0.9344
+Epoch 276 | Train loss: 0.0680 | Valid loss: 0.0647
+Train ACC: 0.9359 | Valid ACC: 0.9550 | Train f1: 0.9377 | Valid f1: 0.9462 | Train pre: 0.9398 | Valid pre: 0.9414
+Epoch 277 | Train loss: 0.0671 | Valid loss: 0.0716
+Train ACC: 0.9367 | Valid ACC: 0.9488 | Train f1: 0.9387 | Valid f1: 0.9366 | Train pre: 0.9412 | Valid pre: 0.9319
+Epoch 278 | Train loss: 0.0693 | Valid loss: 0.0690
+Train ACC: 0.9386 | Valid ACC: 0.9524 | Train f1: 0.9383 | Valid f1: 0.9415 | Train pre: 0.9381 | Valid pre: 0.9367
+Epoch 279 | Train loss: 0.0673 | Valid loss: 0.0622
+Train ACC: 0.9367 | Valid ACC: 0.9569 | Train f1: 0.9378 | Valid f1: 0.9499 | Train pre: 0.9392 | Valid pre: 0.9455
+Epoch 280 | Train loss: 0.0668 | Valid loss: 0.0721
+Train ACC: 0.9349 | Valid ACC: 0.9481 | Train f1: 0.9379 | Valid f1: 0.9352 | Train pre: 0.9415 | Valid pre: 0.9307
+Epoch 281 | Train loss: 0.0671 | Valid loss: 0.0680
+Train ACC: 0.9397 | Valid ACC: 0.9487 | Train f1: 0.9391 | Valid f1: 0.9381 | Train pre: 0.9388 | Valid pre: 0.9333
+Epoch 282 | Train loss: 0.0668 | Valid loss: 0.0678
+Train ACC: 0.9359 | Valid ACC: 0.9523 | Train f1: 0.9384 | Valid f1: 0.9422 | Train pre: 0.9412 | Valid pre: 0.9373
+Epoch 283 | Train loss: 0.0675 | Valid loss: 0.0697
+Train ACC: 0.9401 | Valid ACC: 0.9519 | Train f1: 0.9398 | Valid f1: 0.9402 | Train pre: 0.9397 | Valid pre: 0.9354
+Epoch 284 | Train loss: 0.0661 | Valid loss: 0.0654
+Train ACC: 0.9367 | Valid ACC: 0.9536 | Train f1: 0.9392 | Valid f1: 0.9430 | Train pre: 0.9419 | Valid pre: 0.9381
+Epoch 285 | Train loss: 0.0670 | Valid loss: 0.0727
+Train ACC: 0.9370 | Valid ACC: 0.9500 | Train f1: 0.9385 | Valid f1: 0.9374 | Train pre: 0.9405 | Valid pre: 0.9328
+Epoch 286 | Train loss: 0.0652 | Valid loss: 0.0675
+Train ACC: 0.9409 | Valid ACC: 0.9525 | Train f1: 0.9410 | Valid f1: 0.9418 | Train pre: 0.9413 | Valid pre: 0.9369
+Epoch 287 | Train loss: 0.0656 | Valid loss: 0.0675
+Train ACC: 0.9407 | Valid ACC: 0.9525 | Train f1: 0.9405 | Valid f1: 0.9413 | Train pre: 0.9407 | Valid pre: 0.9365
+Epoch 288 | Train loss: 0.0657 | Valid loss: 0.0710
+Train ACC: 0.9359 | Valid ACC: 0.9490 | Train f1: 0.9377 | Valid f1: 0.9363 | Train pre: 0.9399 | Valid pre: 0.9319
+Epoch 289 | Train loss: 0.0666 | Valid loss: 0.0697
+Train ACC: 0.9409 | Valid ACC: 0.9517 | Train f1: 0.9402 | Valid f1: 0.9407 | Train pre: 0.9399 | Valid pre: 0.9358
+Epoch 290 | Train loss: 0.0685 | Valid loss: 0.0703
+Train ACC: 0.9365 | Valid ACC: 0.9532 | Train f1: 0.9371 | Valid f1: 0.9423 | Train pre: 0.9379 | Valid pre: 0.9374
+Epoch 291 | Train loss: 0.0668 | Valid loss: 0.0702
+Train ACC: 0.9409 | Valid ACC: 0.9516 | Train f1: 0.9408 | Valid f1: 0.9404 | Train pre: 0.9410 | Valid pre: 0.9355
+Epoch 292 | Train loss: 0.0668 | Valid loss: 0.0659
+Train ACC: 0.9374 | Valid ACC: 0.9525 | Train f1: 0.9398 | Valid f1: 0.9418 | Train pre: 0.9423 | Valid pre: 0.9369
+Epoch 293 | Train loss: 0.0689 | Valid loss: 0.0731
+Train ACC: 0.9389 | Valid ACC: 0.9465 | Train f1: 0.9384 | Valid f1: 0.9324 | Train pre: 0.9383 | Valid pre: 0.9284
+Epoch 294 | Train loss: 0.0695 | Valid loss: 0.0639
+Train ACC: 0.9349 | Valid ACC: 0.9549 | Train f1: 0.9354 | Valid f1: 0.9458 | Train pre: 0.9361 | Valid pre: 0.9409
+Epoch 295 | Train loss: 0.0681 | Valid loss: 0.0756
+Train ACC: 0.9377 | Valid ACC: 0.9478 | Train f1: 0.9405 | Valid f1: 0.9346 | Train pre: 0.9440 | Valid pre: 0.9301
+Epoch 296 | Train loss: 0.0674 | Valid loss: 0.0720
+Train ACC: 0.9396 | Valid ACC: 0.9504 | Train f1: 0.9372 | Valid f1: 0.9386 | Train pre: 0.9357 | Valid pre: 0.9338
+Epoch 297 | Train loss: 0.0717 | Valid loss: 0.0639
+Train ACC: 0.9310 | Valid ACC: 0.9531 | Train f1: 0.9340 | Valid f1: 0.9447 | Train pre: 0.9386 | Valid pre: 0.9399
+Epoch 298 | Train loss: 0.0700 | Valid loss: 0.0743
+Train ACC: 0.9356 | Valid ACC: 0.9472 | Train f1: 0.9366 | Valid f1: 0.9336 | Train pre: 0.9377 | Valid pre: 0.9294
+Epoch 299 | Train loss: 0.0670 | Valid loss: 0.0646
+Train ACC: 0.9417 | Valid ACC: 0.9556 | Train f1: 0.9397 | Valid f1: 0.9468 | Train pre: 0.9379 | Valid pre: 0.9419
+Epoch 300 | Train loss: 0.0682 | Valid loss: 0.0662
+Train ACC: 0.9373 | Valid ACC: 0.9528 | Train f1: 0.9382 | Valid f1: 0.9427 | Train pre: 0.9394 | Valid pre: 0.9378
+Epoch 301 | Train loss: 0.0666 | Valid loss: 0.0691
+Train ACC: 0.9397 | Valid ACC: 0.9515 | Train f1: 0.9390 | Valid f1: 0.9402 | Train pre: 0.9386 | Valid pre: 0.9353
+Epoch 302 | Train loss: 0.0662 | Valid loss: 0.0627
+Train ACC: 0.9356 | Valid ACC: 0.9560 | Train f1: 0.9372 | Valid f1: 0.9493 | Train pre: 0.9389 | Valid pre: 0.9449
+Epoch 303 | Train loss: 0.0670 | Valid loss: 0.0708
+Train ACC: 0.9380 | Valid ACC: 0.9531 | Train f1: 0.9395 | Valid f1: 0.9417 | Train pre: 0.9416 | Valid pre: 0.9368
+Epoch 304 | Train loss: 0.0656 | Valid loss: 0.0662
+Train ACC: 0.9403 | Valid ACC: 0.9546 | Train f1: 0.9401 | Valid f1: 0.9451 | Train pre: 0.9403 | Valid pre: 0.9402
+Epoch 305 | Train loss: 0.0689 | Valid loss: 0.0677
+Train ACC: 0.9345 | Valid ACC: 0.9530 | Train f1: 0.9379 | Valid f1: 0.9428 | Train pre: 0.9419 | Valid pre: 0.9378
+Epoch 306 | Train loss: 0.0690 | Valid loss: 0.0716
+Train ACC: 0.9379 | Valid ACC: 0.9498 | Train f1: 0.9376 | Valid f1: 0.9380 | Train pre: 0.9373 | Valid pre: 0.9333
+Epoch 307 | Train loss: 0.0676 | Valid loss: 0.0638
+Train ACC: 0.9404 | Valid ACC: 0.9568 | Train f1: 0.9401 | Valid f1: 0.9495 | Train pre: 0.9400 | Valid pre: 0.9450
+Epoch 308 | Train loss: 0.0673 | Valid loss: 0.0657
+Train ACC: 0.9345 | Valid ACC: 0.9540 | Train f1: 0.9391 | Valid f1: 0.9451 | Train pre: 0.9449 | Valid pre: 0.9402
+Epoch 309 | Train loss: 0.0666 | Valid loss: 0.0719
+Train ACC: 0.9432 | Valid ACC: 0.9513 | Train f1: 0.9418 | Valid f1: 0.9402 | Train pre: 0.9408 | Valid pre: 0.9353
+Epoch 310 | Train loss: 0.0700 | Valid loss: 0.0640
+Train ACC: 0.9364 | Valid ACC: 0.9559 | Train f1: 0.9351 | Valid f1: 0.9481 | Train pre: 0.9339 | Valid pre: 0.9434
+Epoch 311 | Train loss: 0.0666 | Valid loss: 0.0638
+Train ACC: 0.9372 | Valid ACC: 0.9549 | Train f1: 0.9394 | Valid f1: 0.9467 | Train pre: 0.9423 | Valid pre: 0.9419
+Epoch 312 | Train loss: 0.0671 | Valid loss: 0.0687
+Train ACC: 0.9355 | Valid ACC: 0.9535 | Train f1: 0.9377 | Valid f1: 0.9433 | Train pre: 0.9403 | Valid pre: 0.9383
+Epoch 313 | Train loss: 0.0673 | Valid loss: 0.0666
+Train ACC: 0.9393 | Valid ACC: 0.9532 | Train f1: 0.9392 | Valid f1: 0.9443 | Train pre: 0.9393 | Valid pre: 0.9394
+Epoch 314 | Train loss: 0.0691 | Valid loss: 0.0654
+Train ACC: 0.9335 | Valid ACC: 0.9540 | Train f1: 0.9367 | Valid f1: 0.9455 | Train pre: 0.9405 | Valid pre: 0.9407
+Epoch 315 | Train loss: 0.0675 | Valid loss: 0.0676
+Train ACC: 0.9384 | Valid ACC: 0.9524 | Train f1: 0.9399 | Valid f1: 0.9428 | Train pre: 0.9416 | Valid pre: 0.9378
+Epoch 316 | Train loss: 0.0673 | Valid loss: 0.0671
+Train ACC: 0.9397 | Valid ACC: 0.9527 | Train f1: 0.9406 | Valid f1: 0.9429 | Train pre: 0.9416 | Valid pre: 0.9380
+Epoch 317 | Train loss: 0.0686 | Valid loss: 0.0648
+Train ACC: 0.9358 | Valid ACC: 0.9542 | Train f1: 0.9366 | Valid f1: 0.9457 | Train pre: 0.9376 | Valid pre: 0.9409
+Epoch 318 | Train loss: 0.0650 | Valid loss: 0.0644
+Train ACC: 0.9391 | Valid ACC: 0.9552 | Train f1: 0.9406 | Valid f1: 0.9472 | Train pre: 0.9424 | Valid pre: 0.9424
+Epoch 319 | Train loss: 0.0695 | Valid loss: 0.0692
+Train ACC: 0.9378 | Valid ACC: 0.9524 | Train f1: 0.9383 | Valid f1: 0.9418 | Train pre: 0.9389 | Valid pre: 0.9369
+Epoch 320 | Train loss: 0.0671 | Valid loss: 0.0666
+Train ACC: 0.9399 | Valid ACC: 0.9536 | Train f1: 0.9392 | Valid f1: 0.9439 | Train pre: 0.9386 | Valid pre: 0.9390
+Epoch 321 | Train loss: 0.0652 | Valid loss: 0.0645
+Train ACC: 0.9396 | Valid ACC: 0.9547 | Train f1: 0.9421 | Valid f1: 0.9456 | Train pre: 0.9450 | Valid pre: 0.9406
+Epoch 322 | Train loss: 0.0656 | Valid loss: 0.0675
+Train ACC: 0.9415 | Valid ACC: 0.9531 | Train f1: 0.9413 | Valid f1: 0.9432 | Train pre: 0.9414 | Valid pre: 0.9382
+Epoch 323 | Train loss: 0.0671 | Valid loss: 0.0672
+Train ACC: 0.9396 | Valid ACC: 0.9529 | Train f1: 0.9395 | Valid f1: 0.9431 | Train pre: 0.9396 | Valid pre: 0.9382
+Epoch 324 | Train loss: 0.0673 | Valid loss: 0.0637
+Train ACC: 0.9367 | Valid ACC: 0.9549 | Train f1: 0.9389 | Valid f1: 0.9474 | Train pre: 0.9414 | Valid pre: 0.9428
+Epoch 325 | Train loss: 0.0657 | Valid loss: 0.0661
+Train ACC: 0.9400 | Valid ACC: 0.9535 | Train f1: 0.9400 | Valid f1: 0.9441 | Train pre: 0.9403 | Valid pre: 0.9392
+Epoch 326 | Train loss: 0.0644 | Valid loss: 0.0645
+Train ACC: 0.9408 | Valid ACC: 0.9538 | Train f1: 0.9413 | Valid f1: 0.9452 | Train pre: 0.9422 | Valid pre: 0.9404
+Epoch 327 | Train loss: 0.0669 | Valid loss: 0.0677
+Train ACC: 0.9374 | Valid ACC: 0.9533 | Train f1: 0.9393 | Valid f1: 0.9432 | Train pre: 0.9414 | Valid pre: 0.9383
+Epoch 328 | Train loss: 0.0674 | Valid loss: 0.0706
+Train ACC: 0.9385 | Valid ACC: 0.9515 | Train f1: 0.9382 | Valid f1: 0.9398 | Train pre: 0.9380 | Valid pre: 0.9349
+Epoch 329 | Train loss: 0.0665 | Valid loss: 0.0676
+Train ACC: 0.9359 | Valid ACC: 0.9534 | Train f1: 0.9379 | Valid f1: 0.9434 | Train pre: 0.9403 | Valid pre: 0.9385
+Epoch 330 | Train loss: 0.0661 | Valid loss: 0.0633
+Train ACC: 0.9394 | Valid ACC: 0.9546 | Train f1: 0.9407 | Valid f1: 0.9467 | Train pre: 0.9425 | Valid pre: 0.9420
+Epoch 331 | Train loss: 0.0696 | Valid loss: 0.0684
+Train ACC: 0.9356 | Valid ACC: 0.9518 | Train f1: 0.9369 | Valid f1: 0.9414 | Train pre: 0.9384 | Valid pre: 0.9364
+Epoch 332 | Train loss: 0.0648 | Valid loss: 0.0664
+Train ACC: 0.9408 | Valid ACC: 0.9539 | Train f1: 0.9413 | Valid f1: 0.9450 | Train pre: 0.9421 | Valid pre: 0.9402
+Epoch 333 | Train loss: 0.0660 | Valid loss: 0.0645
+Train ACC: 0.9400 | Valid ACC: 0.9546 | Train f1: 0.9406 | Valid f1: 0.9473 | Train pre: 0.9414 | Valid pre: 0.9427
+Epoch 334 | Train loss: 0.0652 | Valid loss: 0.0670
+Train ACC: 0.9361 | Valid ACC: 0.9530 | Train f1: 0.9381 | Valid f1: 0.9441 | Train pre: 0.9406 | Valid pre: 0.9392
+Epoch 335 | Train loss: 0.0698 | Valid loss: 0.0677
+Train ACC: 0.9374 | Valid ACC: 0.9540 | Train f1: 0.9375 | Valid f1: 0.9444 | Train pre: 0.9379 | Valid pre: 0.9394
+Epoch 336 | Train loss: 0.0655 | Valid loss: 0.0669
+Train ACC: 0.9396 | Valid ACC: 0.9536 | Train f1: 0.9414 | Valid f1: 0.9437 | Train pre: 0.9434 | Valid pre: 0.9387
+Epoch 337 | Train loss: 0.0645 | Valid loss: 0.0664
+Train ACC: 0.9395 | Valid ACC: 0.9539 | Train f1: 0.9411 | Valid f1: 0.9443 | Train pre: 0.9428 | Valid pre: 0.9394
+Epoch 338 | Train loss: 0.0665 | Valid loss: 0.0641
+Train ACC: 0.9390 | Valid ACC: 0.9553 | Train f1: 0.9402 | Valid f1: 0.9467 | Train pre: 0.9418 | Valid pre: 0.9419
+Epoch 339 | Train loss: 0.0664 | Valid loss: 0.0634
+Train ACC: 0.9387 | Valid ACC: 0.9552 | Train f1: 0.9408 | Valid f1: 0.9467 | Train pre: 0.9433 | Valid pre: 0.9419
+Epoch 340 | Train loss: 0.0676 | Valid loss: 0.0631
+Train ACC: 0.9384 | Valid ACC: 0.9553 | Train f1: 0.9378 | Valid f1: 0.9465 | Train pre: 0.9374 | Valid pre: 0.9416
+Epoch 341 | Train loss: 0.0666 | Valid loss: 0.0635
+Train ACC: 0.9372 | Valid ACC: 0.9546 | Train f1: 0.9389 | Valid f1: 0.9460 | Train pre: 0.9411 | Valid pre: 0.9411
+Epoch 342 | Train loss: 0.0661 | Valid loss: 0.0627
+Train ACC: 0.9399 | Valid ACC: 0.9529 | Train f1: 0.9410 | Valid f1: 0.9454 | Train pre: 0.9424 | Valid pre: 0.9407
+Epoch 343 | Train loss: 0.0648 | Valid loss: 0.0611
+Train ACC: 0.9392 | Valid ACC: 0.9567 | Train f1: 0.9399 | Valid f1: 0.9511 | Train pre: 0.9407 | Valid pre: 0.9471
+Epoch 344 | Train loss: 0.0675 | Valid loss: 0.0607
+Train ACC: 0.9369 | Valid ACC: 0.9571 | Train f1: 0.9387 | Valid f1: 0.9507 | Train pre: 0.9407 | Valid pre: 0.9463
+Epoch 345 | Train loss: 0.0665 | Valid loss: 0.0622
+Train ACC: 0.9387 | Valid ACC: 0.9530 | Train f1: 0.9399 | Valid f1: 0.9449 | Train pre: 0.9415 | Valid pre: 0.9402
+Epoch 346 | Train loss: 0.0670 | Valid loss: 0.0642
+Train ACC: 0.9372 | Valid ACC: 0.9549 | Train f1: 0.9389 | Valid f1: 0.9465 | Train pre: 0.9408 | Valid pre: 0.9417
+Epoch 347 | Train loss: 0.0628 | Valid loss: 0.0633
+Train ACC: 0.9437 | Valid ACC: 0.9553 | Train f1: 0.9430 | Valid f1: 0.9483 | Train pre: 0.9427 | Valid pre: 0.9438
+Epoch 348 | Train loss: 0.0650 | Valid loss: 0.0642
+Train ACC: 0.9411 | Valid ACC: 0.9564 | Train f1: 0.9417 | Valid f1: 0.9491 | Train pre: 0.9427 | Valid pre: 0.9445
+Epoch 349 | Train loss: 0.0654 | Valid loss: 0.0650
+Train ACC: 0.9393 | Valid ACC: 0.9542 | Train f1: 0.9411 | Valid f1: 0.9448 | Train pre: 0.9432 | Valid pre: 0.9399
+Epoch 350 | Train loss: 0.0654 | Valid loss: 0.0668
+Train ACC: 0.9384 | Valid ACC: 0.9537 | Train f1: 0.9402 | Valid f1: 0.9437 | Train pre: 0.9422 | Valid pre: 0.9388
+Epoch 351 | Train loss: 0.0666 | Valid loss: 0.0659
+Train ACC: 0.9388 | Valid ACC: 0.9545 | Train f1: 0.9374 | Valid f1: 0.9449 | Train pre: 0.9364 | Valid pre: 0.9399
+Epoch 352 | Train loss: 0.0664 | Valid loss: 0.0670
+Train ACC: 0.9391 | Valid ACC: 0.9507 | Train f1: 0.9402 | Valid f1: 0.9421 | Train pre: 0.9418 | Valid pre: 0.9372
+Epoch 353 | Train loss: 0.0689 | Valid loss: 0.0682
+Train ACC: 0.9377 | Valid ACC: 0.9529 | Train f1: 0.9388 | Valid f1: 0.9425 | Train pre: 0.9401 | Valid pre: 0.9376
+Epoch 354 | Train loss: 0.0669 | Valid loss: 0.0631
+Train ACC: 0.9391 | Valid ACC: 0.9557 | Train f1: 0.9396 | Valid f1: 0.9483 | Train pre: 0.9404 | Valid pre: 0.9437
+Early stopped. Best validation performance achieved at epoch 154.

@@ -1,0 +1,4 @@
+{"ts": "2026-08-19T11:22:50.911717+00:00", "event": "START", "msg": "CellPLM arm C3: 3-seed naive CE, test donor Hu0216, seeds 42/123/456"}
+{"ts": "2026-08-19T11:22:50.911950+00:00", "event": "SEED_START", "msg": "seed 42"}
+{"ts": "2026-08-19T13:20:03.959635+00:00", "event": "SEED_RETRY", "msg": "seed 42 attempt 1 rc=-9; backoff 120 s"}
+{"ts": "2026-08-19T13:24:53.924501+00:00", "event": "SEED_RETRY", "msg": "seed 42 attempt 2 rc=-9; backoff 120 s"}

@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "task": "head-init perturbation final test-donor evaluation (basin-selection test, FROZEN 2026-08-20)",
+    "eval_set": "sanes2022_Hu0216",
+    "n_eval_cells": 20158,
+    "layer_order": [
+      "LSC",
+      "basal",
+      "differentiated"
+    ],
+    "checkpoints": {
+      "best_val": "model_best_val.pt (val macro-F1)",
+      "final_epoch": "model_epoch15.pt (sensitivity)"
+    },
+    "bootstrap": {
+      "n": 1000,
+      "seed": 42,
+      "level": "cell-level"
+    },
+    "null": {
+      "n": 100,
+      "seed": 42,
+      "primary": "L2-normed"
+    },
+    "frozen_baseline_test_donor": {
+      "rho_normed": 0.7887175099644741,
+      "z": 99.33951779616848,
+      "probe_f1_macro": 0.9687073512802424
+    },
+    "judgment_rule": "final-epoch test rho_normed >= 0.6547 (locked \u00a79 collapse threshold) -> 'kept'",
+    "reference": {
+      "s42": {
+        "rho_normed": -0.09080210865102475,
+        "macro_f1": 0.9037525612555508
+      },
+      "s123": {
+        "rho_normed": 0.8329304211974096,
+        "macro_f1": 0.882604617442159
+      },
+      "s456": {
+        "rho_normed": 0.7647351002533468,
+        "macro_f1": 0.8773391917021299
+      }
+    },
+    "timestamp_utc": "2026-08-21T07:59:43+00:00"
+  },
+  "frozen_baseline": {
+    "arm": "frozen",
+    "seed": null,
+    "n_eval_cells": 20158,
+    "source": "G1 vanzyl_cell_emb.npz donor-masked to sanes2022_Hu0216",
+    "rho": {
+      "rho_raw": 0.7885919481458533,
+      "rho_normed": 0.7887175099644741,
+      "null_mean": 0.012178974082160208,
+      "null_sd": 0.007817015354107799,
+      "null_z": 99.33951779616848,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "probe_f1": {
+      "f1_macro": 0.9687073512802424,
+      "f1_macro_sd": 0.0042654122402172555,
+      "f1_weighted": 0.9742172881801242,
+      "f1_weighted_sd": 0.0036637264750095573,
+      "n_repeats": 5,
+      "train_frac": 0.9,
+      "n_fit_cells_per_repeat": [
+        18142,
+        18142,
+        18142,
+        18142,
+        18142
+      ],
+      "n_eval_cells_per_repeat": [
+        2016,
+        2016,
+        2016,
+        2016,
+        2016
+      ],
+      "design": "split self-probe on analysis-set emb (L2norm + StandardScaler + lbfgs C=1.0 max_iter=5000)"
+    },
+    "g1_full_analysis_reference": {
+      "rho_normed": 0.8047,
+      "z": 229.88,
+      "probe_f1_macro": 0.9494,
+      "n": 62640
+    }
+  },
+  "per_variant_per_ckpt": {
+    "headscale_0.01_best_val": {
+      "seed": "head_init",
+      "n_cls": 30,
+      "n_eval_cells": 20158,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/head_init/checkpoints/naive_seed42_headscale_0.01/model_best_val.pt",
+      "pred_dist": {
+        "basal": 8821,
+        "differentiated": 2923,
+        "LSC": 8414
+      },
+      "macro_f1": {
+        "macro_f1": 0.9051492648901135,
+        "ci95_low": 0.9003197911400875,
+        "ci95_high": 0.9097439465325015,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.7337835457479808,
+      "rho_normed": 0.7349820793118452,
+      "null_mean": 0.015282188878132923,
+      "null_sd": 0.009027370093748247,
+      "null_z": 79.7242035010981,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "headscale_0.01_final_epoch": {
+      "seed": "head_init",
+      "n_cls": 30,
+      "n_eval_cells": 20158,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/head_init/checkpoints/naive_seed42_headscale_0.01/model_epoch15.pt",
+      "pred_dist": {
+        "basal": 9385,
+        "differentiated": 2374,
+        "LSC": 8399
+      },
+      "macro_f1": {
+        "macro_f1": 0.8641865781468517,
+        "ci95_low": 0.8587823069023639,
+        "ci95_high": 0.8697247888492597,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.5660935029569186,
+      "rho_normed": 0.5716308306257954,
+      "null_mean": 0.01726026349788418,
+      "null_sd": 0.008900970745293703,
+      "null_z": 62.28203450966615,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "headscale_1.0_best_val": {
+      "seed": "head_init",
+      "n_cls": 30,
+      "n_eval_cells": 20158,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/head_init/checkpoints/naive_seed42_headscale_1.0/model_best_val.pt",
+      "pred_dist": {
+        "basal": 8412,
+        "differentiated": 3384,
+        "LSC": 8362
+      },
+      "macro_f1": {
+        "macro_f1": 0.934323678469763,
+        "ci95_low": 0.9304830558745331,
+        "ci95_high": 0.9378829748422456,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.8890324964353995,
+      "rho_normed": 0.8890176776562968,
+      "null_mean": 0.01481470681031007,
+      "null_sd": 0.007851462834528412,
+      "null_z": 111.34268725077582,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "headscale_1.0_final_epoch": {
+      "seed": "head_init",
+      "n_cls": 30,
+      "n_eval_cells": 20158,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/head_init/checkpoints/naive_seed42_headscale_1.0/model_epoch15.pt",
+      "pred_dist": {
+        "basal": 9166,
+        "differentiated": 2615,
+        "LSC": 8377
+      },
+      "macro_f1": {
+        "macro_f1": 0.8802620821000403,
+        "ci95_low": 0.87511974798812,
+        "ci95_high": 0.885011081164579,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.7854422333768656,
+      "rho_normed": 0.7855182962220285,
+      "null_mean": 0.01487317565924574,
+      "null_sd": 0.008436577800090977,
+      "null_z": 91.34570187386555,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "headseed_999_best_val": {
+      "seed": "head_init",
+      "n_cls": 30,
+      "n_eval_cells": 20158,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/head_init/checkpoints/naive_seed42_headseed_999/model_best_val.pt",
+      "pred_dist": {
+        "basal": 8488,
+        "differentiated": 3283,
+        "LSC": 8387
+      },
+      "macro_f1": {
+        "macro_f1": 0.9304555124738,
+        "ci95_low": 0.9263350659973585,
+        "ci95_high": 0.9344071054021114,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.7718479897898797,
+      "rho_normed": 0.7776710097535475,
+      "null_mean": 0.014942823344897467,
+      "null_sd": 0.008458252295457944,
+      "null_z": 90.17562491228037,
+      "null_pctile": 1.0,
+      "n_null": 100
+    },
+    "headseed_999_final_epoch": {
+      "seed": "head_init",
+      "n_cls": 30,
+      "n_eval_cells": 20158,
+      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/head_init/checkpoints/naive_seed42_headseed_999/model_epoch15.pt",
+      "pred_dist": {
+        "basal": 9281,
+        "differentiated": 2498,
+        "LSC": 8379
+      },
+      "macro_f1": {
+        "macro_f1": 0.8724247549105222,
+        "ci95_low": 0.8665622657789642,
+        "ci95_high": 0.8775106383880091,
+        "n_boot": 1000,
+        "seed": 42
+      },
+      "rho_raw": 0.8064735713964343,
+      "rho_normed": 0.8037215359795935,
+      "null_mean": 0.015588093548868616,
+      "null_sd": 0.009491912720264275,
+      "null_z": 83.03209960497631,
+      "null_pctile": 1.0,
+      "n_null": 100
+    }
+  },
+  "basin_judgment": {
+    "headscale_0.01": {
+      "final_rho_normed": 0.5716308306257954,
+      "threshold": 0.6547,
+      "basin": "collapsed",
+      "basin_selection_supported": false,
+      "best_val_rho_normed": 0.7349820793118452,
+      "best_val_f1": 0.9051492648901135,
+      "final_f1": 0.8641865781468517
+    },
+    "headscale_1.0": {
+      "final_rho_normed": 0.7855182962220285,
+      "threshold": 0.6547,
+      "basin": "kept",
+      "basin_selection_supported": true,
+      "best_val_rho_normed": 0.8890176776562968,
+      "best_val_f1": 0.934323678469763,
+      "final_f1": 0.8802620821000403
+    },
+    "headseed_999": {
+      "final_rho_normed": 0.8037215359795935,
+      "threshold": 0.6547,
+      "basin": "kept",
+      "basin_selection_supported": true,
+      "best_val_rho_normed": 0.7776710097535475,
+      "best_val_f1": 0.9304555124738,
+      "final_f1": 0.8724247549105222
+    }
+  }
+}

@@ -25,7 +25,7 @@ Outputs (artifacts/paper1_layerwise_rho/):
   layerwise_rho_frozen_gf.json       summary.json (7 models x 13 layers)
 
 Usage:
-    python3 scripts/measure_layerwise_rho.py \
+    /home/dq/venv-ds/bin/python3 scripts/measure_layerwise_rho.py \
         [--runs 0.0:42,0.5:42] [--batch-size 32]
 """
 

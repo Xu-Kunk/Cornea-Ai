@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "title": "CAFT λ=0 vs λ=0.5 ρ-difference attribution reframe — fact record (fix-12 audit follow-up)",
+  "date": "2026-08-05",
+  "purpose": "Fact record for the Paper 1 narrative rewrite: the 'CAFT partially restores ρ (+0.19..+0.23)' claim is a FAILED CONTROL — the λ=0.5 arm never applied the continuity objective, so the ρ difference between the λ=0 and λ=0.5 groups cannot be attributed to λ. Do NOT re-run or edit any code; this file only records verifiable facts.",
+  "verdict": "对照失败 (failed control). 'CAFT ρ=+0.19 恢复' is NOT a causal effect of the CAFT objective; it is run-to-run nondeterminism (bf16 + stochastic data preparation).",
+
+  "runs": {
+    "note": "The 6 locked Paper 1 fine-tuned arms (3 seeds x {naive, caft}).",
+    "lam0.0_s42":  {"save_dir": "save/caft_gf_lam0.0_seed42_20260731-211824",  "archived_script_md5": "8241ff23dea92ff1789e23c569108f2a"},
+    "lam0.0_s123": {"save_dir": "save/caft_gf_lam0.0_seed123_20260801-045551", "archived_script_md5": "8241ff23dea92ff1789e23c569108f2a"},
+    "lam0.0_s456": {"save_dir": "save/caft_gf_lam0.0_seed456_20260801-123417", "archived_script_md5": "8241ff23dea92ff1789e23c569108f2a"},
+    "lam0.5_s42":  {"save_dir": "save/caft_gf_lam0.5_seed42_20260801-200953",  "archived_script_md5": "8241ff23dea92ff1789e23c569108f2a"},
+    "lam0.5_s123": {"save_dir": "save/caft_gf_lam0.5_seed123_20260802-033459", "archived_script_md5": "8241ff23dea92ff1789e23c569108f2a"},
+    "lam0.5_s456": {"save_dir": "save/caft_gf_lam0.5_seed456_20260802-105959", "archived_script_md5": "8241ff23dea92ff1789e23c569108f2a"}
+  },
+
+  "evidence": {
+    "1_script_identical": {
+      "finding": "All 6 archived caft_gf.py scripts are byte-identical (md5 8241ff23dea92ff1789e23c569108f2a), and identical to the CURRENT scripts/caft_gf.py (md5 8241ff23dea92ff1789e23c569108f2a).",
+      "md5_all_runs": "8241ff23dea92ff1789e23c569108f2a",
+      "md5_current_scripts_caft_gf_py": "8241ff23dea92ff1789e23c569108f2a"
+    },
+    "2_source_tokenized_data_identical": {
+      "finding": "The tokenized source h5ad (corneal_layer_subset.h5ad) is byte-identical across runs: md5 9ed5f62704ebf60d591fc685c4fb6642 (verified for lam0.0_s42, lam0.0_s123, lam0.5_s42).",
+      "md5_layer_subset_h5ad": "9ed5f62704ebf60d591fc685c4fb6642"
+    },
+    "3_prepared_train_datasets_NOT_logically_identical": {
+      "finding": "CORRECTION to audit report §5.2: the run-local prepared train datasets (79684 cells each) are NOT logically identical. Full-order SHA-256 over (input_ids, length, label) rows differs across all 6 runs. Numeric class-label assignment is permuted run-to-run (e.g. 'pericyte' is class 30 in lam0.0_s42 but class 13 in lam0.5_s42; 31 class names identical, ids permuted) because Classifier.prepare_data -> downsample_and_shuffle -> label_classes assigns ids from the shuffled row order, which varies between runs. This is ADDITIONAL nondeterminism beyond bf16; it makes the two groups even less of a controlled comparison.",
+      "logical_sha256_train": {
+        "lam0.0_s42":  "e3bea233be640b0924b7ee762af5de8441c0f4bec8cf882a4c1a6fc93669f7e9",
+        "lam0.0_s123": "121694da5170a68ba8d7da6fa526570138e4396b2c44a188e4c06691fbf2693a",
+        "lam0.0_s456": "60b66990ebe9edd65327e98d8935ad2e4b75baccbff073e454ef887adcb437c1",
+        "lam0.5_s42":  "e3e6cf2bcdbf051ac83a7b8e6df40de25e4c9a1ed43350f27f9f37914ee5afe1",
+        "lam0.5_s123": "15a45c59f776a5581de36c30acdb37161b4731a0ae51460372df00e5214699e5",
+        "lam0.5_s456": "1e126f1a5968a0dafd14aeb30cb76a29b21b2e3207c20f6e14e1ed151e1f1ee0"
+      },
+      "class_id_permutation_example": {
+        "lam0.0_s42": {"pericyte_id": 30, "Epi-TDC_id": 2},
+        "lam0.5_s42": {"pericyte_id": 13, "Epi-TDC_id": 0}
+      },
+      "note_semantics_preserved": "Each run's class_to_layer mapping is built from its own id_class_dict (class NAME -> layer), so layer semantics are internally consistent despite the numeric id permutation; only the numeric ids differ."
+    },
+    "4_training_config_identical": {
+      "finding": "All 6 runs share identical training configuration (from each run's caft_args.json).",
+      "config": {
+        "epochs": 3, "learning_rate": 5e-05, "batch_size": 32,
+        "gradient_accumulation_steps": 4, "num_classes": 31, "train_cells": 79684,
+        "seed": "per-run (42/123/456)", "strict_fair": true,
+        "split_manifest": "artifacts/paper1_fair_split/manifest.json",
+        "manifest_sha256": "f4393ae16959ed8e1923661a5e7849bb93d220bb202cb77c6f1dcb85549b8cd6 (identical across all 6 runs)"
+      }
+    },
+    "5_L_cont_never_ran": {
+      "finding": "The continuity objective NEVER executed in any of the 6 runs. (a) transformers 4.57 dispatches on_epoch_begin only to registered TrainerCallback objects; CAFTTrainer.on_epoch_begin is a dead Trainer method (no callback ever registered by build_caft_trainer / caft_gf.py). (b) trainer log_history_tail in all 6 caft_args.json contains ONLY the plain 'loss' key — no L_cont / L_cls / caft_loss entries (CAFT compute_loss logs those every 50 steps when the term runs). (c) layer_centroids was never populated -> compute_loss fell back to loss = loss_cls, i.e. the λ=0.5 runs trained PURE cross-entropy, identical objective to λ=0.",
+      "log_history_tail_keys_observed": ["epoch", "grad_norm", "learning_rate", "loss", "step", "total_flos", "train_loss", "train_runtime", "train_samples_per_second", "train_steps_per_second"],
+      "continuity_terms_in_logs": "NONE in any of the 6 runs"
+    },
+    "6_rho_group_difference": {
+      "finding": "L12 (final CLS) marker-gradient Spearman rho: naive group {-0.0424, -0.0360, +0.0539} mean -0.0082 vs 'CAFT' group {+0.1913, +0.2298, +0.2095} mean +0.2102. The groups are fully separated (3v3), but since the λ=0.5 group never received the continuity gradient (evidence #5), the difference is NOT a causal effect of λ.",
+      "naive_rho": {"seed42": -0.04239536391926124, "seed123": -0.03602503481100148, "seed456": 0.053929088570711256, "mean": -0.008163770053183821},
+      "caft_rho":  {"seed42": 0.1912633203216378, "seed123": 0.22978617184892414, "seed456": 0.20947455566804998, "mean": 0.21017468261287064},
+      "source": "artifacts/paper1_tier_b_eval/percell_*.npz.meta.json sanity_gate_external.rho (== results_*.json marker_gradient_rank_correlation == layerwise L12 rho, all diff=0.0 per fix-12 audit)"
+    },
+    "7_nondeterminism_explanation": {
+      "finding": "The observed ρ separation is attributable to run-to-run nondeterminism, not λ: (a) bf16 training on GB10 unified memory: fp32 master weights with bf16 autocast forward/backward accumulate rounding error chaotically over 7473 steps (3 epochs x 2491 steps), amplifying tiny per-step differences into different checkpoints; (b) stochastic data preparation (evidence #3): numeric class ids and row order differ run-to-run, so even the training data as fed to the model differs; (c) the final-cls rho is measured on the LAST hidden state, the most collapsed/sensitive layer, where checkpoint differences are largest. The 3v3 separation (Mann-Whitney two-sided p = 0.1 for n=3+3 with complete separation; the audit's 'p≈0.05' is the one-sided value) has no causal interpretation.",
+      "caveat": "With only 3 runs per group and a nondeterministic pipeline, no statistical claim of a λ effect is supportable. The honest-negative conclusion (fine-tuning does not preserve the gradient; CAFT as-implemented provides no evidence of restoration) is unchanged."
+    }
+  },
+
+  "implications_for_manuscript": {
+    "do_not_claim": "Any wording implying the continuity objective acted on the λ=0.5 checkpoints (e.g. 'CAFT partially restores the gradient', 'the continuity objective acted on a readout already overwritten').",
+    "suggested_framing": "The λ=0.5 group's checkpoints show higher L12 rho than λ=0, but the continuity term never ran (dead hook, transformers 4.57); the difference reflects run-to-run nondeterminism, not the CAFT objective. Report as a failed control; the classification-only comparison (no λ effect on macro-F1) stands.",
+    "reported_locations_to_rewrite": ["paper1.tex L48", "paper1.tex L82", "paper1.tex L90", "paper1.tex L114", "paper1.tex L176"]
+  },
+
+  "provenance": {
+    "fix12_audit_report": "artifacts/paper1_pipeline_audit/audit_report.md (§5, §2)",
+    "independent_recompute": "artifacts/paper1_pipeline_audit/metric_recompute.json (7/7 metrics diff=0.0; ECE standard-binning reference)",
+    "this_fact_record_measured_on": "2026-08-05, /home/dq/venv-ds/bin/python3, read-only hashing of save/ dirs + percell npz meta"
+  }
+}

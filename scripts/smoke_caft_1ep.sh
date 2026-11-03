@@ -10,7 +10,7 @@
 set -uo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-PY=python
+PY=/home/dq/venv-ds/bin/python
 LOG="$ROOT/artifacts/smoke/smoke_1ep.log"
 mkdir -p "$ROOT/artifacts/smoke"
 

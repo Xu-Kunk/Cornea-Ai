@@ -1,0 +1,37 @@
+[2026-08-20T17:10:10+00:00] device=cuda torch=2.13.0+cu130 max_cells=None
+[2026-08-20T17:10:10+00:00] GPU guard passed: free 5.01 GiB >= 4 GiB
+[2026-08-20T17:10:17+00:00] [frozen] panel 2399 genes; test panel 2399
+/home/summer/corneal_scgpt/venv/lib/python3.12/site-packages/CellPLM/utils/data.py:20: UserWarning: Sparse invariant checks are implicitly disabled. Memory errors (e.g. SEGFAULT) will occur when operating on a sparse tensor which violates the invariants, but checks incur performance overhead. To silence this warning, explicitly opt in or out. See `torch.sparse.check_sparse_tensor_invariants.__doc__` for guidance.  (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/Context.cpp:816.)
+  return torch.sparse_csr_tensor(x.indptr, x.indices, x.data, (x.shape[0], x.shape[1])).to_sparse().float().coalesce()
+/home/summer/corneal_scgpt/venv/lib/python3.12/site-packages/CellPLM/utils/data.py:20: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:49.)
+  return torch.sparse_csr_tensor(x.indptr, x.indices, x.data, (x.shape[0], x.shape[1])).to_sparse().float().coalesce()
+[2026-08-20T17:10:35+00:00]   [frozen] L0: rho_n=0.8755 rho_raw=0.8758 z=111.1
+[2026-08-20T17:10:51+00:00]   [frozen] L1: rho_n=0.7709 rho_raw=0.7231 z=108.1
+[2026-08-20T17:11:08+00:00]   [frozen] L2: rho_n=0.7736 rho_raw=0.5641 z=113.3
+[2026-08-20T17:11:25+00:00]   [frozen] L3: rho_n=0.7773 rho_raw=0.4846 z=112.4
+[2026-08-20T17:11:41+00:00]   [frozen] L4: rho_n=0.7939 rho_raw=0.4152 z=114.5
+[2026-08-20T17:11:53+00:00]   [frozen] LAT: rho_n=0.8519 rho_raw=0.8522 z=112.1
+[2026-08-20T17:11:53+00:00] [frozen] LAT gate: 0.8519 vs locked 0.8651968597979748 -> FAIL
+[2026-08-20T17:11:53+00:00] GPU guard passed: free 4.97 GiB >= 4 GiB
+[2026-08-20T17:11:59+00:00] [naive] panel 2399 genes; test panel 2399
+[2026-08-20T17:11:59+00:00] [naive] loaded naive checkpoint
+[2026-08-20T17:12:16+00:00]   [naive] L0: rho_n=0.9051 rho_raw=0.9065 z=99.7
+[2026-08-20T17:12:32+00:00]   [naive] L1: rho_n=0.1178 rho_raw=0.1003 z=17.0
+[2026-08-20T17:12:47+00:00]   [naive] L2: rho_n=0.1090 rho_raw=0.0892 z=16.8
+[2026-08-20T17:13:03+00:00]   [naive] L3: rho_n=0.1179 rho_raw=0.1175 z=17.9
+[2026-08-20T17:13:18+00:00]   [naive] L4: rho_n=0.1269 rho_raw=0.1317 z=19.7
+[2026-08-20T17:13:30+00:00]   [naive] LAT: rho_n=-0.0464 rho_raw=0.1122 z=-8.7
+[2026-08-20T17:13:30+00:00] [naive] LAT gate: -0.0464 vs locked -0.04641511483066639 -> PASS
+[2026-08-20T17:13:30+00:00] GPU guard passed: free 4.97 GiB >= 4 GiB
+[2026-08-20T17:13:35+00:00] [corn] panel 2399 genes; test panel 2399
+[2026-08-20T17:13:36+00:00] [corn] loaded corn checkpoint
+[2026-08-20T17:13:53+00:00]   [corn] L0: rho_n=0.9184 rho_raw=0.9195 z=106.2
+[2026-08-20T17:14:09+00:00]   [corn] L1: rho_n=0.1840 rho_raw=0.1461 z=25.4
+[2026-08-20T17:14:26+00:00]   [corn] L2: rho_n=0.6443 rho_raw=0.2092 z=98.3
+[2026-08-20T17:14:42+00:00]   [corn] L3: rho_n=0.9211 rho_raw=0.3609 z=150.9
+[2026-08-20T17:14:58+00:00]   [corn] L4: rho_n=0.9224 rho_raw=0.9194 z=172.9
+[2026-08-20T17:15:09+00:00]   [corn] LAT: rho_n=0.9203 rho_raw=0.9228 z=162.4
+[2026-08-20T17:15:09+00:00] [corn] LAT gate: 0.9203 vs locked 0.9202997872826137 -> PASS
+[2026-08-20T17:15:09+00:00] saved /home/summer/cellplm_vanzyl/artifacts/paper1_vanzyl/cellplm_layerwise/cellplm_layerwise_rho.json
+[2026-08-20T17:15:10+00:00] saved cellplm_layerwise_rho.png
+[2026-08-20T17:15:10+00:00] DONE

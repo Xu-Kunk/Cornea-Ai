@@ -1,0 +1,61 @@
+{
+  "arm": "cellplm_naive_ce_e3",
+  "script": "run_cellplm_vanzyl_e3.py",
+  "seed": 42,
+  "recipe": "official CellTypeAnnotationPipeline naive CE, out_dim=3, lr 5e-3 (embedder 5e-4), wd 1e-7, scheduler plat, epochs 30 configured, es=200, patience 25, hvg 3000, best-valid-F1 checkpoint",
+  "training": {
+    "epochs_configured": 30,
+    "epochs_actual": 30,
+    "best_valid_f1": 0.9604,
+    "elapsed_min": 0.6912364323933919,
+    "n_train": 38233,
+    "n_valid": 4249,
+    "panel_genes_after_preprocess": 2399,
+    "device": "cuda",
+    "torch": "2.13.0+cu130",
+    "seed": 42
+  },
+  "eval": {
+    "n_eval_cells": 20158,
+    "test_donor": "sanes2022_Hu0216",
+    "macro_f1": 0.9719150787266114,
+    "bootstrap_ci95": [
+      0.9694687495260695,
+      0.9742933682782244
+    ],
+    "n_boot": 1000,
+    "acc": 0.9769322353408076,
+    "rho_raw": 0.672185679715595,
+    "rho_normed": 0.6701367767322365,
+    "null_mean": 0.0067602280286681695,
+    "null_sd": 0.006466324823664818,
+    "null_z": 102.58942549186646,
+    "null_pctile": 1.0,
+    "n_null": 100
+  },
+  "frozen_baseline": {
+    "rho_raw": 0.8634236344703192,
+    "rho_normed": 0.8651968691013613,
+    "null_mean": 0.011001481332109373,
+    "null_sd": 0.0073952258634568495,
+    "null_z": 115.50632848013704,
+    "null_pctile": 1.0,
+    "n_null": 100
+  },
+  "delta_rho": {
+    "frozen_rho_normed": 0.8651968691013613,
+    "delta_rho": 0.1950600923691248
+  },
+  "y_true_dist": {
+    "LSC": 8331,
+    "basal": 7563,
+    "differentiated": 4264
+  },
+  "pred_dist": {
+    "LSC": 8375,
+    "basal": 7622,
+    "differentiated": 4161
+  },
+  "generated_utc": "2026-10-19T08:59:42.197936+00:00",
+  "timestamp_utc": "2026-10-19T08:59:42.197944+00:00"
+}

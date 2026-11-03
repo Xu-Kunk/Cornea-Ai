@@ -79,8 +79,7 @@ class FlowConsistencyTrainer(Trainer):
         w = np.asarray(axis_w, dtype=float).reshape(-1)
         if w.shape[0] != int(self.model.config.hidden_size):
             raise ValueError(
-                f"axis_w dim {w.shape[0]} != hidden_size "
-                f"{self.model.config.hidden_size}"
+                f"axis_w dim {w.shape[0]} != hidden_size {self.model.config.hidden_size}"
             )
         self._w = torch.tensor(w, dtype=torch.float32)
         self.k_pairs = int(k_pairs)
@@ -121,10 +120,7 @@ class FlowConsistencyTrainer(Trainer):
         length = inputs.get("length")
         device = input_ids.device
         if isinstance(length, torch.Tensor):
-            attn = (
-                torch.arange(input_ids.shape[1], device=device)[None, :]
-                < length[:, None]
-            )
+            attn = torch.arange(input_ids.shape[1], device=device)[None, :] < length[:, None]
         else:
             attn = None
         bert_out = model.bert(input_ids=input_ids, attention_mask=attn)

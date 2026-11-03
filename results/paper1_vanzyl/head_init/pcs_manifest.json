@@ -1,0 +1,51 @@
+{
+  "task": "PCS manifest: scGPT head-init perturbation + CellPLM layerwise (FROZEN 2026-08-20)",
+  "project": "paper1-vanzyl",
+  "user_approved": true,
+  "frozen_decisions": {
+    "head_init_variants": [
+      "headscale_0.01 (Linear w ~ N(0,0.01), b=0)",
+      "headscale_1.0 (Linear w ~ N(0,1.0), b=0)",
+      "headseed_999 (default nn.Linear init, torch.manual_seed(999))"
+    ],
+    "head_init_train_seed": 42,
+    "head_init_epochs": 15,
+    "head_init_rng_contract": "torch RNG snapshotted after build_finetune_model, restored after head re-init -> downstream stream identical to reference seed42; only cls_decoder weights differ (verified trunk_diff=0 on smoke)",
+    "head_init_judgment_rule": "basin-selection supported iff any head-init variant keeps final-epoch test rho_normed >= 0.6547 (locked Section-9 collapse threshold)",
+    "reference": {
+      "seed42_collapse": {"final_rho": -0.0908, "best_val_rho": 0.3373},
+      "seed123_keep": {"final_rho": 0.8329, "best_val_rho": 0.5774},
+      "seed456_keep": {"final_rho": 0.7647, "best_val_rho": 0.4039}
+    },
+    "cellplm_layerwise_configs": ["frozen", "naive(seed42)", "corn(seed42)"],
+    "cellplm_layerwise_layers": ["L0=embedder", "L1..L4=Flowformer encoder", "LAT=VAE mu (official eval repr)"],
+    "cellplm_layerwise_metric": "marker_gradient_correlation L2-normed + label-shuffle z (n=100, seed 42), unchanged",
+    "cellplm_layerwise_sanity": "LAT rho(L2-normed) vs locked seed json within tol 2e-3: frozen 0.8652 / naive -0.0464 / corn 0.9203",
+    "test_donor": "sanes2022_Hu0216 held out (20,158 cells, split LOCKED)"
+  },
+  "pcs_checklist": {
+    "predictability": [
+      "test donor Hu0216 strictly held out (split manifest LOCKED)",
+      "multi-metric: rho(L2-normed) + label-shuffle z(n=100, seed42) + macro-F1 + bootstrap CI(n=1000, seed42)",
+      "judgmental choices frozen before run and recorded here"
+    ],
+    "computability": [
+      "scripts: scgpt_cls_vanzyl_headinit.py / run_headinit_vanzyl.py / scgpt_eval_vanzyl_headinit.py / cellplm_layerwise_e1.py",
+      "GPU guard free>=4GiB, OOM retry x3, wait budget 5h",
+      "seed fixed 42 x3 variants; per-epoch trajectory archived"
+    ],
+    "stability": [
+      "single-variable perturbation: RNG restore verified (trunk_diff=0.0, smoke 2026-08-20)",
+      "same split/panel/hyperparameters as locked Section-9 arm"
+    ]
+  },
+  "sha256": {
+    "scgpt_cls_vanzyl_headinit.py": "adb4c6ab0d7c1b65e83586b524fb3a3a9c9ecd88ca5349075275b55fe94396d9",
+    "scgpt_eval_vanzyl_headinit.py": "bb1d34ef74440d452e1d2a24f1a11d31fe146484316557339c55f3b04bd2c6c1",
+    "run_headinit_vanzyl.py": "d6007978d139f626fcbcc184054acf6a1fdd926954e92e5bd7cd7674537d4160",
+    "cellplm_layerwise_e1.py": "a0d988d904463768cb6fb1e558d6bcfbb8039501401eae2d3ea0fee7e551147b",
+    "orchestrate_headinit_cellplm.sh": "50bdd14e9d496b19751a2ec9545dfaad57deceb9991befaf86d4c56cd631a74e",
+    "verified": "local == p5070 (deployed), 2026-08-20 17:12 UTC"
+  },
+  "timestamp_utc": "2026-08-20T17:10:00Z"
+}
