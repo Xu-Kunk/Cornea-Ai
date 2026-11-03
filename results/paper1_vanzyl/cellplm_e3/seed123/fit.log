@@ -1,7 +1,0 @@
-After filtering, 2399 genes remain.
-Epoch 0 | Train loss: 1.0704 | Valid loss: 0.9332
-Train ACC: 0.4079 | Valid ACC: 0.5536 | Train f1: 0.3247 | Valid f1: 0.5587 | Train pre: 0.4868 | Valid pre: 0.7162
-Epoch 1 | Train loss: 0.8426 | Valid loss: 0.5676
-Train ACC: 0.6316 | Valid ACC: 0.8075 | Train f1: 0.6309 | Valid f1: 0.8177 | Train pre: 0.7674 | Valid pre: 0.8506
-Epoch 2 | Train loss: 0.5043 | Valid loss: 0.3585
-Train ACC: 0.8072 | Valid ACC: 0.8553 | Train f1: 0.8070 | Valid f1: 0.8221 | Train pre: 0.8368 | Valid pre: 0.8354
