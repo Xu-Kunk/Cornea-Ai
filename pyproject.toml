@@ -17,6 +17,9 @@ select = ["E", "F", "I", "N", "W", "UP"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
+markers = [
+    "requires_data: requires the public single-cell data or the full analysis environment (not distributed with this repository)",
+]
 
 [tool.pyright]
 # basedpyright 对第三方动态库（scverse/torch/zarr）类型存根不全产生系统性误报

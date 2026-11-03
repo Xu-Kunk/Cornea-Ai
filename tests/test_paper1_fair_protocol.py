@@ -30,6 +30,8 @@ from types import ModuleType
 import numpy as np
 import pandas as pd
 import pytest
+pytestmark = pytest.mark.requires_data  # needs the distributed-less data / full environment
+import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))

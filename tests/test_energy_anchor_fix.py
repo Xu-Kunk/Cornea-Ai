@@ -27,6 +27,8 @@ import torch
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+import pytest
+pytestmark = pytest.mark.requires_data  # needs the distributed-less data / full environment
 from corneal_fm.energy_anchor import N_STAGES, build_energy_anchor_trainer  # noqa: E402
 
 # ---------------------------------------------------------------------------

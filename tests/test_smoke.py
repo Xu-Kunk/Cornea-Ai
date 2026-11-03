@@ -1,5 +1,7 @@
 """Smoke test: verify the full pipeline runs on 100 cells with a tiny model."""
 import pytest
+pytestmark = pytest.mark.requires_data  # needs the distributed-less data / full environment
+import pytest
 import subprocess
 import sys
 from pathlib import Path

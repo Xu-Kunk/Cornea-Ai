@@ -31,4 +31,6 @@ jobs:
       # (pytest.importorskip) since CI has no GPU.
       - run: pip install torch --index-url https://download.pytorch.org/whl/cpu
       - run: pip install -r requirements-ci.txt
-      - run: pytest tests/ -v
+      # Data- and environment-dependent tests carry the ``requires_data`` marker
+      # (they need the public single-cell data, which is not distributed here).
+      - run: pytest tests/ -v -m "not requires_data"

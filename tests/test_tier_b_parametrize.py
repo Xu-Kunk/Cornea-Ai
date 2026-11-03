@@ -23,6 +23,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import pytest
+pytestmark = pytest.mark.requires_data  # needs the distributed-less data / full environment
+import pytest
 import yaml
 
 from scripts import run_tier_b_eval as rtbe
