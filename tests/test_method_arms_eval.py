@@ -27,6 +27,9 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+pytest.importorskip("transformers", reason="analysis stack not installed in this environment")
+pytest.importorskip("geneformer", reason="analysis stack not installed in this environment")
+
 from scripts import (  # noqa: E402
     run_method_arms_eval as eval_script,
 )

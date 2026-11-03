@@ -13,6 +13,9 @@ import numpy as np
 import pandas as pd
 import pytest
 
+pytest.importorskip("click", reason="analysis stack not installed in this environment")
+pytest.importorskip("datasets", reason="analysis stack not installed in this environment")
+
 from scripts.e0_axis1_baseline import (
     build_result,
     fit_eval_logreg,

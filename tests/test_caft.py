@@ -10,6 +10,9 @@ import pytest
 import torch
 import torch.nn.functional as F
 
+pytest.importorskip("transformers", reason="analysis stack not installed in this environment")
+pytest.importorskip("geneformer", reason="analysis stack not installed in this environment")
+
 from corneal_fm.caft import (
     CAFTTrainer,
     CELL_TYPE_TO_LAYER,

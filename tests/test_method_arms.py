@@ -34,6 +34,9 @@ from scipy.stats import spearmanr
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+pytest.importorskip("transformers", reason="analysis stack not installed in this environment")
+pytest.importorskip("geneformer", reason="analysis stack not installed in this environment")
+
 from corneal_fm.axis_ft import attn_mask, build_axis_ft_trainer  # noqa: E402
 from corneal_fm.axis_ref import (  # noqa: E402
     axis_cache_key,

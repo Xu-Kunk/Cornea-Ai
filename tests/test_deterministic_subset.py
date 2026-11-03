@@ -9,6 +9,9 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+pytest.importorskip("transformers", reason="analysis stack not installed in this environment")
+pytest.importorskip("geneformer", reason="analysis stack not installed in this environment")
+
 from corneal_fm.caft import CELL_TYPE_TO_LAYER, LAYER_ORDER
 
 

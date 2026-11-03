@@ -13,6 +13,10 @@ The continuity loss depends on this ordering being biologically correct, so the
 mapping itself is treated as a tested contract.
 """
 
+import pytest
+pytest.importorskip("transformers", reason="analysis stack not installed in this environment")
+pytest.importorskip("geneformer", reason="analysis stack not installed in this environment")
+
 from corneal_fm.caft import (
     CELL_TYPE_TO_LAYER,
     LAYER_ORDER,
