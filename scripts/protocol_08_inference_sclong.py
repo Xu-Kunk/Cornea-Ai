@@ -2,6 +2,7 @@
 """Corneal-FM: scLong zero-shot cell-type inference.
 
 Loads the pretrained scLong model (1B parameters, Performer architecture)
+from typing import Any
 from HuggingFace (BaiDing1234/scLong) and evaluates it zero-shot on corneal
 test data.  Reports accuracy and macro F1.
 
