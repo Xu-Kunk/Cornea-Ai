@@ -19,7 +19,6 @@ Release package
 | Dataset | Source | Accession |
 |---------|--------|-----------|
 | Human Ocular Surface Atlas | CELLxGENE Discover | 0f7d022a-46c7-4e64-be4c-e34adbb78089 |
-| Mouse DED | DED-seq Project / GSE182582 | GSE182582 (lacrimal gland excision) |
 | Ensembl Orthologs | BioMart REST API | Release 113 |
 | scGPT Vocab | bowang-lab/scGPT | default_gene_vocab.json |
 
@@ -51,9 +50,7 @@ Release package
 - Has raw: True
 **Vocab**: 48,292 tokens
 
-## 6. Mouse DED Data
 
-**Mouse DED**: 1,000 cells × 17,802 genes
 - Size: 5.9 MB
 - Condition: {'control': np.int64(529), 'DED': np.int64(471)}
 - Cell types: 11
@@ -78,7 +75,6 @@ Release package
   corneal_scgpt_ready.h5ad                          5.52 GB
   gf_tokenized_test/ (dir)
   gf_tokenized_train/ (dir)
-  GSE182582_forGEO_controlVSded_countmatrix.csv.gz      4.1 MB
   mouse_ded.h5ad                                     5.9 MB
   mouse_human_orthologs.csv                          0.8 MB
   scgpt_gene_vocab.json                              0.8 MB

@@ -57,7 +57,6 @@ rpt()
 rpt(f"| Dataset | Source | Accession |")
 rpt(f"|---------|--------|-----------|")
 rpt(f"| Human Ocular Surface Atlas | CELLxGENE Discover | 0f7d022a-46c7-4e64-be4c-e34adbb78089 |")
-rpt(f"| Mouse DED | DED-seq Project / GSE182582 | GSE182582 (lacrimal gland excision) |")
 rpt(f"| Ensembl Orthologs | BioMart REST API | Release 113 |")
 rpt(f"| scGPT Vocab | bowang-lab/scGPT | default_gene_vocab.json |")
 rpt()
@@ -153,12 +152,10 @@ rpt()
 # ============================================================
 # 6. MOUSE DED
 # ============================================================
-rpt("## 6. Mouse DED Data")
 rpt()
 mouse_f = DATA / "mouse_ded.h5ad"
 if mouse_f.exists():
     a = sc.read_h5ad(mouse_f)
-    rpt(f"**Mouse DED**: {a.n_obs:,} cells × {a.n_vars:,} genes")
     rpt(f"- Size: {mouse_f.stat().st_size/1e6:.1f} MB")
     rpt(f"- Condition: {dict(a.obs['condition'].value_counts())}")
     if 'celltype_orig' in a.obs:

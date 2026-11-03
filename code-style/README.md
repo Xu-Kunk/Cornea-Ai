@@ -13,7 +13,7 @@
 
 ## 快速开始
 
-**R 项目（如 DED-seq）**：
+**R 项目**：
 ```bash
 cp .lintr.R <项目根>/.lintr.R
 cd <项目根> && Rscript -e 'lintr::lint_package()'   # 检查
