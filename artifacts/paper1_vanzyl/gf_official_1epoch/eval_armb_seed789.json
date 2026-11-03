@@ -1,6 +1,6 @@
 {
   "seed": 789,
-  "checkpoint": "/home/summer/corneal_scgpt/save/caft_gf_lam0.0_seed789_20260819-151059/model/checkpoint-2491",
+  "checkpoint": "<home>/corneal_scgpt/save/caft_gf_lam0.0_seed789_20260819-151059/model/checkpoint-2491",
   "n_cells": 14775,
   "donor_alignment_ok": true,
   "rho_raw": 0.10156398480827941,

@@ -352,7 +352,7 @@
    "dataset": "van Zyl",
    "tissue": "cornea",
    "rho": -0.007,
-   "note": "embeddings on p5070 (not synced); z unavailable locally"
+   "note": "embeddings on <compute-node> (not synced); z unavailable locally"
   },
   {
    "arm": "CORN",
@@ -360,7 +360,7 @@
    "dataset": "van Zyl",
    "tissue": "cornea",
    "rho": 0.918,
-   "note": "embeddings on p5070 (not synced); z unavailable locally"
+   "note": "embeddings on <compute-node> (not synced); z unavailable locally"
   },
   {
    "arm": "CORN+LoRA",
@@ -368,7 +368,7 @@
    "dataset": "van Zyl",
    "tissue": "cornea",
    "rho": null,
-   "note": "E5 training on p5070 (launched 2026-08-20 23:40, ETA ~2026-08-21 12:30); results not available at freeze time"
+   "note": "E5 training on <compute-node> (launched 2026-08-20 23:40, ETA ~2026-08-21 12:30); results not available at freeze time"
   }
  ]
 }

@@ -1,6 +1,6 @@
 # Cluster 0 Forensics + TAC Absence — Evidence Report
 
-- Data: `vanzyl_annotated.h5ad` (Stage 1, p5070), 80817 cells x 13250 genes after QC.
+- Data: `vanzyl_annotated.h5ad` (Stage 1, <compute-node>), 80817 cells x 13250 genes after QC.
 - Cluster 0: 13584 cells (16.81% of all cells).
 - Statistics: annotation counts + counts-layer expression only (%exp, mean log1p). Read-only.
 

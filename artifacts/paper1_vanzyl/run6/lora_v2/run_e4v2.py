@@ -13,7 +13,7 @@ import time
 from datetime import UTC, datetime
 from pathlib import Path
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 PYTHON = ROOT / "repo" / ".venv" / "bin" / "python"
 LORA_SCRIPT = ROOT / "scripts" / "scgpt_lora_vanzyl.py"
 OUT = ROOT / "artifacts" / "paper1_vanzyl" / "run6" / "lora_v2"

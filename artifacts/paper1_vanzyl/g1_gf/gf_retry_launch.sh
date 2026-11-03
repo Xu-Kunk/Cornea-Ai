@@ -3,7 +3,7 @@
 # with the scGPT session (diag5.py). Waits for GPU mem <= threshold, launches
 # gf_frozen_diag_vanzyl.py --batch 16; on OOM (exit 3) waits and relaunches.
 # History in gf_retry.log; final script log kept clean (truncated per run).
-cd /home/summer/corneal_scgpt || exit 9
+cd <home>/corneal_scgpt || exit 9
 OUT=artifacts/paper1_vanzyl/g1_gf
 RETRY=$OUT/gf_retry.log
 THRESH_MB=2000

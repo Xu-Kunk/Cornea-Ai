@@ -40,7 +40,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-PROJECT_ROOT = Path("/home/summer/corneal_scgpt")
+PROJECT_ROOT = Path("<home>/corneal_scgpt")
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from corneal_fm.evaluation import marker_gradient_correlation  # noqa: E402
@@ -57,8 +57,8 @@ MAX_WAIT_S = 5 * 3600
 POLL_S = 60
 
 # ── Paths ─────────────────────────────────────────────────────────────────
-DATA_PATH = Path("/home/summer/cellplm_vanzyl/data/vanzyl_cellplm.h5ad")
-CKPT_DIR = Path("/home/summer/cellplm_vanzyl/artifacts/paper1_vanzyl/cellplm/ckpt")
+DATA_PATH = Path("<home>/cellplm_vanzyl/data/vanzyl_cellplm.h5ad")
+CKPT_DIR = Path("<home>/cellplm_vanzyl/artifacts/paper1_vanzyl/cellplm/ckpt")
 OUT_ROOT = PROJECT_ROOT / "artifacts" / "paper1_vanzyl" / "cellplm_lora"
 
 

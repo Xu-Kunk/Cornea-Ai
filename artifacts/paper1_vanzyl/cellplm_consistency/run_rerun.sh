@@ -1,12 +1,12 @@
 #!/bin/bash
 set -euo pipefail
-WRK=/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cellplm_consistency
-PY=/home/summer/corneal_scgpt/venv/bin/python
-DRIVER=/home/summer/cellplm_vanzyl/scripts/run_cellplm_cross_driver.py
+WRK=<home>/corneal_scgpt/artifacts/paper1_vanzyl/cellplm_consistency
+PY=<home>/corneal_scgpt/venv/bin/python
+DRIVER=<home>/cellplm_vanzyl/scripts/run_cellplm_cross_driver.py
 LOG="$WRK/driver_rerun.log"
 HB="$WRK/heartbeat_rerun.log"
 
-cd /home/summer/corneal_scgpt
+cd <home>/corneal_scgpt
 
 # background heartbeat: one line per minute while this script runs
 (

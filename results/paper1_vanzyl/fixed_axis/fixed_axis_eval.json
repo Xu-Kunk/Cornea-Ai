@@ -11,7 +11,7 @@
     "axis_construction": {
       "method": "centroid-SVD (first right singular vector of per-layer centroid matrix), oriented LSC -> differentiated",
       "source": "frozen scGPT-human pretrained model embeddings on test donor",
-      "axis_path": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/fixed_axis/frozen_axis.npy",
+      "axis_path": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/fixed_axis/frozen_axis.npy",
       "axis_norm": 0.9999999961351035
     },
     "sanity_gate": {

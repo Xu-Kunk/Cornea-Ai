@@ -23,7 +23,7 @@ PCS (frozen BEFORE running):
     listed in the grid but NOT duplicated into the FDR family (no
     pseudo-replication).
   * Rows without any locally available z (GSE299152 GF arms; CellPLM naive /
-    CORN; CORN+LoRA E5 still training on p5070) are listed in the full grid
+    CORN; CORN+LoRA E5 still training on <compute-node>) are listed in the full grid
     with status="z_unavailable_local" and EXCLUDED from the FDR family
     (disclosed in the spec + run.log; they get q=null).
   * Data: only read-only artifact JSONs / npz (input SHA-256 manifest
@@ -290,11 +290,11 @@ def main() -> int:
         {"arm": "CORN", "architecture": "GF", "dataset": "GSE299152", "tissue": "cornea",
          "rho": gse299152["CORN"], "note": "same as above"},
         {"arm": "naive", "architecture": "CellPLM", "dataset": "van Zyl", "tissue": "cornea",
-         "rho": -0.007, "note": "embeddings on p5070 (not synced); z unavailable locally"},
+         "rho": -0.007, "note": "embeddings on <compute-node> (not synced); z unavailable locally"},
         {"arm": "CORN", "architecture": "CellPLM", "dataset": "van Zyl", "tissue": "cornea",
-         "rho": 0.918, "note": "embeddings on p5070 (not synced); z unavailable locally"},
+         "rho": 0.918, "note": "embeddings on <compute-node> (not synced); z unavailable locally"},
         {"arm": "CORN+LoRA", "architecture": "scGPT", "dataset": "van Zyl", "tissue": "cornea",
-         "rho": None, "note": "E5 training on p5070 (launched 2026-08-20 23:40, "
+         "rho": None, "note": "E5 training on <compute-node> (launched 2026-08-20 23:40, "
          "ETA ~2026-08-21 12:30); results not available at freeze time"},
     ]
 

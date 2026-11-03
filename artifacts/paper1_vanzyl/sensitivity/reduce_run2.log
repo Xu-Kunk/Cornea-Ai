@@ -10,7 +10,7 @@
 [2026-08-20T17:54:04+00:00] umap cellplm_naive_456: cached (20158, 2)
 [2026-08-20T17:54:04+00:00] umap gf_frozen: cached (20158, 2)
 [2026-08-20T17:54:04+00:00] umap scgpt_frozen: cached (20158, 2)
-/home/summer/corneal_scgpt/venv/lib/python3.12/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+<home>/corneal_scgpt/venv/lib/python3.12/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
   warn(
 [2026-08-20T17:56:20+00:00] umap scgpt_naive_seed42: (20158, 512) -> (20158, 2) in 136s
 [2026-08-20T17:56:20+00:00] umap manifest: 10 panels

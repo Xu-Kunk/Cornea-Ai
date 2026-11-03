@@ -24,7 +24,7 @@ Split (frozen judgment, outcome-blind, locked pre-run):
   axis). Cell-level split (no donor metadata in the v14 product; samples
   S1-S17, no donor_id column) — disclosed.
 
-Outputs (local, rsynced to p5070):
+Outputs (local, rsynced to <compute-node>):
   artifacts/paper1_vanzyl/cross_tissue/scgpt_epidermis_{train,test}.h5ad
   artifacts/paper1_vanzyl/cross_tissue/val_indices.npz      (val, in train space)
   artifacts/paper1_vanzyl/cross_tissue/split_indices.npz    (test/val, in full space)

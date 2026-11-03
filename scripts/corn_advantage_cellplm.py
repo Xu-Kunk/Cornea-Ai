@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """CORN advantage A+D — CellPLM CORN (3 seeds) per-cell extraction.
 
-Runs on p5070 (CPU) with /home/summer/corneal_scgpt/venv/bin/python. For the
+Runs on <compute-node> (CPU) with <home>/corneal_scgpt/venv/bin/python. For the
 locked test donor Hu0216 (20158 cells), loads the trained CORN-head checkpoints
 (cellplm/corn/seed{42,123,456}/model_best_valid.pt), forwards the test cells
 and saves per-cell threshold logits (K-1=2), latent embeddings, labels and the
@@ -33,7 +33,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-PROJECT_ROOT = Path("/home/summer/cellplm_vanzyl")
+PROJECT_ROOT = Path("<home>/cellplm_vanzyl")
 SCRIPTS = PROJECT_ROOT / "scripts"
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(SCRIPTS))
@@ -55,7 +55,7 @@ from corneal_fm.evaluation import marker_gradient_correlation  # noqa: E402
 DATA_PATH = PROJECT_ROOT / "data" / "vanzyl_cellplm.h5ad"
 CKPT_DIR = PROJECT_ROOT / "artifacts" / "paper1_vanzyl" / "cellplm" / "ckpt"
 CORN_OUT = PROJECT_ROOT / "artifacts" / "paper1_vanzyl" / "cellplm" / "corn"
-SCGPT_TEST = Path("/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6") / "scgpt_vanzyl_test.h5ad"
+SCGPT_TEST = Path("<home>/corneal_scgpt/artifacts/paper1_vanzyl/run6") / "scgpt_vanzyl_test.h5ad"
 TEST_DONOR = "sanes2022_Hu0216"
 RHO_TOL = 2e-3
 SCORE_COLS = ["score_LSC", "score_PMC_basal", "score_TDC"]

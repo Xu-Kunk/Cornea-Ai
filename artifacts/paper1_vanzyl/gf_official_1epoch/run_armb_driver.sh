@@ -11,7 +11,7 @@
 #     detection for --skip-tokenize is file-based (restart-safe).
 # Science code untouched; only orchestration changed.
 set -u
-cd /home/summer/corneal_scgpt || exit 9
+cd <home>/corneal_scgpt || exit 9
 PY=venv/bin/python
 OUT=artifacts/paper1_vanzyl/gf_official_1epoch
 TKCACHE=artifacts/paper1_tier_b_eval/external_tokenized/cell.dataset

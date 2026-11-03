@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""E3 + E4 orchestrated runner (p5070, sequential, idempotent).
+"""E3 + E4 orchestrated runner (<compute-node>, sequential, idempotent).
 
 E3: scGPT convergence arm, 2 new seeds {789, 2024} x 15 epochs (naive CE,
 locked §9 protocol, per-epoch val trajectory + best-val selection).
@@ -21,7 +21,7 @@ import time
 from datetime import UTC, datetime
 from pathlib import Path
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 PYTHON = ROOT / "repo" / ".venv" / "bin" / "python"
 CONV_SCRIPT = ROOT / "scripts" / "scgpt_cls_vanzyl_convergence.py"
 LORA_SCRIPT = ROOT / "scripts" / "scgpt_lora_vanzyl.py"

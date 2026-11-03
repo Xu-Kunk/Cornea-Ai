@@ -170,15 +170,15 @@
         "sha256": "11b0b0926438e0231d60e995b38f80e1ec9aa35a044cec6de88293eac59d503f"
       },
       "cellplm_seed42": {
-        "path": "docs/manuscript/patterns/archive/revision_2026-10-16/evidence/remote_json/home/summer/cellplm_vanzyl/artifacts/paper1_vanzyl/cellplm/seed42/seed42.json",
+        "path": "docs/manuscript/patterns/archive/revision_2026-10-16/evidence/remote_json<home>/cellplm_vanzyl/artifacts/paper1_vanzyl/cellplm/seed42/seed42.json",
         "sha256": "7cdbb81660fd7d446f781c91efc4a2a7957aa13ea50bce51a396480c8552fc58"
       },
       "summary_vanzyl_cellplm": {
-        "path": "docs/manuscript/patterns/archive/revision_2026-10-16/evidence/remote_json/home/summer/cellplm_vanzyl/artifacts/paper1_vanzyl/cellplm/summary_vanzyl_cellplm.json",
+        "path": "docs/manuscript/patterns/archive/revision_2026-10-16/evidence/remote_json<home>/cellplm_vanzyl/artifacts/paper1_vanzyl/cellplm/summary_vanzyl_cellplm.json",
         "sha256": "6def88d21c5974c9f0bdc736a3b84ddd986732db4129d67593f92825d85adde3"
       },
       "summary_vanzyl_cellplm_corn": {
-        "path": "docs/manuscript/patterns/archive/revision_2026-10-16/evidence/remote_json/home/summer/cellplm_vanzyl/artifacts/paper1_vanzyl/cellplm/corn/summary_vanzyl_cellplm_corn.json",
+        "path": "docs/manuscript/patterns/archive/revision_2026-10-16/evidence/remote_json<home>/cellplm_vanzyl/artifacts/paper1_vanzyl/cellplm/corn/summary_vanzyl_cellplm_corn.json",
         "sha256": "d82afc04961f61e4bda3c5edba872272942759e7afa596f008fa2c9b66baa8fa"
       },
       "cellplm_lora_seed42": {

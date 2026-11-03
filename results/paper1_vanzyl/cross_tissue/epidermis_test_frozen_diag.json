@@ -104,7 +104,7 @@
   "results": {
     "epidermis_test": {
       "tag": "epidermis_test",
-      "h5ad": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/scgpt_epidermis_test.h5ad",
+      "h5ad": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/scgpt_epidermis_test.h5ad",
       "label_col": "cell_class_4",
       "n_cells_input": 1836,
       "n_analysis": 1836,

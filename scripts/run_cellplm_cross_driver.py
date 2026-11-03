@@ -13,7 +13,7 @@ Sequential seeds 42 / 123 per arm; each seed waits for GPU free >= 4 GiB
 120 s backoff). Idempotent: seed DONE marker skips. Appends lane.log event
 blocks; aggregates per-seed jsons into summary_{arm}.json (mean +/- sd).
 
-Runs detached on p5070 (setsid nohup, driver rc recorded).
+Runs detached on <compute-node> (setsid nohup, driver rc recorded).
 """
 
 from __future__ import annotations
@@ -27,17 +27,17 @@ from pathlib import Path
 
 import numpy as np
 
-PROJECT_ROOT = Path("/home/summer/cellplm_vanzyl")
+PROJECT_ROOT = Path("<home>/cellplm_vanzyl")
 RUNNER = PROJECT_ROOT / "scripts" / "run_cellplm_cross.py"
 CKPT_DIR = PROJECT_ROOT / "artifacts" / "paper1_vanzyl" / "cellplm" / "ckpt"
-OUT_ROOT = Path("/home/summer/corneal_scgpt") / "artifacts" / "paper1_vanzyl" / "cellplm_consistency"
+OUT_ROOT = Path("<home>/corneal_scgpt") / "artifacts" / "paper1_vanzyl" / "cellplm_consistency"
 LANE_LOG = OUT_ROOT / "lane.log"
-PY = "/home/summer/corneal_scgpt/venv/bin/python"
+PY = "<home>/corneal_scgpt/venv/bin/python"
 
 ARMS = [
     {
         "name": "epidermis",
-        "data": "/home/summer/corneal_scgpt/data/epidermis_cellplm.h5ad",
+        "data": "<home>/corneal_scgpt/data/epidermis_cellplm.h5ad",
         "out_dim": 4,
         "layer_order": "basal,suprabasal,spinous,differentiated",
         "test_donor": "epidermis",
@@ -45,7 +45,7 @@ ARMS = [
     },
     {
         "name": "loo220",
-        "data": "/home/summer/corneal_scgpt/data/vanzyl_cellplm_loo220.h5ad",
+        "data": "<home>/corneal_scgpt/data/vanzyl_cellplm_loo220.h5ad",
         "out_dim": 3,
         "layer_order": "LSC,basal,differentiated",
         "test_donor": "sanes2022_Hu0220",

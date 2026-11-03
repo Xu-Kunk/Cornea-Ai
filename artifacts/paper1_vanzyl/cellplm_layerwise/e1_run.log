@@ -1,9 +1,9 @@
 [2026-08-20T17:10:10+00:00] device=cuda torch=2.13.0+cu130 max_cells=None
 [2026-08-20T17:10:10+00:00] GPU guard passed: free 5.01 GiB >= 4 GiB
 [2026-08-20T17:10:17+00:00] [frozen] panel 2399 genes; test panel 2399
-/home/summer/corneal_scgpt/venv/lib/python3.12/site-packages/CellPLM/utils/data.py:20: UserWarning: Sparse invariant checks are implicitly disabled. Memory errors (e.g. SEGFAULT) will occur when operating on a sparse tensor which violates the invariants, but checks incur performance overhead. To silence this warning, explicitly opt in or out. See `torch.sparse.check_sparse_tensor_invariants.__doc__` for guidance.  (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/Context.cpp:816.)
+<home>/corneal_scgpt/venv/lib/python3.12/site-packages/CellPLM/utils/data.py:20: UserWarning: Sparse invariant checks are implicitly disabled. Memory errors (e.g. SEGFAULT) will occur when operating on a sparse tensor which violates the invariants, but checks incur performance overhead. To silence this warning, explicitly opt in or out. See `torch.sparse.check_sparse_tensor_invariants.__doc__` for guidance.  (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/Context.cpp:816.)
   return torch.sparse_csr_tensor(x.indptr, x.indices, x.data, (x.shape[0], x.shape[1])).to_sparse().float().coalesce()
-/home/summer/corneal_scgpt/venv/lib/python3.12/site-packages/CellPLM/utils/data.py:20: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:49.)
+<home>/corneal_scgpt/venv/lib/python3.12/site-packages/CellPLM/utils/data.py:20: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:49.)
   return torch.sparse_csr_tensor(x.indptr, x.indices, x.data, (x.shape[0], x.shape[1])).to_sparse().float().coalesce()
 [2026-08-20T17:10:35+00:00]   [frozen] L0: rho_n=0.8755 rho_raw=0.8758 z=111.1
 [2026-08-20T17:10:51+00:00]   [frozen] L1: rho_n=0.7709 rho_raw=0.7231 z=108.1
@@ -32,6 +32,6 @@
 [2026-08-20T17:14:58+00:00]   [corn] L4: rho_n=0.9224 rho_raw=0.9194 z=172.9
 [2026-08-20T17:15:09+00:00]   [corn] LAT: rho_n=0.9203 rho_raw=0.9228 z=162.4
 [2026-08-20T17:15:09+00:00] [corn] LAT gate: 0.9203 vs locked 0.9202997872826137 -> PASS
-[2026-08-20T17:15:09+00:00] saved /home/summer/cellplm_vanzyl/artifacts/paper1_vanzyl/cellplm_layerwise/cellplm_layerwise_rho.json
+[2026-08-20T17:15:09+00:00] saved <home>/cellplm_vanzyl/artifacts/paper1_vanzyl/cellplm_layerwise/cellplm_layerwise_rho.json
 [2026-08-20T17:15:10+00:00] saved cellplm_layerwise_rho.png
 [2026-08-20T17:15:10+00:00] DONE

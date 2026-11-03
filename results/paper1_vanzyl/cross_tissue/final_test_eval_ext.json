@@ -159,7 +159,7 @@
     "results": {
       "epidermis_test": {
         "tag": "epidermis_test",
-        "h5ad": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/scgpt_epidermis_test.h5ad",
+        "h5ad": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/scgpt_epidermis_test.h5ad",
         "label_col": "cell_class_4",
         "n_cells_input": 1836,
         "n_analysis": 1836,
@@ -220,7 +220,7 @@
       "seed": 42,
       "n_cls": 4,
       "n_eval_cells": 1836,
-      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed42/model_best_val.pt",
+      "checkpoint": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed42/model_best_val.pt",
       "pred_dist": {
         "basal": 463,
         "differentiated": 466,
@@ -246,7 +246,7 @@
       "seed": 42,
       "n_cls": 4,
       "n_eval_cells": 1836,
-      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed42/model_epoch15.pt",
+      "checkpoint": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed42/model_epoch15.pt",
       "pred_dist": {
         "basal": 445,
         "suprabasal": 497,
@@ -272,7 +272,7 @@
       "seed": 123,
       "n_cls": 4,
       "n_eval_cells": 1836,
-      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed123/model_best_val.pt",
+      "checkpoint": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed123/model_best_val.pt",
       "pred_dist": {
         "basal": 468,
         "suprabasal": 442,
@@ -298,7 +298,7 @@
       "seed": 123,
       "n_cls": 4,
       "n_eval_cells": 1836,
-      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed123/model_epoch15.pt",
+      "checkpoint": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed123/model_epoch15.pt",
       "pred_dist": {
         "basal": 458,
         "differentiated": 461,
@@ -324,7 +324,7 @@
       "seed": 456,
       "n_cls": 4,
       "n_eval_cells": 1836,
-      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed456/model_best_val.pt",
+      "checkpoint": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed456/model_best_val.pt",
       "pred_dist": {
         "basal": 465,
         "suprabasal": 467,
@@ -350,7 +350,7 @@
       "seed": 456,
       "n_cls": 4,
       "n_eval_cells": 1836,
-      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed456/model_epoch15.pt",
+      "checkpoint": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/cross_tissue/checkpoints/naive_seed456/model_epoch15.pt",
       "pred_dist": {
         "basal": 462,
         "suprabasal": 475,

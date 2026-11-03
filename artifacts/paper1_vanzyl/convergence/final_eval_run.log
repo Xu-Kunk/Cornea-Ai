@@ -14,7 +14,7 @@ frozen baseline (test donor): rho_n=0.7887 z=99.3 probe_f1=0.9687
   F1=0.9201 CI=[0.9158,0.9243] rho_n=0.4039 z=41.8 (146s)
 === eval seed456 final_epoch ===
   F1=0.8773 CI=[0.8722,0.8826] rho_n=0.7647 z=85.1 (145s)
-saved /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/convergence/final_test_eval.json
+saved <home>/corneal_scgpt/artifacts/paper1_vanzyl/convergence/final_test_eval.json
 {
  "best_val": {
   "macro_f1": {

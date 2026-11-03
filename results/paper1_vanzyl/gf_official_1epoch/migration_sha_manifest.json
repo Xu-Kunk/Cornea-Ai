@@ -2,7 +2,7 @@
   "arm": "PREREG-2026-08-11 §9 Arm B — GF official 1-epoch budget control",
   "created_utc": "2026-08-18T16:10:00Z",
   "migration": {
-    "note": "All files rsynced local -> p5070 (/home/summer/corneal_scgpt); remote sha256 verified post-migration",
+    "note": "All files rsynced local -> <compute-node> (<home>/corneal_scgpt); remote sha256 verified post-migration",
     "files": [
       {"local": "data/corneal_100k_donor_split.h5ad", "remote": "data/corneal_100k_donor_split.h5ad",
        "size_bytes": 4071980278, "sha256": "bc357c7d57977ab8af95cc97a33d257dc5273919f21cb1792d54f97646bb39b6",
@@ -29,10 +29,10 @@
       {"local": "artifacts/paper1_vanzyl/gf_official_1epoch/run_armb_driver.sh",
        "remote": "scripts/run_armb_driver.sh", "sha256": "ebc0d01429755802dce3eb34242f7b6b6e87062977e0bd565d5c19f94409ba78"}
     ],
-    "corneal_fm_parity": "all 7 key files sha256-identical local<->p5070 (caft.py/config.py/utils.py/evaluation.py/gf_compat.py/trainer.py/__init__.py) — no migration needed"
+    "corneal_fm_parity": "all 7 key files sha256-identical local<-><compute-node> (caft.py/config.py/utils.py/evaluation.py/gf_compat.py/trainer.py/__init__.py) — no migration needed"
   },
   "weights": {
-    "snapshot": "/home/summer/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
+    "snapshot": "<home>/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
     "model_safetensors_sha256": "fff5cba29ddd8792991fa77b4872246fbe548a178cebda3775cdc72b67780e7f",
     "verified": "rsync 2026-08-18 17:02 UTC+8; remote=local=content-addressed name"
   },

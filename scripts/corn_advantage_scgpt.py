@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """CORN advantage A+D — scGPT CORN (3 seeds) + LoRA (2 seeds) per-cell extraction.
 
-Runs on p5070 (CPU). For the locked test donor Hu0216 (20158 cells), forwards
+Runs on <compute-node> (CPU). For the locked test donor Hu0216 (20158 cells), forwards
 the final-epoch checkpoints and saves per-cell threshold logits / softmax
 logits + CLS embeddings + labels + marker scores, so the downstream reduction
 (corn_advantage_reduce.py) can compute:
@@ -31,9 +31,9 @@ Outputs (per arm/seed): <out>/<arm>_seed<seed>.npz with logits, emb, y,
 barcode, author (LoRA), scores (3-marker panel) — plus seed.json (gates).
 Idempotent per seed via DONE markers.
 
-Usage (p5070, CPU):
-    PYTHONPATH=/home/summer/corneal_scgpt/repo/scGPT \
-    /home/summer/corneal_scgpt/repo/.venv/bin/python \
+Usage (<compute-node>, CPU):
+    PYTHONPATH=<home>/corneal_scgpt/repo/scGPT \
+    <home>/corneal_scgpt/repo/.venv/bin/python \
         scripts/corn_advantage_scgpt.py --arm ordinal --seed 42
 """
 
@@ -50,12 +50,12 @@ from typing import Any
 
 import numpy as np
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "repo" / "scGPT"))
 
-import scgpt_cls  # noqa: E402  (p5070 scripts/scgpt_cls.py, locked)
+import scgpt_cls  # noqa: E402  (<compute-node> scripts/scgpt_cls.py, locked)
 
 from corneal_fm.evaluation import marker_gradient_correlation  # noqa: E402
 

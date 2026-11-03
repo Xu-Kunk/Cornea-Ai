@@ -1,7 +1,7 @@
 {
   "probe": "GPU contention / parallel-feasibility for the epi4-CE runs",
   "timestamp_local": "2026-10-21T15:50:00+08:00",
-  "host": "p5070 (<user>@<host>, summer-NUC13RNGi7)",
+  "host": "<compute-node> (<user>@<host>, summer-NUC13RNGi7)",
   "card": {
     "product": "NVIDIA RTX PRO 5000 72GB Blackwell",
     "total_vram_mib": 73415,

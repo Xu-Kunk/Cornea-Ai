@@ -76,7 +76,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
 from sklearn.preprocessing import StandardScaler
 
-CORNEAL_ROOT = Path("/home/summer/corneal_scgpt")
+CORNEAL_ROOT = Path("<home>/corneal_scgpt")
 sys.path.insert(0, str(CORNEAL_ROOT))             # corneal_fm package
 sys.path.insert(0, str(CORNEAL_ROOT / "scripts"))  # scgpt_cls helpers
 import scgpt_cls  # noqa: E402

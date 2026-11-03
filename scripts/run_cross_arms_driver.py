@@ -12,7 +12,7 @@ Sequential phases (each idempotent; re-launch resumes):
 
 GPU guard (free >= 4 GiB, poll 60 s, budget 12 h) inside each phase; OOM
 retry x3. lane.log event blocks written per artifact dir. Runs detached on
-p5070 (setsid nohup; driver rc -> driver.rc).
+<compute-node> (setsid nohup; driver rc -> driver.rc).
 """
 from __future__ import annotations
 
@@ -23,10 +23,10 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 SCRIPTS = ROOT / "scripts"
 PY = ROOT / "repo" / ".venv" / "bin" / "python"
-CELLPLM_PY = "/home/summer/corneal_scgpt/venv/bin/python"
+CELLPLM_PY = "<home>/corneal_scgpt/venv/bin/python"
 
 CROSS = ROOT / "artifacts" / "paper1_vanzyl" / "cross_tissue"
 LOO = ROOT / "artifacts" / "paper1_vanzyl" / "loo"

@@ -1,8 +1,8 @@
 #!/bin/bash
-# Sensitivity + UMAP extraction driver (p5070 CPU, resumable, lane.log).
+# Sensitivity + UMAP extraction driver (<compute-node> CPU, resumable, lane.log).
 # Phases: 1-2 scGPT naive/corn x {42,123,456} (fast); 3-4 GF naive/corn seed42
 # (long, ~13-25 h/seed under load); then reduce + figures.
-ROOT=/home/summer/corneal_scgpt
+ROOT=<home>/corneal_scgpt
 PY_VENV=$ROOT/venv/bin/python
 PY_SCGPT=$ROOT/repo/.venv/bin/python
 SCRIPTS=$ROOT/scripts
@@ -12,7 +12,7 @@ UMAP=$ROOT/artifacts/paper1_vanzyl/umap_collapse
 LOG=$ROOT/artifacts/paper1_vanzyl/sensitivity/lane.log
 mkdir -p "$CACHE" "$SENS" "$UMAP"
 log() { echo "{\"ts\": \"$(date -u +%Y-%m-%dT%H:%M:%S+00:00)\", \"event\": \"$1\", \"msg\": \"$2\"}" >> "$LOG"; }
-log LANE_START "sens+umap extraction (scGPT naive/corn x3 + GF naive/corn s42) on p5070 CPU"
+log LANE_START "sens+umap extraction (scGPT naive/corn x3 + GF naive/corn s42) on <compute-node> CPU"
 
 run_one() {
   local py=$1 pypath=$2 tag=$3 arch=$4 arm=$5 seed=$6

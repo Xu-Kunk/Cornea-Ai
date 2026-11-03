@@ -8,11 +8,11 @@ adapters + classification head + latent trained through the official
 
 * script: `scripts/cellplm_lora_vanzyl.py`
   (sha256 `fa979f425c5d4db77dcb51c273c2ed6ae1e89e0c3dd8808b3f940caab807b950`)
-* launch (per seed, on `p5070`):
-  `/home/summer/corneal_scgpt/venv/bin/python scripts/cellplm_lora_vanzyl.py --seed {42,123,456} --out-root /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cellplm_lora`
+* launch (per seed, on `<compute-node>`):
+  `<home>/corneal_scgpt/venv/bin/python scripts/cellplm_lora_vanzyl.py --seed {42,123,456} --out-root <home>/corneal_scgpt/artifacts/paper1_vanzyl/cellplm_lora`
 * raw records: `seed{42,123,456}/seed{seed}.json` in this directory
   (pulled from the path above); the fitted checkpoint and per-cell embeddings
-  stay on `p5070` (`model_best_valid.pt`, `cell_emb.npz`, `frozen_emb.npz`).
+  stay on `<compute-node>` (`model_best_valid.pt`, `cell_emb.npz`, `frozen_emb.npz`).
 
 ## Per-seed results
 

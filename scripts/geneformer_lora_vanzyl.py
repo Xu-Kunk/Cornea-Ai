@@ -38,7 +38,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-PROJECT = Path("/home/summer/corneal_scgpt")
+PROJECT = Path("<home>/corneal_scgpt")
 sys.path.insert(0, str(PROJECT))
 
 from corneal_fm.evaluation import marker_gradient_correlation  # noqa: E402

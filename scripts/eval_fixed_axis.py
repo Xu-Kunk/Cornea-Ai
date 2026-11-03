@@ -6,11 +6,11 @@ test donor Hu0216, then projects every checkpoint (and the frozen model
 itself) onto that axis and reports Spearman rho vs the 3-tier layer rank.
 
 Outputs:
-    /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/fixed_axis/fixed_axis_eval.json
+    <home>/corneal_scgpt/artifacts/paper1_vanzyl/fixed_axis/fixed_axis_eval.json
 
-Usage (on p5070, GPU guard is built-in):
-    nohup /home/summer/corneal_scgpt/repo/.venv/bin/python \
-        /home/summer/corneal_scgpt/scripts/eval_fixed_axis.py > run.log 2>&1 &
+Usage (on <compute-node>, GPU guard is built-in):
+    nohup <home>/corneal_scgpt/repo/.venv/bin/python \
+        <home>/corneal_scgpt/scripts/eval_fixed_axis.py > run.log 2>&1 &
 """
 from __future__ import annotations
 
@@ -30,7 +30,7 @@ import torch
 # ---------------------------------------------------------------------------
 # Paths / locked constants
 # ---------------------------------------------------------------------------
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 PRETRAINED = ROOT / "pretrained" / "scgpt_pretrained"
 TEST_H5AD = ROOT / "artifacts" / "paper1_vanzyl" / "run6" / "scgpt_vanzyl_test.h5ad"
 RUN6_CKPT = ROOT / "artifacts" / "paper1_vanzyl" / "run6" / "checkpoints"

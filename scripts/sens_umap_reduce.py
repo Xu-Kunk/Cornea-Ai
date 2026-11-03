@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Sensitivity analysis + UMAP coordinate computation (p5070 CPU, no GPU).
+"""Sensitivity analysis + UMAP coordinate computation (<compute-node> CPU, no GPU).
 
 Reads per-cell final-layer CLS embeddings for the test donor Hu0216
 (20,158 cells) for every (architecture, arm, seed) in the collapse matrix
@@ -30,8 +30,8 @@ random_state=42, n_epochs=500; coordinates saved per panel.
 PCS: variant definitions and verdict thresholds frozen before the first
 run (2026-08-20); SHA manifest written to <out>/sha_manifest.json.
 
-Usage (p5070, CPU):
-    /home/summer/corneal_scgpt/venv/bin/python scripts/sens_umap_reduce.py
+Usage (<compute-node>, CPU):
+    <home>/corneal_scgpt/venv/bin/python scripts/sens_umap_reduce.py
         [--data-dir artifacts/paper1_vanzyl/sensitivity/_caches]
         [--out-dir artifacts/paper1_vanzyl/sensitivity]
         [--umap-out-dir artifacts/paper1_vanzyl/umap_collapse]
@@ -52,8 +52,8 @@ from typing import Any
 import numpy as np
 from scipy.stats import spearmanr
 
-ROOT = Path("/home/summer/corneal_scgpt")
-CELLPLM_ROOT = Path("/home/summer/cellplm_vanzyl")
+ROOT = Path("<home>/corneal_scgpt")
+CELLPLM_ROOT = Path("<home>/cellplm_vanzyl")
 
 LAYER_ORDER = ["LSC", "basal", "differentiated"]
 TEST_DONOR = "sanes2022_Hu0216"

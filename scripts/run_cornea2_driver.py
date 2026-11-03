@@ -2,7 +2,7 @@
 """Cornea2 scGPT driver — frozen eval -> 2 seeds x 15 epochs per dataset.
 
 Mirrors run_e3e4.py: GPU guard (free >= 4 GiB, wait up to 12 h — E3/E4
-occupy p5070 until tomorrow morning), OOM exit auto-retry (3 attempts),
+occupy <compute-node> until tomorrow morning), OOM exit auto-retry (3 attempts),
 idempotent markers, detached-friendly (setsid nohup via the launch command
 below).
 
@@ -10,7 +10,7 @@ Sequence per dataset: frozen baseline eval -> naive seed 42 -> naive seed
 123 -> eval (best-val + final-epoch) -> summary append. Collapse is
 reported from trajectory + eval json per seed.
 
-Launch (on p5070):
+Launch (on <compute-node>):
     setsid nohup repo/.venv/bin/python scripts/run_cornea2_driver.py \
         > artifacts/paper1_vanzyl/cornea2/driver.log 2>&1 < /dev/null &
 """

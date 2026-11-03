@@ -24,7 +24,7 @@ from pathlib import Path
 
 import numpy as np
 
-CORNEAL_ROOT = Path("/home/summer/corneal_scgpt")
+CORNEAL_ROOT = Path("<home>/corneal_scgpt")
 SAVE_DIR = CORNEAL_ROOT / "save"
 TIERB_OUT = CORNEAL_ROOT / "artifacts" / "paper1_tier_b_eval"
 OUT = CORNEAL_ROOT / "artifacts" / "paper1_vanzyl" / "gf_official_1epoch"

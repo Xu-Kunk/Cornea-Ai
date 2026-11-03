@@ -1,9 +1,9 @@
 /usr/lib/python3.12/functools.py:909: ImplicitModificationWarning: Transforming to str index.
   return dispatch(args[0].__class__)(*args, **kw)
 [10:05:14]  External test accession: gse153515
-[10:05:14]  Config: /home/summer/corneal_scgpt/config/external_test_gse153515.yml
-[10:05:14]  External data: /home/summer/corneal_scgpt/data/gse153515_annotated.h5ad
-[10:05:14]  Static checks: {'config_exists': True, 'config_locked': True, 'manifest_exists': True, 'manifest_donor_overlap': 0, 'manifest_donor_overlap_ok': True, 'fair_protocol_epochs': 3, 'legacy_data_refs': [], 'legacy_data_rejected': True, 'external_test_file': '/home/summer/corneal_scgpt/data/gse153515_annotated.h5ad', 'external_test_exists': True, 'train_data_file': '/home/summer/corneal_scgpt/data/corneal_100k_donor_split.h5ad', 'train_data_exists': True, 'passed': True}
+[10:05:14]  Config: <home>/corneal_scgpt/config/external_test_gse153515.yml
+[10:05:14]  External data: <home>/corneal_scgpt/data/gse153515_annotated.h5ad
+[10:05:14]  Static checks: {'config_exists': True, 'config_locked': True, 'manifest_exists': True, 'manifest_donor_overlap': 0, 'manifest_donor_overlap_ok': True, 'fair_protocol_epochs': 3, 'legacy_data_refs': [], 'legacy_data_rejected': True, 'external_test_file': '<home>/corneal_scgpt/data/gse153515_annotated.h5ad', 'external_test_exists': True, 'train_data_file': '<home>/corneal_scgpt/data/corneal_100k_donor_split.h5ad', 'train_data_exists': True, 'passed': True}
 [10:05:14]  Runs requested: [('caft_gf', 0.0, 42)]
 [10:05:14]  GPU detected: NVIDIA GeForce RTX 5070 Ti
 [10:05:14]  Device: cuda
@@ -14,12 +14,12 @@ Tokenizing /tmp/tierb_tokenize_js0m4od1/external.h5ad
 /tmp/tierb_tokenize_js0m4od1/external.h5ad has no column attribute 'filter_pass'; tokenizing all cells.
 Creating dataset.
 `torch_dtype` is deprecated! Use `dtype` instead!
-[10:05:40]  Tokenized 15827 cells -> /home/summer/corneal_scgpt/artifacts/paper1_tier_b_eval/external_tokenized/cell.dataset
+[10:05:40]  Tokenized 15827 cells -> <home>/corneal_scgpt/artifacts/paper1_tier_b_eval/external_tokenized/cell.dataset
 [10:05:41]  Epithelial filter: 14775/15827 cells (NON_LAYER excluded).
 [10:05:41]  External eval cells: 14775
 [10:05:41]  Training data (leakage checks): 99606 cells
 
-[10:05:41]  === arm=caft_gf lam=0.0 seed=42 step=2491 (/home/summer/corneal_scgpt/save/caft_gf_lam0.0_seed42_20260818-234513/model/checkpoint-2491) ===
+[10:05:41]  === arm=caft_gf lam=0.0 seed=42 step=2491 (<home>/corneal_scgpt/save/caft_gf_lam0.0_seed42_20260818-234513/model/checkpoint-2491) ===
 [10:05:41]  id->class map: 31 classes (e.g. 3 -> Limbus_Epi-C1)
 [10:05:49]    inference batch 10/462
 [10:05:57]    inference batch 20/462
@@ -69,9 +69,9 @@ Creating dataset.
 [10:15:15]    inference batch 460/462
 [10:15:16]    inference batch 462/462
 [10:15:16]  Predicted epithelial: 14524/14775
-[10:15:18]  Saved /home/summer/corneal_scgpt/artifacts/paper1_tier_b_eval/results_0.0_42.json
+[10:15:18]  Saved <home>/corneal_scgpt/artifacts/paper1_tier_b_eval/results_0.0_42.json
 
-[10:15:18]  Saved /home/summer/corneal_scgpt/artifacts/paper1_tier_b_eval/summary.csv
+[10:15:18]  Saved <home>/corneal_scgpt/artifacts/paper1_tier_b_eval/summary.csv
     arm  lambda  seed      checkpoint  macro_f1  ci_lower  ci_upper      LAA  marker_gradient_rho      ECE
 caft_gf     0.0    42 checkpoint-2491  0.639734  0.604558  0.674911 0.976988             0.200754 0.046536
 [10:15:18]  Done.

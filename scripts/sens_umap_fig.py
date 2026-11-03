@@ -15,8 +15,8 @@ Reads the UMAP coordinates produced by sens_umap_reduce.py
 Style: Arial (Liberation Sans fallback), 300-dpi PNG + vector PDF with
 provenance metadata (des-1 / manuscript conventions).
 
-Usage (p5070 or local):
-    /home/summer/corneal_scgpt/venv/bin/python scripts/sens_umap_fig.py
+Usage (<compute-node> or local):
+    <home>/corneal_scgpt/venv/bin/python scripts/sens_umap_fig.py
         [--sensitivity-dir artifacts/paper1_vanzyl/sensitivity]
         [--umap-dir artifacts/paper1_vanzyl/umap_collapse]
 """
@@ -36,7 +36,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 

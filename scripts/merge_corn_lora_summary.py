@@ -20,7 +20,7 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 OUT = ROOT / "artifacts" / "paper1_vanzyl" / "corn_lora"
 SEEDS = [42, 123, 456]
 CKPT_TYPES = ["best_val", "final_epoch"]

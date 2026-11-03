@@ -18,7 +18,7 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 sys.path.insert(0, str(ROOT / "scripts"))
 from scgpt_frozen_diag_rebuild import (  # noqa: E402  (unchanged metric code)
     fit_eval_probe,

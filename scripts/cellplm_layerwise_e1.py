@@ -2,7 +2,7 @@
 """E1 extension: CellPLM layerwise differentiation-gradient analysis
 (third architecture, cell-as-token, FROZEN 2026-08-20).
 
-Runs on p5070 with /home/summer/corneal_scgpt/venv/bin/python. For the locked
+Runs on <compute-node> with <home>/corneal_scgpt/venv/bin/python. For the locked
 test donor Hu0216 (20158 cells), captures per-layer embeddings of the CellPLM
 OmicsFormer (cell-as-token: 1 cell = 1 token) and computes per layer the same
 metrics as the E1 scGPT layerwise analysis (marker_gradient_correlation +
@@ -34,7 +34,7 @@ from typing import Any
 import numpy as np
 import torch
 
-PROJECT_ROOT = Path("/home/summer/cellplm_vanzyl")
+PROJECT_ROOT = Path("<home>/cellplm_vanzyl")
 SCRIPTS = PROJECT_ROOT / "scripts"
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(SCRIPTS))

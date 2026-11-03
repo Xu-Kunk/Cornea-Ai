@@ -23,7 +23,7 @@ import time
 from datetime import UTC, datetime
 from pathlib import Path
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 PYTHON = ROOT / "repo" / ".venv" / "bin" / "python"
 MAX_OOM_RETRIES = 3
 

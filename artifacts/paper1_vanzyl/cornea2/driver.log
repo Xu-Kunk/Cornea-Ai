@@ -1,4 +1,4 @@
-21:57:29 === cornea2 driver start (python=/home/summer/corneal_scgpt/repo/.venv/bin/python) ===
+21:57:29 === cornea2 driver start (python=<home>/corneal_scgpt/repo/.venv/bin/python) ===
 21:57:29 frozen GSE186433: rho_normed=0.4180 z=14.2
 21:57:29 RE-TRAIN GSE186433 seed42: marker present but model_epoch15.pt missing (1 epochs found; incomplete run)
 21:57:29 === train GSE186433 naive seed42 (15 epochs) ===

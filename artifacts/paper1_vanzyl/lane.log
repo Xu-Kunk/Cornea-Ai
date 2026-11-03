@@ -61,36 +61,36 @@
 [2026-08-18 11:25:24] WATCHDOG: process exited
 
 ================================================================
-[2026-08-18 14:00:28] Stage 1 COMPLETED on p5070 (remote migration rerun)
-[2026-08-18 14:00:28] remote: p5070 /home/summer/corneal_scgpt (venv, python 3.12.3, scanpy 1.12.2)
+[2026-08-18 14:00:28] Stage 1 COMPLETED on <compute-node> (remote migration rerun)
+[2026-08-18 14:00:28] remote: <compute-node> <home>/corneal_scgpt (venv, python 3.12.3, scanpy 1.12.2)
 [2026-08-18 14:00:28] run window: 13:49:08 -> 13:57:26 (~8.3 min), pid 310471
 [2026-08-18 14:00:28] merged 89794 cells -> QC 80817 cells; 25 clusters; 76224 epithelial (94.3%)
-[2026-08-18 14:00:28] log: artifacts/paper1_vanzyl/lane_stage1_p5070.log
+[2026-08-18 14:00:28] log: artifacts/paper1_vanzyl/lane_stage1_<compute-node>.log
 [2026-08-18 14:00:28] sha256 data/vanzyl_annotated.h5ad = fad5e9a71ecd1208e0626049b638e789d22b52563d5a66740570d617df67f4e8
 ================================================================
 
 ================================================================
 
 ================================================================
-[2026-08-18 15:28:05] Stage 2 PREP COMPLETED on p5070 (scGPT; GF tokenize BLOCKED)
-[2026-08-18 15:28:05] remote: p5070 /home/summer/corneal_scgpt (repo/.venv python 3.12.3, anndata 0.13.2, scanpy 1.12.3, scgpt 0.2.5)
+[2026-08-18 15:28:05] Stage 2 PREP COMPLETED on <compute-node> (scGPT; GF tokenize BLOCKED)
+[2026-08-18 15:28:05] remote: <compute-node> <home>/corneal_scgpt (repo/.venv python 3.12.3, anndata 0.13.2, scanpy 1.12.3, scgpt 0.2.5)
 [2026-08-18 15:28:05] scgpt prep: scripts/protocol_02b_prep_scgpt_vanzyl.py (rsynced from local, sha256 1a318ee81d8c5446507d4c3da9b9e774e0aa4b06f6648b274c2d07fcdd2c1bbd)
 [2026-08-18 15:28:05] input: data/vanzyl_annotated.h5ad (80817 x 13250) -> output: data/scgpt_vanzyl.h5ad (80817 x 3856), all cells kept (NO cell_class_4 subsetting in script)
 [2026-08-18 15:28:05] panel: default 1200 -> 5/13 markers, raised to 4253 (PREREG §4); HVG∩vocab 3856/4253 (90.7%); 10/13 markers present (missing S100A7/IVL/DSC1)
 [2026-08-18 15:28:05] sha256 data/scgpt_vanzyl.h5ad = b6a1b53a3ec22d78ea2743238c2fbbdefebfff45b9e69d06ab4158acc4b00f83
 [2026-08-18 15:28:05] sha256 artifacts/paper1_vanzyl/scgpt_panel_check.json = 0943e51e82cafc8c35d178c292e7faa00517dd9f10719d5c4c8f6e580c91b493
-[2026-08-18 15:28:05] gf_tokenize: BLOCKED - protocol_04_tokenize_gf.py has no CLI args (hardcoded corneal_100k/20k inputs, absent on p5070); geneformer not installed in p5070 venvs; dicts local-only. Diagnostics in stage2_prep_summary.json
+[2026-08-18 15:28:05] gf_tokenize: BLOCKED - protocol_04_tokenize_gf.py has no CLI args (hardcoded corneal_100k/20k inputs, absent on <compute-node>); geneformer not installed in <compute-node> venvs; dicts local-only. Diagnostics in stage2_prep_summary.json
 [2026-08-18 15:28:05] artifacts: artifacts/paper1_vanzyl/stage2_prep/ (log + panel check + summary json)
 ================================================================
-[2026-08-18 15:31:33] Cluster 0 forensics + TAC absence investigation COMPLETED (p5070, read-only)
+[2026-08-18 15:31:33] Cluster 0 forensics + TAC absence investigation COMPLETED (<compute-node>, read-only)
 [2026-08-18 15:31:33] evidence: cluster 0 = 99.2% Ciliary_Muscle (13477/13584), 100% TM wedge, LSC label is forced-choice artifact (enrichment 0.095)
 [2026-08-18 15:31:33] evidence: all 6 TAC genes filtered from QC gene set (min_cells=3%) -> TAC enrichment=0 for all clusters by construction; cycling cells rare (>=2 genes: 311 cells, 0.385%)
 [2026-08-18 15:31:33] outputs: artifacts/paper1_vanzyl/cluster0_forensics/ (report.md, cluster0_forensics.json, umap_cluster0.{png,pdf}, marker_violin.{png,pdf})
 ================================================================
 
 ================================================================
-[2026-08-18 16:46:12] Geneformer V2 tokenize van Zyl COMPLETED on p5070 (gf_tokenize BLOCKED at 15:28 -> UNBLOCKED)
-[2026-08-18 16:46:12] pkg: rsync geneformer 0.1.0 + all 4 dicts (SHA-256 verified vs local) -> /home/summer/corneal_scgpt/venv/lib/python3.12/site-packages; deps added: torch 2.13.0+cpu, datasets 5.0.0, transformers 4.57.6, peft 0.20.0, accelerate 1.14.0, optuna 4.9.0, tensorboard 2.21.0, tdigest, multiprocess, loompy 3.0.8
+[2026-08-18 16:46:12] Geneformer V2 tokenize van Zyl COMPLETED on <compute-node> (gf_tokenize BLOCKED at 15:28 -> UNBLOCKED)
+[2026-08-18 16:46:12] pkg: rsync geneformer 0.1.0 + all 4 dicts (SHA-256 verified vs local) -> <home>/corneal_scgpt/venv/lib/python3.12/site-packages; deps added: torch 2.13.0+cpu, datasets 5.0.0, transformers 4.57.6, peft 0.20.0, accelerate 1.14.0, optuna 4.9.0, tensorboard 2.21.0, tdigest, multiprocess, loompy 3.0.8
 [2026-08-18 16:46:12] run: scripts/run_gf_tokenize_vanzyl.py (gf_compat var-index shim) -> scripts/protocol_04_tokenize_gf.py --input data/vanzyl_raw_counts.h5ad --output-dir data --prefix gf_tokenized_vanzyl --custom-attrs cell_type,disease,tissue,donor_id,author_cell_type,cell_class_4
 [2026-08-18 16:46:12] input: data/vanzyl_raw_counts.h5ad 80817 x 59413 (raw.X expansion of vanzyl_annotated.h5ad; its main X is scGPT-normalized 13250 genes, prep script prep_vanzyl_raw_counts.py, sha256 37a59545...)
 [2026-08-18 16:46:12] stats: 80817 cells; tokens/cell min 1170 median 2394 p95 3602 max 4096; total 196,236,913; CLS=2 EOS=3 (V2 special ids, <mask> shifts V1's 1/2)
@@ -101,9 +101,9 @@
 ================================================================
 
 ================================================================
-[2026-08-18 17:42] Geneformer V2 frozen rho diagnosis van Zyl COMPLETED on p5070 (G1 gate control arm)
+[2026-08-18 17:42] Geneformer V2 frozen rho diagnosis van Zyl COMPLETED on <compute-node> (G1 gate control arm)
 [2026-08-18 17:42] contract: PREREG-2026-08-11 amendment A/B + run_tier_b_eval.py FROZEN arm口径 (per-cell CLS emb -> rho + label-shuffle null + untrained-head probe F1); metric suite = scgpt rebuild (corneal_fm.evaluation unchanged)
-[2026-08-18 17:42] weights: rsync HF models--ctheodoris--Geneformer (407MB) -> p5070 ~/.cache/huggingface/hub/; model.safetensors sha256 fff5cba... verified remote=local
+[2026-08-18 17:42] weights: rsync HF models--ctheodoris--Geneformer (407MB) -> <compute-node> ~/.cache/huggingface/hub/; model.safetensors sha256 fff5cba... verified remote=local
 [2026-08-18 17:42] env: generic venv (geneformer 0.1.0 + deps, tokenize venv) torch 2.13.0+cpu -> 2.13.0+cu130 (same version wheel, sm_120 verified); repo/.venv untouched (scGPT session in use)
 [2026-08-18 17:42] run: scripts/gf_frozen_diag_vanzyl.py --batch 16 (batches of 32 OOM'd: V2 seq<=4096, fp32 attention ~14GB; batch 16 fits, peak alloc 4.14GB); forward 1420s / 3915 batches / 0.363s per batch; 62640 cells -> (62640, 768) float32
 [2026-08-18 17:42] analysis set: 80817 -> leiden!=0 67233 -> 3-tier 62640 (LSC 22836 / basal 25332 / differentiated 14472); cluster0 excl 13584, author Ciliary_Muscle overlap 13477 (99.21%); donor_id alignment dataset-vs-h5ad asserted True
@@ -114,8 +114,8 @@
 ================================================================
 
 ================================================================
-[2026-08-18 18:40:00] G1 scGPT frozen diag COMPLETED on p5070 (REBUILD pipeline)
-[2026-08-18 18:40:00] remote: p5070 /home/summer/corneal_scgpt (repo/.venv python 3.12.3, scgpt 0.2.5 cebd6fae, torch 2.13.0+cu130)
+[2026-08-18 18:40:00] G1 scGPT frozen diag COMPLETED on <compute-node> (REBUILD pipeline)
+[2026-08-18 18:40:00] remote: <compute-node> <home>/corneal_scgpt (repo/.venv python 3.12.3, scgpt 0.2.5 cebd6fae, torch 2.13.0+cu130)
 [2026-08-18 18:40:00] script: scripts/scgpt_frozen_diag_rebuild.py (final md5 00f5451f, local+remote identical)
 [2026-08-18 18:40:00] G1 GATE (PREREG §7 LOCKED): rho_frz=0.8047 (>=0.5 PASS) AND label-shuffle z=229.88 (>=3 PASS) -> VERDICT: PASS
 [2026-08-18 18:40:00]   analysis set: 62,640/80,817 (leiden!=0 AND cell_class_4 in {LSC,basal,differentiated})
@@ -130,11 +130,11 @@
 ================================================================
 
 ================================================================
-[2026-08-18 19:56:00] van Zyl scGPT 6-run LAUNCHED on p5070 (PREREG §8, user-approved)
+[2026-08-18 19:56:00] van Zyl scGPT 6-run LAUNCHED on <compute-node> (PREREG §8, user-approved)
 [2026-08-18 19:56:00] split LOCKED (outcome-blind, manifest on disk before any run): test donor = sanes2022_Hu0216 (20,158 cells, max); train = other 4 donors (42,482 cells); 3-tier filter = leiden!=0 & cell_class_4 in {LSC,basal,differentiated}
 [2026-08-18 19:56:00] split_manifest.json: artifacts/paper1_vanzyl/run6/split_manifest.json (sha 6d2d8f7e; 6 h5ad SHA-256 recorded; annotated+scgpt_vanzyl hashes match locked)
 [2026-08-18 19:56:00] train h5ad: scgpt_vanzyl_train.h5ad (42,482x3,856, shared protocol_02b 4253-tier panel; sha b8a0a6db); test h5ad: scgpt_vanzyl_test.h5ad (20,158; sha f69b5ca7)
-[2026-08-18 19:56:00] script: scripts/scgpt_cls_vanzyl.py (variant of locked scgpt_cls.py; naive CE + CORN ordinal 3-tier; max_len 4253; n_cells assertion 42,482; local+p5070 md5 093645bc)
+[2026-08-18 19:56:00] script: scripts/scgpt_cls_vanzyl.py (variant of locked scgpt_cls.py; naive CE + CORN ordinal 3-tier; max_len 4253; n_cells assertion 42,482; local+<compute-node> md5 093645bc)
 [2026-08-18 19:56:00] runner: scripts/run_vanzyl_6run.py (idempotent, VANZYL_RUN_DONE, GPU guard, fail-fast resume; md5 e6e2e98f) detached via setsid nohup; order naive:42/123/456 -> ordinal:42/123/456
 [2026-08-18 19:56:00] smoke: naive dry-run loss 1.61->1.34 PASS, ordinal 0.70->0.44 PASS, bf16 preflight OK, peak GPU 2.62GB
 [2026-08-18 19:56:00] run 1 (naive seed42) VERIFIED IN TRAINING: gstep 900/15933, loss 3.39->0.94, lr warmup 2.25e-05, GPU 3.8GB/99%, train_log.jsonl writing
@@ -143,7 +143,7 @@
 ================================================================
 
 ================================================================
-[2026-08-18 23:25:00] van Zyl scGPT 6-run EVALUATION COMPLETED (p5070, eval set = test donor Hu0216, 20,158 cells)
+[2026-08-18 23:25:00] van Zyl scGPT 6-run EVALUATION COMPLETED (<compute-node>, eval set = test donor Hu0216, 20,158 cells)
 [2026-08-18 23:25:00] frozen baseline (G1 npz donor-masked): rho_n=0.7887 z=99.3 probe_f1=0.9687 (G1 full-set ref: 0.8047/229.9/0.9494)
 [2026-08-18 23:25:00] naive CE (3 seeds): F1 0.9325/0.9207/0.9144 -> mean 0.9225 CI[0.8997,0.9454]; rho_ce 0.2727/0.7570/0.6364 -> mean 0.5554 CI[-0.071,1.182] (seed-unstable); z 27.5/78.5/68.0
 [2026-08-18 23:25:00] ordinal CORN (3 seeds): F1 0.9594/0.9504/0.9663 -> mean 0.9587 CI[0.9389,0.9785]; rho_ord 0.6471/0.9071/0.9021 -> mean 0.8188 CI[0.449,1.188]; z 102.6/141.0/146.9
@@ -156,7 +156,7 @@
 ================================================================
 
 ================================================================
-[2026-08-18 23:45] PREREG §9 Arm B — GF official 1-epoch budget control LAUNCHED on p5070 (3 seeds, sequential; driver detached)
+[2026-08-18 23:45] PREREG §9 Arm B — GF official 1-epoch budget control LAUNCHED on <compute-node> (3 seeds, sequential; driver detached)
 [2026-08-18 23:45] recipe (LOCKED, from caft_args.json of caft_gf_lam0.0_seed42_20260731-211824): naive CE 31-class, lr 5e-5, wd 1e-3, warmup 500, effective batch 32 (8x4), bf16, 1 epoch; train 79,684 cells (80/20 of corneal_100k_donor_split.h5ad, sha bc357c7d...); eval GSE153515 LOCKED external test
 [2026-08-18 23:45] code: scripts/caft_gf_arm_b.py = LOCKED caft_gf.py (sha bdeacd18..., archive-verified) + exactly 2 input-contract changes (A1 epochs {1,3}; A2 basename path check); diff-verified; science zero-change
 [2026-08-18 23:45] migration: train h5ad bc357c7d... + gse153515_annotated.h5ad 2e4ef308... + configs + manifest f4393ae1... + run_tier_b_eval.py 1e2e942f... (all remote sha-verified); corneal_fm 7-file parity MATCH; weights fff5cba... (prior)
@@ -168,7 +168,7 @@
 ================================================================
 
 ================================================================
-[2026-08-19 01:40:00] Arm A scGPT 15-epoch convergence LAUNCHED on p5070 (PREREG §9, user-approved)
+[2026-08-19 01:40:00] Arm A scGPT 15-epoch convergence LAUNCHED on <compute-node> (PREREG §9, user-approved)
 [2026-08-19 01:40:00] val split LOCKED: 90/10 stratified donor x cell_class_4 within §8 train set -> train 38,235 / val 4,247 (12 strata; Hu0216 excluded by assertion); split_val_manifest.json (sha 18fc96ab)
 [2026-08-19 01:40:00] script: scripts/scgpt_cls_vanzyl_convergence.py (EPOCHS=15 locked, §8 hyperparams; per-epoch ckpt + val F1/rho/z trajectory; best-val by macro-F1); runner: scripts/run_vanzyl_convergence.py (idempotent VANZYL_CONV_DONE; GPU guard free>=4GiB for parallel GF lane; OOM retry x3)
 [2026-08-19 01:40:00] smoke PASS (local 90/10, bf16 preflight, val metrics, per-epoch ckpt, DRY-RUN GUARD PASS); smoke artifacts renamed .smoke_backup (preserved)
@@ -201,7 +201,7 @@
 ================================================================
 
 ================================================================
-[2026-08-19 15:10] E3-GF — Geneformer 1-epoch extended seeds LAUNCHED on p5070 (driver v3, seeds 789 2024 31415)
+[2026-08-19 15:10] E3-GF — Geneformer 1-epoch extended seeds LAUNCHED on <compute-node> (driver v3, seeds 789 2024 31415)
 [2026-08-19 15:10] Arm B completed 13:47 (ARM_B_DONE): 3-seed mean rho_raw +0.0958 (<=0.2 -> OFFICIAL_BUDGET_COLLAPSE_CONFIRMED); per-seed 42 +0.2009/z29.95 | 123 +0.1439/z21.68 | 456 -0.0573/z-11.06; mean F1 0.6390
 [2026-08-19 15:10] E3 purpose: 6-seed statistical base for deterministic-collapse claim (new seeds should also collapse); seed choice 789/2024/31415 deterministic+fixed pre-run (no cherry-picking)
 [2026-08-19 15:10] driver v3 changes (orchestration only): SEEDS parameterizable via $1; wait_gpu free>=4096MiB (user E3 guard); merge_armb_summary.py extended to 6 seeds + aggregate (bootstrap n=1000 seed 42 CI over seed metrics + collapse_rate rho_raw<=0.2 + e3_verdict)
@@ -210,7 +210,7 @@
 ================================================================
 
 ================================================================
-[2026-08-19 15:30:00] E1 scGPT LAYERWISE ANALYSIS COMPLETED (p5070, test donor Hu0216 20,158 cells)
+[2026-08-19 15:30:00] E1 scGPT LAYERWISE ANALYSIS COMPLETED (<compute-node>, test donor Hu0216 20,158 cells)
 [2026-08-19 15:30:00] per-layer rho(L2-normed)(z) for {frozen, s42_bestval, s42_final, s123_bestval, s123_final}; L0=NaN (constant [CLS], excluded); sanity: frozen L12=0.7887(z99.3) exact G1 reproduction
 [2026-08-19 15:30:00] s42_final (collapsed): L1 +0.83 L2 +0.76 L3 +0.56 L5 +0.49 L8 +0.33 L10 +0.10 L11 -0.04 L12 -0.09 -> HEAD-PROXIMAL graded collapse, erosion from L3, negative L11-12
 [2026-08-19 15:30:00] s123_final (retained): L1 +0.79 L3 +0.53 L5 +0.78 L8 +0.85 L10 +0.85 L12 +0.83 -> retained/consolidated at depth (L12 above frozen)
@@ -220,7 +220,7 @@
 ================================================================
 
 ================================================================
-[2026-08-19 16:35:00] E3+E4 LAUNCHED on p5070 (user-approved; E1 done above)
+[2026-08-19 16:35:00] E3+E4 LAUNCHED on <compute-node> (user-approved; E1 done above)
 [2026-08-19 16:35:00] E3: convergence arm seeds 789/2024 x 15 epochs (SEEDS extended [42,123,456,789,2024]); orchestrator scripts/run_e3e4.py sequential E3->E4, GPU guard free>=4GiB, OOM retry x3, VANZYL_E3/E4_DONE markers
 [2026-08-19 16:35:00] E3 run1 (naive seed789) VERIFIED TRAINING: epoch 1/15 train_loss 0.310 val_f1 0.752 val_rho 0.8320 z 54.1 (1010s/epoch under GF contention); seed2024 queued
 [2026-08-19 16:35:00] E4 LoRA: scGPT repo has NO built-in LoRA -> self-implemented QKV LoRA (r=8 alpha=16, base trunk frozen, 0.543M trainable = head+adapters); IDENTITY CHECK PASS (B=0 fp32 max|diff|=3.81e-6); layer-level replacement to bypass torch C++ fast-path (which would silently use base weights); smoke PASS (1 epoch test-donor rho 0.7888 z 99.4)
@@ -255,11 +255,11 @@
 [2026-08-19 22:20:00] PROCESSING (CPU, protocol_15d mirrors 15c): GSE186433 epithelial pre-check Layers==Epi (5,964 cells; dataset dissected by layer; full-object run labelled stromal fibroblasts LPC/PMC_basal — DCN/PLIN2/SLC2A3 not specific); fibro-contamination cluster 6 excluded (APOD/DCN/PTGDS/SAA1/VIM, 428 cells, mirrors van Zyl cluster0 ciliary-muscle precedent). 3-tier analysis set = 4,939 cells (LSC 1,316 / basal 1,223 / diff 2,400).
 [2026-08-19 22:20:00] GSE155683: 3-tier analysis set = 17,294 cells (LSC 5,618 / basal 5,429 / diff 6,247); NON_LAYER 1,914 (conjunctival/immune/melanocyte/fibro). No per-cell metadata on GEO -> donor from barcode suffix (disclosed), no cross-check.
 [2026-08-19 22:20:00] scGPT PREP (protocol_02c mirrors 02b, PREREG 1200/4253): GSE186433 panel 4056 / GSE155683 panel 4000 (both raised to 4253 tier; 13-marker 9/13 at 1200 — same escalation as van Zyl). Split LOCKED outcome-blind: GSE186433 test=donor 04 (1,448 cells, max 3-tier; 07+08 pool -> train only), train 3,491; GSE155683 test=donor_4 (10,826, max), train 6,468. val = 10% of train stratified donor x class (seed 42, LOCKED npz).
-[2026-08-19 22:20:00] GPU: driver detached on p5070 (PID 398964) — frozen eval per dataset -> dry-run smoke -> naive CE x seeds {42,123} x 15 epochs -> eval (best-val + final-epoch: macro-F1 bootstrap CI + rho + z + probe). GPU guard free>=4GiB, wait<=12h (E3/E4 occupy until tomorrow morning), OOM retry x3. train-ops card: tasks/train-ops-cornea2-scgpt.yaml. SHA manifest: artifacts/paper1_vanzyl/cornea2/data_sha_manifest.json.
+[2026-08-19 22:20:00] GPU: driver detached on <compute-node> (PID 398964) — frozen eval per dataset -> dry-run smoke -> naive CE x seeds {42,123} x 15 epochs -> eval (best-val + final-epoch: macro-F1 bootstrap CI + rho + z + probe). GPU guard free>=4GiB, wait<=12h (E3/E4 occupy until tomorrow morning), OOM retry x3. train-ops card: tasks/train-ops-cornea2-scgpt.yaml. SHA manifest: artifacts/paper1_vanzyl/cornea2/data_sha_manifest.json.
 [2026-08-19 22:20:00] DEVIATIONS: (1) GSE186433 annotated on Layers==Epi only (native QC signal; van Zyl used CELLxGENE partition pre-check); (2) GSE155683 donor reconstructed from barcode suffix (no GEO metadata file); (3) LSC markers (A2M/PLVAP/AQP1 — limbal vascular genes) near-absent in GSE186433 epithelium -> LSC from LPC via HARMONIZE_MAP (same harmonization as van Zyl); (4) naive head = dataset's own cell_type_raw classes (3/4 classes) majority-mapped to 3-tier (van Zyl used 31-class author types); (5) local skmisc absent -> scikit-misc 0.5.2 installed into venv-ds only (repo/.venv untouched); (6) CPU dry-run broken under torch 2.13 accelerator API on CUDA-visible host -> smoke moved into driver behind GPU guard (GPU dry-run).
 
 ================================================================
-[2026-08-20 14:20:00] E3-GF 6-seed MERGE COMPLETED (merge_armb_summary.py rsynced to p5070 + patched REF dict .get() for E3 seeds; rc=1 driver issue resolved)
+[2026-08-20 14:20:00] E3-GF 6-seed MERGE COMPLETED (merge_armb_summary.py rsynced to <compute-node> + patched REF dict .get() for E3 seeds; rc=1 driver issue resolved)
 [2026-08-20 14:20:00] per-seed rho_raw: 42=0.2009 123=0.1439 456=-0.0573 789=0.1016 2024=0.0915 31415=-0.1332 -> mean +0.0579 (boot CI [-0.0369,0.1384]); collapse_rate 5/6 (<=0.2; seed42 marginally above)
 [2026-08-20 14:20:00] verdict: OFFICIAL_BUDGET_COLLAPSE_CONFIRMED (mean 0.058<=0.2, claim strengthened); e3_verdict: PARTIAL_COLLAPSE (5/6, deterministic claim NOT fully supported)
 [2026-08-20 14:20:00] E4-LoRA v1 INVALIDATED: adapters silently frozen (wrap_lora requires_grad_(False) froze them; trainable 0.543M = head only) -> val_rho constant 0.8207, test rho 0.7888=frozen; v1 artifacts preserved as audit trail (run6/lora/)
@@ -273,11 +273,11 @@
 [2026-08-20 18:35:00] lora_seed123 (123.6min): best-val F1 0.9392 [0.9359,0.9427] rho 0.8755 z 106.8; final F1 0.9352 rho 0.8407 z 97.2
 [2026-08-20 18:35:00] LoRA aggregate (2 seeds): final-epoch rho 0.827/0.841 (mean 0.834, both ABOVE frozen 0.7887); best-val rho 0.838/0.876
 [2026-08-20 18:35:00] CORN-uniqueness JUDGMENT (pre-stated rule): LoRA ALSO preserves the gradient -> restate as "ordinal/lightweight adaptation both rescue"; softmax full-FT collapses (naive final bistable -0.09/0.833/0.765)
-[2026-08-20 18:35:00] outputs local: artifacts/paper1_vanzyl/run6/lora_v2/{seed42_args.json, seed123_args.json, scgpt_lora_vanzyl.py, run_e4v2.py}; full checkpoints on p5070 run6/lora_v2/
+[2026-08-20 18:35:00] outputs local: artifacts/paper1_vanzyl/run6/lora_v2/{seed42_args.json, seed123_args.json, scgpt_lora_vanzyl.py, run_e4v2.py}; full checkpoints on <compute-node> run6/lora_v2/
 ================================================================
 
 =============================================================
-[2026-08-20 23:40:00+08] E5 CORN+LoRA combination LAUNCHED on p5070 (best-recipe test, user-approved)
+[2026-08-20 23:40:00+08] E5 CORN+LoRA combination LAUNCHED on <compute-node> (best-recipe test, user-approved)
 [2026-08-20 23:40:00+08] hypothesis: CORN ordinal head (ordered-structure prior) + LoRA QKV r=8/a=16 (parameter-efficient, trunk frozen, limits destructive rewrite) complement -> expected rho > 0.9; combination of run6 ordinal arm + E4-LoRA fix-4
 [2026-08-20 23:40:00+08] recipe (LOCKED): seeds {42,123} x 15 epochs; val split = locked 90/10 (val_indices.npz, train 38,235 / val 4,247; test donor Hu0216 never enters); best-val (macro-F1) ckpt primary + final-epoch sensitivity; inline test-donor eval = E4-LoRA/6-run metric suite unchanged (macro_f1_ci n=1000 seed42 + rho L2-normed + 100-shuffle null z seed42)
 [2026-08-20 23:40:00+08] science changes: ZERO (combination only) — LoRA wrappers + adapter-enable fix verbatim from scgpt_lora_vanzyl.py md5 67c1a37c; corn_loss verbatim from §8 ordinal arm; training loop/hyperparams (lr 5e-5, wd 1e-3, warmup 500, batch 8x4, bf16, max_len 4253) identical to E4-LoRA
@@ -290,7 +290,7 @@
 =============================================================
 
 ================================================================
-[2026-08-20 23:50:00] fix-12 (cornea2 second datasets) driver FIXED + COMPLETED (p5070)
+[2026-08-20 23:50:00] fix-12 (cornea2 second datasets) driver FIXED + COMPLETED (<compute-node>)
 [2026-08-20 23:50:00] root cause: seed42 trainings (both datasets) incomplete (1 epoch only, model_epoch15.pt missing) but CORNEATRAIN_DONE marker present -> driver skipped re-train -> eval.json lacked final_epoch -> summary KeyError
 [2026-08-20 23:50:00] fixes (zero science-logic change): (1) train completeness check = marker AND model_epoch15.pt (RE-TRAIN trigger); (2) eval freshness = eval.json mtime >= model_epoch15.pt (RE-EVAL trigger); (3) summary key access via _safe() .get fallback
 [2026-08-20 23:50:00] parallel restart: GPU guard free>=4GiB; coexisted with fix-2 scGPT (3.8GB) -> total 7.4GB < 16GB; GSE155683 re-train slowed by 3rd lane (GPU 12.6GB/100%)
@@ -306,6 +306,6 @@
 [2026-08-21 08:45:00+08] CONTRAST (combo vs alone): CORN-only (3-epoch final) 0.819 | LoRA-only (15ep) best-val 0.857 / final 0.834 | naive (15ep) best-val 0.440 / final 0.502 bistable | frozen 0.789 | COMBO best-val 0.9244 / final 0.9228 -> combo_gt_every_single_arm = TRUE in BOTH selection modes (merge verdict); both seeds individually > every arm
 [2026-08-21 08:45:00+08] claim: "best recipe" (ordinal prior + parameter-efficiency complementarity) SUPPORTED — CORN+LoRA (0.924) >> CORN-only (0.819) >> LoRA-only (0.834) >> frozen (0.789) >> naive (0.44-0.50); expected >0.9 CONFIRMED (0.9228-0.9244)
 [2026-08-21 08:45:00+08] macro-F1 also best: 0.9671 (best-val) / 0.9622 (final) vs CORN-only 0.9587 / LoRA-only 0.9438 (final) / naive 0.9311 (best-val) / frozen probe 0.9687
-[2026-08-21 08:45:00+08] outputs local: artifacts/paper1_vanzyl/corn_lora/{seed42_args.json, seed123_args.json, summary.json, scgpt_lora_corn_vanzyl.py, run_corn_lora.py, merge_corn_lora_summary.py, corn_lora_runner.log}; full checkpoints on p5070 corn_lora/checkpoints/corn_lora_seed{S}/
+[2026-08-21 08:45:00+08] outputs local: artifacts/paper1_vanzyl/corn_lora/{seed42_args.json, seed123_args.json, summary.json, scgpt_lora_corn_vanzyl.py, run_corn_lora.py, merge_corn_lora_summary.py, corn_lora_runner.log}; full checkpoints on <compute-node> corn_lora/checkpoints/corn_lora_seed{S}/
 [2026-08-21 08:45:00+08] deviations: D1 (engineering, zero science change) corn_loss bool(valid.any()) per-step GPU sync removed via all-valid fast path (all 42,482 train cells 3-tier, asserted; numerically identical BCE); D2 CORN-only contrast is 3-epoch final (epoch-budget mismatch with 15-epoch combo, disclosed in summary); D3 run 1 killed once by session cleanup (exit -15) mid-seed42, idempotent runner resumed cleanly
 =============================================================

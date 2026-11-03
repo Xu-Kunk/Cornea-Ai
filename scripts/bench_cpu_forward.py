@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Quick CPU forward benchmark for GF (104M) and scGPT (25M) on p5070.
+"""Quick CPU forward benchmark for GF (104M) and scGPT (25M) on <compute-node>.
 
 Benchmarks only the transformer forward (no tokenization) over a fixed
 window of test cells, across a couple of (threads, batch) configs, and
@@ -7,8 +7,8 @@ prints seconds-per-batch + peak RSS so the sensitivity/UMAP driver can
 pick a stable configuration.  Read-only: loads checkpoints + dataset,
 forwards a few batches, saves nothing.
 
-Usage (p5070, CPU):
-    /home/summer/corneal_scgpt/venv/bin/python scripts/bench_cpu_forward.py
+Usage (<compute-node>, CPU):
+    <home>/corneal_scgpt/venv/bin/python scripts/bench_cpu_forward.py
 """
 
 from __future__ import annotations
@@ -22,7 +22,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "repo" / "scGPT"))

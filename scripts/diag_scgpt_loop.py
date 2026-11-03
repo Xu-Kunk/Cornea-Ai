@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "repo" / "scGPT"))

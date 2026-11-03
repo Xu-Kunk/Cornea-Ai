@@ -10,7 +10,7 @@ Train = the other 4 donors (45,935 cells). Analysis set rule unchanged
 Val split mirrors lock_val_split.py: 10% of the train set, stratified by
 donor_id x cell_class_4, rng seed 42.
 
-Runs on p5070 (needs data/scgpt_vanzyl.h5ad, remote-only).
+Runs on <compute-node> (needs data/scgpt_vanzyl.h5ad, remote-only).
 
 Outputs:
   artifacts/paper1_vanzyl/loo/scgpt_vanzyl_loo220_{train,test}.h5ad
@@ -31,7 +31,7 @@ from pathlib import Path
 import anndata as ad
 import numpy as np
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 PREPPED = ROOT / "data" / "scgpt_vanzyl.h5ad"
 ANN = ROOT / "data" / "vanzyl_annotated.h5ad"
 OUT = ROOT / "artifacts" / "paper1_vanzyl" / "loo"

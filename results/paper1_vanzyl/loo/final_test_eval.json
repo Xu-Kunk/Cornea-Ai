@@ -189,7 +189,7 @@
     "seed": null,
     "n_eval_cells": 16705,
     "test_donor": "sanes2022_Hu0220",
-    "source": "/home/summer/corneal_scgpt/artifacts/g1_scgpt/vanzyl_cell_emb.npz",
+    "source": "<home>/corneal_scgpt/artifacts/g1_scgpt/vanzyl_cell_emb.npz",
     "rho": {
       "rho_raw": 0.7945284679767083,
       "rho_normed": 0.794588736728114,
@@ -236,7 +236,7 @@
       "seed": 42,
       "n_cls": 29,
       "n_eval_cells": 16705,
-      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed42/model_best_val.pt",
+      "checkpoint": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed42/model_best_val.pt",
       "pred_dist": {
         "basal": 9974,
         "LSC": 6147,
@@ -261,7 +261,7 @@
       "seed": 42,
       "n_cls": 29,
       "n_eval_cells": 16705,
-      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed42/model_epoch15.pt",
+      "checkpoint": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed42/model_epoch15.pt",
       "pred_dist": {
         "basal": 9934,
         "LSC": 6148,
@@ -286,7 +286,7 @@
       "seed": 123,
       "n_cls": 29,
       "n_eval_cells": 16705,
-      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed123/model_best_val.pt",
+      "checkpoint": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed123/model_best_val.pt",
       "pred_dist": {
         "basal": 9957,
         "LSC": 6136,
@@ -311,7 +311,7 @@
       "seed": 123,
       "n_cls": 29,
       "n_eval_cells": 16705,
-      "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed123/model_epoch15.pt",
+      "checkpoint": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/loo/checkpoints/naive_seed123/model_epoch15.pt",
       "pred_dist": {
         "basal": 10107,
         "LSC": 6115,

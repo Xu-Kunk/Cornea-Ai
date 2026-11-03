@@ -1,9 +1,9 @@
 [GF frozen diag vanZyl] device=cuda torch=2.13.0+cu130 cuda=13.0 gpu=NVIDIA GeForce RTX 5070 Ti
 layer_order=['LSC', 'basal', 'differentiated'] batch=16 n_null=100 seed=42
-snapshot: /home/summer/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M
+snapshot: <home>/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M
 model.safetensors sha256=fff5cba29ddd8792991fa77b4872246fbe548a178cebda3775cdc72b67780e7f expected=fff5cba29ddd8792991fa77b4872246fbe548a178cebda3775cdc72b67780e7f match=True (0.4s)
 `torch_dtype` is deprecated! Use `dtype` instead!
-Some weights of BertForSequenceClassification were not initialized from the model checkpoint at /home/summer/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at <home>/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']
 You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
 checkpoint keys loaded=197/202
   missing (fresh 4-class head, run_tier_b_eval frozen-arm contract): ['bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']

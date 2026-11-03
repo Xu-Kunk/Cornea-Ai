@@ -2,7 +2,7 @@
 === identity-check ===
 LOCKED val split: train=38235 val=4247 (manifest ok, sha=b8a0a6db)
 seed=42 train=38235 val=4247 n_cls=2 (CORN 3-tier, 2 thresholds) ordinal_valid=42482/42482
-/home/summer/corneal_scgpt/repo/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:529: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. We recommend specifying layout=torch.jagged when constructing a nested tensor, as this layout receives active development, has better operator coverage, and works with torch.compile. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/NestedTensorImpl.cpp:177.)
+<home>/corneal_scgpt/repo/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:529: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. We recommend specifying layout=torch.jagged when constructing a nested tensor, as this layout receives active development, has better operator coverage, and works with torch.compile. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/NestedTensorImpl.cpp:177.)
   output = torch._nested_tensor_from_mask(
 LoRA wrapped layers=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] (r=8, alpha=16); trainable = head 0.528M + adapters 0.295M
 IDENTITY CHECK (fp32): B=0 LoRA vs base max|diff| = 3.81e-06

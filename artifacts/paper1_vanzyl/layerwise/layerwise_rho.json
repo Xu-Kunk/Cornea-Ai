@@ -8,10 +8,10 @@
     ],
     "checkpoints": {
       "frozen": "pretrained frozen",
-      "s42_bestval": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/convergence/checkpoints/naive_seed42/model_best_val.pt",
-      "s42_final": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/convergence/checkpoints/naive_seed42/model_epoch15.pt",
-      "s123_bestval": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/convergence/checkpoints/naive_seed123/model_best_val.pt",
-      "s123_final": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/convergence/checkpoints/naive_seed123/model_epoch15.pt"
+      "s42_bestval": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/run6/convergence/checkpoints/naive_seed42/model_best_val.pt",
+      "s42_final": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/run6/convergence/checkpoints/naive_seed42/model_epoch15.pt",
+      "s123_bestval": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/run6/convergence/checkpoints/naive_seed123/model_best_val.pt",
+      "s123_final": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/run6/convergence/checkpoints/naive_seed123/model_epoch15.pt"
     },
     "sanity": "frozen L12 rho should reproduce G1 frozen test-donor 0.7887",
     "metric_source": "scgpt_frozen_diag_rebuild (unchanged)",

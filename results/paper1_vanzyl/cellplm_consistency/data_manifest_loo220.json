@@ -1,8 +1,8 @@
 {
   "protocol": "protocol_16c_prep_cellplm_vanzyl_loo.py",
-  "source": "/home/summer/corneal_scgpt/data/vanzyl_annotated.h5ad",
+  "source": "<home>/corneal_scgpt/data/vanzyl_annotated.h5ad",
   "source_sha256": "fad5e9a71ecd1208e0626049b638e789d22b52563d5a66740570d617df67f4e8",
-  "output": "/home/summer/corneal_scgpt/data/vanzyl_cellplm_loo220.h5ad",
+  "output": "<home>/corneal_scgpt/data/vanzyl_cellplm_loo220.h5ad",
   "output_sha256": "f4aa67645376f905efabe32ad63595caba7397b3f18aca610a80681a10e5e683",
   "analysis_set_rule": "leiden != '0' AND cell_class_4 in {LSC, basal, differentiated} (LOCKED PREREG \u00a77)",
   "test_donor": "sanes2022_Hu0220",

@@ -22,5 +22,5 @@
   "null_z": 78.48527542956124,
   "null_pctile": 1.0,
   "n_null": 100,
-  "checkpoint": "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/checkpoints/naive_seed123/model.pt"
+  "checkpoint": "<home>/corneal_scgpt/artifacts/paper1_vanzyl/run6/checkpoints/naive_seed123/model.pt"
 }

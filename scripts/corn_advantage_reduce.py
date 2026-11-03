@@ -49,7 +49,7 @@ from pathlib import Path
 import numpy as np
 
 OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(
-    "/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/corn_advantage"
+    "<home>/corneal_scgpt/artifacts/paper1_vanzyl/corn_advantage"
 )
 DECODE_THRESHOLD = 0.5
 LAYER_ORDER = ["LSC", "basal", "differentiated"]

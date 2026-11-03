@@ -3,7 +3,7 @@
   "seed": null,
   "n_eval_cells": 16705,
   "test_donor": "sanes2022_Hu0220",
-  "source": "/home/summer/corneal_scgpt/artifacts/g1_scgpt/vanzyl_cell_emb.npz",
+  "source": "<home>/corneal_scgpt/artifacts/g1_scgpt/vanzyl_cell_emb.npz",
   "rho": {
     "rho_raw": 0.7945284679767083,
     "rho_normed": 0.794588736728114,

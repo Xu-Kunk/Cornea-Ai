@@ -171,8 +171,8 @@
     "label_space": "epi4",
     "lambda": 0.0,
     "seed": 42,
-    "checkpoint": "/home/summer/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045/model/checkpoint-7473",
-    "save_dir": "/home/summer/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045",
+    "checkpoint": "<home>/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045/model/checkpoint-7473",
+    "save_dir": "<home>/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045",
     "step": 7473,
     "num_labels": 4,
     "decode": "softmax over the 4-class head (argmax)"
@@ -185,11 +185,11 @@
     },
     "checkpoint": {
       "model.safetensors": {
-        "path": "/home/summer/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045/model/checkpoint-7473/model.safetensors",
+        "path": "<home>/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045/model/checkpoint-7473/model.safetensors",
         "sha256": "b6b1a290778f159aa0f1ef8e315609f50751fe8d98b72520758be8155394777e"
       },
       "config.json": {
-        "path": "/home/summer/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045/model/checkpoint-7473/config.json",
+        "path": "<home>/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045/model/checkpoint-7473/config.json",
         "sha256": "ebe5564c17be9759f7de8bec8092c7312cbf51d095a1ceb1f68308eeef3a7e10"
       }
     },

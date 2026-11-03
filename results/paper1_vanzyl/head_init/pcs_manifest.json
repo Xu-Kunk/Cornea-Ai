@@ -45,7 +45,7 @@
     "run_headinit_vanzyl.py": "d6007978d139f626fcbcc184054acf6a1fdd926954e92e5bd7cd7674537d4160",
     "cellplm_layerwise_e1.py": "a0d988d904463768cb6fb1e558d6bcfbb8039501401eae2d3ea0fee7e551147b",
     "orchestrate_headinit_cellplm.sh": "50bdd14e9d496b19751a2ec9545dfaad57deceb9991befaf86d4c56cd631a74e",
-    "verified": "local == p5070 (deployed), 2026-08-20 17:12 UTC"
+    "verified": "local == <compute-node> (deployed), 2026-08-20 17:12 UTC"
   },
   "timestamp_utc": "2026-08-20T17:10:00Z"
 }

@@ -1,11 +1,11 @@
 Traceback (most recent call last):
-  File "/home/summer/corneal_scgpt/scripts/sens_umap_extract.py", line 352, in <module>
+  File "<home>/corneal_scgpt/scripts/sens_umap_extract.py", line 352, in <module>
     sys.exit(main())
              ^^^^^^
-  File "/home/summer/corneal_scgpt/scripts/sens_umap_extract.py", line 325, in main
+  File "<home>/corneal_scgpt/scripts/sens_umap_extract.py", line 325, in main
     res = forward_scgpt(seed, args.arm)
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/summer/corneal_scgpt/scripts/sens_umap_extract.py", line 107, in forward_scgpt
+  File "<home>/corneal_scgpt/scripts/sens_umap_extract.py", line 107, in forward_scgpt
     args = json.loads((ckpt_dir / "args.json").read_text())
                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
@@ -14,4 +14,4 @@ Traceback (most recent call last):
   File "/usr/lib/python3.12/pathlib.py", line 1015, in open
     return io.open(self, mode, buffering, encoding, errors, newline)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: '/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/run6/checkpoints/corn_seed42/args.json'
+FileNotFoundError: [Errno 2] No such file or directory: '<home>/corneal_scgpt/artifacts/paper1_vanzyl/run6/checkpoints/corn_seed42/args.json'

@@ -36,8 +36,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-H5AD = Path("/home/summer/corneal_scgpt/data/vanzyl_annotated.h5ad")
-OUT = Path("/home/summer/corneal_scgpt/artifacts/paper1_vanzyl/cluster0_forensics")
+H5AD = Path("<home>/corneal_scgpt/data/vanzyl_annotated.h5ad")
+OUT = Path("<home>/corneal_scgpt/artifacts/paper1_vanzyl/cluster0_forensics")
 
 EPI_MARKERS = ["KRT14", "KRT15", "KRT19", "KRT5", "KRT12", "KRT3",
                "COL17A1", "ITGB1"]
@@ -112,7 +112,7 @@ def main() -> None:
     # ------------------------------------------------------------------
     add("# Cluster 0 Forensics + TAC Absence — Evidence Report")
     add("")
-    add(f"- Data: `vanzyl_annotated.h5ad` (Stage 1, p5070), "
+    add(f"- Data: `vanzyl_annotated.h5ad` (Stage 1, <compute-node>), "
         f"{n_all} cells x {counts.shape[1]} genes after QC.")
     add(f"- Cluster 0: {n_c0} cells ({100 * n_c0 / n_all:.2f}% of all cells).")
     add("- Statistics: annotation counts + counts-layer expression only "
@@ -306,8 +306,8 @@ def main() -> None:
     add("")
     log("Loading raw partition files for TAC gene detection (pre-QC set)...")
     raw_files = [
-        Path("/home/summer/corneal_scgpt/data/vanzyl_central_cornea.h5ad"),
-        Path("/home/summer/corneal_scgpt/data/vanzyl_tm_wedge.h5ad"),
+        Path("<home>/corneal_scgpt/data/vanzyl_central_cornea.h5ad"),
+        Path("<home>/corneal_scgpt/data/vanzyl_tm_wedge.h5ad"),
     ]
     jid_lists: list[np.ndarray] = []
     det_lists: list[np.ndarray] = []

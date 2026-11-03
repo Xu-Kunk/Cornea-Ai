@@ -1,7 +1,7 @@
 device=cuda n_cls=30 torch=2.13.0+cu130
 test: 20158 cells, seq_len=(20158, 1313), y dist={'LSC': np.int64(8331), 'basal': np.int64(7563), 'differentiated': np.int64(4264)}
 === frozen ===
-/home/summer/corneal_scgpt/corneal_fm/evaluation.py:502: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+<home>/corneal_scgpt/corneal_fm/evaluation.py:502: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
   rho, _ = spearmanr(pseudotime, ordinals)
   L12 rho_n=0.7887 z=99.3 (131s)
 === s42_bestval ===
@@ -12,6 +12,6 @@ test: 20158 cells, seq_len=(20158, 1313), y dist={'LSC': np.int64(8331), 'basal'
   L12 rho_n=0.5774 z=66.3 (198s)
 === s123_final ===
   L12 rho_n=0.8329 z=90.2 (196s)
-saved /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/layerwise/layerwise_rho.json
+saved <home>/corneal_scgpt/artifacts/paper1_vanzyl/layerwise/layerwise_rho.json
 saved layerwise_rho.png
 DONE

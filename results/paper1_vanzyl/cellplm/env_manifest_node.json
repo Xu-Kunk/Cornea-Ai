@@ -1,5 +1,5 @@
 {
-  "venv": "/home/summer/corneal_scgpt/venv (shared cu130 venv; dedicated cellplm venv not required - no conflicts)",
+  "venv": "<home>/corneal_scgpt/venv (shared cu130 venv; dedicated cellplm venv not required - no conflicts)",
   "python": "3.12.3",
   "platform": "Linux x86_64 (NUC13RNGi7, summer host)",
   "machine": "x86_64",
@@ -30,7 +30,7 @@
     {
       "id": "D2",
       "item": "load_pretrain map_location",
-      "detail": "same fix-9 patch carried over verbatim (map_location=cpu in _load_pretrain_cpu); verified on p5070 with torch 2.13.0+cu130."
+      "detail": "same fix-9 patch carried over verbatim (map_location=cpu in _load_pretrain_cpu); verified on <compute-node> with torch 2.13.0+cu130."
     },
     {
       "id": "D3p",
@@ -44,8 +44,8 @@
     },
     {
       "id": "D6",
-      "item": "backend switch GB10->p5070",
-      "detail": "x86_64 RTX 5070 Ti vs aarch64 GB10; numpy 2.4.6/pandas 3.0.3 vs local 2.5.2/3.0.5 (minor drift). h5ad read + ckpt load + split-count assertions all pass on p5070."
+      "item": "backend switch GB10-><compute-node>",
+      "detail": "x86_64 RTX 5070 Ti vs aarch64 GB10; numpy 2.4.6/pandas 3.0.3 vs local 2.5.2/3.0.5 (minor drift). h5ad read + ckpt load + split-count assertions all pass on <compute-node>."
     }
   ],
   "timestamp_utc": "2026-08-19T11:50:00+00:00"

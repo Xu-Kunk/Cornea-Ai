@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# M2/M3 seed extension orchestrator (p5070, nohup, GPU guard)
+# M2/M3 seed extension orchestrator (<compute-node>, nohup, GPU guard)
 # Sequence: (A) van Zyl run6_ext naive seeds 789, 2024
 #           (B) cross_tissue (epidermis GSE147424) naive seed 456
 # Training scripts enforce a locked seed whitelist; this launcher uses
@@ -7,8 +7,8 @@
 # locked training code.
 set -u
 
-SCGPT_PY=/home/summer/corneal_scgpt/repo/.venv/bin/python
-ROOT=/home/summer/corneal_scgpt
+SCGPT_PY=<home>/corneal_scgpt/repo/.venv/bin/python
+ROOT=<home>/corneal_scgpt
 ART=$ROOT/artifacts/paper1_vanzyl
 
 RUN6_OUT=$ART/run6_ext/checkpoints
@@ -26,7 +26,7 @@ import sys
 from pathlib import Path
 
 def main():
-    target = Path("/home/summer/corneal_scgpt/scripts/scgpt_cls_vanzyl.py")
+    target = Path("<home>/corneal_scgpt/scripts/scgpt_cls_vanzyl.py")
     # Preserve the default sys.path behaviour when the target script is run
     # directly: the directory containing the training script must be importable.
     sys.path.insert(0, str(target.parent))
@@ -50,7 +50,7 @@ import sys
 from pathlib import Path
 
 def main():
-    target = Path("/home/summer/corneal_scgpt/scripts/scgpt_cls_epidermis.py")
+    target = Path("<home>/corneal_scgpt/scripts/scgpt_cls_epidermis.py")
     # Preserve the default sys.path behaviour when the target script is run
     # directly: the directory containing the training script must be importable.
     sys.path.insert(0, str(target.parent))

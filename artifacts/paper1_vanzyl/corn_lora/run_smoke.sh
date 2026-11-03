@@ -1,6 +1,6 @@
 #!/bin/bash
 # E5 smoke: identity-check + dry-run (guarded free>=4GiB)
-cd /home/summer/corneal_scgpt
+cd <home>/corneal_scgpt
 PY=repo/.venv/bin/python
 SCRIPT=scripts/scgpt_lora_corn_vanzyl.py
 OUT=artifacts/paper1_vanzyl/corn_lora

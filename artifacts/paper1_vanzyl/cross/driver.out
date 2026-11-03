@@ -25,7 +25,7 @@ STDOUT:
  
 STDERR:
  Traceback (most recent call last):
-  File "/home/summer/cellplm_vanzyl/scripts/run_cellplm_cross.py", line 46, in <module>
+  File "<home>/cellplm_vanzyl/scripts/run_cellplm_cross.py", line 46, in <module>
     from corneal_fm.evaluation import marker_gradient_correlation  # noqa: E402
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ModuleNotFoundError: No module named 'corneal_fm'

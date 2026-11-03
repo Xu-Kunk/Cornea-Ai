@@ -69,7 +69,7 @@
           "laa": 0.979424703891709,
           "rho": 0.21415669551060146,
           "ece": 0.07178006159069167,
-          "checkpoint": "/home/summer/epi4_ce/save/method_ce_epi4_lam0.0_seed42_20261021-150959/model/checkpoint-2616",
+          "checkpoint": "<home>/epi4_ce/save/method_ce_epi4_lam0.0_seed42_20261021-150959/model/checkpoint-2616",
           "checkpoint_step": 2616,
           "num_labels": 4
         },
@@ -90,7 +90,7 @@
           "laa": 0.9827411167512691,
           "rho": 0.14132930998558346,
           "ece": 0.07740322723808227,
-          "checkpoint": "/home/summer/epi4_ce/save/method_ce_epi4_lam0.0_seed123_20261021-163140/model/checkpoint-2616",
+          "checkpoint": "<home>/epi4_ce/save/method_ce_epi4_lam0.0_seed123_20261021-163140/model/checkpoint-2616",
           "checkpoint_step": 2616,
           "num_labels": 4
         },
@@ -111,7 +111,7 @@
           "laa": 0.9796277495769882,
           "rho": 0.11911013373503096,
           "ece": 0.08170734327658384,
-          "checkpoint": "/home/summer/epi4_ce/save/method_ce_epi4_lam0.0_seed456_20261021-174027/model/checkpoint-2616",
+          "checkpoint": "<home>/epi4_ce/save/method_ce_epi4_lam0.0_seed456_20261021-174027/model/checkpoint-2616",
           "checkpoint_step": 2616,
           "num_labels": 4
         }
@@ -676,7 +676,7 @@
           "laa": 0.9778680203045685,
           "rho": 0.26631485158360113,
           "ece": 0.09652270853216877,
-          "checkpoint": "/home/summer/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045/model/checkpoint-7473",
+          "checkpoint": "<home>/epi4_ce/save/method_axis_ft_lam0.0_seed42_20261021-190045/model/checkpoint-7473",
           "checkpoint_step": 7473,
           "num_labels": 4
         },
@@ -697,7 +697,7 @@
           "laa": 0.9809137055837563,
           "rho": 0.2292534634259377,
           "ece": 0.10909191731268988,
-          "checkpoint": "/home/summer/epi4_ce/save/method_axis_ft_lam0.0_seed123_20261021-213634/model/checkpoint-7473",
+          "checkpoint": "<home>/epi4_ce/save/method_axis_ft_lam0.0_seed123_20261021-213634/model/checkpoint-7473",
           "checkpoint_step": 7473,
           "num_labels": 4
         },
@@ -718,7 +718,7 @@
           "laa": 0.9795600676818951,
           "rho": 0.266711378510567,
           "ece": 0.10874867869512678,
-          "checkpoint": "/home/summer/epi4_ce/save/method_axis_ft_lam0.0_seed456_20261022-001219/model/checkpoint-7473",
+          "checkpoint": "<home>/epi4_ce/save/method_axis_ft_lam0.0_seed456_20261022-001219/model/checkpoint-7473",
           "checkpoint_step": 7473,
           "num_labels": 4
         }

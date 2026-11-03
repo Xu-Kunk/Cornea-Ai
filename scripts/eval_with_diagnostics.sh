@@ -18,8 +18,8 @@
 #   e.g. bash scripts/eval_with_diagnostics.sh 42 --skip-tokenize \
 #            --out-dir results/paper1_vanzyl/epi4_ce
 set -u
-cd /home/summer/epi4_ce || exit 9
-PY=/home/summer/corneal_scgpt/venv/bin/python3
+cd <home>/epi4_ce || exit 9
+PY=<home>/corneal_scgpt/venv/bin/python3
 LOGS=logs
 SEED=${1:?usage: eval_with_diagnostics.sh SEED [args...]}
 shift

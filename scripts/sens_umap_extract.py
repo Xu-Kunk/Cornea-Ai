@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Per-cell embedding extraction for the sensitivity + UMAP tasks (p5070 CPU).
+"""Per-cell embedding extraction for the sensitivity + UMAP tasks (<compute-node> CPU).
 
 Extracts final-layer CLS cell embeddings + threshold/softmax logits for the
 naive and CORN checkpoints of scGPT (van Zyl run6) and GF (van Zyl-era
@@ -28,9 +28,9 @@ PCS frozen protocol (frozen before first run 2026-08-20):
 Outputs (<out>/): <arch>_<arm>_seed<seed>.npz with emb, y, logits, barcode;
 per-run JSON with the gate record. Idempotent via DONE markers.
 
-Usage (p5070, CPU):
-    PYTHONPATH=/home/summer/corneal_scgpt/repo/scGPT \
-    /home/summer/corneal_scgpt/venv/bin/python scripts/sens_umap_extract.py \
+Usage (<compute-node>, CPU):
+    PYTHONPATH=<home>/corneal_scgpt/repo/scGPT \
+    <home>/corneal_scgpt/venv/bin/python scripts/sens_umap_extract.py \
         --arch scgpt --arm naive --seed 42 --out artifacts/paper1_vanzyl/sensitivity/_caches
 """
 
@@ -46,7 +46,7 @@ from typing import Any
 
 import numpy as np
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "repo" / "scGPT"))

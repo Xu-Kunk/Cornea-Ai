@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Merge cross-arms supplementary results into one summary (runs on p5070
+"""Merge cross-arms supplementary results into one summary (runs on <compute-node>
 after all phases; also copyable locally).
 
 Combines:
@@ -17,7 +17,7 @@ import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 OUT_DIR = ROOT / "artifacts" / "paper1_vanzyl" / "cross"
 
 

@@ -7,7 +7,7 @@
 15:26:53 [INFO] ============================================================
 15:26:53 [INFO] STEP 2 — Loading scGPT vocab
 15:26:53 [INFO] ============================================================
-15:26:53 [INFO]   ✓ Using cached vocab at /home/summer/corneal_scgpt/data/scgpt_gene_vocab.json (48292 tokens)
+15:26:53 [INFO]   ✓ Using cached vocab at <home>/corneal_scgpt/data/scgpt_gene_vocab.json (48292 tokens)
 15:26:53 [INFO] ============================================================
 15:26:53 [INFO] STEP 3 — Panel build + 13-marker check (PREREG §4)
 15:26:53 [INFO] ============================================================
@@ -38,11 +38,11 @@
 15:27:07 [INFO]   Normalizing .X (log1p 1e4) ...
 15:27:07 [INFO]   Output shape: 80817 × 3856
 15:27:07 [INFO]   Panel size 4253: 13-marker check -> 10/13 present (STILL MISSING: ['S100A7', 'IVL', 'DSC1'])
-15:27:07 [INFO]   Saved /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/scgpt_panel_check.json
+15:27:07 [INFO]   Saved <home>/corneal_scgpt/artifacts/paper1_vanzyl/scgpt_panel_check.json
 15:27:07 [INFO] ============================================================
 15:27:07 [INFO] STEP 4 — Export
 15:27:07 [INFO] ============================================================
-15:27:07 [INFO]   Writing to /home/summer/corneal_scgpt/data/scgpt_vanzyl.h5ad ...
+15:27:07 [INFO]   Writing to <home>/corneal_scgpt/data/scgpt_vanzyl.h5ad ...
 15:27:07 [INFO]   ✓ Done
 15:27:07 [INFO] ============================================================
 15:27:07 [INFO] SUMMARY
@@ -51,4 +51,4 @@
 15:27:07 [INFO]   Panel genes (HVG∩vocab):   3856
 15:27:07 [INFO]   13-marker all present:     False
 15:27:07 [INFO]   DEVIATION (PREREG §4):     panel raised to 4253
-15:27:07 [INFO]   Output:                    /home/summer/corneal_scgpt/data/scgpt_vanzyl.h5ad
+15:27:07 [INFO]   Output:                    <home>/corneal_scgpt/data/scgpt_vanzyl.h5ad

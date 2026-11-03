@@ -135,7 +135,7 @@ recomputing ρ from the stored embeddings reproduces the recorded values exactly
 
 ## Launch — host, GPU, exact commands
 
-* host `p5070` (`<user>@<host>`, `summer-NUC13RNGi7`), NVIDIA RTX PRO 5000
+* host `<compute-node>` (`<user>@<host>`, `summer-NUC13RNGi7`), NVIDIA RTX PRO 5000
   72 GB Blackwell (73,415 MiB, driver 595.91.07, CUDA 13.2), one job at a time
 * workspace `<home>/epi4_ce`; data symlinked to sha-verified copies
   (train `bc357c7d…`, external `2e4ef308…`), manifest `f4393ae1…`
@@ -230,7 +230,7 @@ all arms run strictly serialised (`gpu_contention_probe.json`).
 | `scripts/epi4_ce_eval.py` (local = remote) | `267d2ba8d7b4028813f4c3f6a719ebe3bf8b3077223120a630c144c73b8cc7d8` |
 | `scripts/eval_with_diagnostics.sh` (local = remote) | `f34f3038d099042c3f6a59f0862bf0bb03bf96dbe2104e745a0040d671c1e941` |
 
-Checkpoints stay on `p5070` under
+Checkpoints stay on `<compute-node>` under
 `~/epi4_ce/save/method_ce_epi4_lam0.0_seed{S}_<ts>/model/checkpoint-2616`
 (final epoch); each record's `archived_inputs.checkpoint` carries the
 `model.safetensors` / `config.json` hashes. Nothing under `docs/manuscript/**`

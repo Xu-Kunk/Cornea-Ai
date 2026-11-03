@@ -11,9 +11,9 @@ Creating dataset.
 2026-08-19 10:26:40 | INFO     | __main__ | tokenized dataset: save/caft_gf_lam0.0_seed123_20260819-102423/corneal_layer_subset_tk/cell.dataset (cells=99606)
 Hyperparameter tuning is highly recommended for optimal results. No training_args provided; using default hyperparameters. Please note: these defaults are not recommended to be used uniformly across tasks.
 2026-08-19 10:26:46 | INFO     | __main__ | prepared: train=79684  num_classes=31
-Some weights of BertForSequenceClassification were not initialized from the model checkpoint at /home/summer/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at <home>/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']
 You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-  0%|          | 0/2491 [00:00<?, ?it/s]/home/summer/corneal_scgpt/venv/lib/python3.12/site-packages/geneformer/collator_for_classification.py:649: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  0%|          | 0/2491 [00:00<?, ?it/s]<home>/corneal_scgpt/venv/lib/python3.12/site-packages/geneformer/collator_for_classification.py:649: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
   batch = {k: torch.tensor(v.clone().detach(), dtype=torch.int64) if isinstance(v, torch.Tensor) else torch.tensor(v, dtype=torch.int64) for k, v in batch.items()}
 [CAFT] inputs keys=['input_ids', 'length', 'attention_mask', 'labels']
 [CAFT] inputs keys=['input_ids', 'length', 'attention_mask', 'labels']

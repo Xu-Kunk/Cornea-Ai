@@ -144,15 +144,15 @@ Building wheels for collected packages: loompy, accumulation-tree, pyudorandom
   Building wheel for loompy (pyproject.toml): started
   Building wheel for loompy (pyproject.toml): finished with status 'done'
   Created wheel for loompy: filename=loompy-3.0.8-py3-none-any.whl size=54100 sha256=dc4a2e913af2eae2fb6a88ea0ecbce18807b8ee4eca92d3fc16846da44f5f9ad
-  Stored in directory: /home/summer/.cache/pip/wheels/f8/9a/4c/fe1996e1816b0c52b8b8f4fe7813db8f09ae9dffe8f7ebf78d
+  Stored in directory: <home>/.cache/pip/wheels/f8/9a/4c/fe1996e1816b0c52b8b8f4fe7813db8f09ae9dffe8f7ebf78d
   Building wheel for accumulation-tree (pyproject.toml): started
   Building wheel for accumulation-tree (pyproject.toml): finished with status 'done'
   Created wheel for accumulation-tree: filename=accumulation_tree-0.6.4-cp312-cp312-linux_x86_64.whl size=387646 sha256=f18296de1f733665449c1e685babd86c2568883ea19ac08a9e6d1cffd441e2db
-  Stored in directory: /home/summer/.cache/pip/wheels/16/8c/80/ce465ec93f0ff0a67e4f09fa33f90906fba138d1114f3777b1
+  Stored in directory: <home>/.cache/pip/wheels/16/8c/80/ce465ec93f0ff0a67e4f09fa33f90906fba138d1114f3777b1
   Building wheel for pyudorandom (pyproject.toml): started
   Building wheel for pyudorandom (pyproject.toml): finished with status 'done'
   Created wheel for pyudorandom: filename=pyudorandom-1.0.0-py3-none-any.whl size=2218 sha256=c56250621fdf9d61a950d508ec09da255f54a140119153fe2435b50fc83375c9
-  Stored in directory: /home/summer/.cache/pip/wheels/7e/cb/42/cc4cd1373422404f6e15897c55ffcf3dac73293464e8fa1531
+  Stored in directory: <home>/.cache/pip/wheels/7e/cb/42/cc4cd1373422404f6e15897c55ffcf3dac73293464e8fa1531
 Successfully built loompy accumulation-tree pyudorandom
 Installing collected packages: pyudorandom, accumulation-tree, xxhash, urllib3, tdigest, safetensors, regex, pyarrow, propcache, numpy-groupies, multidict, idna, hf-xet, h11, fsspec, frozenlist, dill, click, charset_normalizer, attrs, aiohappyeyeballs, yarl, requests, multiprocess, loompy, httpcore, anyio, aiosignal, huggingface-hub, httpx, aiohttp, tokenizers, transformers, datasets
   Attempting uninstall: fsspec

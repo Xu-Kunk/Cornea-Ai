@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Run protocol_04_tokenize_gf.py on p5070 with the pandas>=2 var-index shim.
+"""Run protocol_04_tokenize_gf.py on <compute-node> with the pandas>=2 var-index shim.
 
 Environment-completion wrapper (no science changes):
   - geneformer 0.1.0's ``sum_ensembl_ids`` returns an AnnData whose ``var``
@@ -41,6 +41,6 @@ _gftok.sum_ensembl_ids = _sum_with_positional_var_index
 
 sys.argv = ["protocol_04_tokenize_gf.py"] + sys.argv[1:]
 runpy.run_path(
-    "/home/summer/corneal_scgpt/scripts/protocol_04_tokenize_gf.py",
+    "<home>/corneal_scgpt/scripts/protocol_04_tokenize_gf.py",
     run_name="__main__",
 )

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """CORN advantage A+D — GF (Geneformer) CORN (3 seeds) per-cell extraction.
 
-Runs on p5070 (CPU) with /home/summer/corneal_scgpt/venv/bin/python (the
+Runs on <compute-node> (CPU) with <home>/corneal_scgpt/venv/bin/python (the
 migrated checkpoint is plain HF BertForSequenceClassification — no geneformer
 package needed at inference). For the locked test donor Hu0216 (20158 cells),
 forwards the GSE153515-trained ordinal-GF checkpoints over the tokenized van
@@ -14,7 +14,7 @@ FROZEN protocol (PCS Stability, frozen before first run 2026-08-20):
     scGPT test h5ad (20158, donor Hu0216; same analysis set, same order —
     asserted at runtime)
   * checkpoint: save/ordinal_gf_lam0.0_seed{42,123,456}/model/checkpoint-7473
-    migrated local -> p5070 (read-only copy; SHA-256 recorded in the manifest;
+    migrated local -> <compute-node> (read-only copy; SHA-256 recorded in the manifest;
     locked GSE153515 CORN provenance: rho 0.8330, seeds 0.8341/0.8351/0.8299)
   * ordinal axis 4-class (LSC<TAC<basal<diff) -> 3 threshold logits;
     3-tier van Zyl reading: p1 = sigmoid(t1) (>=TAC => not-LSC => basal+diff),
@@ -43,7 +43,7 @@ import numpy as np
 import torch
 from transformers import BertForSequenceClassification
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 sys.path.insert(0, str(ROOT))
 from corneal_fm.evaluation import marker_gradient_correlation  # noqa: E402
 

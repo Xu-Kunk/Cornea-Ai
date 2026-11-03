@@ -1,7 +1,7 @@
 {
   "task": "Geneformer V2 tokenize van Zyl (protocol_04_tokenize_gf.py, single-file flow)",
   "completed_at": "2026-08-18T16:46:00+08:00",
-  "host": "p5070 /home/summer/corneal_scgpt (venv python 3.12.3)",
+  "host": "<compute-node> <home>/corneal_scgpt (venv python 3.12.3)",
   "script": "scripts/run_gf_tokenize_vanzyl.py (gf_compat shim) -> scripts/protocol_04_tokenize_gf.py (md5 8cec5d03fe2639f660f7bee3c1971e38, identical to local)",
   "tokenizer": "TranscriptomeTokenizer model_version=V2, nproc=4, chunk_size=512, use_h5ad_index=True, collapse_gene_ids=True, special_token=True (V2 defaults)",
   "input": {
@@ -11,7 +11,7 @@
     "sha256": "37a595456b253e66647c739afad30cabe754a72286238ab6b0980b5740477cd6"
   },
   "output": {
-    "path": "/home/summer/corneal_scgpt/data/gf_tokenized_vanzyl.dataset (758 MB, kept remote)",
+    "path": "<home>/corneal_scgpt/data/gf_tokenized_vanzyl.dataset (758 MB, kept remote)",
     "files": {
       "data-00000-of-00002.arrow": "3da2364e3cd262ebc035ca2ff9ad79910bad106a957ab843dcd4ca490ae0ee30",
       "data-00001-of-00002.arrow": "3b67e066626230868e31b81864bc192213893adaeca0b98accd185638f1f21b4",

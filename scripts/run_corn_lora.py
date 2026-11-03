@@ -16,7 +16,7 @@ import time
 from datetime import UTC, datetime
 from pathlib import Path
 
-ROOT = Path("/home/summer/corneal_scgpt")
+ROOT = Path("<home>/corneal_scgpt")
 PYTHON = ROOT / "repo" / ".venv" / "bin" / "python"
 SCRIPT = ROOT / "scripts" / "scgpt_lora_corn_vanzyl.py"
 OUT = ROOT / "artifacts" / "paper1_vanzyl" / "corn_lora"

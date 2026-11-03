@@ -1,7 +1,7 @@
 {
   "meta": {
     "model": "ctheodoris/Geneformer (Geneformer-V2-104M, HF snapshot)",
-    "snapshot": "/home/summer/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
+    "snapshot": "<home>/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
     "model_safetensors_sha256": "fff5cba29ddd8792991fa77b4872246fbe548a178cebda3775cdc72b67780e7f",
     "model_safetensors_sha256_ok": true,
     "num_labels_head": 4,
@@ -49,8 +49,8 @@
   "results": {
     "vanzyl": {
       "tag": "vanzyl",
-      "dataset": "/home/summer/corneal_scgpt/data/gf_tokenized_vanzyl.dataset",
-      "h5ad_obs": "/home/summer/corneal_scgpt/data/vanzyl_annotated.h5ad",
+      "dataset": "<home>/corneal_scgpt/data/gf_tokenized_vanzyl.dataset",
+      "h5ad_obs": "<home>/corneal_scgpt/data/vanzyl_annotated.h5ad",
       "label_col": "cell_class_4",
       "n_cells_input": 80817,
       "n_analysis": 62640,

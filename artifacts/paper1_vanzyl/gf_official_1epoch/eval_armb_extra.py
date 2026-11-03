@@ -28,7 +28,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-CORNEAL_ROOT = Path("/home/summer/corneal_scgpt")
+CORNEAL_ROOT = Path("<home>/corneal_scgpt")
 sys.path.insert(0, str(CORNEAL_ROOT))
 
 from corneal_fm.evaluation import marker_gradient_correlation  # noqa: E402

@@ -78,12 +78,12 @@
 2026-08-18 13:50:08,315 - harmonypy - INFO - Converged after 8 iterations
 [2026-08-18 13:50:08]   Harmony integration (harmonypy 2.x, direct API): batch keys ['partition', 'donor_id'] -> obsm['X_harmony'].
 [2026-08-18 13:51:11]   Neighbors (use_rep='X_harmony') + UMAP done.
-/home/summer/corneal_scgpt/scripts/protocol_15c_annotate_vanzyl.py:406: FutureWarning: The `igraph` implementation of leiden clustering is *orders of magnitude faster*. Set the flavor argument to (and install if needed) 'igraph' to use it.
+<home>/corneal_scgpt/scripts/protocol_15c_annotate_vanzyl.py:406: FutureWarning: The `igraph` implementation of leiden clustering is *orders of magnitude faster*. Set the flavor argument to (and install if needed) 'igraph' to use it.
 In the future, the default backend for leiden will be igraph instead of leidenalg. To achieve the future defaults please pass: `flavor='igraph'` and `n_iterations=2`. `directed` must also be `False` to work with igraph’s implementation.
   sc.tl.leiden(adata, resolution=resolution, random_state=seed)
 [2026-08-18 13:52:30]   Leiden clustering: resolution=0.6, 25 clusters (random_state=42).
 WARNING: It seems you use rank_genes_groups on the raw count data. Please logarithmize your data before calling rank_genes_groups.
-/home/summer/corneal_scgpt/venv/lib/python3.12/site-packages/scanpy/tools/_rank_genes_groups.py:482: RuntimeWarning: overflow encountered in expm1
+<home>/corneal_scgpt/venv/lib/python3.12/site-packages/scanpy/tools/_rank_genes_groups.py:482: RuntimeWarning: overflow encountered in expm1
   foldchanges = (self.expm1_func(mean_group) + 1e-9) / (
 
 ========================================================================
@@ -136,12 +136,12 @@ WARNING: It seems you use rank_genes_groups on the raw count data. Please logari
 ========================================================================
 [2026-08-18 13:57:16]   vs author_cell_type: overall agreement 0.337, epithelial-subset 0.299
 [2026-08-18 13:57:16]   vs cell_type: overall agreement 0.351, epithelial-subset 0.322
-[2026-08-18 13:57:20]   Saved /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/umap_celltype.pdf
-[2026-08-18 13:57:23]   Saved /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/umap_donor.pdf
-[2026-08-18 13:57:23]   Saved /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/marker_scores.csv (25 clusters x 15 cols)
-[2026-08-18 13:57:23]   Saved /home/summer/corneal_scgpt/artifacts/paper1_vanzyl/qc_decisions.json
-[2026-08-18 13:57:23] Saving annotated h5ad -> /home/summer/corneal_scgpt/data/vanzyl_annotated.h5ad
-[2026-08-18 13:57:26] Saved: /home/summer/corneal_scgpt/data/vanzyl_annotated.h5ad
+[2026-08-18 13:57:20]   Saved <home>/corneal_scgpt/artifacts/paper1_vanzyl/umap_celltype.pdf
+[2026-08-18 13:57:23]   Saved <home>/corneal_scgpt/artifacts/paper1_vanzyl/umap_donor.pdf
+[2026-08-18 13:57:23]   Saved <home>/corneal_scgpt/artifacts/paper1_vanzyl/marker_scores.csv (25 clusters x 15 cols)
+[2026-08-18 13:57:23]   Saved <home>/corneal_scgpt/artifacts/paper1_vanzyl/qc_decisions.json
+[2026-08-18 13:57:23] Saving annotated h5ad -> <home>/corneal_scgpt/data/vanzyl_annotated.h5ad
+[2026-08-18 13:57:26] Saved: <home>/corneal_scgpt/data/vanzyl_annotated.h5ad
 
 ========================================================================
   Summary
