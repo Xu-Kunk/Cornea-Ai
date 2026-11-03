@@ -12,7 +12,7 @@ import numpy as np
 import scanpy as sc
 import anndata as ad
 
-OUT = "/home/dq/Codex/Ai/data/gse299152"
+OUT = "<repo>/data/gse299152"
 DONORS = ["Donor2046", "Donor2206", "Donor3748"]
 MITO_PREFIX = "MT-"
 

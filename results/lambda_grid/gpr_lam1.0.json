@@ -16,12 +16,12 @@
       ]
     },
     "dataset": {
-      "path": "/home/dq/Codex/Ai/save/caft_gf_lam0.0_seed42_20260724-085100/corneal_layer_subset_tk/cell.dataset",
+      "path": "<repo>/save/caft_gf_lam0.0_seed42_20260724-085100/corneal_layer_subset_tk/cell.dataset",
       "fingerprint": "huggingface:aacc2b91f55f503f"
     },
     "checkpoints": {
-      "before": "/home/dq/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
-      "after": "/home/dq/Codex/Ai/save/caft_gf_lam1.0_seed42_20260729-080818/model/checkpoint-7500"
+      "before": "<cache>/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
+      "after": "<repo>/save/caft_gf_lam1.0_seed42_20260729-080818/model/checkpoint-7500"
     },
     "resampling": {
       "method": "paired_stratified_percentile",

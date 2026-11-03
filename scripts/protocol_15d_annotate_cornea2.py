@@ -43,9 +43,9 @@ Outputs (per dataset)
 
 Usage
 -----
-    /home/dq/venv-ds/bin/python3 scripts/protocol_15d_annotate_cornea2.py \
+    <venv>/bin/python3 scripts/protocol_15d_annotate_cornea2.py \
         --dataset GSE186433 [--force]
-    /home/dq/venv-ds/bin/python3 scripts/protocol_15d_annotate_cornea2.py \
+    <venv>/bin/python3 scripts/protocol_15d_annotate_cornea2.py \
         --dataset GSE155683 [--force]
 """
 

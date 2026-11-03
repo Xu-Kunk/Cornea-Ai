@@ -1,5 +1,5 @@
 # =============================================================================
-# Corneal-FM — GX10 (ASUS Ascent GB10, aarch64, CUDA 13 / Blackwell sm_121)
+# Corneal-FM — <compute-node> (ASUS Ascent GB10, aarch64, CUDA 13 / Blackwell sm_121)
 # =============================================================================
 # torch is intentionally NOT listed: it is provided by the NGC container
 # (nvcr.io/nvidia/pytorch:25.11-py3) or already installed as 2.13.0+cu130 in
@@ -53,7 +53,7 @@ git+https://github.com/bowang-lab/scGPT.git
 # Install via pip for cu130 / aarch64, matching the deployed torch/CUDA:
 #   pip install rapids-singlecell
 # (RAPIDS-exact kNN + GPU float differ slightly from CPU scanpy; CS_before is
-#  RE-BASELINED on this reprocessed data — see docs/GX10-deployment-checklist.md)
+#  RE-BASELINED on this reprocessed data — see docs/<compute-node>.md)
 
 # --- pipeline utilities ---
 click

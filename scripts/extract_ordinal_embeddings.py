@@ -10,7 +10,7 @@ inference code and persists layer-12 CLS embeddings + labels per checkpoint as
 artifacts/paper1_bio_validation/ordinal_emb_lam<lam>_seed<seed>.npz.
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/extract_ordinal_embeddings.py [--runs 0.0:42,0.5:42,...]
+    <venv>/bin/python3 scripts/extract_ordinal_embeddings.py [--runs 0.0:42,0.5:42,...]
 """
 
 from __future__ import annotations

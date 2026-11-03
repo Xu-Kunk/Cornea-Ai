@@ -30,7 +30,7 @@ References: Li D-Q, Kim S, et al. Ocul Surf. 2021;20:20-32.
 doi:10.1016/j.jtos.2020.12.004 (PMID: 33388438).
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/run_tier_b_baselines.py [--arm 1|2|both]
+    <venv>/bin/python3 scripts/run_tier_b_baselines.py [--arm 1|2|both]
         [--batch-size 32] [--skip-tokenize]
 """
 

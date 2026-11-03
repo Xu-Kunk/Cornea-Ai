@@ -44,7 +44,7 @@ Outputs (artifacts/paper1_vanzyl/svd_validation/):
   run.log
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/svd_axis_validation.py
+    <venv>/bin/python3 scripts/svd_axis_validation.py
 """
 from __future__ import annotations
 

@@ -7,7 +7,7 @@
       "seed": 42,
       "train": "OK",
       "eval": "OK",
-      "save_dir": "/home/dq/Codex/Ai/save/ordinal_gf_lam0.0_seed42_20260805-171141",
+      "save_dir": "<repo>/save/ordinal_gf_lam0.0_seed42_20260805-171141",
       "updated_utc": "2026-08-07T22:07:24Z"
     },
     {
@@ -15,7 +15,7 @@
       "seed": 123,
       "train": "OK",
       "eval": "OK",
-      "save_dir": "/home/dq/Codex/Ai/save/ordinal_gf_lam0.0_seed123_20260806-144600",
+      "save_dir": "<repo>/save/ordinal_gf_lam0.0_seed123_20260806-144600",
       "updated_utc": "2026-08-07T22:07:24Z"
     },
     {
@@ -23,7 +23,7 @@
       "seed": 456,
       "train": "OK",
       "eval": "OK",
-      "save_dir": "/home/dq/Codex/Ai/save/ordinal_gf_lam0.0_seed456_20260806-223909",
+      "save_dir": "<repo>/save/ordinal_gf_lam0.0_seed456_20260806-223909",
       "updated_utc": "2026-08-07T22:07:24Z"
     },
     {
@@ -31,7 +31,7 @@
       "seed": 42,
       "train": "OK",
       "eval": "OK",
-      "save_dir": "/home/dq/Codex/Ai/save/ordinal_gf_lam0.5_seed42_20260806-011512",
+      "save_dir": "<repo>/save/ordinal_gf_lam0.5_seed42_20260806-011512",
       "updated_utc": "2026-08-07T22:07:24Z"
     },
     {
@@ -39,7 +39,7 @@
       "seed": 123,
       "train": "OK",
       "eval": "OK",
-      "save_dir": "/home/dq/Codex/Ai/save/ordinal_gf_lam0.5_seed123_20260807-220728",
+      "save_dir": "<repo>/save/ordinal_gf_lam0.5_seed123_20260807-220728",
       "updated_utc": "2026-08-08T06:46:30Z"
     },
     {
@@ -47,7 +47,7 @@
       "seed": 456,
       "train": "OK",
       "eval": "OK",
-      "save_dir": "/home/dq/Codex/Ai/save/ordinal_gf_lam0.5_seed456_20260807-091349",
+      "save_dir": "<repo>/save/ordinal_gf_lam0.5_seed456_20260807-091349",
       "updated_utc": "2026-08-08T06:46:30Z"
     }
   ]

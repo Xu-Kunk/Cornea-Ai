@@ -60,7 +60,7 @@ Writes only:
   tables/paper1/table_trajectory_continuity.csv
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/analyze_trajectory_continuity.py
+    <venv>/bin/python3 scripts/analyze_trajectory_continuity.py
     ... --preprocess l2pca      # per-cell L2 normalise before PCA
     ... --root lsc_medoid       # root = medoid of LSC cells (frozen space)
 """

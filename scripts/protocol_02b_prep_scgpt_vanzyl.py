@@ -31,7 +31,7 @@ Outputs
 
 Usage
 -----
-    /home/dq/venv-ds/bin/python3 scripts/protocol_02b_prep_scgpt_vanzyl.py \
+    <venv>/bin/python3 scripts/protocol_02b_prep_scgpt_vanzyl.py \
         [--input data/vanzyl_annotated.h5ad] \
         [--output data/scgpt_vanzyl.h5ad] [--force]
 """

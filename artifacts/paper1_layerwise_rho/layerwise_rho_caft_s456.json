@@ -3,7 +3,7 @@
   "arm": "caft",
   "lambda": 0.5,
   "seed": 456,
-  "checkpoint_path": "/home/dq/Codex/Ai/save/caft_gf_lam0.5_seed456_20260802-105959/model/checkpoint-7473",
+  "checkpoint_path": "<repo>/save/caft_gf_lam0.5_seed456_20260802-105959/model/checkpoint-7473",
   "n_layers": 13,
   "layer_labels": [
     "embedding_output",

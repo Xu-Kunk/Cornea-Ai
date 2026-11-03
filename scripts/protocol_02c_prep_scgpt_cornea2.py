@@ -17,9 +17,9 @@ Deltas vs protocol_02b (recorded; method otherwise locked):
 
 Usage
 -----
-    /home/dq/venv-ds/bin/python3 scripts/protocol_02c_prep_scgpt_cornea2.py \
+    <venv>/bin/python3 scripts/protocol_02c_prep_scgpt_cornea2.py \
         --dataset GSE186433 [--force]
-    /home/dq/venv-ds/bin/python3 scripts/protocol_02c_prep_scgpt_cornea2.py \
+    <venv>/bin/python3 scripts/protocol_02c_prep_scgpt_cornea2.py \
         --dataset GSE155683 [--force]
 """
 

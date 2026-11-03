@@ -42,7 +42,7 @@ Outputs (artifacts/paper1_layerwise_rho/):
 figures/paper1/figure_causal_head_ablation.{pdf,png}
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/causal_head_ablation.py \
+    <venv>/bin/python3 scripts/causal_head_ablation.py \
         [--variants A,B,C] [--batch-size 32] [--head-seed 0] [--no-figure]
 
 Inference + label construction + metric mirror scripts/measure_layerwise_rho.py

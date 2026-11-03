@@ -1,5 +1,5 @@
 {
-  "venv": "/home/dq/Codex/Ai/.venv-cellplm",
+  "venv": "<repo>/.venv-cellplm",
   "python": "3.12.3",
   "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
   "machine": "aarch64",
@@ -35,7 +35,7 @@
     {
       "id": "D4",
       "item": "venv location",
-      "detail": "dedicated venv /home/dq/Codex/Ai/.venv-cellplm (repo .venv untouched)."
+      "detail": "dedicated venv <repo>/.venv-cellplm (repo .venv untouched)."
     }
   ],
   "timestamp_utc": "2026-08-19T11:21:45.121670+00:00"

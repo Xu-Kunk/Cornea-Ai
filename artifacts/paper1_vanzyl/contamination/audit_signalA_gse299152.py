@@ -45,10 +45,10 @@ def wait_for_memory(min_gb: float = 2.5, max_wait_s: int = 600) -> None:
         time.sleep(30)
     print("  WARNING: max_wait reached with low memory; proceeding anyway", flush=True)
 
-OUT = Path("/home/dq/Codex/Ai/artifacts/paper1_vanzyl/contamination")
-SHARD_DIR = Path("/home/dq/Codex/Ai/artifacts/paper1_data_audit/corpus_shards")
-DATA_GSE = Path("/home/dq/Codex/Ai/data/gse299152/gse299152_annotated.h5ad")
-GENEFORMER_PKG = Path("/home/dq/venv-ds/lib/python3.12/site-packages/geneformer")
+OUT = Path("<repo>/artifacts/paper1_vanzyl/contamination")
+SHARD_DIR = Path("<repo>/artifacts/paper1_data_audit/corpus_shards")
+DATA_GSE = Path("<repo>/data/gse299152/gse299152_annotated.h5ad")
+GENEFORMER_PKG = Path("<venv>/lib/python3.12/site-packages/geneformer")
 
 REPO = "theodoris-lab/Genecorpus-104M"
 N_SHARDS_TOTAL = 1202

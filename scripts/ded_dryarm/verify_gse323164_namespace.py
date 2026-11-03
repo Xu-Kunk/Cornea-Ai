@@ -20,9 +20,9 @@ from pathlib import Path
 
 import pandas as pd
 
-BASE = Path("/home/dq/Codex/Ai/data/ded_dryarm/gse323164")
-ORTHO_MOUSE = Path("/home/dq/Codex/Ai/data/mouse_human_orthologs.csv")
-ORTHO_RAT = Path("/home/dq/Codex/Ai/data/rat_human_orthologs.csv")
+BASE = Path("<repo>/data/ded_dryarm/gse323164")
+ORTHO_MOUSE = Path("<repo>/data/mouse_human_orthologs.csv")
+ORTHO_RAT = Path("<repo>/data/rat_human_orthologs.csv")
 
 ENSG_RE = re.compile(r"^ENSG\d{11}$")
 SYMBOL_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")

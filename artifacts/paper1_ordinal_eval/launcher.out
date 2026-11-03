@@ -16,7 +16,7 @@
 [09:10:16] λ=0.5 seed=42  evaluating …
 [09:20:20] λ=0.5 seed=42  evaluated → results_0.5_42.json
 
-[09:20:20] status -> /home/dq/Codex/Ai/artifacts/paper1_ordinal_eval/runs_status.json
+[09:20:20] status -> <repo>/artifacts/paper1_ordinal_eval/runs_status.json
 
 ============================================================
 D5 ordinal grid: 2/2 runs trained+evaluated

@@ -37,7 +37,7 @@ run). --dry-run prints the resolved checkpoint paths + skip decisions WITHOUT
 running evaluation (no dataset/model loading, CPU-only).
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/run_method_arms_eval.py [--runs arm:lam:seed,...] [--dry-run]
+    <venv>/bin/python3 scripts/run_method_arms_eval.py [--runs arm:lam:seed,...] [--dry-run]
 """
 
 from __future__ import annotations

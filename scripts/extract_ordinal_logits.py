@@ -29,7 +29,7 @@ Outputs (artifacts/paper1_corn_boundary/):
   percell_<arm>_<seed>.json    summary (counts, monotonic consistency, null)
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/extract_ordinal_logits.py \
+    <venv>/bin/python3 scripts/extract_ordinal_logits.py \
         [--arm lam0.0|lam0.5] [--seed 42|123|456] [--checkpoint PATH]
 Default: --arm lam0.0 --seed 42 and the terminal (final, epoch-3)
 checkpoint of that arm/seed (checkpoint-7473 for all 6 runs).

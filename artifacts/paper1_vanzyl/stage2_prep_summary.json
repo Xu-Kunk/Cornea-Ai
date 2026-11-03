@@ -38,15 +38,15 @@
     "status": "BLOCKED - diagnostics returned, not run",
     "blockers": [
       "scripts/protocol_04_tokenize_gf.py has NO CLI args; hardcodes inputs corneal_100k_subsample.h5ad / corneal_20k_test.h5ad and outputs gf_tokenized_train/test - cannot point --input at van Zyl annotated h5ad",
-      "geneformer module not installed in either p5070 venv (general venv has datasets 2.21.0 only); gene_median_dictionary_gc104M.pkl etc. exist only on local host (/home/dq/venv-ds/lib/python3.12/site-packages/geneformer/*.pkl + HF cache models--ctheodoris--Geneformer 407MB)",
+      "geneformer module not installed in either p5070 venv (general venv has datasets 2.21.0 only); gene_median_dictionary_gc104M.pkl etc. exist only on local host (<venv>/lib/python3.12/site-packages/geneformer/*.pkl + HF cache models--ctheodoris--Geneformer 407MB)",
       "Per hard constraint: script behavior severely mismatches expectation -> stop item, no self-authored replacement logic"
     ],
     "dict_locations_local": {
-      "gene_median_dictionary_gc104M.pkl": "/home/dq/venv-ds/lib/python3.12/site-packages/geneformer/gene_median_dictionary_gc104M.pkl",
-      "token_dictionary_gc104M.pkl": "/home/dq/venv-ds/lib/python3.12/site-packages/geneformer/token_dictionary_gc104M.pkl",
-      "gene_name_id_dict_gc104M.pkl": "/home/dq/venv-ds/lib/python3.12/site-packages/geneformer/gene_name_id_dict_gc104M.pkl",
-      "ensembl_mapping_dict_gc104M.pkl": "/home/dq/venv-ds/lib/python3.12/site-packages/geneformer/ensembl_mapping_dict_gc104M.pkl",
-      "hf_model_cache": "/home/dq/.cache/huggingface/hub/models--ctheodoris--Geneformer (407MB)"
+      "gene_median_dictionary_gc104M.pkl": "<venv>/lib/python3.12/site-packages/geneformer/gene_median_dictionary_gc104M.pkl",
+      "token_dictionary_gc104M.pkl": "<venv>/lib/python3.12/site-packages/geneformer/token_dictionary_gc104M.pkl",
+      "gene_name_id_dict_gc104M.pkl": "<venv>/lib/python3.12/site-packages/geneformer/gene_name_id_dict_gc104M.pkl",
+      "ensembl_mapping_dict_gc104M.pkl": "<venv>/lib/python3.12/site-packages/geneformer/ensembl_mapping_dict_gc104M.pkl",
+      "hf_model_cache": "<cache>/huggingface/hub/models--ctheodoris--Geneformer (407MB)"
     }
   }
 }

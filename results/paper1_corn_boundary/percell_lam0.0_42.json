@@ -3,14 +3,14 @@
     "arm": "lam0.0",
     "lambda": 0.0,
     "seed": 42,
-    "checkpoint": "/home/dq/Codex/Ai/save/ordinal_gf_lam0.0_seed42_20260805-171141/model/checkpoint-7473",
+    "checkpoint": "<repo>/save/ordinal_gf_lam0.0_seed42_20260805-171141/model/checkpoint-7473",
     "step": 7473,
     "epoch": 2.999096476257404,
     "n_thresholds": 3
   },
   "external_test": {
     "accession": "GSE153515",
-    "file": "/home/dq/Codex/Ai/data/gse153515_annotated.h5ad",
+    "file": "<repo>/data/gse153515_annotated.h5ad",
     "n_cells": 14775,
     "n_donors": 2,
     "non_layer_excluded": true

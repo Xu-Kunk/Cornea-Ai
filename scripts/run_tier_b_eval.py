@@ -31,7 +31,7 @@ Reference: Li D-Q, Kim S, et al. Ocul Surf. 2021;20:20-32.
 doi:10.1016/j.jtos.2020.12.004  (PMID: 33388438)
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/run_tier_b_eval.py \
+    <venv>/bin/python3 scripts/run_tier_b_eval.py \
         [--accession gse153515|gse299152] [--runs ARM:]LAM:SEED,... \
         [--skip-tokenize]
 """

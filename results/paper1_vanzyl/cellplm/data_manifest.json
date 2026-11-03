@@ -1,8 +1,8 @@
 {
   "protocol": "protocol_16_prep_cellplm_vanzyl.py",
-  "source": "/home/dq/Codex/Ai/data/vanzyl_annotated.h5ad",
+  "source": "<repo>/data/vanzyl_annotated.h5ad",
   "source_sha256": "fad5e9a71ecd1208e0626049b638e789d22b52563d5a66740570d617df67f4e8",
-  "output": "/home/dq/Codex/Ai/data/vanzyl_cellplm.h5ad",
+  "output": "<repo>/data/vanzyl_cellplm.h5ad",
   "output_sha256": "9ee682780bf259ffce3d7094303c3fcd7f21c2579814fead062f2443723e07f9",
   "analysis_set_rule": "leiden != '0' AND cell_class_4 in {LSC, basal, differentiated} (LOCKED PREREG \u00a77)",
   "test_donor": "sanes2022_Hu0216",

@@ -20,7 +20,7 @@ from pathlib import Path
 
 import pandas as pd
 
-BASE = Path("/home/dq/Codex/Ai/data/ded_dryarm/gse200097")
+BASE = Path("<repo>/data/ded_dryarm/gse200097")
 
 
 def sha256(path: Path) -> str:

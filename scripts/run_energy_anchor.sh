@@ -25,7 +25,7 @@
 set -u
 
 PROJECT="$(cd "$(dirname "$0")/.." && pwd)"
-PY="${PY:-/home/dq/venv-ds/bin/python3}"
+PY="${PY:-<venv>/bin/python3}"
 LOG_DIR="${PROJECT}/save/energy_anchor_grid_logs"
 STATUS_TSV="${LOG_DIR}/runs_status.tsv"
 mkdir -p "${LOG_DIR}"

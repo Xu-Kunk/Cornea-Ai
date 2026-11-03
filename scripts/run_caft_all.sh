@@ -2,8 +2,8 @@
 # ============================================================================
 # CAFT-GF 一键流水线 (λ-Pareto + CS_before/CS_after + GPR + Markdown 汇总)
 #
-# 用法 (在你的 GX10 终端, 干净会话, 后台挂机):
-#   cd /home/dq/Codex/Ai && source ~/venv-ds/bin/activate
+# 用法 (在你的 <compute-node> 终端, 干净会话, 后台挂机):
+#   cd <local>/ && source ~/venv-ds/bin/activate
 #   chmod +x scripts/run_caft_all.sh
 #   nohup bash scripts/run_caft_all.sh > caft_all.log 2>&1 &
 #   echo $! > caft_all.pid

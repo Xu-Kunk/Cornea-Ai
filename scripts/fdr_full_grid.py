@@ -36,7 +36,7 @@ Outputs (artifacts/paper1_vanzyl/fdr/):
   run.log
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/fdr_full_grid.py
+    <venv>/bin/python3 scripts/fdr_full_grid.py
 """
 from __future__ import annotations
 

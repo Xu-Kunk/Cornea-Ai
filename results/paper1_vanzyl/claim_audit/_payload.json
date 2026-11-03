@@ -40,13 +40,13 @@
       "scikit_learn": "1.9.0"
     },
     "input_files": {
-      "frozen_gf": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
-      "naive_s42": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_naive_s42.npz",
-      "naive_s123": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_naive_s123.npz",
-      "naive_s456": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_naive_s456.npz",
-      "caft_s42": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_caft_s42.npz",
-      "caft_s123": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_caft_s123.npz",
-      "caft_s456": "/home/dq/Codex/Ai/artifacts/paper1_tier_b_eval/percell_caft_s456.npz"
+      "frozen_gf": "<repo>/artifacts/paper1_tier_b_eval/percell_frozen_gf.npz",
+      "naive_s42": "<repo>/artifacts/paper1_tier_b_eval/percell_naive_s42.npz",
+      "naive_s123": "<repo>/artifacts/paper1_tier_b_eval/percell_naive_s123.npz",
+      "naive_s456": "<repo>/artifacts/paper1_tier_b_eval/percell_naive_s456.npz",
+      "caft_s42": "<repo>/artifacts/paper1_tier_b_eval/percell_caft_s42.npz",
+      "caft_s123": "<repo>/artifacts/paper1_tier_b_eval/percell_caft_s123.npz",
+      "caft_s456": "<repo>/artifacts/paper1_tier_b_eval/percell_caft_s456.npz"
     },
     "fast_path_checks": {
       "frozen_gf": {

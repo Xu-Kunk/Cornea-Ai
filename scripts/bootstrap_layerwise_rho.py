@@ -67,7 +67,7 @@ Methodology notes
   arms (paired bootstrap), which sharpens cross-arm comparisons.
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/bootstrap_layerwise_rho.py \
+    <venv>/bin/python3 scripts/bootstrap_layerwise_rho.py \
         [--n-boot 1000] [--seed 42] [--layers 12] [--workers 7]
 """
 

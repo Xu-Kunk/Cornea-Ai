@@ -4,7 +4,7 @@
 from pathlib import Path
 from PIL import Image
 
-FIG_DIR = Path("/home/dq/Codex/Ai/figures/paper1")
+FIG_DIR = Path("<repo>/figures/paper1")
 
 # Sample points as fractions of (width, height) chosen to land inside plot areas.
 SAMPLE_FIGURES = {

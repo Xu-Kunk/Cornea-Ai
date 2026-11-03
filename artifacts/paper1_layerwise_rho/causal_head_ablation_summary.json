@@ -57,7 +57,7 @@
       "batch_size": 32,
       "head_seed": 0,
       "body_state": "fine-tuned (naive lambda=0, seed42, checkpoint-7473)",
-      "checkpoint_path": "/home/dq/Codex/Ai/save/caft_gf_lam0.0_seed42_20260731-211824/model/checkpoint-7473",
+      "checkpoint_path": "<repo>/save/caft_gf_lam0.0_seed42_20260731-211824/model/checkpoint-7473",
       "head_state": "trained (from checkpoint)",
       "timestamp_utc": "2026-08-04T08:18:06+00:00",
       "marker_gradient_rho": [
@@ -121,7 +121,7 @@
       "batch_size": 32,
       "head_seed": 0,
       "body_state": "fine-tuned (naive lambda=0, seed42, checkpoint-7473)",
-      "checkpoint_path": "/home/dq/Codex/Ai/save/caft_gf_lam0.0_seed42_20260731-211824/model/checkpoint-7473",
+      "checkpoint_path": "<repo>/save/caft_gf_lam0.0_seed42_20260731-211824/model/checkpoint-7473",
       "head_state": "random (re-initialised, not trained)",
       "timestamp_utc": "2026-08-04T08:29:28+00:00",
       "marker_gradient_rho": [
@@ -186,7 +186,7 @@
       "batch_size": 32,
       "head_seed": 0,
       "body_state": "frozen Geneformer-V2-104M (HF snapshot 04c2b2e8)",
-      "checkpoint_path": "/home/dq/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
+      "checkpoint_path": "<cache>/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
       "head_state": "random (fresh init, not trained)",
       "timestamp_utc": "2026-08-04T08:43:59+00:00",
       "marker_gradient_rho": [

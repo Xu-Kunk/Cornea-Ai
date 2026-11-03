@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Smoke validation of the GX10 speed fixes before the overnight λ-grid.
+# Smoke validation of the <compute-node> speed fixes before the overnight λ-grid.
 # Runs ONE λ (0.5) for ONE epoch with the production caft_gf.py config
 # (bf16, batch=8×grad_accum=4, gradient_checkpointing) and records wall time.
 # PASS criteria (judged from the log afterwards):
@@ -10,7 +10,7 @@
 set -uo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-PY=/home/dq/venv-ds/bin/python
+PY=<venv>/bin/python
 LOG="$ROOT/artifacts/smoke/smoke_1ep.log"
 mkdir -p "$ROOT/artifacts/smoke"
 

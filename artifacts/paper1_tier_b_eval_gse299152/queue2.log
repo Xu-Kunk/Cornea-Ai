@@ -1,12 +1,12 @@
 [2026年 08月 11日 星期二 14:24:37 CST] waiting for GPU to free (poll 5 min, cap 12 h)...
 [2026年 08月 11日 星期二 14:24:37 CST] GPU free (compute=0 util=0). launching eval.
-[2026年 08月 11日 星期二 14:25:37 CST] running: /home/dq/venv-ds/bin/python3 /home/dq/Codex/Ai/scripts/run_tier_b_eval.py --accession gse299152 --runs caft_gf:0.0:42,caft_gf:0.0:123,caft_gf:0.0:456,ordinal_gf:0.0:42,ordinal_gf:0.0:123,ordinal_gf:0.0:456,ordinal_gf:0.5:42,ordinal_gf:0.5:123,ordinal_gf:0.5:456
+[2026年 08月 11日 星期二 14:25:37 CST] running: <venv>/bin/python3 <repo>/scripts/run_tier_b_eval.py --accession gse299152 --runs caft_gf:0.0:42,caft_gf:0.0:123,caft_gf:0.0:456,ordinal_gf:0.0:42,ordinal_gf:0.0:123,ordinal_gf:0.0:456,ordinal_gf:0.5:42,ordinal_gf:0.5:123,ordinal_gf:0.5:456
 /usr/lib/python3.12/functools.py:909: ImplicitModificationWarning: Transforming to str index.
   return dispatch(args[0].__class__)(*args, **kw)
 [14:25:40]  External test accession: gse299152
-[14:25:40]  Config: /home/dq/Codex/Ai/config/external_test_gse299152.yml
-[14:25:40]  External data: /home/dq/Codex/Ai/data/gse299152/gse299152_annotated.h5ad
-[14:25:40]  Static checks: {'config_exists': True, 'config_locked': True, 'manifest_exists': True, 'manifest_donor_overlap': 0, 'manifest_donor_overlap_ok': True, 'fair_protocol_epochs': 3, 'legacy_data_refs': [], 'legacy_data_rejected': True, 'external_test_file': '/home/dq/Codex/Ai/data/gse299152/gse299152_annotated.h5ad', 'external_test_exists': True, 'train_data_file': '/home/dq/Codex/Ai/data/corneal_100k_donor_split.h5ad', 'train_data_exists': True, 'passed': True}
+[14:25:40]  Config: <repo>/config/external_test_gse299152.yml
+[14:25:40]  External data: <repo>/data/gse299152/gse299152_annotated.h5ad
+[14:25:40]  Static checks: {'config_exists': True, 'config_locked': True, 'manifest_exists': True, 'manifest_donor_overlap': 0, 'manifest_donor_overlap_ok': True, 'fair_protocol_epochs': 3, 'legacy_data_refs': [], 'legacy_data_rejected': True, 'external_test_file': '<repo>/data/gse299152/gse299152_annotated.h5ad', 'external_test_exists': True, 'train_data_file': '<repo>/data/corneal_100k_donor_split.h5ad', 'train_data_exists': True, 'passed': True}
 [14:25:40]  Runs requested: [('caft_gf', 0.0, 42), ('caft_gf', 0.0, 123), ('caft_gf', 0.0, 456), ('ordinal_gf', 0.0, 42), ('ordinal_gf', 0.0, 123), ('ordinal_gf', 0.0, 456), ('ordinal_gf', 0.5, 42), ('ordinal_gf', 0.5, 123), ('ordinal_gf', 0.5, 456)]
 [14:25:40]  GPU detected: NVIDIA GB10
 [14:25:40]  Device: cuda
@@ -14,16 +14,26 @@
 [14:25:42]  Promoted layers['counts'] -> X (scaled matrix found in X).
 [14:25:42]  var.index holds gene symbols; remapping to Ensembl IDs (var['gene_ids']) for tokenization.
 Tokenizing /tmp/tierb_tokenize_3m_a2m7n/external.h5ad
-  0%|          | 0/47 [00:00<?, ?it/s] 11%|█         | 5/47 [00:00<00:00, 47.79it/s] 23%|██▎       | 11/47 [00:00<00:00, 53.75it/s] 36%|███▌      | 17/47 [00:00<00:00, 54.49it/s] 49%|████▉     | 23/47 [00:00<00:00, 54.79it/s] 62%|██████▏   | 29/47 [00:00<00:00, 55.33it/s] 74%|███████▍  | 35/47 [00:00<00:00, 36.35it/s] 85%|████████▌ | 40/47 [00:00<00:00, 39.37it/s] 98%|█████████▊| 46/47 [00:01<00:00, 43.12it/s]100%|██████████| 47/47 [00:01<00:00, 45.38it/s]
+
+  0%|          | 0/47 [00:00<?, ?it/s]
+ 11%|█         | 5/47 [00:00<00:00, 47.79it/s]
+ 23%|██▎       | 11/47 [00:00<00:00, 53.75it/s]
+ 36%|███▌      | 17/47 [00:00<00:00, 54.49it/s]
+ 49%|████▉     | 23/47 [00:00<00:00, 54.79it/s]
+ 62%|██████▏   | 29/47 [00:00<00:00, 55.33it/s]
+ 74%|███████▍  | 35/47 [00:00<00:00, 36.35it/s]
+ 85%|████████▌ | 40/47 [00:00<00:00, 39.37it/s]
+ 98%|█████████▊| 46/47 [00:01<00:00, 43.12it/s]
+100%|██████████| 47/47 [00:01<00:00, 45.38it/s]
 /tmp/tierb_tokenize_3m_a2m7n/external.h5ad has no column attribute 'filter_pass'; tokenizing all cells.
 Creating dataset.
 `torch_dtype` is deprecated! Use `dtype` instead!
-[14:26:07]  Tokenized 23970 cells -> /home/dq/Codex/Ai/artifacts/paper1_tier_b_eval_gse299152/external_tokenized/cell.dataset
+[14:26:07]  Tokenized 23970 cells -> <repo>/artifacts/paper1_tier_b_eval_gse299152/external_tokenized/cell.dataset
 [14:26:11]  Epithelial filter: 21374/23970 cells (NON_LAYER excluded).
 [14:26:11]  External eval cells: 21374
 [14:26:11]  Training data (leakage checks): 99606 cells
 
-[14:26:11]  === arm=caft_gf lam=0.0 seed=42 step=7473 (/home/dq/Codex/Ai/save/caft_gf_lam0.0_seed42_20260731-211824/model/checkpoint-7473) ===
+[14:26:11]  === arm=caft_gf lam=0.0 seed=42 step=7473 (<repo>/save/caft_gf_lam0.0_seed42_20260731-211824/model/checkpoint-7473) ===
 [14:26:11]  id->class map: 31 classes (e.g. 3 -> Fetal Endothelium and Endothelial Progenitors)
 [14:26:26]    inference batch 10/668
 [14:26:39]    inference batch 20/668
@@ -93,9 +103,9 @@ Creating dataset.
 [14:41:05]    inference batch 660/668
 [14:41:16]    inference batch 668/668
 [14:41:16]  Predicted epithelial: 6819/21374
-[14:41:19]  Saved /home/dq/Codex/Ai/artifacts/paper1_tier_b_eval_gse299152/results_0.0_42.json
+[14:41:19]  Saved <repo>/artifacts/paper1_tier_b_eval_gse299152/results_0.0_42.json
 
-[14:41:19]  === arm=caft_gf lam=0.0 seed=123 step=7473 (/home/dq/Codex/Ai/save/caft_gf_lam0.0_seed123_20260801-045551/model/checkpoint-7473) ===
+[14:41:19]  === arm=caft_gf lam=0.0 seed=123 step=7473 (<repo>/save/caft_gf_lam0.0_seed123_20260801-045551/model/checkpoint-7473) ===
 [14:41:19]  id->class map: 31 classes (e.g. 3 -> CC_VenEndo)
 [14:41:34]    inference batch 10/668
 [14:41:47]    inference batch 20/668
@@ -165,9 +175,9 @@ Creating dataset.
 [14:56:05]    inference batch 660/668
 [14:56:16]    inference batch 668/668
 [14:56:16]  Predicted epithelial: 6936/21374
-[14:56:19]  Saved /home/dq/Codex/Ai/artifacts/paper1_tier_b_eval_gse299152/results_0.0_123.json
+[14:56:19]  Saved <repo>/artifacts/paper1_tier_b_eval_gse299152/results_0.0_123.json
 
-[14:56:19]  === arm=caft_gf lam=0.0 seed=456 step=7473 (/home/dq/Codex/Ai/save/caft_gf_lam0.0_seed456_20260801-123417/model/checkpoint-7473) ===
+[14:56:19]  === arm=caft_gf lam=0.0 seed=456 step=7473 (<repo>/save/caft_gf_lam0.0_seed456_20260801-123417/model/checkpoint-7473) ===
 [14:56:19]  id->class map: 31 classes (e.g. 3 -> Epi-TDC/PMC)
 [14:56:34]    inference batch 10/668
 [14:56:47]    inference batch 20/668
@@ -237,37 +247,37 @@ Creating dataset.
 [15:11:06]    inference batch 660/668
 [15:11:16]    inference batch 668/668
 [15:11:16]  Predicted epithelial: 6917/21374
-[15:11:20]  Saved /home/dq/Codex/Ai/artifacts/paper1_tier_b_eval_gse299152/results_0.0_456.json
+[15:11:20]  Saved <repo>/artifacts/paper1_tier_b_eval_gse299152/results_0.0_456.json
 
-[15:11:20]  === arm=ordinal_gf lam=0.0 seed=42 step=7473 (/home/dq/Codex/Ai/save/ordinal_gf_lam0.0_seed42_20260805-171141/model/checkpoint-7473) ===
+[15:11:20]  === arm=ordinal_gf lam=0.0 seed=42 step=7473 (<repo>/save/ordinal_gf_lam0.0_seed42_20260805-171141/model/checkpoint-7473) ===
 [15:11:20]  id->class map: 31 classes (e.g. 3 -> Fetal Keratocytes)
 Traceback (most recent call last):
-  File "/home/dq/Codex/Ai/scripts/run_tier_b_eval.py", line 643, in <module>
+  File "<repo>/scripts/run_tier_b_eval.py", line 643, in <module>
     sys.exit(main())
              ^^^^^^
-  File "/home/dq/Codex/Ai/scripts/run_tier_b_eval.py", line 577, in main
+  File "<repo>/scripts/run_tier_b_eval.py", line 577, in main
     model = BertForSequenceClassification.from_pretrained(
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
     return func(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5048, in from_pretrained
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5048, in from_pretrained
     ) = cls._load_pretrained_model(
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5468, in _load_pretrained_model
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5468, in _load_pretrained_model
     _error_msgs, disk_offload_index = load_shard_file(args)
                                       ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 843, in load_shard_file
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 843, in load_shard_file
     disk_offload_index = _load_state_dict_into_meta_model(
                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+  File "<venv>/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
     return func(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 770, in _load_state_dict_into_meta_model
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 770, in _load_state_dict_into_meta_model
     _load_parameter_into_model(model, param_name, param.to(param_device))
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 667, in _load_parameter_into_model
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 667, in _load_parameter_into_model
     module.load_state_dict({param_type: tensor}, strict=False, assign=True)
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/torch/nn/modules/module.py", line 2638, in load_state_dict
+  File "<venv>/lib/python3.12/site-packages/torch/nn/modules/module.py", line 2638, in load_state_dict
     raise RuntimeError(
 RuntimeError: Error(s) in loading state_dict for Linear:
 	size mismatch for bias: copying a param with shape torch.Size([3]) from checkpoint, the shape in current model is torch.Size([31]).

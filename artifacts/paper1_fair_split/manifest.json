@@ -199,8 +199,8 @@
     "train_h5ad": "bc357c7d57977ab8af95cc97a33d257dc5273919f21cb1792d54f97646bb39b6"
   },
   "input_paths": {
-    "test_h5ad": "/home/dq/Codex/Ai/data/corneal_20k_donor_split.h5ad",
-    "train_h5ad": "/home/dq/Codex/Ai/data/corneal_100k_donor_split.h5ad"
+    "test_h5ad": "<repo>/data/corneal_20k_donor_split.h5ad",
+    "train_h5ad": "<repo>/data/corneal_100k_donor_split.h5ad"
   },
   "layer_mapping": {
     "author_cell_type_to_layer": {

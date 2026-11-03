@@ -48,7 +48,7 @@
     "token_dictionary_gc104M.pkl": "67c445f4385127adfc48dcc072320cd65d6822829bf27dd38070e6e787bc597f",
     "gene_name_id_dict_gc104M.pkl": "fabfa0c2f49c598c59ae432a32c3499a5908c033756c663b5e0cddf58deea8e1",
     "ensembl_mapping_dict_gc104M.pkl": "0819bcbd869cfa14279449b037eb9ed1d09a91310e77bd1a19d927465030e95c",
-    "verified": "all four identical to local /home/dq/venv-ds copies"
+    "verified": "all four identical to local <local>/ copies"
   },
   "dependencies_added": [
     "torch 2.13.0+cpu (CPU wheel, official pytorch index)",

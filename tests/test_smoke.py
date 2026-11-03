@@ -24,7 +24,7 @@ def test_config_loading():
     assert len(config["cross_species"]["species"]) == 4
 
 
-# TODO: Add GPU smoke test when GX10 is available:
+# TODO: Add GPU smoke test when <compute-node> is available:
 # def test_dry_run_1k_cells():
 #     """Verify fine-tuning runs on 1k cells without OOM."""
 #     result = subprocess.run([...])

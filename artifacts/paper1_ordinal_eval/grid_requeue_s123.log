@@ -25,7 +25,7 @@
 
 [06:46:30] λ=0.5 seed=456  eval already present → skip
 
-[06:46:30] status -> /home/dq/Codex/Ai/artifacts/paper1_ordinal_eval/runs_status.json
+[06:46:30] status -> <repo>/artifacts/paper1_ordinal_eval/runs_status.json
 
 ============================================================
 D5 ordinal grid: 6/6 runs trained+evaluated

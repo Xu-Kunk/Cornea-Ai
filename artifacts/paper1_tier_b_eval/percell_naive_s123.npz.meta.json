@@ -3,7 +3,7 @@
   "arm": "naive",
   "lambda": 0.0,
   "seed": 123,
-  "checkpoint_path": "/home/dq/Codex/Ai/save/caft_gf_lam0.0_seed123_20260801-045551/model/checkpoint-7473",
+  "checkpoint_path": "<repo>/save/caft_gf_lam0.0_seed123_20260801-045551/model/checkpoint-7473",
   "n_cells_external": 14775,
   "n_cells_internal": 6924,
   "sanity_gate_external": {

@@ -1,6 +1,6 @@
 ================================================================
 [2026-08-18 11:21:19] lane.log START (van Zyl Stage 1)
-[2026-08-18 11:21:19] command: /home/dq/venv-ds/bin/python3 scripts/protocol_15c_annotate_vanzyl.py --force
+[2026-08-18 11:21:19] command: <venv>/bin/python3 scripts/protocol_15c_annotate_vanzyl.py --force
 [2026-08-18 11:21:19] python: Python 3.12.3
 [2026-08-18 11:21:19] scanpy: 1.12.2
 [2026-08-18 11:21:21] anndata: 0.13.2

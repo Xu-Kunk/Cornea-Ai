@@ -20,7 +20,7 @@ Outputs (artifacts/paper1_hp_aft/layerwise_rho/):
     layerwise_rho_<mode>_lam<λ>_s<seed>.json   summary.json (all arms x 13 layers)
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/measure_hp_aft_rho.py \
+    <venv>/bin/python3 scripts/measure_hp_aft_rho.py \
         [--runs lwc:0.5:42,headfreeze:0.5:42] [--batch-size 32]
 """
 

@@ -53,7 +53,7 @@ Outputs
 
 Usage
 -----
-    /home/dq/venv-ds/bin/python3 scripts/protocol_15c_annotate_vanzyl.py \
+    <venv>/bin/python3 scripts/protocol_15c_annotate_vanzyl.py \
         [--input-central data/vanzyl_central_cornea.h5ad] \
         [--input-wedge data/vanzyl_tm_wedge.h5ad] \
         [--output data/vanzyl_annotated.h5ad] [--force] \

@@ -50,7 +50,7 @@ RESULTS_TSV = RESULTS_DIR / "results.tsv"
 LAMBDA_GRID = [0.01, 0.1, 0.5, 1.0, 5.0, 10.0]
 SEED = 42
 
-# Robust GX10 guards: the GB10 shares 128 GB between CPU and GPU, and a global
+# Robust <compute-node> guards: the GB10 shares 128 GB between CPU and GPU, and a global
 # OOM can freeze the whole host (NVIDIA forum / pytorch#174358). Keep a generous
 # headroom and never start a run hot or memory-pressured.
 MIN_AVAIL_GB = 40.0          # refuse to (re)start a λ unless >= this much RAM is available
@@ -120,7 +120,7 @@ def wait_until_ready(lam: float) -> None:
 
 
 def preflight() -> None:
-    """Verify GX10 prerequisites; exit(1) if any check fails."""
+    """Verify <compute-node> prerequisites; exit(1) if any check fails."""
     print(f"{_ts()} pre-flight checks …", flush=True)
 
     # 1. swap must be off (only header line present)
@@ -223,7 +223,7 @@ def run_caft(lam: float) -> Path | None:
     log_path = RESULTS_DIR / f"caft_lam{lam}.log"
     t0 = time.time()
     with open(log_path, "w") as logf:
-        proc = subprocess.run(cmd, stdout=logf, stderr=subprocess.STDOUT, timeout=172800)  # 48h — GX10 trains ~11-13h/λ
+        proc = subprocess.run(cmd, stdout=logf, stderr=subprocess.STDOUT, timeout=172800)  # 48h — <compute-node> trains ~11-13h/λ
     wall = (time.time() - t0) / 60
 
     if proc.returncode != 0:

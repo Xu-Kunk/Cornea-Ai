@@ -41,5 +41,5 @@
     "max_top_jaccard": 0.0
   },
   "runtime_s": 1107.7,
-  "download_dir": "/home/dq/Codex/Ai/artifacts/paper1_data_audit/corpus_shards"
+  "download_dir": "<repo>/artifacts/paper1_data_audit/corpus_shards"
 }

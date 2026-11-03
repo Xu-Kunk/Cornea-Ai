@@ -21,7 +21,7 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path("/home/dq/Codex/Ai")
+ROOT = Path("<local>/")
 sys.path.insert(0, str(ROOT))
 
 from corneal_fm.evaluation import (  # noqa: E402

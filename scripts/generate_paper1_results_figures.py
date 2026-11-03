@@ -63,8 +63,8 @@ Notes
 
 Usage
 -----
-    /home/dq/venv-ds/bin/python3 scripts/generate_paper1_results_figures.py
-    /home/dq/venv-ds/bin/python3 scripts/generate_paper1_results_figures.py \
+    <venv>/bin/python3 scripts/generate_paper1_results_figures.py
+    <venv>/bin/python3 scripts/generate_paper1_results_figures.py \
         --results_dir artifacts/paper1_tier_b_eval --output_dir figures/paper1
 """
 

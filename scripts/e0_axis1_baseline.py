@@ -220,7 +220,7 @@ def _frozen_embeddings(
             # Right-pad the variable-length tokenized cells to a rectangular tensor and
             # mask padded positions so the [CLS] at position 0 only attends to real tokens.
             # Keep the batch modest: attention memory is O(batch*seq^2) and large batches
-            # froze the GX10's unified memory. last_hidden_state[:,0] == hidden_states[-1][:0]
+            # froze the <compute-node>'s unified memory. last_hidden_state[:,0] == hidden_states[-1][:0]
             # but avoids materializing every layer's output.
             max_len = int(lengths.max().item()) if seqs else 0
             input_ids = torch.full((len(seqs), max_len), pad_token_id, dtype=torch.long, device=device)

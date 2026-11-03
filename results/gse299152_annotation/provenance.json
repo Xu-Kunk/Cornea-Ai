@@ -17,7 +17,7 @@
     "melanocyte": "NON_LAYER",
     "stromal": "NON_LAYER"
   },
-  "input": "/home/dq/Codex/Ai/data/gse299152/gse299152_human_raw.h5ad",
+  "input": "<repo>/data/gse299152/gse299152_human_raw.h5ad",
   "input_shape": [
     26628,
     36601
@@ -35,7 +35,7 @@
   "n_marker_sets": 8,
   "n_pcs": 30,
   "non_epi_threshold": 0.3,
-  "output": "/home/dq/Codex/Ai/data/gse299152/gse299152_annotated.h5ad",
+  "output": "<repo>/data/gse299152/gse299152_annotated.h5ad",
   "output_shape": [
     23970,
     11274
@@ -55,10 +55,10 @@
   "script_sha256": "9bc1852c8717f45523b1dae19e9508aef5e26836bf901de6bd7b428d78bae786",
   "seed": 42,
   "strict_variant": {
-    "input": "/home/dq/Codex/Ai/data/gse299152/gse299152_annotated.h5ad",
+    "input": "<repo>/data/gse299152/gse299152_annotated.h5ad",
     "n_cells_remapped": 2385,
     "note": "Same schema/QC/annotation as the as-is file; only the harmonized labels (cell_type / cell_type_harmonized / layer_index / layer / is_epithelial) of the low-confidence clusters 7/11/12/13 are overridden to NON_LAYER=-1. cell_type_raw retained. As-is annotation file not modified.",
-    "output": "/home/dq/Codex/Ai/data/gse299152/gse299152_annotated_strict.h5ad",
+    "output": "<repo>/data/gse299152/gse299152_annotated_strict.h5ad",
     "output_shape": [
       23970,
       11274

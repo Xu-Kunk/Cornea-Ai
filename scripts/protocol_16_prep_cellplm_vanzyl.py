@@ -33,7 +33,7 @@ import pandas as pd
 import scipy.sparse as sp
 import anndata as ad
 
-PROJECT_ROOT = Path("/home/dq/Codex/Ai")
+PROJECT_ROOT = Path("<local>/")
 SRC_H5AD = PROJECT_ROOT / "data" / "vanzyl_annotated.h5ad"
 OUT_H5AD = PROJECT_ROOT / "data" / "vanzyl_cellplm.h5ad"
 OUT_DIR = PROJECT_ROOT / "artifacts" / "paper1_vanzyl" / "cellplm"

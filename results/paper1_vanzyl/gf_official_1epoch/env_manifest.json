@@ -22,7 +22,7 @@
     "multiprocess": "0.70.19"
   },
   "notes": [
-    "local /home/dq/venv-ds: transformers 4.57.6 + geneformer 0.1.0 == p5070 versions (the LOCKED 3-epoch runs' environment lineage)",
+    "local <local>/: transformers 4.57.6 + geneformer 0.1.0 == p5070 versions (the LOCKED 3-epoch runs' environment lineage)",
     "repo/.venv (scGPT lane) NOT touched; contains transformers 5.15.0/datasets 2.21.0 (incompatible with geneformer stack)",
     "bitsandbytes / ray NOT installed (not on the caft_gf.py code path: bf16 weights, no 8-bit, num_crossval_splits=1, build_caft_trainer bypasses Classifier.train)",
     "imports verified on p5070: corneal_fm.caft/config/utils + geneformer.Classifier + click CLI parse",

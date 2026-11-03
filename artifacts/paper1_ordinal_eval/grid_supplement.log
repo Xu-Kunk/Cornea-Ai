@@ -13,16 +13,16 @@
 [22:27:38] λ=0.0 seed=123  evaluating …
 [22:39:06] λ=0.0 seed=123  EVAL FAILED (rc=1)
 `torch_dtype` is deprecated! Use `dtype` instead!
-/home/dq/Codex/Ai/corneal_fm/evaluation.py:500: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+<repo>/corneal_fm/evaluation.py:500: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
   rho, _ = spearmanr(pseudotime, ordinals)
 Traceback (most recent call last):
-  File "/home/dq/Codex/Ai/scripts/run_ordinal_eval.py", line 438, in <module>
+  File "<repo>/scripts/run_ordinal_eval.py", line 438, in <module>
     sys.exit(main())
              ^^^^^^
-  File "/home/dq/Codex/Ai/scripts/run_ordinal_eval.py", line 334, in main
+  File "<repo>/scripts/run_ordinal_eval.py", line 334, in main
     results = evaluate_on_external_test(
               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/Codex/Ai/corneal_fm/evaluation.py", line 650, in evaluate_on_external_test
+  File "<repo>/corneal_fm/evaluation.py", line 650, in evaluate_on_external_test
     "timestamp_utc": datetime.now(datetime.UTC).isoformat(timespec="seconds"),
                                   ^^^^^^^^^^^^
 AttributeError: type object 'datetime.datetime' has no attribute 'UTC'
@@ -39,7 +39,7 @@ AttributeError: type object 'datetime.datetime' has no attribute 'UTC'
 [06:24:20] λ=0.5 seed=123  ready (GPU 63 °C, 95 GiB avail)
 
 [06:24:20] λ=0.5 seed=123  ordinal training starting …
-[09:13:44] λ=0.5 seed=123  TRAIN FAILED (rc=-9, 169.4 min); log: /home/dq/Codex/Ai/artifacts/paper1_ordinal_eval/logs/ordinal_lam0.5_seed123.log
+[09:13:44] λ=0.5 seed=123  TRAIN FAILED (rc=-9, 169.4 min); log: <repo>/artifacts/paper1_ordinal_eval/logs/ordinal_lam0.5_seed123.log
 00/7473 [2:45:41<1:03:51,  1.32it/s]
                                                        
 {'loss': -0.2223, 'grad_norm': 3.296875, 'learning_rate': 3.638319231320809e-05, 'epoch': 0.96}
@@ -84,7 +84,7 @@ AttributeError: type object 'datetime.datetime' has no attribute 'UTC'
 [17:30:46] λ=0.5 seed=456  evaluating …
 [17:41:24] λ=0.5 seed=456  evaluated → results_0.5_456.json
 
-[17:41:24] status -> /home/dq/Codex/Ai/artifacts/paper1_ordinal_eval/runs_status.json
+[17:41:24] status -> <repo>/artifacts/paper1_ordinal_eval/runs_status.json
 
 ============================================================
 D5 ordinal grid: 4/6 runs trained+evaluated

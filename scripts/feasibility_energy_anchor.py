@@ -20,7 +20,7 @@ import sys
 import time
 from pathlib import Path
 
-PROJECT = Path("/home/dq/Codex/Ai")
+PROJECT = Path("<local>/")
 sys.path.insert(0, str(PROJECT))
 sys.path.insert(0, str(PROJECT / "scripts"))
 

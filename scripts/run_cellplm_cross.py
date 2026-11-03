@@ -40,7 +40,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-PROJECT_ROOT = Path("/home/dq/Codex/Ai")
+PROJECT_ROOT = Path("<local>/")
 sys.path.insert(0, str(PROJECT_ROOT))  # for corneal_fm
 
 from corneal_fm.evaluation import marker_gradient_correlation  # noqa: E402

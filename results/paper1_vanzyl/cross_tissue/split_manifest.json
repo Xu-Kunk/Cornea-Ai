@@ -1,7 +1,7 @@
 {
   "task": "scGPT cross-tissue epidermis arm (approved supplementary)",
   "dataset": "Wang2020_GSE147424 (v14 product wang2020_processed.h5ad)",
-  "source": "/home/dq/Codex/Ai/artifacts/paper1_epidermis_eval/wang2020_processed.h5ad",
+  "source": "<repo>/artifacts/paper1_epidermis_eval/wang2020_processed.h5ad",
   "source_sha256": "d634f47b5c8a743e288b8f71ede3173488d4fd652e03e62808c65e9c989b44de",
   "layer_order": [
     "basal",

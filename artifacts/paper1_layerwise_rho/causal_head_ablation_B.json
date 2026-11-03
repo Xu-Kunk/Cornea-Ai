@@ -36,7 +36,7 @@
   "batch_size": 32,
   "head_seed": 0,
   "body_state": "fine-tuned (naive lambda=0, seed42, checkpoint-7473)",
-  "checkpoint_path": "/home/dq/Codex/Ai/save/caft_gf_lam0.0_seed42_20260731-211824/model/checkpoint-7473",
+  "checkpoint_path": "<repo>/save/caft_gf_lam0.0_seed42_20260731-211824/model/checkpoint-7473",
   "head_state": "random (re-initialised, not trained)",
   "timestamp_utc": "2026-08-04T08:29:28+00:00",
   "marker_gradient_rho": [

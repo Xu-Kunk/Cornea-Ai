@@ -1,6 +1,6 @@
 {
   "rule": "10% of the non-test cells stratified by ordinal_layer (seed 42), mirrors lock_val_split.py; val lives inside the train h5ad (16,519 rows) and is masked by val_indices.npz",
-  "source": "/home/dq/Codex/Ai/artifacts/paper1_vanzyl/cross_tissue/scgpt_epidermis_train.h5ad",
+  "source": "<repo>/artifacts/paper1_vanzyl/cross_tissue/scgpt_epidermis_train.h5ad",
   "n_cells_total": 16519,
   "n_train": 14683,
   "n_val": 1836,

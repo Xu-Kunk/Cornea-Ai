@@ -50,7 +50,7 @@ fonttools==4.63.0
 fqdn==1.5.1
 frozenlist==1.8.0
 fsspec==2026.4.0
-geneformer @ file:///home/dq/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5
+geneformer @ file://<cache>/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5
 google-crc32c==1.8.0
 greenlet==3.5.4
 grpcio==1.82.1

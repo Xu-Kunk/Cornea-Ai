@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ============================================================================
 # Corneal-FM CAFT — Day-3 autonomous pipeline (runs detached in tmux overnight).
-# Idempotent: each step skips if its output already exists. Re-applies the GX10
+# Idempotent: each step skips if its output already exists. Re-applies the <compute-node>
 # guardrails between long GPU steps.
 #
 #   STEP 1  E0      frozen scFM vs HVG/PCA on the FULL donor-disjoint split (gate).
@@ -10,18 +10,18 @@
 #   STEP 4  GPR     CS_before (pretrained) + CS_after (naive) + bootstrap 95% CI.
 #   STEP 5  report  consolidated summary + A/B/C scenario -> Day3_STOP_REPORT.md.
 #
-# GX10 forum guardrails applied throughout (unified-memory OOM zombie = P1,
+# <compute-node> forum guardrails applied throughout (unified-memory OOM zombie = P1,
 # silent 85-95C thermal shutdown = P2): swap off, swappiness=1, GPU clock cap
 # 300-2200 MHz, PYTORCH_CUDA_ALLOC_CONF=expandable_segments:False. vLLM must be
 # stopped before launch (it reserves ~97GB unified memory and freezes the box).
 # ============================================================================
 set -uo pipefail
-cd /home/dq/Codex/Ai
+cd <local>/
 source ~/venv-ds/bin/activate
 export HF_ENDPOINT=https://hf-mirror.com
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:False
-PY=/home/dq/venv-ds/bin/python
-PRETRAINED=/home/dq/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M
+PY=<venv>/bin/python
+PRETRAINED=<cache>/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M
 OUT=artifacts/day3-20260723
 PIPELOG=$OUT/day3_pipeline.log
 
@@ -158,7 +158,7 @@ else:
 lines = [
     "# Corneal-FM CAFT — Day-3 Decision Report",
     "",
-    "> 自主通宵管线产出 · GX10 (GB10 Blackwell, CUDA13) · seed 42 · 映射 v2026-07-23 (PI ratified)",
+    "> 自主通宵管线产出 · <compute-node> (GB10 Blackwell, CUDA13) · seed 42 · 映射 v2026-07-23 (PI ratified)",
     "",
     "## E0 — Axis-1 cell discrimination gate (full donor-disjoint split)",
     "",

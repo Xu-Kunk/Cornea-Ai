@@ -1,12 +1,12 @@
 [2026年 08月 11日 星期二 14:09:30 CST] waiting for GPU to free (poll 5 min, cap 12 h)...
 [2026年 08月 11日 星期二 14:09:30 CST] GPU free (compute=0 util=0). launching eval.
-[2026年 08月 11日 星期二 14:10:30 CST] running: /home/dq/venv-ds/bin/python3 /home/dq/Codex/Ai/scripts/run_tier_b_eval.py --accession gse299152 --runs caft_gf:0.0:42,caft_gf:0.0:123,caft_gf:0.0:456,ordinal_gf:0.0:42,ordinal_gf:0.0:123,ordinal_gf:0.0:456,ordinal_gf:0.5:42,ordinal_gf:0.5:123,ordinal_gf:0.5:456
+[2026年 08月 11日 星期二 14:10:30 CST] running: <venv>/bin/python3 <repo>/scripts/run_tier_b_eval.py --accession gse299152 --runs caft_gf:0.0:42,caft_gf:0.0:123,caft_gf:0.0:456,ordinal_gf:0.0:42,ordinal_gf:0.0:123,ordinal_gf:0.0:456,ordinal_gf:0.5:42,ordinal_gf:0.5:123,ordinal_gf:0.5:456
 /usr/lib/python3.12/functools.py:909: ImplicitModificationWarning: Transforming to str index.
   return dispatch(args[0].__class__)(*args, **kw)
 [14:10:34]  External test accession: gse299152
-[14:10:34]  Config: /home/dq/Codex/Ai/config/external_test_gse299152.yml
-[14:10:34]  External data: /home/dq/Codex/Ai/data/gse299152/gse299152_annotated.h5ad
-[14:10:34]  Static checks: {'config_exists': True, 'config_locked': True, 'manifest_exists': True, 'manifest_donor_overlap': 0, 'manifest_donor_overlap_ok': True, 'fair_protocol_epochs': 3, 'legacy_data_refs': [], 'legacy_data_rejected': True, 'external_test_file': '/home/dq/Codex/Ai/data/gse299152/gse299152_annotated.h5ad', 'external_test_exists': True, 'train_data_file': '/home/dq/Codex/Ai/data/corneal_100k_donor_split.h5ad', 'train_data_exists': True, 'passed': True}
+[14:10:34]  Config: <repo>/config/external_test_gse299152.yml
+[14:10:34]  External data: <repo>/data/gse299152/gse299152_annotated.h5ad
+[14:10:34]  Static checks: {'config_exists': True, 'config_locked': True, 'manifest_exists': True, 'manifest_donor_overlap': 0, 'manifest_donor_overlap_ok': True, 'fair_protocol_epochs': 3, 'legacy_data_refs': [], 'legacy_data_rejected': True, 'external_test_file': '<repo>/data/gse299152/gse299152_annotated.h5ad', 'external_test_exists': True, 'train_data_file': '<repo>/data/corneal_100k_donor_split.h5ad', 'train_data_exists': True, 'passed': True}
 [14:10:34]  Runs requested: [('caft_gf', 0.0, 42), ('caft_gf', 0.0, 123), ('caft_gf', 0.0, 456), ('ordinal_gf', 0.0, 42), ('ordinal_gf', 0.0, 123), ('ordinal_gf', 0.0, 456), ('ordinal_gf', 0.5, 42), ('ordinal_gf', 0.5, 123), ('ordinal_gf', 0.5, 456)]
 [14:10:34]  GPU detected: NVIDIA GB10
 [14:10:34]  Device: cuda
@@ -14,7 +14,17 @@
 [14:10:39]  Promoted layers['counts'] -> X (scaled matrix found in X).
 [14:10:39]  var.index holds gene symbols; remapping to Ensembl IDs (var['gene_ids']) for tokenization.
 Tokenizing /tmp/tierb_tokenize_4as0pijd/external.h5ad
-  0%|          | 0/47 [00:00<?, ?it/s] 11%|█         | 5/47 [00:00<00:00, 46.73it/s] 23%|██▎       | 11/47 [00:00<00:00, 53.01it/s] 36%|███▌      | 17/47 [00:00<00:00, 52.37it/s] 49%|████▉     | 23/47 [00:00<00:00, 53.62it/s] 62%|██████▏   | 29/47 [00:00<00:00, 55.06it/s] 74%|███████▍  | 35/47 [00:00<00:00, 37.26it/s] 87%|████████▋ | 41/47 [00:00<00:00, 40.60it/s]100%|██████████| 47/47 [00:01<00:00, 44.47it/s]100%|██████████| 47/47 [00:01<00:00, 45.70it/s]
+
+  0%|          | 0/47 [00:00<?, ?it/s]
+ 11%|█         | 5/47 [00:00<00:00, 46.73it/s]
+ 23%|██▎       | 11/47 [00:00<00:00, 53.01it/s]
+ 36%|███▌      | 17/47 [00:00<00:00, 52.37it/s]
+ 49%|████▉     | 23/47 [00:00<00:00, 53.62it/s]
+ 62%|██████▏   | 29/47 [00:00<00:00, 55.06it/s]
+ 74%|███████▍  | 35/47 [00:00<00:00, 37.26it/s]
+ 87%|████████▋ | 41/47 [00:00<00:00, 40.60it/s]
+100%|██████████| 47/47 [00:01<00:00, 44.47it/s]
+100%|██████████| 47/47 [00:01<00:00, 45.70it/s]
 /tmp/tierb_tokenize_4as0pijd/external.h5ad has no column attribute 'filter_pass'; tokenizing all cells.
 Creating dataset.
 `torch_dtype` is deprecated! Use `dtype` instead!

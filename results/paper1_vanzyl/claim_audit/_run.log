@@ -24,4 +24,4 @@
           2000/2000 (282s)
 [null] 2000 label permutations per arm
 [knn] k = 1, 5, 10
-[done] wrote /home/dq/Codex/Ai/results/paper1_vanzyl/claim_audit/delta_rho_laa.json in 357.4s
+[done] wrote <repo>/results/paper1_vanzyl/claim_audit/delta_rho_laa.json in 357.4s

@@ -15,13 +15,13 @@ Output:
 
 Environment compatibility:
   - Windows (local dev, paths via PROJECT_ROOT detection)
-  - Linux ARM (ASUS GX10, paths via CORNEAL_FM_DATA env var or relative)
+  - Linux ARM (ASUS <compute-node>, paths via CORNEAL_FM_DATA env var or relative)
   - Requires: scanpy, anndata, scikit-learn, scipy, matplotlib (CPU only)
 
 Usage:
   python scripts/compute_cs_before.py
   python scripts/compute_cs_before.py --test_set  # use test set (fast)
-  CORNEAL_FM_DATA=/mnt/data python scripts/compute_cs_before.py  # GX10
+  CORNEAL_FM_DATA=/mnt/data python scripts/compute_cs_before.py  # <compute-node>
 """
 from __future__ import annotations
 
@@ -34,7 +34,7 @@ from pathlib import Path
 
 import anndata as ad
 import matplotlib
-matplotlib.use("Agg")  # headless-safe (GX10 has no display)
+matplotlib.use("Agg")  # headless-safe (<compute-node> has no display)
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -48,7 +48,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 # ---------------------------------------------------------------------------
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-# Allow override via env var for GX10 deployment
+# Allow override via env var for <compute-node> deployment
 DATA_DIR = Path(os.environ.get("CORNEAL_FM_DATA", str(PROJECT_ROOT / "data")))
 FIG_DIR = Path(os.environ.get("CORNEAL_FM_FIGURES", str(PROJECT_ROOT / "figures")))
 FIG_DIR.mkdir(parents=True, exist_ok=True)

@@ -30,7 +30,7 @@ Outputs:
   scripts/generate_paper1_results_figures.py)
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/analyze_tac_sensitivity.py
+    <venv>/bin/python3 scripts/analyze_tac_sensitivity.py
 """
 
 from __future__ import annotations

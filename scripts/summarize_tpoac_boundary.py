@@ -12,7 +12,7 @@ from pathlib import Path
 
 import pandas as pd
 
-ROOT = Path("/home/dq/Codex/Ai")
+ROOT = Path("<local>/")
 
 
 def read(path: str) -> dict:

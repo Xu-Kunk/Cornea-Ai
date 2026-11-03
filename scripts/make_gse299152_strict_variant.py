@@ -37,7 +37,7 @@ the UMAP figures are NOT modified; the script verifies the as-is file's
 SHA-256 before and after.
 
 Usage:
-    /home/dq/venv-ds/bin/python3 data/gse299152/make_gse299152_strict_variant.py
+    <venv>/bin/python3 data/gse299152/make_gse299152_strict_variant.py
 """
 
 from __future__ import annotations

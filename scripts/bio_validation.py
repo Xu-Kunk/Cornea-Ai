@@ -29,7 +29,7 @@ Outputs:
   artifacts/paper1_bio_validation/figure_data_deciles.csv
 
 Usage (CPU):
-    /home/dq/venv-ds/bin/python3 scripts/bio_validation.py
+    <venv>/bin/python3 scripts/bio_validation.py
 """
 
 from __future__ import annotations

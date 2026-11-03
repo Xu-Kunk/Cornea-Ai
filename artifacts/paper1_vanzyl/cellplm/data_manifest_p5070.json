@@ -1,6 +1,6 @@
 {
   "protocol": "protocol_16_prep_cellplm_vanzyl.py (fix-9, GB10; migrated byte-identical)",
-  "source": "/home/dq/Codex/Ai/data/vanzyl_annotated.h5ad (not migrated)",
+  "source": "<repo>/data/vanzyl_annotated.h5ad (not migrated)",
   "source_sha256": "fad5e9a71ecd1208e0626049b638e789d22b52563d5a66740570d617df67f4e8",
   "output": "/home/summer/cellplm_vanzyl/data/vanzyl_cellplm.h5ad (p5070 copy)",
   "output_sha256": "9ee682780bf259ffce3d7094303c3fcd7f21c2579814fead062f2443723e07f9",

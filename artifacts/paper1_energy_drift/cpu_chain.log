@@ -2,13 +2,13 @@
 idc classes: 31 stage_map sample: {0: -1, 1: -1, 2: 3, 3: -1, 4: -1, 5: -1, 6: 1, 7: -1}
 epi: 27878 non-epi: 51806
 subset: 16 cols: ['input_ids', 'label', 'length']
-Some weights of BertForSequenceClassification were not initialized from the model checkpoint at /home/dq/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at <cache>/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']
 You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
 [EnergyAnchor] frozen reference @ hidden 11: stage centroids=[3, 1, 3, 1] sigma=0.7515
 
 init+reference precompute: 24.8s
 centroids: torch.Size([4, 768]) norms: [6.5559, 6.6082, 6.585, 6.6319] sigma: 0.751479
-/home/dq/venv-ds/lib/python3.12/site-packages/geneformer/collator_for_classification.py:649: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+<venv>/lib/python3.12/site-packages/geneformer/collator_for_classification.py:649: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
   batch = {k: torch.tensor(v.clone().detach(), dtype=torch.int64) if isinstance(v, torch.Tensor) else torch.tensor(v, dtype=torch.int64) for k, v in batch.items()}
 collated keys: ['input_ids', 'length', 'attention_mask', 'labels']
 scripts/run_energy_drift_cpu.sh: 第 21 行： 4151581 已杀死               "${PY}" -u "${PROJECT}/scripts/feasibility_energy_anchor.py"
@@ -18,7 +18,7 @@ scripts/run_energy_drift_cpu.sh: 第 21 行： 4151581 已杀死               "
 [17:52:05]  post arms: ['naive_s42', 'caft_s42']
 [17:52:08]  Epithelial filter: 14775/15827 cells (NON_LAYER excluded); labels (14775,)
 [17:52:09]  external cells used: 3000
-Some weights of BertModel were not initialized from the model checkpoint at /home/dq/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+Some weights of BertModel were not initialized from the model checkpoint at <cache>/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
 You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
 [18:06:27]    batch 10/94 (856s)
 [18:20:20]    batch 20/94 (1689s)
@@ -55,37 +55,37 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 [20:08:49]    batch 94/94 (268s)
 [20:08:50]  caft_s42 layerwise CLS collected (271s)
 Traceback (most recent call last):
-  File "/home/dq/Codex/Ai/scripts/measure_energy_drift.py", line 491, in <module>
+  File "<repo>/scripts/measure_energy_drift.py", line 491, in <module>
     sys.exit(main())
              ^^^^^^
-  File "/home/dq/Codex/Ai/scripts/measure_energy_drift.py", line 402, in main
+  File "<repo>/scripts/measure_energy_drift.py", line 402, in main
     cls = _collect_extra_arm(arm, ds, device, args.batch_size)
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/Codex/Ai/scripts/measure_energy_drift.py", line 477, in _collect_extra_arm
+  File "<repo>/scripts/measure_energy_drift.py", line 477, in _collect_extra_arm
     model = BertForSequenceClassification.from_pretrained(
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
     return func(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5048, in from_pretrained
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5048, in from_pretrained
     ) = cls._load_pretrained_model(
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5468, in _load_pretrained_model
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5468, in _load_pretrained_model
     _error_msgs, disk_offload_index = load_shard_file(args)
                                       ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 843, in load_shard_file
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 843, in load_shard_file
     disk_offload_index = _load_state_dict_into_meta_model(
                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+  File "<venv>/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
     return func(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 770, in _load_state_dict_into_meta_model
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 770, in _load_state_dict_into_meta_model
     _load_parameter_into_model(model, param_name, param.to(param_device))
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/transformers/modeling_utils.py", line 667, in _load_parameter_into_model
+  File "<venv>/lib/python3.12/site-packages/transformers/modeling_utils.py", line 667, in _load_parameter_into_model
     module.load_state_dict({param_type: tensor}, strict=False, assign=True)
-  File "/home/dq/venv-ds/lib/python3.12/site-packages/torch/nn/modules/module.py", line 2638, in load_state_dict
+  File "<venv>/lib/python3.12/site-packages/torch/nn/modules/module.py", line 2638, in load_state_dict
     raise RuntimeError(
 RuntimeError: Error(s) in loading state_dict for Linear:
 	size mismatch for bias: copying a param with shape torch.Size([3]) from checkpoint, the shape in current model is torch.Size([31]).
 [20:08:53] A5 layerwise FAILED (rc=0)
-[20:08:53] chain complete -> /home/dq/Codex/Ai/artifacts/paper1_energy_drift
+[20:08:53] chain complete -> <repo>/artifacts/paper1_energy_drift

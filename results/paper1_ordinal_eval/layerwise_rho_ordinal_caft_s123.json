@@ -4,7 +4,7 @@
   "loss": "CORN ordinal",
   "lambda": 0.5,
   "seed": 123,
-  "checkpoint_path": "/home/dq/Codex/Ai/save/ordinal_gf_lam0.5_seed123_20260807-220728/model/checkpoint-7473",
+  "checkpoint_path": "<repo>/save/ordinal_gf_lam0.5_seed123_20260807-220728/model/checkpoint-7473",
   "n_layers": 13,
   "layer_labels": [
     "embedding_output",

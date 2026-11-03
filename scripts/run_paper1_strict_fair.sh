@@ -27,8 +27,8 @@
 #   GPU temp < 60 °C (poll every 30 s, max 10 min)
 #   corneal_fm.evaluation importable (Tier-B evaluator present)
 #
-# Usage (GX10, clean shell, background):
-#   cd /home/dq/Codex/Ai && chmod +x scripts/run_paper1_strict_fair.sh
+# Usage (<compute-node>, clean shell, background):
+#   cd <local>/ && chmod +x scripts/run_paper1_strict_fair.sh
 #   nohup bash scripts/run_paper1_strict_fair.sh > artifacts/paper1_strict_fair/launcher.out 2>&1 &
 #   # monitor: tail -f artifacts/paper1_strict_fair/launcher.log
 # ============================================================================
@@ -38,7 +38,7 @@ cd "$(dirname "$0")/.."
 ROOT="$PWD"
 
 # ── Configuration (overridable via env) ──────────────────────────────────
-PY="${PY:-/home/dq/venv-ds/bin/python3}"
+PY="${PY:-<venv>/bin/python3}"
 LAMBDAS="${LAMBDAS:-0.0 0.5}"
 SEEDS="${SEEDS:-42 123 456}"
 EPOCHS="${EPOCHS:-3}"
@@ -60,7 +60,7 @@ die() { log "FATAL: $*"; exit 1; }
 # ── Environment (must be set before any torch import) ─────────────────────
 # Same set as run_lambda_grid.py: OMP threads pinned, no expandable segments
 # (OOM control on the GB10's shared CPU/GPU memory), SDPA on, HF mirror for
-# China network, ptxas path + arch list for the Blackwell GX10 (sm_121).
+# China network, ptxas path + arch list for the Blackwell <compute-node> (sm_121).
 export OMP_NUM_THREADS=4
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:False
 export TORCH_CUDNN_SDPA_ENABLED=1

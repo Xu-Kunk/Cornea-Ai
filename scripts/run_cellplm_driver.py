@@ -17,12 +17,12 @@ from pathlib import Path
 
 import numpy as np
 
-PROJECT_ROOT = Path("/home/dq/Codex/Ai")
+PROJECT_ROOT = Path("<local>/")
 RUNNER = PROJECT_ROOT / "scripts" / "run_cellplm_vanzyl.py"
 OUT_ROOT = PROJECT_ROOT / "artifacts" / "paper1_vanzyl" / "cellplm"
 LANE_LOG = OUT_ROOT / "lane.log"
 SEEDS = [42, 123, 456]
-PY = "/home/dq/Codex/Ai/.venv-cellplm/bin/python"
+PY = "<repo>/.venv-cellplm/bin/python"
 
 
 def now_utc() -> str:

@@ -11,7 +11,7 @@
 
 set -u
 PROJECT="$(cd "$(dirname "$0")/.." && pwd)"
-PY="${PY:-/home/dq/venv-ds/bin/python3}"
+PY="${PY:-<venv>/bin/python3}"
 LOG_DIR="${PROJECT}/artifacts/paper1_energy_drift"
 mkdir -p "${LOG_DIR}"
 

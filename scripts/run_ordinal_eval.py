@@ -27,7 +27,7 @@ the layerwise pass must equal the marker_gradient_rho inside the Tier-B
 results JSON within 1e-6; otherwise the script aborts.
 
 Usage:
-    /home/dq/venv-ds/bin/python3 scripts/run_ordinal_eval.py [--runs 0.0:42,...] [--skip-tokenize]
+    <venv>/bin/python3 scripts/run_ordinal_eval.py [--runs 0.0:42,...] [--skip-tokenize]
 """
 
 from __future__ import annotations

@@ -1,6 +1,6 @@
 {
   "figure2_layerwise_rho": {
-    "script": "/home/dq/Codex/Ai/scripts/figure2_layerwise_rho.py",
+    "script": "<repo>/scripts/figure2_layerwise_rho.py",
     "timestamp_utc": "2026-10-19T03:53:03Z",
     "output_pdf": "figures/paper1/figure2_layerwise_rho.pdf",
     "output_png": "figures/paper1/figure2_layerwise_rho.png",
@@ -20,7 +20,7 @@
     "height_mm": 100.0
   },
   "figure4_external_eval": {
-    "script": "/home/dq/Codex/Ai/scripts/figure4_external_eval.py",
+    "script": "<repo>/scripts/figure4_external_eval.py",
     "timestamp_utc": "2026-10-22T09:35:46Z",
     "output_pdf": "figures/paper1/figure4_external_eval.pdf",
     "output_png": "figures/paper1/figure4_external_eval.png",
@@ -84,7 +84,7 @@
     "height_mm": 150.0
   },
   "figure3_biological_readouts": {
-    "script": "/home/dq/Codex/Ai/scripts/figure3_biological_readouts.py",
+    "script": "<repo>/scripts/figure3_biological_readouts.py",
     "timestamp_utc": "2026-10-22T09:35:05Z",
     "output_pdf": "figures/paper1/figure3_biological_readouts.pdf",
     "output_png": "figures/paper1/figure3_biological_readouts.png",
@@ -138,7 +138,7 @@
     "polish_note": "2026-10-22: B26 caption lifted 0.4 mm; both horizontal flow arrows re-anchored to touch their source and target card borders (A->B now spans the full 45.0-52.0 mm gutter, B->C the full 122.0-129.0 mm gutter). 2026-10-22 (panel B restructure): the fine-tuning list is now the three arms that carry Figures 3-5 (CE-naive #0072B2, ordinal head #009E73, ordinal + continuity #56B4E9, new swatch B18_5/B19_5 for the arm that was missing). LoRA (swatch recoloured #B4618C -> #CC79A7, the shared arm hex) and ordinal + LoRA #D55E00 moved into a new tinted sub-block B29 at the foot of panel B, labelled \"Cross-architecture only\" with the block's own arrow B31 (shaft + head) to the text \"Figure 6\", because those two arms are evaluated only in Figure 6. The FINE-TUNING pill now reads \"3 arms\". Panel B rows tightened to 4.0 mm pitch (47.4/51.4/55.4 mm swatches) to seat the block; nothing else in the deck moved. Edit applied by /tmp/opencode/figure1_panelB_edit.py (one-shot; the deck stays hand-maintained), exported by /tmp/opencode/figure1_export.py. The pre-edit deck is kept at figures/paper1/archive/figure1_final.pptx.pre-panelB-2026-10-22. 2026-10-22 (whitespace rebalance, layout only - no text added, removed or restyled and no colour, font, panel letter or type size changed): the author's deletions left dead space in all four panels, so the two rows were rebalanced to 57.0 mm (A/B/C, y 4-61) and 51.0 mm (D, y 69-120), keeping the 8.0 mm row gutter and the 4.0 mm page margins. Panel A content moved onto the 4.0 mm inset (x 6.190/6.680 -> 8.000) and distributed over four equal 10.35 mm ink gaps; panel B's REFERENCE pill moved onto the 56.0 mm swatch column directly above the frozen/HVG-PCA list it labels (x 53.230 -> 56.000, y 10.490 -> 25.400) and the FINE-TUNING pill trimmed to the reference side padding (29.390 -> 20.200 mm wide), with the 3-architecture group lifted 3.5 mm (y 15.870 -> 12.370); panel C rows compacted so each bold label sits centred between the two hairlines (rules y 29.500/44.700 -> 30.260/45.630); panel D drawings pulled up and distributed under the column headers (circles y 97.500 -> 91.820, LAA squares 101.600 -> 97.570, glyph grid 99.600 -> 93.750) with the shared label row at 108.100; the two vertical flow arrows re-anchored to the moved row edges (y -6.0 mm). Largest remaining internal void: 10.4 mm (panel A, set by B's dense content sharing the same row height); A 10.4 / B 4.3 / C 5.5 / D 8.5 mm. Edit applied by /tmp/opencode/figure1_rebalance.py (one-shot; the deck stays hand-maintained), exported by /tmp/opencode/figure1_export.py. The pre-edit deck is kept at figures/paper1/archive/figure1_final.pptx.pre-rebalance-2026-10-22."
   },
   "figure6_cross_architecture_spectrum": {
-    "script": "/home/dq/Codex/Ai/scripts/figure6_cross_architecture_spectrum.py",
+    "script": "<repo>/scripts/figure6_cross_architecture_spectrum.py",
     "timestamp_utc": "2026-10-22T09:41:36Z",
     "output_pdf": "figures/paper1/figure6_cross_architecture_spectrum.pdf",
     "output_png": "figures/paper1/figure6_cross_architecture_spectrum.png",
@@ -306,7 +306,7 @@
     "height_mm": 112.0
   },
   "figureS10_ordinal_boundaries": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS10_ordinal_boundaries.py",
+    "script": "<repo>/scripts/figureS10_ordinal_boundaries.py",
     "timestamp_utc": "2026-10-19T03:53:17Z",
     "output_pdf": "figures/paper1/figureS10_ordinal_boundaries.pdf",
     "output_png": "figures/paper1/figureS10_ordinal_boundaries.png",
@@ -334,7 +334,7 @@
     "height_mm": 96.0
   },
   "figureS1_calibration": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS1_calibration.py",
+    "script": "<repo>/scripts/figureS1_calibration.py",
     "timestamp_utc": "2026-10-21T15:00:24Z",
     "output_pdf": "figures/paper1/figureS1_calibration.pdf",
     "output_png": "figures/paper1/figureS1_calibration.png",
@@ -366,7 +366,7 @@
     "height_mm": 118.0
   },
   "figureS2_ood": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS2_ood.py",
+    "script": "<repo>/scripts/figureS2_ood.py",
     "timestamp_utc": "2026-10-21T15:01:03Z",
     "output_pdf": "figures/paper1/figureS2_ood.pdf",
     "output_png": "figures/paper1/figureS2_ood.png",
@@ -402,7 +402,7 @@
     "height_mm": 169.7
   },
   "figure5_domain_boundary": {
-    "script": "/home/dq/Codex/Ai/scripts/figure5_domain_boundary.py",
+    "script": "<repo>/scripts/figure5_domain_boundary.py",
     "timestamp_utc": "2026-10-22T09:35:10Z",
     "output_pdf": "figures/paper1/figure5_domain_boundary.pdf",
     "output_png": "figures/paper1/figure5_domain_boundary.png",
@@ -502,7 +502,7 @@
     "height_mm": 84.0
   },
   "figureS4_gse153515_qc": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS4_gse153515_qc.py",
+    "script": "<repo>/scripts/figureS4_gse153515_qc.py",
     "timestamp_utc": "2026-10-19T03:54:20Z",
     "output_pdf": "figures/paper1/figureS4_gse153515_qc.pdf",
     "output_png": "figures/paper1/figureS4_gse153515_qc.png",
@@ -522,7 +522,7 @@
     "height_mm": 82.0
   },
   "figureS3_per_seed_reproducibility": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS3_per_seed_reproducibility.py",
+    "script": "<repo>/scripts/figureS3_per_seed_reproducibility.py",
     "timestamp_utc": "2026-10-21T15:00:27Z",
     "output_pdf": "figures/paper1/figureS3_per_seed_reproducibility.pdf",
     "output_png": "figures/paper1/figureS3_per_seed_reproducibility.png",
@@ -550,7 +550,7 @@
     "height_mm": 128.0
   },
   "figureS6_per_donor_breakdown": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS6_per_donor_breakdown.py",
+    "script": "<repo>/scripts/figureS6_per_donor_breakdown.py",
     "timestamp_utc": "2026-10-21T15:00:28Z",
     "output_pdf": "figures/paper1/figureS6_per_donor_breakdown.pdf",
     "output_png": "figures/paper1/figureS6_per_donor_breakdown.png",
@@ -586,7 +586,7 @@
     "height_mm": 82.0
   },
   "figureS5_training_dynamics": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS5_training_dynamics.py",
+    "script": "<repo>/scripts/figureS5_training_dynamics.py",
     "timestamp_utc": "2026-10-22T02:13:37Z",
     "output_pdf": "figures/paper1/figureS5_training_dynamics.pdf",
     "output_png": "figures/paper1/figureS5_training_dynamics.png",
@@ -622,7 +622,7 @@
     "height_mm": 78.0
   },
   "figureS7_layerwise_rho_per_seed": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS7_layerwise_rho_per_seed.py",
+    "script": "<repo>/scripts/figureS7_layerwise_rho_per_seed.py",
     "timestamp_utc": "2026-10-21T15:00:29Z",
     "output_pdf": "figures/paper1/figureS7_layerwise_rho_per_seed.pdf",
     "output_png": "figures/paper1/figureS7_layerwise_rho_per_seed.png",
@@ -650,7 +650,7 @@
     "height_mm": 96.0
   },
   "figureS8_annotation_detail": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS8_annotation_detail.py",
+    "script": "<repo>/scripts/figureS8_annotation_detail.py",
     "timestamp_utc": "2026-10-19T03:54:28Z",
     "output_pdf": "figures/paper1/figureS8_annotation_detail.pdf",
     "output_png": "figures/paper1/figureS8_annotation_detail.png",
@@ -670,7 +670,7 @@
     "height_mm": 104.0
   },
   "figureS9_tac_sensitivity": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS9_tac_sensitivity.py",
+    "script": "<repo>/scripts/figureS9_tac_sensitivity.py",
     "timestamp_utc": "2026-10-21T15:00:32Z",
     "output_pdf": "figures/paper1/figureS9_tac_sensitivity.pdf",
     "output_png": "figures/paper1/figureS9_tac_sensitivity.png",
@@ -714,7 +714,7 @@
     "height_mm": 120.0
   },
   "figureS11_trajectory_continuity": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS11_trajectory_continuity.py",
+    "script": "<repo>/scripts/figureS11_trajectory_continuity.py",
     "timestamp_utc": "2026-10-22T02:16:01Z",
     "output_pdf": "figures/paper1/figureS11_trajectory_continuity.pdf",
     "output_png": "figures/paper1/figureS11_trajectory_continuity.png",
@@ -746,7 +746,7 @@
     "height_mm": 92.0
   },
   "figureS12_annotation_overview": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS12_annotation_overview.py",
+    "script": "<repo>/scripts/figureS12_annotation_overview.py",
     "timestamp_utc": "2026-10-19T03:54:09Z",
     "output_pdf": "figures/paper1/figureS12_annotation_overview.pdf",
     "output_png": "figures/paper1/figureS12_annotation_overview.png",
@@ -770,7 +770,7 @@
     "height_mm": 82.0
   },
   "figureS13_continuity_metrics": {
-    "script": "/home/dq/Codex/Ai/scripts/figureS13_continuity_metrics.py",
+    "script": "<repo>/scripts/figureS13_continuity_metrics.py",
     "timestamp_utc": "2026-10-19T03:54:12Z",
     "output_pdf": "figures/paper1/figureS13_continuity_metrics.pdf",
     "output_png": "figures/paper1/figureS13_continuity_metrics.png",

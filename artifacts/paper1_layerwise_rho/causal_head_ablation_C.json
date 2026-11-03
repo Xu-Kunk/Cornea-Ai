@@ -36,7 +36,7 @@
   "batch_size": 32,
   "head_seed": 0,
   "body_state": "frozen Geneformer-V2-104M (HF snapshot 04c2b2e8)",
-  "checkpoint_path": "/home/dq/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
+  "checkpoint_path": "<cache>/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M",
   "head_state": "random (fresh init, not trained)",
   "timestamp_utc": "2026-08-04T08:43:59+00:00",
   "marker_gradient_rho": [

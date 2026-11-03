@@ -389,7 +389,7 @@
           rho: computed=0.22978617184892414 ref=0.22978617184892414 diff=0.000e+00 PASS
           ece: computed=0.09218776329877898 ref=0.09218776329877898 diff=0.000e+00 PASS
     SANITY lam=0.5 seed=123 (external): PASS (tol 1e-06)
-[16:56:28] saved percell_caft_s123.npz (ext=14775 int=6924 gate=PASS)Some weights of BertModel were not initialized from the model checkpoint at /home/dq/.cache/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+[16:56:28] saved percell_caft_s123.npz (ext=14775 int=6924 gate=PASS)Some weights of BertModel were not initialized from the model checkpoint at <cache>/huggingface/hub/models--ctheodoris--Geneformer/snapshots/04c2b2e84da7c0f385c3f9ad8f3ec24bab6650e5/Geneformer-V2-104M and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
 You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
 
 [16:56:29] FT lam=0.5 seed=456

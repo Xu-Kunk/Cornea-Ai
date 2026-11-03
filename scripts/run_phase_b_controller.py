@@ -54,7 +54,7 @@ RESULTS_DIR = PROJECT / "artifacts" / "paper1_method_arms"
 STATUS_JSON = RESULTS_DIR / "runs_status.json"
 DECISION_JSON = RESULTS_DIR / "phase_b_decision.json"
 LOG_FILE = RESULTS_DIR / "phase_b_controller.log"
-PY = os.environ.get("PY", "/home/dq/venv-ds/bin/python3")
+PY = os.environ.get("PY", "<venv>/bin/python3")
 RUN_METHOD_ARMS = PROJECT / "scripts" / "run_method_arms.py"
 
 # Locked reference (pre-registration doc): CE-naive 3-seed macro-F1 CI.
