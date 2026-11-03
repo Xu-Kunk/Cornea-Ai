@@ -20,6 +20,8 @@ import numpy as np
 import pytest
 import yaml
 
+pytest.importorskip("transformers", reason="analysis stack not installed in this environment")
+pytest.importorskip("geneformer", reason="analysis stack not installed in this environment")
 from corneal_fm.evaluation import (
     donor_level_macro_f1,
     expected_calibration_error,

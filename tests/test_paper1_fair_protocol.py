@@ -31,11 +31,12 @@ import numpy as np
 import pandas as pd
 import pytest
 pytestmark = pytest.mark.requires_data  # needs the distributed-less data / full environment
-import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+pytest.importorskip("transformers", reason="analysis stack not installed in this environment")
+pytest.importorskip("geneformer", reason="analysis stack not installed in this environment")
 from scripts import prepare_paper1_fair_split as prep
 from scripts import run_post_grid as rpg
 

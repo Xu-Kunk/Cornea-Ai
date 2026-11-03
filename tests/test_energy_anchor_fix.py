@@ -29,6 +29,8 @@ sys.path.insert(0, str(ROOT))
 
 import pytest
 pytestmark = pytest.mark.requires_data  # needs the distributed-less data / full environment
+pytest.importorskip("transformers", reason="analysis stack not installed in this environment")
+pytest.importorskip("geneformer", reason="analysis stack not installed in this environment")
 from corneal_fm.energy_anchor import N_STAGES, build_energy_anchor_trainer  # noqa: E402
 
 # ---------------------------------------------------------------------------
