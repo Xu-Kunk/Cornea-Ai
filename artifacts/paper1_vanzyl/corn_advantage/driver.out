@@ -1,4 +1,0 @@
-[2026-08-20T13:02:43+00:00] === CORN GF seed 42 ===
-`torch_dtype` is deprecated! Use `dtype` instead!
-[2026-08-20T14:28:32+00:00]     batch 50/315 (5136s)
-<home>/corneal_scgpt/scripts/corn_advantage_run.sh: 第 14 行： 461099 已杀死               PYTHONPATH=$ROOT $PY_VENV $ROOT/scripts/corn_advantage_gf.py --seed $s --threads 24 --out "$OUT"

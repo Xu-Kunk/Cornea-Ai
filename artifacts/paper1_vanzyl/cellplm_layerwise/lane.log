@@ -1,3 +1,0 @@
-{"ts": "2026-08-20T19:17:09Z", "event": "WATCHER_START", "msg": "waiting for head-init driver"}
-{"ts": "2026-08-21T05:27:11Z", "event": "WATCHER_HEADINIT_DONE", "msg": "launching cellplm layerwise (frozen-seed fix)"}
-{"ts": "2026-08-21T07:54:44Z", "event": "WATCHER_CELLPLM_DONE", "msg": "rc=0"}

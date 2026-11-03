@@ -1,7 +1,0 @@
-[00:40:39] PCS spec + input SHAs frozen -> pcs_frozen_spec.json
-[00:40:43] loaded 14775 test cells, expr (14775, 32738), var_names 32738
-[00:40:46] frozen   rho=0.8064 gate=OK | LSC rho=-0.083 basal=-0.172 diff=+0.690 | layer mono=1.000 | verdict=True
-[00:40:50] naive    rho=-0.0424 gate=OK | LSC rho=-0.013 basal=+0.296 diff=+0.276 | layer mono=0.400 | verdict=False
-[00:40:54] corn     rho=0.8242 gate=OK | LSC rho=-0.075 basal=-0.217 diff=+0.553 | layer mono=1.000 | verdict=True
-[00:40:55] figure -> marker_projection.png/.pdf
-[00:40:55] DONE

@@ -1,5 +1,0 @@
-[2026-08-20T15:41:49+00:00] arms available: ['cellplm_corn_123', 'cellplm_corn_42', 'cellplm_corn_456', 'cellplm_frozen', 'cellplm_naive_123', 'cellplm_naive_42', 'cellplm_naive_456', 'gf_frozen', 'scgpt_frozen']
-[2026-08-20T15:41:50+00:00] gates: all_passed=True failures=[]
-[2026-08-20T15:43:32+00:00] saved <home>/corneal_scgpt/artifacts/paper1_vanzyl/sensitivity/sensitivity_summary.json
-[2026-08-20T15:43:32+00:00] umap manifest: 0 panels
-[2026-08-20T15:43:32+00:00] DONE

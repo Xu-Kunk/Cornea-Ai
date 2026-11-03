@@ -1,9 +1,0 @@
-{"ts": "2026-08-20T20:02:38.509140+00:00", "event": "P5_START", "msg": "CellPLM epidermis + LOO220 naive CE x 2 seeds each"}
-{"ts": "2026-08-20T20:02:38.624246+00:00", "event": "START", "msg": "CellPLM consistency: epidermis + LOO(Hu0220), 2 seeds each (42/123)"}
-{"ts": "2026-08-20T20:02:38.624366+00:00", "event": "ARM_START", "msg": "epidermis: test_donor=epidermis out_dim=4 layer_order=basal,suprabasal,spinous,differentiated"}
-{"ts": "2026-08-20T20:02:38.624416+00:00", "event": "SEED_START", "msg": "epidermis seed 42"}
-{"ts": "2026-08-20T20:02:39.676048+00:00", "event": "SEED_RETRY", "msg": "epidermis seed 42 attempt 1 rc=1; backoff 120 s"}
-{"ts": "2026-08-20T20:04:40.725092+00:00", "event": "SEED_RETRY", "msg": "epidermis seed 42 attempt 2 rc=1; backoff 120 s"}
-{"ts": "2026-08-20T20:06:41.760679+00:00", "event": "SEED_RETRY", "msg": "epidermis seed 42 attempt 3 rc=1; backoff 120 s"}
-{"ts": "2026-08-20T20:08:41.760945+00:00", "event": "SEED_FAIL", "msg": "epidermis seed 42 rc=1 after 6.1 min (3 attempts)"}
-{"ts": "2026-08-20T20:08:41.780604+00:00", "event": "P5_FAIL", "msg": "rc=1"}
