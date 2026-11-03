@@ -16,7 +16,6 @@ using human corneal epithelium as a four-stage differentiation continuum.
 | `tables/paper1/` | Aggregated CSV tables |
 | `tests/` | Unit and smoke tests |
 | `artifacts/env_locks/` | Frozen dependency lists for the two environments used |
-| `docs/` | Preprocessing report |
 
 ## Data
 
